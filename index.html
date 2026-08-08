@@ -23,6 +23,7 @@
       <nav class="nav-links" id="navLinks">
         <a href="index.html" class="active">Beranda</a>
         <a href="#solusi">Fitur &amp; Demo</a>
+        <a href="#portofolio">Contoh Website</a>
         <a href="#harga">Harga</a>
         <a href="tentang-kami.html">Tentang Kami</a>
         <a class="btn nav-cta btn-wa"
@@ -270,6 +271,220 @@
             👆 <em>Coba klik tombol <b>+ Tambah</b> di atas untuk mensimulasikan alur pesanan pelanggan Anda!</em>
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTOFOLIO / GALERI SAMPEL WEBSITE LIVE -->
+  <section id="portofolio" class="portfolio-section">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">🌐 GALERI SAMPEL WEBSITE LIVE</span>
+        <h2>Contoh Website Siap Pakai dari rakyat.space</h2>
+        <p class="muted">Klik &amp; buka langsung contoh website buatan kami dari HP/Laptop Anda untuk mencoba fitur-fiturnya secara real-time.</p>
+      </div>
+
+      <!-- FILTER KATEGORI -->
+      <div class="portfolio-filter">
+        <button class="filter-btn active" onclick="filterPortfolio('all', this)">Semua (9)</button>
+        <button class="filter-btn" onclick="filterPortfolio('kuliner', this)">☕ Kafe &amp; Resto</button>
+        <button class="filter-btn" onclick="filterPortfolio('kesehatan', this)">💊 Kesehatan &amp; Apotek</button>
+        <button class="filter-btn" onclick="filterPortfolio('laundry', this)">🧴 Sabun &amp; Laundry</button>
+        <button class="filter-btn" onclick="filterPortfolio('pasar', this)">🥦 Sayur &amp; Kelontong</button>
+        <button class="filter-btn" onclick="filterPortfolio('properti', this)">🏠 Properti &amp; Penginapan</button>
+      </div>
+
+      <!-- GRID KARTU SAMPEL -->
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- 1. Perpus.cafe -->
+        <div class="sample-card" data-category="kuliner">
+          <div class="sample-card-head">
+            <span class="sample-badge">⭐ Top Featured</span>
+            <div class="sample-icon">📚☕</div>
+            <h3 class="sample-title">Perpus.cafe</h3>
+            <div class="sample-subtitle">Kafe, Resto &amp; Perpustakaan Digital</div>
+          </div>
+          <div class="sample-card-body">
+            <p class="sample-desc">Portal lengkap menu kafe &amp; katalog buku bacaan digital. Dilengkapi pencarian buku, filter genre, dan order instan WhatsApp.</p>
+            <div class="sample-tags">
+              <span class="sample-tag">Katalog Buku</span>
+              <span class="sample-tag">Menu Kafe</span>
+              <span class="sample-tag">Integrasi Sheets</span>
+            </div>
+            <div class="sample-actions">
+              <a class="btn-demo-live" href="demo/perpus-cafe/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Template Cafe -->
+        <div class="sample-card" data-category="kuliner">
+          <div class="sample-card-head">
+            <span class="sample-badge">☕ Resto / Warkop</span>
+            <div class="sample-icon">🥐☕</div>
+            <h3 class="sample-title">Template Kafe &amp; Resto</h3>
+            <div class="sample-subtitle">Menu Digital &amp; Pemesanan Meja</div>
+          </div>
+          <div class="sample-card-body">
+            <p class="sample-desc">Tampilan modern katalog makanan, minuman, &amp; cemilan. Pembeli bisa langsung checkout Take Away / Dine In ke WhatsApp.</p>
+            <div class="sample-tags">
+              <span class="sample-tag">Menu Foto</span>
+              <span class="sample-tag">Checkout WA</span>
+              <span class="sample-tag">Dine In / Antar</span>
+            </div>
+            <div class="sample-actions">
+              <a class="btn-demo-live" href="demo/template-cafe/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Website Apotek -->
+        <div class="sample-card" data-category="kesehatan">
+          <div class="sample-card-head">
+            <span class="sample-badge">💊 Apotek &amp; Obat</span>
+            <div class="sample-icon">💊🏥</div>
+            <h3 class="sample-title">Website Apotek Digital</h3>
+            <div class="sample-subtitle">Katalog Obat &amp; Resep Dokter</div>
+          </div>
+          <div class="sample-card-body">
+            <p class="sample-desc">Katalog obat-obatan kesehatan, suplemen, vitamin, serta formulir kirim resep dokter langsung ke WA apoteker.</p>
+            <div class="sample-tags">
+              <span class="sample-tag">Daftar Obat</span>
+              <span class="sample-tag">Tebus Resep WA</span>
+              <span class="sample-tag">Info Layanan</span>
+            </div>
+            <div class="sample-actions">
+              <a class="btn-demo-live" href="demo/apotek/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Dailywash -->
+        <div class="sample-card" data-category="laundry">
+          <div class="sample-card-head">
+            <span class="sample-badge">🧴 Sabun &amp; Laundry</span>
+            <div class="sample-icon">🧺🧴</div>
+            <h3 class="sample-title">Daily Wash Indonesia</h3>
+            <div class="sample-subtitle">Pabrik &amp; Supplier Sabun Curah</div>
+          </div>
+          <div class="sample-card-body">
+            <p class="sample-desc">Showcase katalog produk sabun cuci baju, cuci piring, softener, handsoap, &amp; pembersih lantai dengan pesanan via WA.</p>
+            <div class="sample-tags">
+              <span class="sample-tag">Produk Curah</span>
+              <span class="sample-tag">Supplier Sabun</span>
+              <span class="sample-tag">Order WA</span>
+            </div>
+            <div class="sample-actions">
+              <a class="btn-demo-live" href="demo/dailywash/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Mie Ayam Bangka Ayung -->
+        <div class="sample-card" data-category="kuliner">
+          <div class="sample-card-head">
+            <span class="sample-badge">🍜 Kuliner khas</span>
+            <div class="sample-icon">🍜🥟</div>
+            <h3 class="sample-title">Mie Ayam Bangka Ayung</h3>
+            <div class="sample-subtitle">Warung Kuliner &amp; Takeaway</div>
+          </div>
+          <div class="sample-card-body">
+            <p class="sample-desc">Website warung makan dengan daftar varian porsi mie, bakso, pangsit, petunjuk lokasi Google Maps, &amp; nomor order WA.</p>
+            <div class="sample-tags">
+              <span class="sample-tag">Varian Porsi</span>
+              <span class="sample-tag">Lokasi Maps</span>
+              <span class="sample-tag">Order Instan</span>
+            </div>
+            <div class="sample-actions">
+              <a class="btn-demo-live" href="demo/mie-ayam-ayung/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Pawon Ayu -->
+        <div class="sample-card" data-category="kuliner">
+          <div class="sample-card-head">
+            <span class="sample-badge">🍱 Resto &amp; Katering</span>
+            <div class="sample-icon">🍱🍲</div>
+            <h3 class="sample-title">Pawon Ayu Resto</h3>
+            <div class="sample-subtitle">Kuliner Tradisional &amp; Katering</div>
+          </div>
+          <div class="sample-card-body">
+            <p class="sample-desc">Landing page pilihan menu masakan nusantara, paket nasi boks katering acara, dan reservasi tempat makan.</p>
+            <div class="sample-tags">
+              <span class="sample-tag">Nasi Boks</span>
+              <span class="sample-tag">Paket Katering</span>
+              <span class="sample-tag">Reservasi WA</span>
+            </div>
+            <div class="sample-actions">
+              <a class="btn-demo-live" href="demo/pawon-ayu/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Mlijo Keliling -->
+        <div class="sample-card" data-category="pasar">
+          <div class="sample-card-head">
+            <span class="sample-badge">🥦 Sayur &amp; Sembako</span>
+            <div class="sample-icon">🥦🛒</div>
+            <h3 class="sample-title">Mlijo Keliling</h3>
+            <div class="sample-subtitle">Toko Sayur Segar &amp; Sembako</div>
+          </div>
+          <div class="sample-card-body">
+            <p class="sample-desc">Layanan pesan antar sayur segar harian, bumbu dapur, &amp; sembako murah langsung sampai ke rumah warga.</p>
+            <div class="sample-tags">
+              <span class="sample-tag">Sayur Segar</span>
+              <span class="sample-tag">Paket Masak</span>
+              <span class="sample-tag">Pesan Antar</span>
+            </div>
+            <div class="sample-actions">
+              <a class="btn-demo-live" href="demo/mlijo-keliling/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Omah Etas Djawara -->
+        <div class="sample-card" data-category="properti">
+          <div class="sample-card-head">
+            <span class="sample-badge">🏠 Villa &amp; Penginapan</span>
+            <div class="sample-icon">🏡🌴</div>
+            <h3 class="sample-title">Omah Etas Djawara</h3>
+            <div class="sample-subtitle">Villa, Homestay &amp; Penginapan</div>
+          </div>
+          <div class="sample-card-body">
+            <p class="sample-desc">Showcase foto villa, fasilitas lengkap, tarif sewa per malam, &amp; pemesanan kamar langsung via WhatsApp tanpa komisi agen.</p>
+            <div class="sample-tags">
+              <span class="sample-tag">Galeri Foto</span>
+              <span class="sample-tag">Tipe Kamar</span>
+              <span class="sample-tag">Booking WA</span>
+            </div>
+            <div class="sample-actions">
+              <a class="btn-demo-live" href="demo/omah-etas-djawara/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Kopi Link -->
+        <div class="sample-card" data-category="kuliner">
+          <div class="sample-card-head">
+            <span class="sample-badge">☕ Warkop Digital</span>
+            <div class="sample-icon">☕📲</div>
+            <h3 class="sample-title">Kopi Link Warkop</h3>
+            <div class="sample-subtitle">Menu Ringkas &amp; Link Bio WA</div>
+          </div>
+          <div class="sample-card-body">
+            <p class="sample-desc">Landing page warkop kekinian super cepat &amp; ringan untuk dipasang di Bio Instagram, TikTok, &amp; Status WhatsApp.</p>
+            <div class="sample-tags">
+              <span class="sample-tag">Link Bio</span>
+              <span class="sample-tag">Super Cepat</span>
+              <span class="sample-tag">Maps &amp; Jam Buka</span>
+            </div>
+            <div class="sample-actions">
+              <a class="btn-demo-live" href="demo/kopi-link/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1014,6 +1229,22 @@
 
         waBtn.href = `https://wa.me/6285736699198?text=${encodeURIComponent(message)}`;
       }
+    }
+
+    // PORTFOLIO FILTER LOGIC
+    function filterPortfolio(category, btnEl) {
+      const filterBtns = document.querySelectorAll('.portfolio-filter .filter-btn');
+      filterBtns.forEach(btn => btn.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      const cards = document.querySelectorAll('#portfolioGrid .sample-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
 
     // Initialize on DOM load

@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Mlijo Keliling - Pesan Sayur Antar ke Rumah</title>
+<style>
+  :root{
+    --green:#2f9e44;
+    --green-dark:#1b5e20;
+    --green-light:#e8f5e9;
+    --orange:#fb8c00;
+    --wa:#25D366;
+    --wa-dark:#1ea952;
+    --text:#212529;
+    --muted:#6c757d;
+    --bg:#eef2ee;
+    --card:#ffffff;
+    --border:#e2e8e2;
+    --radius:16px;
+    --danger:#e03131;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    background:#d7ddd6;
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  #app{
+    max-width:480px;
+    margin:0 auto;
+    min-height:100vh;
+    background:var(--bg);
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 0 40px rgba(0,0,0,.15);
+  }
+
+  /* HEADER */
+  header{
+    background:linear-gradient(135deg,var(--green) 0%,var(--green-dark) 100%);
+    color:#fff;
+    padding:16px 16px 14px;
+    position:sticky;
+    top:0;
+    z-index:20;
+    border-radius:0 0 20px 20px;
+  }
+  .brand-row{display:flex;align-items:center;gap:10px;}
+  .brand-badge{
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;flex-shrink:0;
+  }
+  .brand-text h1{font-size:17px;margin:0;line-height:1.2;}
+  .brand-text p{font-size:11.5px;margin:1px 0 0;opacity:.85;}
+  .search-wrap{margin-top:12px;position:relative;}
+  .search-wrap input{
+    width:100%;
+    padding:10px 14px 10px 36px;
+    border-radius:12px;
+    border:none;
+    font-size:14px;
+    outline:none;
+    background:#fff;
+  }
+  .search-wrap .icon{
+    position:absolute;left:11px;top:50%;transform:translateY(-50%);
+    font-size:14px;opacity:.55;
+  }
+  .cats{
+    display:flex;gap:8px;margin-top:12px;overflow-x:auto;
+    padding-bottom:2px;scrollbar-width:none;
+  }
+  .cats::-webkit-scrollbar{display:none;}
+  .cat-pill{
+    flex-shrink:0;
+    padding:7px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.15);
+    color:#fff;
+    font-size:12.5px;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.3);
+    white-space:nowrap;
+    user-select:none;
+  }
+  .cat-pill.active{background:#fff;color:var(--green-dark);font-weight:600;border-color:#fff;}
+
+  /* DISCLAIMER */
+  .disclaimer{
+    margin:12px 16px 0;
+    background:#fff7e6;
+    border:1px solid #ffe1a8;
+    color:#8a5a00;
+    font-size:11.5px;
+    padding:8px 10px;
+    border-radius:10px;
+    line-height:1.4;
+  }
+
+  /* PRODUCT GRID */
+  main{flex:1;padding:14px 16px 110px;}
+  .section-title{font-size:13px;font-weight:700;color:var(--green-dark);margin:14px 2px 8px;text-transform:uppercase;letter-spacing:.03em;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:10px;
+    border:1px solid var(--border);
+    display:flex;flex-direction:column;
+    position:relative;
+  }
+  .card .emoji-wrap{
+    width:100%;
+    aspect-ratio:1.4/1;
+    background:var(--green-light);
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:34px;
+    margin-bottom:8px;
+  }
+  .card .name{font-size:13.5px;font-weight:600;line-height:1.25;min-height:34px;}
+  .card .unit-price{font-size:12px;color:var(--muted);margin:2px 0 8px;}
+  .card .unit-price b{color:var(--green-dark);font-size:13.5px;}
+  .qty-row{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-top:auto;
+  }
+  .stepper{
+    display:flex;align-items:center;gap:0;
+    background:var(--green-light);
+    border-radius:10px;
+    overflow:hidden;
+    width:100%;
+  }
+  .stepper button{
+    border:none;background:transparent;color:var(--green-dark);
+    width:30px;height:30px;font-size:16px;font-weight:700;cursor:pointer;
+  }
+  .stepper span{flex:1;text-align:center;font-size:12.5px;font-weight:600;}
+  .add-btn{
+    width:100%;
+    background:var(--green);
+    color:#fff;border:none;border-radius:10px;
+    padding:8px 0;font-size:12.5px;font-weight:600;cursor:pointer;
+  }
+  .add-btn:active{background:var(--green-dark);}
+  .empty-state{text-align:center;color:var(--muted);font-size:13px;padding:30px 10px;}
+
+  /* CUSTOM REQUEST CARD */
+  .custom-card{
+    margin-top:16px;
+    background:#fff;
+    border:1.5px dashed #ff9f43;
+    border-radius:var(--radius);
+    padding:14px;
+  }
+  .custom-card h3{font-size:13.5px;margin:0 0 4px;color:#c26100;}
+  .custom-card p{font-size:11.5px;color:var(--muted);margin:0 0 10px;line-height:1.4;}
+  .custom-card input, .custom-card textarea{
+    width:100%;border:1px solid var(--border);border-radius:10px;
+    padding:9px 10px;font-size:13px;margin-bottom:8px;font-family:inherit;outline:none;
+  }
+  .custom-card textarea{resize:vertical;min-height:44px;}
+  .custom-add-btn{
+    width:100%;background:#ff9f43;color:#fff;border:none;border-radius:10px;
+    padding:9px 0;font-size:13px;font-weight:600;cursor:pointer;
+  }
+
+  /* FLOATING CART BAR */
+  .cart-bar{
+    position:fixed;
+    left:50%;transform:translateX(-50%);
+    bottom:14px;
+    width:100%;max-width:448px;
+    background:var(--green-dark);
+    color:#fff;
+    padding:12px 16px;
+    border-radius:14px;
+    display:none;
+    align-items:center;justify-content:space-between;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+    z-index:30;
+    cursor:pointer;
+  }
+  .cart-bar.show{display:flex;}
+  .cart-bar .left{font-size:13px;}
+  .cart-bar .left small{display:block;opacity:.8;font-size:11px;}
+  .cart-bar .right{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;}
+
+  /* DRAWER */
+  .overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,.45);
+    z-index:40;display:none;
+  }
+  .overlay.show{display:block;}
+  .drawer{
+    position:fixed;left:50%;transform:translateX(-50%) translateY(100%);
+    bottom:0;width:100%;max-width:480px;
+    background:#fff;border-radius:20px 20px 0 0;
+    z-index:41;max-height:88vh;display:flex;flex-direction:column;
+    transition:transform .25s ease;
+  }
+  .drawer.open{transform:translateX(-50%) translateY(0);}
+  .drawer-header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 16px;border-bottom:1px solid var(--border);
+  }
+  .drawer-header h2{font-size:15.5px;margin:0;}
+  .drawer-header .close-btn{
+    border:none;background:#f1f3f1;width:30px;height:30px;border-radius:50%;
+    font-size:14px;cursor:pointer;color:var(--muted);
+  }
+  .drawer-body{padding:12px 16px;overflow-y:auto;flex:1;}
+  .drawer-footer{padding:12px 16px 16px;border-top:1px solid var(--border);}
+
+  .cart-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f0f2f0;}
+  .cart-item .ci-emoji{width:38px;height:38px;border-radius:10px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;}
+  .cart-item .ci-info{flex:1;min-width:0;}
+  .cart-item .ci-name{font-size:13px;font-weight:600;}
+  .cart-item .ci-price{font-size:11.5px;color:var(--muted);}
+  .cart-item .ci-stepper{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+  .cart-item .ci-stepper button{
+    width:24px;height:24px;border-radius:7px;border:1px solid var(--border);
+    background:#fff;font-size:14px;cursor:pointer;color:var(--green-dark);font-weight:700;
+  }
+  .cart-item .ci-stepper span{font-size:12px;font-weight:600;min-width:44px;text-align:center;}
+
+  .custom-item{background:#fff8ec;border:1px solid #ffe1a8;border-radius:10px;padding:8px 10px;margin-bottom:8px;font-size:12.5px;position:relative;}
+  .custom-item .tag{display:inline-block;background:#ff9f43;color:#fff;font-size:10px;padding:1px 7px;border-radius:999px;margin-bottom:4px;}
+  .custom-item .remove-x{position:absolute;right:8px;top:8px;border:none;background:transparent;color:var(--muted);font-size:13px;cursor:pointer;}
+
+  .subtotal-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0 2px;font-size:13.5px;}
+  .subtotal-row b{color:var(--green-dark);font-size:15.5px;}
+  .note-small{font-size:10.8px;color:var(--muted);line-height:1.4;margin-top:2px;}
+
+  .primary-btn{
+    width:100%;border:none;border-radius:12px;padding:12px 0;
+    font-size:14px;font-weight:700;cursor:pointer;color:#fff;
+  }
+  .primary-btn.green{background:var(--green);}
+  .primary-btn.wa{background:var(--wa);}
+  .primary-btn.wa:active{background:var(--wa-dark);}
+  .link-btn{
+    width:100%;background:transparent;border:none;color:var(--muted);
+    font-size:12.5px;padding:8px 0 0;cursor:pointer;text-decoration:underline;
+  }
+
+  .field label{display:block;font-size:12px;font-weight:600;margin:10px 0 4px;color:#333;}
+  .field input, .field select, .field textarea{
+    width:100%;border:1px solid var(--border);border-radius:10px;
+    padding:10px 11px;font-size:13.5px;font-family:inherit;outline:none;
+  }
+  .field textarea{resize:vertical;min-height:56px;}
+  .field.required label:after{content:" *";color:var(--danger);}
+  .form-error{color:var(--danger);font-size:11.5px;margin-top:6px;display:none;}
+  .form-error.show{display:block;}
+
+  /* FOOTER */
+  footer{
+    text-align:center;padding:16px 16px 90px;font-size:11px;color:var(--muted);
+  }
+  footer a{color:var(--muted);text-decoration:underline;cursor:pointer;}
+
+  /* ADMIN MODAL */
+  .admin-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50;display:none;align-items:flex-end;justify-content:center;}
+  .admin-overlay.show{display:flex;}
+  .admin-panel{
+    background:#fff;width:100%;max-width:480px;border-radius:20px 20px 0 0;
+    max-height:90vh;display:flex;flex-direction:column;
+  }
+  .admin-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border);}
+  .admin-head h2{font-size:15px;margin:0;}
+  .admin-body{padding:14px 16px;overflow-y:auto;flex:1;}
+  .admin-note{background:#eef4ff;border:1px solid #cfe0ff;color:#1c4f9c;font-size:11.5px;padding:9px 10px;border-radius:10px;line-height:1.45;margin-bottom:14px;}
+  .admin-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f0f2f0;}
+  .admin-row .ar-emoji{font-size:18px;width:26px;text-align:center;}
+  .admin-row .ar-name{flex:1;font-size:12.5px;}
+  .admin-row .ar-name small{display:block;color:var(--muted);font-size:10.5px;}
+  .admin-row input{width:100px;border:1px solid var(--border);border-radius:8px;padding:6px 8px;font-size:12.5px;text-align:right;}
+  .admin-cat-title{font-size:12px;font-weight:700;color:var(--green-dark);margin:14px 0 4px;text-transform:uppercase;}
+  .admin-footer{padding:12px 16px 16px;border-top:1px solid var(--border);display:flex;gap:8px;}
+  .admin-footer button{flex:1;}
+  .btn-ghost{background:#f1f3f1;color:var(--text);border:none;border-radius:12px;padding:11px 0;font-size:13px;font-weight:600;cursor:pointer;}
+  .toast{
+    position:fixed;left:50%;bottom:100px;transform:translateX(-50%);
+    background:#212529;color:#fff;padding:9px 18px;border-radius:999px;
+    font-size:12.5px;z-index:60;opacity:0;transition:opacity .25s;pointer-events:none;
+  }
+  .toast.show{opacity:1;}
+  .pw-wrap{padding:6px 0;}
+  .pw-wrap input{width:100%;border:1px solid var(--border);border-radius:10px;padding:11px;font-size:14px;margin-bottom:10px;}
+
+  .tab-btn{
+    flex:1;padding:9px 0;border-radius:10px;border:1px solid var(--border);
+    background:#f6f8f6;color:var(--muted);font-size:12.5px;font-weight:600;cursor:pointer;
+  }
+  .tab-btn.active{background:var(--green);color:#fff;border-color:var(--green);}
+  #adminTabAdd input, #adminTabAdd select{
+    width:100%;border:1px solid var(--border);border-radius:10px;
+    padding:9px 10px;font-size:13px;font-family:inherit;outline:none;
+  }
+  .manage-row{
+    display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #f0f2f0;font-size:12px;
+  }
+  .manage-row .mr-info{flex:1;}
+  .manage-row .mr-info small{display:block;color:var(--muted);font-size:10.5px;}
+  .manage-row .mr-del{
+    border:none;background:#fdeded;color:var(--danger);border-radius:8px;
+    width:26px;height:26px;font-size:12px;cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="app">
+
+  <header>
+    <div class="brand-row">
+      <div class="brand-badge">🛵🥬</div>
+      <div class="brand-text">
+        <h1>Mlijo Keliling</h1>
+        <p>Pesan sayur & bumbu dapur, langsung diantar</p>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <span class="icon">🔍</span>
+      <input id="searchInput" type="text" placeholder="Cari sayur, bumbu, dll...">
+    </div>
+    <div class="cats" id="catRow"></div>
+  </header>
+
+  <div class="disclaimer">
+    💡 Harga sayur & bumbu bisa berubah tiap hari mengikuti harga pasar. Harga di bawah adalah perkiraan — total final akan dikonfirmasi ulang oleh penjual sebelum diantar.
+  </div>
+
+  <main>
+    <div id="productGrid"></div>
+
+    <div class="custom-card">
+      <h3>🔎 Sayur/bahan lain tidak ada di daftar?</h3>
+      <p>Tulis nama barangnya di sini, nanti dicariin sekalian ke pasar. Harga akan diinfokan pas konfirmasi pesanan.</p>
+      <input id="customName" type="text" placeholder="Nama barang (mis. Daun Kemangi, Petai, dll)">
+      <input id="customQty" type="text" placeholder="Perkiraan jumlah (mis. 1 ikat, 2 buah, secukupnya)">
+      <textarea id="customNote" placeholder="Catatan tambahan (opsional)"></textarea>
+      <button class="custom-add-btn" onclick="addCustomRequest()">+ Tambahkan ke Pesanan</button>
+    </div>
+  </main>
+
+  <footer>
+    Prototipe website Mlijo Keliling — data produk & harga contoh.<br>
+    <a onclick="openAdmin()">Kelola Harga & Produk (khusus penjual)</a>
+  </footer>
+
+  <div class="cart-bar" id="cartBar" onclick="openCart()">
+    <div class="left">
+      <span id="cartCount">0 item</span>
+      <small>Tap untuk lihat keranjang</small>
+    </div>
+    <div class="right"><span id="cartTotal">Rp 0</span> <span>›</span></div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h2 id="drawerTitle">Keranjang Belanja</h2>
+      <button class="close-btn" onclick="closeCart()">✕</button>
+    </div>
+    <div class="drawer-body" id="drawerBodyCart">
+      <div id="cartItemsList"></div>
+      <div id="customItemsList"></div>
+      <div class="subtotal-row">
+        <span>Perkiraan Subtotal</span>
+        <b id="cartSubtotal">Rp 0</b>
+      </div>
+      <div class="note-small">*Belum termasuk item "pesanan khusus" (harga menyusul) & belum termasuk ongkos kirim jika ada.</div>
+    </div>
+    <div class="drawer-footer" id="footerCartStep">
+      <button class="primary-btn green" onclick="goToCheckout()">Lanjut ke Alamat Pengiriman</button>
+    </div>
+
+    <div class="drawer-body" id="drawerBodyCheckout" style="display:none;">
+      <div class="field required">
+        <label>Nama Pemesan</label>
+        <input id="custName" type="text" placeholder="Nama Anda">
+      </div>
+      <div class="field">
+        <label>No. HP/WA Anda</label>
+        <input id="custPhone" type="text" placeholder="08xxxxxxxxxx (opsional, biar mudah dihubungi)">
+      </div>
+      <div class="field required">
+        <label>Alamat Lengkap</label>
+        <textarea id="custAddress" placeholder="Jl. ..., RT/RW, patokan rumah, dll"></textarea>
+      </div>
+      <div class="field">
+        <label>Waktu Diantar</label>
+        <select id="custTime">
+          <option value="Hari ini / secepatnya">Hari ini / secepatnya</option>
+          <option value="Besok pagi">Besok pagi</option>
+          <option value="Lainnya (lihat catatan)">Lainnya (lihat catatan)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Catatan Tambahan</label>
+        <textarea id="custNote2" placeholder="Contoh: tolong pilihkan yang masih muda, dll (opsional)"></textarea>
+      </div>
+      <div class="form-error" id="formError">Nama dan alamat wajib diisi ya, sebelum lanjut ke WhatsApp.</div>
+    </div>
+    <div class="drawer-footer" id="footerCheckoutStep" style="display:none;flex-direction:column;gap:8px;">
+      <button class="primary-btn wa" onclick="sendToWhatsApp()">✅ Pesan via WhatsApp</button>
+      <button class="link-btn" onclick="backToCart()">← Kembali ke Keranjang</button>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div class="admin-overlay" id="adminOverlay">
+    <div class="admin-panel">
+      <div class="admin-head">
+        <h2>Kelola Harga & Produk (Penjual)</h2>
+        <button class="close-btn" onclick="closeAdmin()">✕</button>
+      </div>
+      <div class="admin-body" id="adminBodyPassword">
+        <div class="pw-wrap">
+          <p style="font-size:12.5px;color:var(--muted);margin:0 0 8px;">Masukkan password penjual untuk mengubah harga & produk.</p>
+          <input id="adminPasswordInput" type="password" placeholder="Password">
+          <button class="primary-btn green" id="adminLoginBtn" onclick="checkAdminPassword()">Masuk</button>
+          <div class="form-error" id="adminPwError">Password salah, coba lagi.</div>
+        </div>
+      </div>
+      <div class="admin-body" id="adminBodyEdit" style="display:none;">
+        <div class="admin-note">
+          ⚠️ Ini masih <b>prototipe</b>: perubahan harga, kategori & produk baru tersimpan di browser/perangkat ini saja (belum otomatis update ke HP semua pembeli). Untuk versi jalan beneran, nanti perlu server/database kecil biar semua data sinkron ke semua orang secara real-time.
+        </div>
+
+        <div class="admin-tabs" style="display:flex;gap:8px;margin-bottom:14px;">
+          <button class="tab-btn" id="tabBtnPrice" onclick="switchAdminTab('price')">Edit Harga</button>
+          <button class="tab-btn" id="tabBtnAdd" onclick="switchAdminTab('add')">+ Kategori & Produk</button>
+        </div>
+
+        <div id="adminTabPrice">
+          <div id="adminList"></div>
+        </div>
+
+        <div id="adminTabAdd" style="display:none;">
+          <div class="admin-cat-title">Tambah Kategori Baru</div>
+          <p style="font-size:11.5px;color:var(--muted);margin:0 0 8px;">Misalnya mau nambah "Buah-buahan" atau "Sembako" kalau produknya sudah tidak muat di 3 kategori bawaan.</p>
+          <input id="newCatLabel" placeholder="Nama kategori, mis. Buah-buahan">
+          <button class="add-btn" style="margin-top:8px;" onclick="addCategory()">+ Tambah Kategori</button>
+          <div id="customCatList" style="margin-top:6px;"></div>
+
+          <div class="admin-cat-title">Tambah Produk Baru</div>
+          <p style="font-size:11.5px;color:var(--muted);margin:0 0 8px;">Slot produk tidak terbatas — tambah sebanyak yang kamu mau di sini.</p>
+          <input id="newProdName" placeholder="Nama produk, mis. Petai">
+          <select id="newProdCategory" style="margin-top:8px;"></select>
+          <input id="newProdUnit" list="unitOptions" placeholder="Satuan, mis. kg / ikat / papan" style="margin-top:8px;">
+          <datalist id="unitOptions"></datalist>
+          <input id="newProdPrice" type="number" min="0" step="500" placeholder="Harga (Rp)" style="margin-top:8px;">
+          <input id="newProdEmoji" placeholder="Emoji ikon (opsional, mis. 🥬)" style="margin-top:8px;">
+          <button class="add-btn" style="margin-top:8px;" onclick="addProduct()">+ Tambah Produk</button>
+          <div class="form-error" id="newProdError">Nama, satuan, dan harga wajib diisi ya.</div>
+          <div id="customProdList" style="margin-top:10px;"></div>
+        </div>
+      </div>
+      <div class="admin-footer" id="adminFooter" style="display:none;">
+        <button class="btn-ghost" onclick="resetPrices()">Reset Harga ke Awal</button>
+        <button class="primary-btn green" onclick="saveAdminPrices()" style="border-radius:12px;">Simpan Perubahan Harga</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Tersimpan</div>
+
+</div>
+
+<script>
+/* ==========================================================
+   KONFIGURASI - silakan disesuaikan
+   ========================================================== */
+const WA_NUMBER = '6285736699198'; // Nomor WhatsApp penjual
+const ADMIN_PASSWORD = 'pagihariberkah'; // Password panel Kelola Harga & Produk
+
+const BASE_CATEGORIES = [
+  {key:'semua', label:'Semua'},
+  {key:'sayuran', label:'Sayuran'},
+  {key:'bumbu', label:'Bumbu Dapur'},
+  {key:'lainnya', label:'Lainnya'},
+];
+
+/* Data produk contoh (dummy) - harga dalam Rupiah.
+   unit menentukan step qty: kg = kelipatan 0.5, selain itu kelipatan 1
+   (Tidak pakai foto produk asli - sengaja cuma ikon emoji, biar ringan & tidak bikin pembeli scroll kelamaan
+   karena jumlah itemnya memang banyak) */
+const BASE_PRODUCTS = [
+  // SAYURAN
+  {id:'bayam', name:'Bayam', category:'sayuran', unit:'ikat', price:3000, emoji:'🥬'},
+  {id:'kangkung', name:'Kangkung', category:'sayuran', unit:'ikat', price:3000, emoji:'🌱'},
+  {id:'sawi-hijau', name:'Sawi Hijau', category:'sayuran', unit:'ikat', price:4000, emoji:'🥬'},
+  {id:'pokcoy', name:'Sawi Pokcoy', category:'sayuran', unit:'ikat', price:4000, emoji:'🥬'},
+  {id:'kol', name:'Kol / Kubis', category:'sayuran', unit:'kg', price:8000, emoji:'🥬'},
+  {id:'wortel', name:'Wortel', category:'sayuran', unit:'kg', price:12000, emoji:'🥕'},
+  {id:'buncis', name:'Buncis', category:'sayuran', unit:'kg', price:10000, emoji:'🫛'},
+  {id:'kacang-panjang', name:'Kacang Panjang', category:'sayuran', unit:'ikat', price:4000, emoji:'🫛'},
+  {id:'terong', name:'Terong', category:'sayuran', unit:'kg', price:8000, emoji:'🍆'},
+  {id:'timun', name:'Timun', category:'sayuran', unit:'kg', price:7000, emoji:'🥒'},
+  {id:'tomat', name:'Tomat', category:'sayuran', unit:'kg', price:10000, emoji:'🍅'},
+  {id:'kentang', name:'Kentang', category:'sayuran', unit:'kg', price:14000, emoji:'🥔'},
+  {id:'labu-siam', name:'Labu Siam', category:'sayuran', unit:'kg', price:6000, emoji:'🥒'},
+  {id:'brokoli', name:'Brokoli', category:'sayuran', unit:'kg', price:18000, emoji:'🥦'},
+  {id:'kembang-kol', name:'Kembang Kol', category:'sayuran', unit:'kg', price:15000, emoji:'🥦'},
+  {id:'daun-singkong', name:'Daun Singkong', category:'sayuran', unit:'ikat', price:3000, emoji:'🌿'},
+  {id:'jagung-manis', name:'Jagung Manis', category:'sayuran', unit:'buah', price:3000, emoji:'🌽'},
+  {id:'toge', name:'Toge / Kecambah', category:'sayuran', unit:'kg', price:8000, emoji:'🌱'},
+  {id:'oyong', name:'Gambas / Oyong', category:'sayuran', unit:'kg', price:9000, emoji:'🥒'},
+  {id:'jamur-tiram', name:'Jamur Tiram', category:'sayuran', unit:'kg', price:16000, emoji:'🍄'},
+  {id:'selada', name:'Selada', category:'sayuran', unit:'kg', price:15000, emoji:'🥬'},
+  {id:'daun-bawang-seledri', name:'Daun Bawang & Seledri', category:'sayuran', unit:'ikat', price:3000, emoji:'🌿'},
+
+  // BUMBU DAPUR
+  {id:'bawang-merah', name:'Bawang Merah', category:'bumbu', unit:'kg', price:32000, emoji:'🧅'},
+  {id:'bawang-putih', name:'Bawang Putih', category:'bumbu', unit:'kg', price:35000, emoji:'🧄'},
+  {id:'cabai-merah-besar', name:'Cabai Merah Besar', category:'bumbu', unit:'kg', price:40000, emoji:'🌶️'},
+  {id:'cabai-rawit', name:'Cabai Rawit', category:'bumbu', unit:'kg', price:55000, emoji:'🌶️'},
+  {id:'cabai-keriting', name:'Cabai Keriting', category:'bumbu', unit:'kg', price:42000, emoji:'🌶️'},
+  {id:'jahe', name:'Jahe', category:'bumbu', unit:'kg', price:25000, emoji:'🫚'},
+  {id:'kunyit', name:'Kunyit', category:'bumbu', unit:'kg', price:15000, emoji:'🫚'},
+  {id:'lengkuas', name:'Lengkuas / Laos', category:'bumbu', unit:'kg', price:12000, emoji:'🫚'},
+  {id:'kencur', name:'Kencur', category:'bumbu', unit:'kg', price:20000, emoji:'🫚'},
+  {id:'kemiri', name:'Kemiri', category:'bumbu', unit:'ons', price:4000, emoji:'🌰'},
+  {id:'ketumbar', name:'Ketumbar', category:'bumbu', unit:'ons', price:3000, emoji:'🌾'},
+  {id:'serai', name:'Serai / Sereh', category:'bumbu', unit:'ikat', price:2000, emoji:'🌾'},
+  {id:'daun-salam-jeruk', name:'Daun Salam & Jeruk', category:'bumbu', unit:'ikat', price:2000, emoji:'🍃'},
+  {id:'terasi', name:'Terasi', category:'bumbu', unit:'bungkus', price:3000, emoji:'🧂'},
+
+  // LAINNYA
+  {id:'telur-ayam', name:'Telur Ayam', category:'lainnya', unit:'kg', price:28000, emoji:'🥚'},
+  {id:'tahu', name:'Tahu', category:'lainnya', unit:'papan', price:6000, emoji:'⬜'},
+  {id:'tempe', name:'Tempe', category:'lainnya', unit:'papan', price:6000, emoji:'🟫'},
+  {id:'kelapa-parut', name:'Kelapa Parut', category:'lainnya', unit:'butir', price:5000, emoji:'🥥'},
+  {id:'santan-kemasan', name:'Santan Kemasan', category:'lainnya', unit:'bungkus', price:6000, emoji:'🥥'},
+  {id:'pisang', name:'Pisang', category:'lainnya', unit:'sisir', price:15000, emoji:'🍌'},
+  {id:'pepaya', name:'Pepaya', category:'lainnya', unit:'buah', price:10000, emoji:'🍈'},
+];
+
+const UNIT_STEP = {kg:0.5, ons:1, ikat:1, buah:1, papan:1, butir:1, sisir:1, bungkus:1};
+const UNIT_MIN = {kg:0.5, ons:1, ikat:1, buah:1, papan:1, butir:1, sisir:1, bungkus:1};
+const UNIT_OPTIONS = ['kg','ons','ikat','buah','papan','butir','sisir','bungkus','pak','liter','biji'];
+
+/* ==========================================================
+   STATE
+   ========================================================== */
+let cart = {};          // { productId: qty }
+let customRequests = []; // [{id, name, qty, note}]
+let activeCategory = 'semua';
+let searchTerm = '';
+let isAdminUnlocked = false;
+let adminTab = 'price';
+
+// CATEGORIES & PRODUCTS efektif = data dasar + kategori/produk tambahan dari penjual (tersimpan di localStorage)
+let CATEGORIES = [];
+let PRODUCTS = [];
+
+/* ==========================================================
+   KATEGORI & PRODUK TAMBAHAN (disimpan penjual lewat panel admin)
+   ========================================================== */
+function slugify(str){
+  return str.toLowerCase().trim()
+    .replace(/[^a-z0-9]+/g,'-')
+    .replace(/(^-+|-+$)/g,'') || 'item';
+}
+function uniqueSlug(base, existingKeys){
+  let slug = base, n = 2;
+  while(existingKeys.includes(slug)){
+    slug = base + '-' + n;
+    n++;
+  }
+  return slug;
+}
+function getCustomCategories(){
+  try{ return JSON.parse(localStorage.getItem('mlijo_custom_categories') || '[]'); }
+  catch(e){ return []; }
+}
+function saveCustomCategories(list){
+  localStorage.setItem('mlijo_custom_categories', JSON.stringify(list));
+}
+function getCustomProducts(){
+  try{ return JSON.parse(localStorage.getItem('mlijo_custom_products') || '[]'); }
+  catch(e){ return []; }
+}
+function saveCustomProducts(list){
+  localStorage.setItem('mlijo_custom_products', JSON.stringify(list));
+}
+function refreshData(){
+  CATEGORIES = BASE_CATEGORIES.concat(getCustomCategories());
+  PRODUCTS = BASE_PRODUCTS.concat(getCustomProducts());
+}
+
+/* ==========================================================
+   HARGA (dengan override dari localStorage)
+   ========================================================== */
+function getPriceOverrides(){
+  try{
+    return JSON.parse(localStorage.getItem('mlijo_price_overrides') || '{}');
+  }catch(e){ return {}; }
+}
+function getEffectivePrice(product){
+  const overrides = getPriceOverrides();
+  if(overrides[product.id] !== undefined && overrides[product.id] !== null && overrides[product.id] !== ''){
+    return Number(overrides[product.id]);
+  }
+  return product.price;
+}
+function formatRupiah(n){
+  n = Math.round(n);
+  return 'Rp ' + n.toLocaleString('id-ID');
+}
+function formatQty(qty, unit){
+  // tampilkan angka rapi (hilangkan .0 kalau bulat)
+  const q = (qty % 1 === 0) ? qty.toFixed(0) : qty.toFixed(1);
+  return q + ' ' + unit;
+}
+
+/* ==========================================================
+   RENDER: kategori pills
+   ========================================================== */
+function renderCategoryPills(){
+  const row = document.getElementById('catRow');
+  row.innerHTML = CATEGORIES.map(c =>
+    `<div class="cat-pill ${c.key===activeCategory?'active':''}" onclick="setCategory('${c.key}')">${c.label}</div>`
+  ).join('');
+}
+function setCategory(key){
+  activeCategory = key;
+  renderCategoryPills();
+  renderCatalog();
+}
+
+/* ==========================================================
+   RENDER: grid produk
+   ========================================================== */
+function renderCatalog(){
+  const grid = document.getElementById('productGrid');
+  const term = searchTerm.trim().toLowerCase();
+  let list = PRODUCTS.filter(p => activeCategory==='semua' || p.category===activeCategory);
+  if(term){
+    list = list.filter(p => p.name.toLowerCase().includes(term));
+  }
+  if(list.length === 0){
+    grid.innerHTML = '<div class="empty-state">Tidak ditemukan. Coba kata kunci lain, atau tambahkan lewat form "tidak ada di daftar" di bawah.</div>';
+    return;
+  }
+
+  // Kelompokkan per kategori kalau lagi tampil "Semua" & tanpa search, biar rapi
+  let html = '';
+  if(activeCategory==='semua' && !term){
+    CATEGORIES.filter(c=>c.key!=='semua').forEach(cat=>{
+      const items = list.filter(p=>p.category===cat.key);
+      if(items.length===0) return;
+      html += `<div class="section-title">${cat.label}</div><div class="grid">`;
+      html += items.map(renderCard).join('');
+      html += `</div>`;
+    });
+  } else {
+    html += `<div class="grid">` + list.map(renderCard).join('') + `</div>`;
+  }
+  grid.innerHTML = html;
+}
+
+function renderCard(p){
+  const qty = cart[p.id] || 0;
+  const price = getEffectivePrice(p);
+  const inCartClass = qty>0 ? 'in-cart' : '';
+  let control;
+  if(qty>0){
+    control = `
+      <div class="stepper">
+        <button onclick="changeQty('${p.id}', -1)">−</button>
+        <span>${formatQty(qty, p.unit)}</span>
+        <button onclick="changeQty('${p.id}', 1)">+</button>
+      </div>`;
+  } else {
+    control = `<button class="add-btn" onclick="changeQty('${p.id}', 1)">+ Tambah</button>`;
+  }
+  return `
+    <div class="card ${inCartClass}" id="card-${p.id}">
+      <div class="emoji-wrap">${p.emoji}</div>
+      <div class="name">${p.name}</div>
+      <div class="unit-price">per ${p.unit} · <b>${formatRupiah(price)}</b></div>
+      <div class="qty-row">${control}</div>
+    </div>`;
+}
+
+function changeQty(productId, direction){
+  const product = PRODUCTS.find(p=>p.id===productId);
+  const step = UNIT_STEP[product.unit] || 1;
+  const min = UNIT_MIN[product.unit] || 1;
+  let current = cart[productId] || 0;
+  if(direction > 0){
+    current = current === 0 ? min : +(current + step).toFixed(2);
+  } else {
+    current = +(current - step).toFixed(2);
+    if(current < min - 1e-9) current = 0;
+  }
+  if(current <= 0){
+    delete cart[productId];
+  } else {
+    cart[productId] = current;
+  }
+  renderCatalog();
+  updateCartBar();
+  if(document.getElementById('cartDrawer').classList.contains('open')){
+    renderCartDrawerItems();
+  }
+}
+
+/* ==========================================================
+   CUSTOM REQUEST (barang tidak ada di daftar)
+   ========================================================== */
+function addCustomRequest(){
+  const nameEl = document.getElementById('customName');
+  const qtyEl = document.getElementById('customQty');
+  const noteEl = document.getElementById('customNote');
+  const name = nameEl.value.trim();
+  const qty = qtyEl.value.trim();
+  const note = noteEl.value.trim();
+  if(!name){
+    nameEl.style.borderColor = 'var(--danger)';
+    nameEl.focus();
+    return;
+  }
+  nameEl.style.borderColor = '';
+  customRequests.push({id: 'custom-' + Date.now(), name, qty: qty || '-', note});
+  nameEl.value = ''; qtyEl.value=''; noteEl.value='';
+  showToast('Ditambahkan ke pesanan ✅');
+  updateCartBar();
+  if(document.getElementById('cartDrawer').classList.contains('open')){
+    renderCartDrawerItems();
+  }
+}
+function removeCustomRequest(id){
+  customRequests = customRequests.filter(c=>c.id!==id);
+  updateCartBar();
+  renderCartDrawerItems();
+}
+
+/* ==========================================================
+   CART BAR & DRAWER
+   ========================================================== */
+function getCartCount(){
+  return Object.keys(cart).length + customRequests.length;
+}
+function getCartSubtotal(){
+  let total = 0;
+  Object.keys(cart).forEach(id=>{
+    const p = PRODUCTS.find(pr=>pr.id===id);
+    if(p) total += getEffectivePrice(p) * cart[id];
+  });
+  return total;
+}
+function updateCartBar(){
+  const bar = document.getElementById('cartBar');
+  const count = getCartCount();
+  if(count===0){
+    bar.classList.remove('show');
+    return;
+  }
+  bar.classList.add('show');
+  document.getElementById('cartCount').textContent = count + ' item';
+  document.getElementById('cartTotal').textContent = formatRupiah(getCartSubtotal());
+}
+
+function openCart(){
+  document.getElementById('cartOverlay').classList.add('show');
+  document.getElementById('cartDrawer').classList.add('open');
+  showCartStep();
+  renderCartDrawerItems();
+}
+function closeCart(){
+  document.getElementById('cartOverlay').classList.remove('show');
+  document.getElementById('cartDrawer').classList.remove('open');
+}
+function showCartStep(){
+  document.getElementById('drawerTitle').textContent = 'Keranjang Belanja';
+  document.getElementById('drawerBodyCart').style.display='block';
+  document.getElementById('drawerBodyCheckout').style.display='none';
+  document.getElementById('footerCartStep').style.display='block';
+  document.getElementById('footerCheckoutStep').style.display='none';
+}
+function goToCheckout(){
+  if(getCartCount()===0){ return; }
+  document.getElementById('drawerTitle').textContent = 'Alamat Pengiriman';
+  document.getElementById('drawerBodyCart').style.display='none';
+  document.getElementById('drawerBodyCheckout').style.display='block';
+  document.getElementById('footerCartStep').style.display='none';
+  document.getElementById('footerCheckoutStep').style.display='flex';
+}
+function backToCart(){
+  showCartStep();
+}
+
+function renderCartDrawerItems(){
+  const wrap = document.getElementById('cartItemsList');
+  const customWrap = document.getElementById('customItemsList');
+  const ids = Object.keys(cart);
+
+  if(ids.length===0){
+    wrap.innerHTML = '<div class="empty-state" style="padding:16px 4px;">Keranjang masih kosong. Yuk pilih sayur dulu 🥬</div>';
+  } else {
+    wrap.innerHTML = ids.map(id=>{
+      const p = PRODUCTS.find(pr=>pr.id===id);
+      const qty = cart[id];
+      const price = getEffectivePrice(p);
+      return `
+        <div class="cart-item">
+          <div class="ci-emoji">${p.emoji}</div>
+          <div class="ci-info">
+            <div class="ci-name">${p.name}</div>
+            <div class="ci-price">${formatRupiah(price)} / ${p.unit}</div>
+          </div>
+          <div class="ci-stepper">
+            <button onclick="changeQty('${id}', -1)">−</button>
+            <span>${formatQty(qty, p.unit)}</span>
+            <button onclick="changeQty('${id}', 1)">+</button>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  if(customRequests.length===0){
+    customWrap.innerHTML = '';
+  } else {
+    customWrap.innerHTML = customRequests.map(c=>`
+      <div class="custom-item">
+        <button class="remove-x" onclick="removeCustomRequest('${c.id}')">✕</button>
+        <span class="tag">Perlu dicari</span><br>
+        <b>${c.name}</b> — ${c.qty}
+        ${c.note ? `<div style="color:var(--muted);margin-top:2px;">Catatan: ${c.note}</div>` : ''}
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('cartSubtotal').textContent = formatRupiah(getCartSubtotal());
+}
+
+/* ==========================================================
+   CHECKOUT -> WHATSAPP
+   ========================================================== */
+function sendToWhatsApp(){
+  const name = document.getElementById('custName').value.trim();
+  const phone = document.getElementById('custPhone').value.trim();
+  const address = document.getElementById('custAddress').value.trim();
+  const time = document.getElementById('custTime').value;
+  const note = document.getElementById('custNote2').value.trim();
+  const errorEl = document.getElementById('formError');
+
+  if(!name || !address){
+    errorEl.classList.add('show');
+    return;
+  }
+  errorEl.classList.remove('show');
+
+  let lines = [];
+  lines.push('Halo, saya mau pesan sayur 🛒');
+  lines.push('');
+  Object.keys(cart).forEach(id=>{
+    const p = PRODUCTS.find(pr=>pr.id===id);
+    const qty = cart[id];
+    const price = getEffectivePrice(p);
+    lines.push(`- ${p.name} x ${formatQty(qty,p.unit)} = ${formatRupiah(price*qty)}`);
+  });
+  customRequests.forEach(c=>{
+    lines.push(`- (Tolong dicarikan di pasar) ${c.name} — ${c.qty}${c.note ? ' — catatan: '+c.note : ''}`);
+  });
+  lines.push('');
+  lines.push(`Perkiraan Subtotal: ${formatRupiah(getCartSubtotal())}`);
+  lines.push('(Harga final & item pesanan khusus akan dikonfirmasi ulang, belum termasuk ongkir jika ada)');
+  lines.push('');
+  lines.push(`Nama: ${name}`);
+  if(phone) lines.push(`No. HP: ${phone}`);
+  lines.push(`Alamat: ${address}`);
+  lines.push(`Waktu diantar: ${time}`);
+  if(note) lines.push(`Catatan: ${note}`);
+  lines.push('');
+  lines.push('Terima kasih 🙏');
+
+  const message = encodeURIComponent(lines.join('\n'));
+  const url = `https://wa.me/${WA_NUMBER}?text=${message}`;
+  window.open(url, '_blank');
+  closeCart();
+}
+
+/* ==========================================================
+   ADMIN: KELOLA HARGA
+   ========================================================== */
+function openAdmin(){
+  document.getElementById('adminOverlay').classList.add('show');
+  if(isAdminUnlocked){
+    showAdminEdit();
+  } else {
+    document.getElementById('adminBodyPassword').style.display='block';
+    document.getElementById('adminBodyEdit').style.display='none';
+    document.getElementById('adminFooter').style.display='none';
+    document.getElementById('adminPasswordInput').value='';
+    document.getElementById('adminPwError').classList.remove('show');
+  }
+}
+function closeAdmin(){
+  document.getElementById('adminOverlay').classList.remove('show');
+}
+function checkAdminPassword(){
+  const val = document.getElementById('adminPasswordInput').value;
+  if(val === ADMIN_PASSWORD){
+    isAdminUnlocked = true;
+    showAdminEdit();
+  } else {
+    document.getElementById('adminPwError').classList.add('show');
+  }
+}
+function showAdminEdit(){
+  document.getElementById('adminBodyPassword').style.display='none';
+  document.getElementById('adminBodyEdit').style.display='block';
+  switchAdminTab('price');
+}
+function switchAdminTab(tab){
+  adminTab = tab;
+  document.getElementById('adminTabPrice').style.display = tab==='price' ? 'block' : 'none';
+  document.getElementById('adminTabAdd').style.display = tab==='add' ? 'block' : 'none';
+  document.getElementById('adminFooter').style.display = tab==='price' ? 'flex' : 'none';
+  document.getElementById('tabBtnPrice').classList.toggle('active', tab==='price');
+  document.getElementById('tabBtnAdd').classList.toggle('active', tab==='add');
+  if(tab==='price'){
+    renderAdminList();
+  } else {
+    renderAddProductForm();
+    renderCustomCatList();
+    renderCustomProdList();
+  }
+}
+function renderAdminList(){
+  const list = document.getElementById('adminList');
+  let html = '';
+  CATEGORIES.filter(c=>c.key!=='semua').forEach(cat=>{
+    const items = PRODUCTS.filter(p=>p.category===cat.key);
+    if(items.length===0) return;
+    html += `<div class="admin-cat-title">${cat.label}</div>`;
+    html += items.map(p=>`
+      <div class="admin-row">
+        <div class="ar-emoji">${p.emoji}</div>
+        <div class="ar-name">${p.name}<small>per ${p.unit} (default ${formatRupiah(p.price)})</small></div>
+        <input type="number" min="0" step="500" id="price-${p.id}" value="${getEffectivePrice(p)}">
+      </div>
+    `).join('');
+  });
+  list.innerHTML = html;
+}
+function saveAdminPrices(){
+  const overrides = {};
+  PRODUCTS.forEach(p=>{
+    const input = document.getElementById('price-'+p.id);
+    if(input){
+      const val = parseFloat(input.value);
+      if(!isNaN(val) && val >= 0){
+        overrides[p.id] = val;
+      }
+    }
+  });
+  localStorage.setItem('mlijo_price_overrides', JSON.stringify(overrides));
+  showToast('Harga tersimpan di browser ini ✅');
+  renderCatalog();
+  updateCartBar();
+}
+function resetPrices(){
+  localStorage.removeItem('mlijo_price_overrides');
+  renderAdminList();
+  renderCatalog();
+  updateCartBar();
+  showToast('Harga dikembalikan ke default');
+}
+
+/* ==========================================================
+   ADMIN: TAMBAH KATEGORI & PRODUK (slot tak terbatas)
+   ========================================================== */
+function renderAddProductForm(){
+  const catSelect = document.getElementById('newProdCategory');
+  catSelect.innerHTML = CATEGORIES.filter(c=>c.key!=='semua')
+    .map(c=>`<option value="${c.key}">${c.label}</option>`).join('');
+
+  const datalist = document.getElementById('unitOptions');
+  datalist.innerHTML = UNIT_OPTIONS.map(u=>`<option value="${u}"></option>`).join('');
+}
+function renderCustomCatList(){
+  const wrap = document.getElementById('customCatList');
+  const custom = getCustomCategories();
+  if(custom.length===0){ wrap.innerHTML=''; return; }
+  wrap.innerHTML = custom.map(c=>{
+    const count = PRODUCTS.filter(p=>p.category===c.key).length;
+    return `
+      <div class="manage-row">
+        <div class="mr-info">${c.label}<small>${count} produk</small></div>
+        <button class="mr-del" onclick="deleteCategory('${c.key}')">✕</button>
+      </div>`;
+  }).join('');
+}
+function renderCustomProdList(){
+  const wrap = document.getElementById('customProdList');
+  const custom = getCustomProducts();
+  if(custom.length===0){ wrap.innerHTML=''; return; }
+  wrap.innerHTML = custom.map(p=>{
+    const catLabel = (CATEGORIES.find(c=>c.key===p.category)||{}).label || p.category;
+    return `
+      <div class="manage-row">
+        <div class="mr-info">${p.emoji} ${p.name}<small>${catLabel} · per ${p.unit} · ${formatRupiah(getEffectivePrice(p))}</small></div>
+        <button class="mr-del" onclick="deleteProduct('${p.id}')">✕</button>
+      </div>`;
+  }).join('');
+}
+function addCategory(){
+  const input = document.getElementById('newCatLabel');
+  const label = input.value.trim();
+  if(!label) { input.focus(); return; }
+  const existingKeys = CATEGORIES.map(c=>c.key);
+  const key = uniqueSlug(slugify(label), existingKeys);
+  const custom = getCustomCategories();
+  custom.push({key, label});
+  saveCustomCategories(custom);
+  refreshData();
+  input.value='';
+  renderAddProductForm();
+  renderCustomCatList();
+  renderCategoryPills();
+  renderCatalog();
+  showToast('Kategori "'+label+'" ditambahkan ✅');
+}
+function deleteCategory(key){
+  const usedCount = PRODUCTS.filter(p=>p.category===key).length;
+  if(usedCount > 0){
+    showToast('Pindahkan/hapus dulu '+usedCount+' produk di kategori ini');
+    return;
+  }
+  const custom = getCustomCategories().filter(c=>c.key!==key);
+  saveCustomCategories(custom);
+  refreshData();
+  renderAddProductForm();
+  renderCustomCatList();
+  renderCategoryPills();
+  renderCatalog();
+  showToast('Kategori dihapus');
+}
+function addProduct(){
+  const nameEl = document.getElementById('newProdName');
+  const catEl = document.getElementById('newProdCategory');
+  const unitEl = document.getElementById('newProdUnit');
+  const priceEl = document.getElementById('newProdPrice');
+  const emojiEl = document.getElementById('newProdEmoji');
+  const errorEl = document.getElementById('newProdError');
+
+  const name = nameEl.value.trim();
+  const category = catEl.value;
+  const unit = unitEl.value.trim().toLowerCase();
+  const price = parseFloat(priceEl.value);
+  const emoji = emojiEl.value.trim() || '🧺';
+
+  if(!name || !unit || isNaN(price) || price < 0){
+    errorEl.classList.add('show');
+    return;
+  }
+  errorEl.classList.remove('show');
+
+  const existingIds = PRODUCTS.map(p=>p.id);
+  const id = uniqueSlug(slugify(name), existingIds);
+  const custom = getCustomProducts();
+  custom.push({id, name, category, unit, price, emoji});
+  saveCustomProducts(custom);
+  refreshData();
+
+  nameEl.value=''; unitEl.value=''; priceEl.value=''; emojiEl.value='';
+  renderCustomProdList();
+  renderCatalog();
+  updateCartBar();
+  showToast('Produk "'+name+'" ditambahkan ✅');
+}
+function deleteProduct(id){
+  const custom = getCustomProducts().filter(p=>p.id!==id);
+  saveCustomProducts(custom);
+  refreshData();
+  delete cart[id];
+  renderCustomProdList();
+  renderCatalog();
+  updateCartBar();
+  showToast('Produk dihapus');
+}
+
+/* ==========================================================
+   TOAST
+   ========================================================== */
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
+/* ==========================================================
+   INIT
+   ========================================================== */
+document.getElementById('searchInput').addEventListener('input', function(e){
+  searchTerm = e.target.value;
+  renderCatalog();
+});
+
+refreshData();
+renderCategoryPills();
+renderCatalog();
+updateCartBar();
+</script>
+</body>
+</html>

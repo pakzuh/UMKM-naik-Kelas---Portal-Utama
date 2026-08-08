@@ -1,0 +1,64 @@
+ID	KATEGORI	NAMA	HARGA	STATUS
+RB-01	Rice Bowl	Chicken Karaage Sambal Sereh	27000	Tersedia
+RB-02	Rice Bowl	Beef Blackpepper Rice	40000	Tersedia
+RB-03	Rice Bowl	Nasi Dori Sambal Ijo	27000	Tersedia
+RB-04	Rice Bowl	Salted Egg Chicken	30000	Tersedia
+RB-05	Rice Bowl	Chicken Blackpepper	27000	Tersedia
+MC-01	Main Course	Grilled Chicken Thigh Mushroom	40000	Tersedia
+MC-02	Main Course	Dori Fries Tar-Tar	40000	Tersedia
+MC-03	Main Course	Ebi Furai House	43000	Tersedia
+MC-04	Main Course	House Chicken Wings	35000	Tersedia
+MC-05	Main Course	Fried Noodles Karaage	35000	Tersedia
+CT-01	Chef's Table & Salad	Perpus Chef's Table Grilled Chicken	38000	Tersedia
+CT-02	Chef's Table & Salad	Perpus Chef's Table Shortplate Beef	53000	Tersedia
+CT-03	Chef's Table & Salad	Summer Salad Shortplate Beef	48000	Tersedia
+CT-04	Chef's Table & Salad	Summer Salad Grilled Chicken	35000	Tersedia
+WS-01	Wings & Sides	Chicken Wings Spicy Honey	35000	Tersedia
+WS-02	Wings & Sides	Chicken Wings Garlic Butter	35000	Tersedia
+WS-03	Wings & Sides	Perpus Plater	42000	Tersedia
+WS-04	Wings & Sides	Crinkle Fries	22000	Tersedia
+WS-05	Wings & Sides	Pisang Goreng Perpus	22000	Tersedia
+SW-01	Snack & Wonton	Wonton Goreng	25000	Tersedia
+SW-02	Snack & Wonton	Wonton Chili	25000	Tersedia
+SW-03	Snack & Wonton	Wonton Kuah	25000	Tersedia
+SW-04	Snack & Wonton	Tahu Walik	22000	Tersedia
+SW-05	Snack & Wonton	Cireng	22000	Tersedia
+TD-01	Toast & Dessert	Toast Bread Choco Crunchy	22000	Tersedia
+TD-02	Toast & Dessert	Toast Bread Srikaya	22000	Tersedia
+TD-03	Toast & Dessert	Toast Bread Meses Klasik	22000	Tersedia
+TD-04	Toast & Dessert	Toast Bread Cheese	22000	Tersedia
+TD-05	Toast & Dessert	Drinkable Perpus Toast	22000	Tersedia
+TD-06	Toast & Dessert	Scoopbliss	18000	Tersedia
+SP-01	Spaghetti	Spaghetti Aglio Olio	28000	Tersedia
+SP-02	Spaghetti	Spaghetti Carbonara Mushroom	30000	Tersedia
+CS-01	Coffee Series	Kopi Kelapa	25000	Tersedia
+CS-02	Coffee Series	Brulee Machiato	26000	Tersedia
+CS-03	Coffee Series	Kopi Susu Pustaka	24000	Tersedia
+CS-04	Coffee Series	Caramel Frappio	28000	Tersedia
+CS-05	Coffee Series	Long Black	22000	Tersedia
+CS-06	Coffee Series	Magic Latte	24000	Tersedia
+CS-07	Coffee Series	Filter Coffee	25000	Tersedia
+CS-08	Coffee Series	Espresso	15000	Tersedia
+CS-09	Coffee Series	Affogato	22000	Tersedia
+CS-10	Coffee Series	Kopi Aksara	24000	Tersedia
+MT-01	Matcha	Matcha Latte	25000	Tersedia
+MT-02	Matcha	Strawberry Matcha	25000	Tersedia
+MT-03	Matcha	Coconut Matcha	25000	Tersedia
+MT-04	Matcha	Lychee Matcha	25000	Tersedia
+MT-05	Matcha	Blueberry Matcha	25000	Tersedia
+TC-01	Tea Collection	Lychee Tea	20000	Tersedia
+TC-02	Tea Collection	Blue Grass Tea	25000	Tersedia
+TC-03	Tea Collection	Peach Tea	20000	Tersedia
+TC-04	Tea Collection	Lemon Tea	20000	Tersedia
+SR-01	Summer Refreshers	Abstract Strawberry/Mango/Pineapple	24000	Tersedia
+SR-02	Summer Refreshers	Chocolate Almanak	26000	Tersedia
+SR-03	Summer Refreshers	Pletok Jowo	22000	Tersedia
+SR-04	Summer Refreshers	Seger Seger Buah Persik	24000	Tersedia
+SR-05	Summer Refreshers	Seger Seger Buah Leci	24000	Tersedia
+JC-01	Juice	Juice Strawberry	22000	Tersedia
+JC-02	Juice	Juice Pineapple	22000	Tersedia
+JC-03	Juice	Juice Guava	22000	Tersedia
+JC-04	Juice	Juice Blueberry	25000	Tersedia
+JC-05	Juice	Juice Mango	22000	Tersedia
+JC-06	Juice	Mix Juice	22000	Tersedia
+JC-07	Juice	Mineral Water	5000	Tersedia

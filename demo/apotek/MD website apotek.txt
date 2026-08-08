@@ -1,0 +1,131 @@
+# Brief: Website Order Online Apotek
+
+## Konteks Proyek
+Buatkan website order online untuk apotek, berbasis teknologi yang sama dengan Perpus.cafe (static HTML self-contained, Google Sheets sebagai database, Apps Script sebagai backend API, deploy ke Cloudflare Pages).
+
+---
+
+## Referensi Teknis (dari proyek sebelumnya)
+- **Stack:** Single HTML file (self-contained, no framework, no build tool)
+- **Database:** Google Sheets → diakses via Apps Script Web App (doGet JSON)
+- **Deploy:** Cloudflare Pages (static)
+- **Order:** WhatsApp + simpan ke sheet PESANAN via Apps Script doPost
+- **Pattern fetch:** Halaman render dulu (instant), fetch data Sheets di background, lalu update tampilan
+
+---
+
+## Spesifikasi Website Apotek
+
+### Halaman Utama (`index.html`)
+- Header: nama apotek, alamat, jam operasional
+- **Search bar** di atas daftar produk — filter realtime by nama produk / merk
+- Filter kategori:
+  - **Jenis Obat** (Antibiotik, Vitamin & Suplemen, Obat Bebas, Obat Keras, Alat Kesehatan, dll)
+  - **Merk / Perusahaan** (Kimia Farma, Kalbe, Dexa, Sanbe, dll)
+- Daftar produk dalam **grid kecil** (lebih compact — karena produk banyak)
+- Setiap kartu produk: nama produk, merk, harga, tombol tambah, badge "Habis" jika stok kosong
+- Cart / keranjang floating bar di bagian bawah
+- Checkout via WhatsApp + simpan ke sheet PESANAN
+
+### Desain Kartu Produk (KECIL)
+- Ukuran: sekitar 160×180px
+- Grid: 3 kolom di mobile, 4-5 kolom di desktop
+- Tidak perlu foto produk
+- Harga ditampilkan prominent
+- Tombol "+" kecil di pojok bawah kanan
+- Badge merah kecil "Habis" jika STATUS = Habis
+
+### Search Bar
+- Posisi: sticky di bawah header, di atas filter kategori
+- Real-time filter (debounce 200ms) berdasarkan nama produk DAN merk
+- Clear button (×) untuk reset pencarian
+- Placeholder: "Cari nama obat atau merk..."
+
+---
+
+## Struktur Google Sheets
+
+### Spreadsheet: "Apotek Order Control" (PRIVATE)
+
+#### Sheet 1: `PRODUK`
+| Kolom | Header | Contoh |
+|---|---|---|
+| A | ID | OBB-01 |
+| B | JENIS | Obat Bebas |
+| C | MERK | Panadol |
+| D | NAMA | Panadol Extra 500mg |
+| E | SATUAN | Strip / Tablet / Botol / Pcs |
+| F | HARGA | 15000 |
+| G | STATUS | Tersedia / Habis |
+
+#### Sheet 2: `PESANAN`
+| Kolom | Header |
+|---|---|
+| A | TIMESTAMP |
+| B | ORDER_ID |
+| C | NAMA |
+| D | TELEPON |
+| E | ITEMS |
+| F | TOTAL |
+| G | STATUS |
+| H | CATATAN |
+
+STATUS flow: `Pending` → `Diproses` → `Siap Ambil` / `Dikirim` → `Selesai` / `Batal`
+
+---
+
+## Apps Script (Backend)
+
+File: `apps-script-apotek.gs`
+
+- `doGet?action=produk` → return semua data sheet PRODUK sebagai JSON
+- `doPost` → terima `{orderId, nama, telepon, items, total, catatan}`, simpan ke PESANAN
+- `orderId` dikirim via URL parameter (`?orderId=ORD-XXXXX`) agar tidak hilang saat redirect Google
+- Deploy: Execute as Me, Who has access: Anyone
+
+---
+
+## Fitur yang Perlu Dibangun
+
+- **Filter kombinasi**: jenis + merk + search bisa jalan bersamaan
+- **Satuan obat**: tampil di kartu (misal: "Rp 15.000 / strip")
+- **Checkout form**: nama pembeli, nomor telepon, pilihan ambil sendiri / diantar, catatan
+- **ORDER_ID**: generate di client (`'ORD-' + Date.now().toString().slice(-6)`), masuk ke pesan WA DAN ke sheet
+
+## Yang TIDAK perlu dibangun
+- Tidak perlu foto produk
+- Tidak perlu AppSheet (cukup lihat spreadsheet)
+- Tidak perlu katalog terpisah
+
+---
+
+## Catatan Penting
+
+1. **Kartu harus kecil** — produk apotek bisa ratusan item, UX prioritas grid compact
+2. **Search adalah fitur utama** — pelanggan tidak scroll ratusan item, mereka search
+3. **Harga dari Sheets** (bukan hardcode), update realtime
+4. **STATUS Habis** harus jelas terlihat dan item tidak bisa ditambah ke cart
+5. **JENIS OBAT** = filter utama, **MERK** = filter sekunder
+6. Pattern fetch: render skeleton/kosong dulu → fetch Sheets → update kartu
+
+---
+
+## Pola Kode Kunci (dari proyek Perpus.cafe yang sudah jalan)
+
+```javascript
+// POST order — orderId di URL param agar tidak hilang saat redirect
+const orderId = 'ORD-' + Date.now().toString().slice(-6);
+fetch(APPS_SCRIPT_URL + '?orderId=' + encodeURIComponent(orderId), {
+  method: 'POST', mode: 'no-cors',
+  headers: {'Content-Type': 'text/plain'},
+  body: JSON.stringify({ nama, telepon, items, total, catatan })
+});
+
+// Apps Script — baca orderId dari URL param
+const orderId = (e.parameter && e.parameter.orderId) || ('ORD-' + Date.now().toString().slice(-6));
+
+
+
+---
+
+File juga tersimpan di scratchpad kalau butuh buka lagi. Setelah paste di chat baru, langsung saja bilang "SPREADSHEET_ID: [isi ID spreadsheet apotek kamu]" dan nama apotek — Claude langsung bisa mulai bangun.

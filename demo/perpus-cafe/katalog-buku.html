@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katalog Buku — Perpus Library Cafe</title>
+<style>
+:root{
+  --green-dark:#123b30;
+  --green:#1c5645;
+  --green-mid:#1f6e57;
+  --cream:#f4ead9;
+  --cream-2:#faf6ee;
+  --paper:#f5f3ee;
+  --ink:#1c231f;
+  --muted:#6b7570;
+  --accent:#c98f4a;
+  --danger:#b3452f;
+  --radius:14px;
+  --shadow:0 4px 14px rgba(18,59,48,0.10);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  padding-bottom:40px;
+}
+a{color:inherit;}
+
+/* ===== HEADER ===== */
+header.top{
+  background:linear-gradient(135deg,var(--green-dark),var(--green-mid));
+  color:var(--cream-2);
+  padding:26px 18px 20px;
+  position:relative;
+  overflow:hidden;
+}
+header.top::after{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(circle at 85% -10%,rgba(255,255,255,0.08),transparent 55%);
+}
+.brand{display:flex;align-items:center;gap:12px;position:relative;z-index:1;}
+.brand-badge{
+  width:56px;height:56px;border-radius:12px;
+  background:var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:var(--shadow);overflow:hidden;padding:6px;
+}
+.brand-badge img{width:100%;height:100%;object-fit:contain;display:block;}
+.brand-badge .fallback-icon{font-size:28px;display:none;}
+.brand h1{margin:0;font-size:22px;letter-spacing:0.3px;}
+.brand p{margin:2px 0 0;font-size:12.5px;color:#cfe3da;}
+.top-meta{
+  position:relative;z-index:1;
+  margin-top:16px;font-size:12.5px;color:#d8ebe2;line-height:1.6;
+}
+.top-meta span{display:inline-block;margin-right:14px;}
+
+/* ===== STICKY CONTROLS ===== */
+.sticky-controls{
+  position:sticky;top:0;z-index:20;
+  background:var(--cream-2);
+  border-bottom:1px solid #e4dcc9;
+}
+
+/* Search */
+.search-wrap{
+  padding:10px 12px 0;
+  position:relative;
+  display:flex;align-items:center;
+}
+.search-ico{
+  position:absolute;left:22px;
+  color:var(--muted);pointer-events:none;
+  display:flex;align-items:center;
+}
+#searchInput{
+  width:100%;
+  padding:9px 36px 9px 38px;
+  border:1.5px solid #dcd2b8;
+  border-radius:999px;
+  background:#fff;
+  font-size:14px;
+  color:var(--ink);
+  outline:none;
+  -webkit-appearance:none;
+}
+#searchInput:focus{border-color:var(--green);}
+#searchInput::-webkit-search-cancel-button{display:none;}
+#clearBtn{
+  position:absolute;right:22px;
+  background:none;border:none;cursor:pointer;
+  color:var(--muted);font-size:14px;padding:6px;
+  display:none;line-height:1;border-radius:50%;
+}
+#clearBtn.show{display:flex;align-items:center;justify-content:center;}
+#clearBtn:hover{background:rgba(0,0,0,0.06);}
+
+/* Category chips */
+nav.cats{
+  display:flex;gap:8px;padding:10px 12px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+nav.cats::-webkit-scrollbar{display:none;}
+nav.cats button{
+  flex:0 0 auto;
+  border:1.5px solid #dcd2b8;background:#fff;color:var(--green-dark);
+  padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;
+  cursor:pointer;white-space:nowrap;
+  transition:background .12s,border-color .12s,color .12s;
+}
+nav.cats button.active{
+  background:var(--green);border-color:var(--green);color:#fff;
+}
+
+/* Sub-category chips */
+.subcat-wrap{
+  background:var(--cream-2);
+  border-bottom:1px solid #e4dcc9;
+  padding:0 12px 10px;
+  display:none;
+}
+.subcats{
+  display:flex;gap:6px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  padding-top:2px;
+}
+.subcats::-webkit-scrollbar{display:none;}
+.subcats button{
+  flex:0 0 auto;
+  border:1.5px solid #e0cfa0;background:var(--cream);color:var(--green-dark);
+  padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;
+  cursor:pointer;white-space:nowrap;
+  transition:background .12s,border-color .12s,color .12s;
+}
+.subcats button.active{
+  background:var(--accent);border-color:var(--accent);color:#fff;
+}
+
+/* ===== MAIN ===== */
+main{padding:12px 14px 10px;}
+#resultsHeader{
+  font-size:12.5px;color:var(--muted);font-weight:600;
+  margin-bottom:10px;
+}
+#resultsHeader strong{color:var(--ink);}
+
+/* ===== BOOK LIST ===== */
+#bookList{display:flex;flex-direction:column;gap:10px;}
+
+/* Book card */
+.book-card{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  border:1px solid #eee7d6;
+  border-left:4px solid var(--cc,var(--green));
+  padding:12px 14px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.book-icon-col{
+  flex-shrink:0;
+  width:40px;height:40px;border-radius:8px;
+  background:var(--cc,var(--green));
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.book-info{flex:1;min-width:0;}
+.book-top-row{
+  display:flex;align-items:flex-start;
+  justify-content:space-between;gap:6px;margin-bottom:4px;
+}
+.book-kode{
+  font-size:10px;font-weight:700;letter-spacing:0.6px;
+  color:var(--green-dark);
+  background:#ddeede;
+  padding:2px 7px;border-radius:999px;
+  white-space:nowrap;flex-shrink:0;
+}
+.book-title{
+  font-size:14px;font-weight:700;line-height:1.35;
+  margin:0 0 3px;color:var(--ink);
+}
+.book-author{
+  font-size:12.5px;color:var(--muted);
+  margin:0 0 2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.book-pub{font-size:11.5px;color:#9aab9f;margin:0 0 7px;}
+.book-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.tag-cat{
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;
+  background:#ddeede;color:var(--green-dark);
+}
+.tag-sub{
+  font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;
+  background:#f5e8d0;color:#7a5221;
+}
+.tag-status{
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;
+  margin-left:auto;
+}
+.tag-status.tersedia{background:#d1f5e0;color:#145c30;}
+.tag-status.dipinjam{background:#fff0cc;color:#7a5500;}
+.tag-status.hilang{background:#f5e0e0;color:#7a1b1b;}
+
+/* ===== STATES ===== */
+.state-box{
+  text-align:center;padding:52px 24px;
+}
+.state-icon{font-size:52px;display:block;margin-bottom:12px;}
+.state-box h3{margin:0 0 6px;font-size:18px;color:var(--ink);}
+.state-box p{margin:0 0 20px;color:var(--muted);font-size:13.5px;line-height:1.6;}
+.retry-btn{
+  background:var(--green);color:#fff;border:none;
+  padding:11px 28px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;
+}
+.retry-btn:active{opacity:0.85;}
+
+/* ===== SKELETON ===== */
+#skeletonState{padding:12px 14px;display:flex;flex-direction:column;gap:10px;}
+.skel-card{
+  background:#fff;border-radius:12px;border:1px solid #eee7d6;
+  border-left:4px solid #cdd9d0;
+  padding:12px 14px;display:flex;gap:12px;align-items:flex-start;
+}
+.skel-icon-col{width:40px;height:40px;border-radius:8px;flex-shrink:0;}
+.skel-info{flex:1;}
+.skel-line{height:11px;border-radius:6px;margin-bottom:9px;}
+.skel-line:last-child{margin-bottom:0;}
+.skel-line.w-full{width:100%;}
+.skel-line.w-3q{width:75%;}
+.skel-line.w-half{width:55%;}
+.skel-line.w-third{width:35%;}
+@keyframes shimmer{
+  0%{background-position:200% 0;}
+  100%{background-position:-200% 0;}
+}
+.skel-icon-col,.skel-line{
+  background:linear-gradient(90deg,#e6ede8 25%,#d4dfd7 50%,#e6ede8 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.5s ease-in-out infinite;
+}
+
+/* ===== FOOTER ===== */
+footer.info{
+  margin-top:34px;background:var(--green-dark);color:#dfeee7;
+  padding:26px 18px 30px;text-align:center;font-size:13px;line-height:1.9;
+}
+footer.info .fbrand{
+  font-weight:800;font-size:16px;color:#fff;letter-spacing:0.5px;margin-bottom:6px;
+}
+footer.info a{text-decoration:none;color:#f0dcb6;}
+.menu-link{
+  display:inline-block;
+  margin-top:14px;
+  padding:8px 20px;
+  border:1.5px solid rgba(240,220,182,0.4);
+  border-radius:999px;
+  font-size:12.5px;font-weight:700;
+  color:#f0dcb6;
+  text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="top">
+  <div class="brand">
+    <div class="brand-badge">
+      <img id="logoImg" src="Foto Produk & Material/Logo Perpus Library Cafe (Green).png" alt="Perpus Library Cafe">
+      <span class="fallback-icon">📚</span>
+    </div>
+    <div>
+      <h1>Perpus Library Cafe</h1>
+      <p>Katalog Buku Digital</p>
+    </div>
+  </div>
+  <div class="top-meta">
+    <span>📚 <span id="totalCount">Memuat data...</span></span>
+    <span>📍 Jl. Sulfat No. 1, Malang</span>
+  </div>
+</header>
+
+<!-- ===== STICKY CONTROLS ===== -->
+<div class="sticky-controls">
+  <div class="search-wrap">
+    <span class="search-ico">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </span>
+    <input type="search" id="searchInput" placeholder="Cari judul atau nama penulis..." autocomplete="off" spellcheck="false">
+    <button id="clearBtn" aria-label="Hapus pencarian">✕</button>
+  </div>
+  <nav class="cats" id="catNav">
+    <button class="active" data-cat="">📚 Semua</button>
+  </nav>
+</div>
+
+<!-- Sub-category chips (hidden until category selected) -->
+<div id="subcatWrap" class="subcat-wrap">
+  <div class="subcats" id="subcatNav"></div>
+</div>
+
+<!-- ===== SKELETON ===== -->
+<div id="skeletonState">
+  <div class="skel-card">
+    <div class="skel-icon-col"></div>
+    <div class="skel-info">
+      <div class="skel-line w-full"></div>
+      <div class="skel-line w-3q"></div>
+      <div class="skel-line w-half"></div>
+      <div class="skel-line w-third"></div>
+    </div>
+  </div>
+  <div class="skel-card">
+    <div class="skel-icon-col"></div>
+    <div class="skel-info">
+      <div class="skel-line w-full"></div>
+      <div class="skel-line w-3q"></div>
+      <div class="skel-line w-half"></div>
+      <div class="skel-line w-third"></div>
+    </div>
+  </div>
+  <div class="skel-card">
+    <div class="skel-icon-col"></div>
+    <div class="skel-info">
+      <div class="skel-line w-full"></div>
+      <div class="skel-line w-3q"></div>
+      <div class="skel-line w-half"></div>
+      <div class="skel-line w-third"></div>
+    </div>
+  </div>
+  <div class="skel-card">
+    <div class="skel-icon-col"></div>
+    <div class="skel-info">
+      <div class="skel-line w-full"></div>
+      <div class="skel-line w-3q"></div>
+      <div class="skel-line w-half"></div>
+      <div class="skel-line w-third"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main id="mainContent" style="display:none">
+  <div id="resultsHeader"></div>
+  <div id="bookList"></div>
+  <div id="emptyState" class="state-box" style="display:none">
+    <span class="state-icon">🔍</span>
+    <h3>Buku tidak ditemukan</h3>
+    <p>Coba kata kunci lain atau pilih kategori yang berbeda.</p>
+  </div>
+</main>
+
+<!-- ===== ERROR STATE ===== -->
+<div id="errorState" class="state-box" style="display:none">
+  <span class="state-icon">📶</span>
+  <h3>Gagal memuat katalog</h3>
+  <p>Periksa koneksi internet kamu,<br>lalu coba lagi.</p>
+  <button class="retry-btn" onclick="loadBooks()">Coba Lagi</button>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="info">
+  <div class="fbrand">PERPUS LIBRARY CAFE</div>
+  <div>Jalan Sulfat No. 1, Malang, Jawa Timur</div>
+  <div>Buka setiap hari 07.00 – 21.00 WIB</div>
+  <div>📞 +62 822 4595 1364 &nbsp;·&nbsp; ✉️ perpuslibrarycafe@gmail.com</div>
+  <div><a href="https://instagram.com/perpus.cafe" target="_blank">Instagram: @perpus.cafe</a></div>
+  <a class="menu-link" href="index.html">🍽️ Lihat Menu Makanan &amp; Minuman</a>
+</footer>
+
+<script>
+const SHEET_ID = '1NNUxDLkMNUyAxkAY7sxfX_PR4vNxBjc85zsBRZ1dSgg';
+const SHEET_NAME = 'BOOK+LIST';
+
+// Category → color & icon
+const CAT_META = {
+  'fiksi':                  {color:'#2e7d9c', icon:'📖'},
+  'nonfiksi':               {color:'#1c5645', icon:'📰'},
+  'referensi':              {color:'#6d3dbe', icon:'📋'},
+  'karya ilmiah':           {color:'#0877a8', icon:'🔬'},
+  'seni & kreativitas':     {color:'#b5760a', icon:'🎨'},
+  'anak & pendidikan dini': {color:'#c0467a', icon:'🧸'},
+  'bahasa & sastra':        {color:'#2a7d5e', icon:'🗣️'},
+  'teknologi & komputer':   {color:'#4038c0', icon:'💻'},
+  'kuliner & hobi':         {color:'#c07a0a', icon:'🍳'},
+  'komik & manga':          {color:'#c0312e', icon:'🎭'},
+};
+
+function catMeta(kat) {
+  return CAT_META[(kat || '').toLowerCase()] || {color:'#1c5645', icon:'📚'};
+}
+
+// State
+let allBooks = [];
+let selectedCat = '';
+let selectedSubcat = '';
+let searchTerm = '';
+let subcatMap = {};
+
+// ---- FETCH ----
+async function loadBooks() {
+  show('skeletonState');
+  hide('mainContent');
+  hide('errorState');
+
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}&r=${Date.now()}`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const text = await res.text();
+
+    // Strip JSONP wrapper
+    const m = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);?\s*$/);
+    if (!m) throw new Error('Format tidak valid');
+    const data = JSON.parse(m[1]);
+
+    allBooks = parseBooks(data);
+    buildIndex();
+    renderCatNav();
+    applyFilters();
+
+    const n = allBooks.length;
+    document.getElementById('totalCount').textContent =
+      n ? `${n.toLocaleString('id')} buku tersedia` : 'Katalog dimuat';
+
+    hide('skeletonState');
+    show('mainContent');
+  } catch (err) {
+    console.error(err);
+    hide('skeletonState');
+    show('errorState');
+  }
+}
+
+// ---- PARSE ----
+// Map messy/inconsistent category values → canonical names
+const CAT_CANONICAL = {
+  // Fiksi variants
+  'fiksi': 'Fiksi', 'fiction': 'Fiksi',
+  'novel': 'Fiksi', 'novel fiksi': 'Fiksi', 'novel remaja': 'Fiksi',
+  'novel puisi': 'Fiksi', 'fantasy novels': 'Fiksi',
+  // Nonfiksi variants
+  'nonfiksi': 'Nonfiksi', 'non fiksi': 'Nonfiksi', 'non-fiksi': 'Nonfiksi',
+  'nonfiksi kreatif': 'Nonfiksi',
+  'motivasi': 'Nonfiksi', 'psikologi': 'Nonfiksi', 'pengembangan diri': 'Nonfiksi',
+  // Komik variants
+  'novel komik': 'Komik & Manga', 'komik': 'Komik & Manga', 'komik & manga': 'Komik & Manga',
+  // Referensi
+  'referensi': 'Referensi', 'tutor': 'Referensi',
+  // Karya Ilmiah
+  'karya ilmiah': 'Karya Ilmiah',
+  // Seni & Kreativitas
+  'seni & kreativitas': 'Seni & Kreativitas',
+  'puisi': 'Seni & Kreativitas', 'esai': 'Seni & Kreativitas',
+  'atologi puisi dan cerpen': 'Seni & Kreativitas',
+  // Anak & Pendidikan Dini
+  'anak & pendidikan dini': 'Anak & Pendidikan Dini', 'fiksi anak': 'Anak & Pendidikan Dini',
+  'pendidikan': 'Anak & Pendidikan Dini', 'pendidikqn': 'Anak & Pendidikan Dini',
+  // Bahasa & Sastra
+  'bahasa & sastra': 'Bahasa & Sastra',
+  // Teknologi & Komputer
+  'teknologi & komputer': 'Teknologi & Komputer',
+  // Kuliner & Hobi
+  'kuliner & hobi': 'Kuliner & Hobi',
+};
+
+function normalizeKat(raw) {
+  if (!raw) return '';
+  const lower = raw.trim().toLowerCase();
+  return CAT_CANONICAL[lower] || raw.trim();
+}
+
+function parseBooks(data) {
+  const cols = data.table.cols;
+  const rows = data.table.rows;
+
+  // Map col labels to indices (case-insensitive, trimmed)
+  const idx = {};
+  cols.forEach((c, i) => { if (c.label) idx[c.label.trim().toUpperCase()] = i; });
+
+  const iKode    = idx['KODE']         ?? 1;
+  const iJudul   = idx['JUDUL BUKU']   ?? 2;
+  const iPenulis = idx['PENULIS']       ?? 3;
+  const iPenerbit= idx['PENERBIT']      ?? 4;
+  const iTahun   = idx['TAHUN TERBIT'] ?? 5;
+  const iKategori= idx['KATEGORI']     ?? 7;
+  const iSubKat  = idx['SUB KATEGORI'] ?? 8;
+  const iStatus  = idx['STATUS']       ?? -1;
+
+  return rows
+    .map(r => ({
+      kode:     sv(r.c[iKode]),
+      judul:    sv(r.c[iJudul]),
+      penulis:  sv(r.c[iPenulis]),
+      penerbit: sv(r.c[iPenerbit]),
+      tahun:    r.c[iTahun]?.v != null ? String(r.c[iTahun].v) : '',
+      kategori: normalizeKat(sv(r.c[iKategori])),
+      subKat:   sv(r.c[iSubKat]),
+      status:   iStatus >= 0 ? sv(r.c[iStatus]) : '',
+    }))
+    .filter(b => b.judul);
+}
+
+function sv(cell) {
+  return (cell?.v ?? '').toString().trim();
+}
+
+// ---- INDEX ----
+// Capitalize first letter of each word
+function titleCase(s) {
+  return s.replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function buildIndex() {
+  // Normalize sub-categories: group by lowercase, display as title-case
+  // First pass: build a lowercase→display map (first-seen wins, but prefer title-cased)
+  const subDisplay = {}; // lowercase → display name
+
+  allBooks.forEach(b => {
+    if (!b.subKat) return;
+    const lower = b.subKat.toLowerCase();
+    if (!subDisplay[lower]) {
+      // Prefer the version that looks title-cased (has at least one uppercase)
+      subDisplay[lower] = titleCase(b.subKat);
+    }
+  });
+
+  // Normalize subKat on each book (mutate to display name)
+  allBooks.forEach(b => {
+    if (b.subKat) b.subKat = subDisplay[b.subKat.toLowerCase()] || b.subKat;
+  });
+
+  // Second pass: build subcatMap
+  subcatMap = {};
+  allBooks.forEach(b => {
+    if (!b.kategori) return;
+    if (!subcatMap[b.kategori]) subcatMap[b.kategori] = new Set();
+    if (b.subKat) subcatMap[b.kategori].add(b.subKat);
+  });
+
+  // Sort sub-cats alphabetically
+  Object.keys(subcatMap).forEach(k => {
+    subcatMap[k] = [...subcatMap[k]].sort((a, b) => a.localeCompare(b, 'id'));
+  });
+}
+
+// ---- CATEGORY NAV ----
+function renderCatNav() {
+  const nav = document.getElementById('catNav');
+  // Keep the "Semua" button, add the rest
+  const cats = Object.keys(subcatMap).sort((a, b) => a.localeCompare(b, 'id'));
+
+  // Remove old dynamic buttons
+  [...nav.querySelectorAll('button:not([data-cat=""])')].forEach(b => b.remove());
+
+  cats.forEach(cat => {
+    const {icon} = catMeta(cat);
+    const btn = document.createElement('button');
+    btn.dataset.cat = cat;
+    btn.textContent = `${icon} ${cat}`;
+    btn.addEventListener('click', () => pickCat(cat));
+    nav.appendChild(btn);
+  });
+}
+
+function pickCat(cat) {
+  selectedCat = cat;
+  selectedSubcat = '';
+
+  // Update chip states
+  document.querySelectorAll('#catNav button').forEach(b => {
+    b.classList.toggle('active', b.dataset.cat === cat);
+  });
+
+  // Sub-cat bar
+  const wrap = document.getElementById('subcatWrap');
+  const subNav = document.getElementById('subcatNav');
+
+  if (cat && subcatMap[cat]?.length) {
+    subNav.innerHTML = '';
+
+    const allBtn = document.createElement('button');
+    allBtn.textContent = `Semua`;
+    allBtn.classList.add('active');
+    allBtn.addEventListener('click', () => pickSubcat(''));
+    subNav.appendChild(allBtn);
+
+    subcatMap[cat].forEach(sub => {
+      const btn = document.createElement('button');
+      btn.dataset.sub = sub;
+      btn.textContent = sub;
+      btn.addEventListener('click', () => pickSubcat(sub));
+      subNav.appendChild(btn);
+    });
+
+    wrap.style.display = 'block';
+  } else {
+    wrap.style.display = 'none';
+  }
+
+  applyFilters();
+}
+
+function pickSubcat(sub) {
+  selectedSubcat = sub;
+  document.querySelectorAll('#subcatNav button').forEach(b => {
+    b.classList.toggle('active',
+      sub === '' ? !b.dataset.sub : b.dataset.sub === sub
+    );
+  });
+  applyFilters();
+}
+
+// ---- FILTER + RENDER ----
+function applyFilters() {
+  const q = searchTerm.toLowerCase();
+
+  const filtered = allBooks.filter(b => {
+    if (selectedCat && b.kategori !== selectedCat) return false;
+    if (selectedSubcat && b.subKat !== selectedSubcat) return false;
+    if (q && !b.judul.toLowerCase().includes(q) && !b.penulis.toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  const header = document.getElementById('resultsHeader');
+  const list   = document.getElementById('bookList');
+  const empty  = document.getElementById('emptyState');
+
+  if (filtered.length === 0) {
+    list.innerHTML = '';
+    empty.style.display = 'block';
+    header.innerHTML = '';
+    return;
+  }
+
+  empty.style.display = 'none';
+
+  const total = allBooks.length;
+  const shown = filtered.length;
+  header.innerHTML = shown === total
+    ? `Menampilkan semua <strong>${total.toLocaleString('id')} buku</strong>`
+    : `Ditemukan <strong>${shown.toLocaleString('id')}</strong> dari ${total.toLocaleString('id')} buku`;
+
+  const frag = document.createDocumentFragment();
+  filtered.forEach(b => frag.appendChild(makeCard(b)));
+  list.innerHTML = '';
+  list.appendChild(frag);
+}
+
+function makeCard(b) {
+  const {color, icon} = catMeta(b.kategori);
+  const pubYear = [b.penerbit, b.tahun].filter(Boolean).join(' · ');
+  const statusClass = {
+    'tersedia': 'tersedia',
+    'dipinjam': 'dipinjam',
+    'hilang/rusak': 'hilang',
+    'hilang': 'hilang',
+    'rusak': 'hilang',
+  }[(b.status || '').toLowerCase()] || '';
+
+  const el = document.createElement('div');
+  el.className = 'book-card';
+  el.style.setProperty('--cc', color);
+
+  el.innerHTML =
+    `<div class="book-icon-col">${icon}</div>` +
+    `<div class="book-info">` +
+      `<div class="book-top-row">` +
+        (b.kode ? `<span class="book-kode">${esc(b.kode)}</span>` : '') +
+        (statusClass ? `<span class="tag-status ${statusClass}">${esc(b.status)}</span>` : '') +
+      `</div>` +
+      `<p class="book-title">${esc(b.judul)}</p>` +
+      (b.penulis  ? `<p class="book-author">${esc(b.penulis)}</p>` : '') +
+      (pubYear    ? `<p class="book-pub">${esc(pubYear)}</p>` : '') +
+      `<div class="book-tags">` +
+        (b.kategori ? `<span class="tag-cat">${esc(b.kategori)}</span>` : '') +
+        (b.subKat   ? `<span class="tag-sub">${esc(b.subKat)}</span>`   : '') +
+      `</div>` +
+    `</div>`;
+
+  return el;
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ---- HELPERS ----
+function show(id){ document.getElementById(id).style.display = 'block'; }
+function hide(id){ document.getElementById(id).style.display = 'none';  }
+
+// ---- SEARCH ----
+let searchTimer;
+document.getElementById('searchInput').addEventListener('input', function() {
+  searchTerm = this.value;
+  const clr = document.getElementById('clearBtn');
+  clr.classList.toggle('show', !!this.value);
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(applyFilters, 180);
+});
+
+document.getElementById('clearBtn').addEventListener('click', function() {
+  const inp = document.getElementById('searchInput');
+  inp.value = '';
+  searchTerm = '';
+  this.classList.remove('show');
+  clearTimeout(searchTimer);
+  applyFilters();
+  inp.focus();
+});
+
+// "Semua" button
+document.querySelector('#catNav button[data-cat=""]').addEventListener('click', () => {
+  selectedCat = '';
+  selectedSubcat = '';
+  document.getElementById('subcatWrap').style.display = 'none';
+  document.querySelectorAll('#catNav button').forEach(b => b.classList.toggle('active', b.dataset.cat === ''));
+  applyFilters();
+});
+
+// Logo fallback
+document.getElementById('logoImg').addEventListener('error', function() {
+  this.style.display = 'none';
+  this.parentElement.querySelector('.fallback-icon').style.display = 'block';
+});
+
+// ---- INIT ----
+loadBooks();
+</script>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mie Ayam Bangka Ayung — Buka 24 Jam, Siap Antar</title>
+<meta name="description" content="Mie Ayam Bangka Ayung — mie ayam, kwetiau, bihun, nasi tim, aneka lauk & nasi goreng. Halal, buka 24 jam, siap antar sampai depan rumah. Order via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red-1:#c81e1e;
+    --red-2:#a30f0f;
+    --red-dark:#6e0a0a;
+    --gold:#ffc93c;
+    --gold-2:#f5b400;
+    --cream:#fff6df;
+    --card:#ffffff;
+    --ink:#3a1300;
+    --green:#1ebe5b;
+    --shadow: 0 10px 28px rgba(110,10,10,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.5;
+  }
+  h1,h2,h3,.display{font-family:'Baloo 2',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
+  ul{list-style:none;}
+
+  /* Top bar */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(90deg,var(--red-dark),var(--red-2));
+    color:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.25);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:10px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;letter-spacing:.3px;}
+  .brand .mark{
+    width:38px;height:38px;border-radius:50%;flex-shrink:0;
+    background:radial-gradient(circle at 30% 30%,var(--gold),var(--gold-2) 75%);
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+    box-shadow:0 0 0 2px var(--gold);
+  }
+  .nav-links{display:none;gap:20px;font-size:.88rem;font-weight:500;}
+  .nav-links a:hover{color:var(--gold);}
+  .btn-wa{
+    background:linear-gradient(120deg,#25D366,var(--green));
+    color:#fff;padding:9px 16px;border-radius:30px;font-weight:700;font-size:.82rem;
+    display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  }
+  @media(min-width:800px){ .nav-links{display:flex;} }
+
+  /* Hero */
+  .hero{
+    position:relative;overflow:hidden;text-align:center;
+    background:
+      radial-gradient(circle at 15% 15%, rgba(255,255,255,.25), transparent 45%),
+      radial-gradient(circle at 85% 85%, rgba(255,255,255,.12), transparent 45%),
+      linear-gradient(160deg,#ffb703 0%, #f5960b 45%, var(--red-1) 100%);
+    color:#fff;
+    padding:52px 20px 46px;
+    border-bottom:6px solid var(--red-dark);
+  }
+  .hero .tag{
+    letter-spacing:3px;font-size:.75rem;font-weight:700;color:var(--red-dark);
+    background:var(--gold);display:inline-block;padding:5px 16px;border-radius:30px;
+    text-transform:uppercase;margin-bottom:16px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem,7vw,3.6rem);
+    font-weight:800;color:#fff;
+    text-shadow:0 3px 0 var(--red-dark), 0 6px 18px rgba(0,0,0,.25);
+    line-height:1.08;
+  }
+  .hero p.sub{
+    max-width:520px;margin:16px auto 0;font-size:.95rem;font-weight:500;opacity:.95;
+  }
+  .hero-cta{
+    margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--red-dark);color:var(--gold);padding:14px 26px;border-radius:40px;
+    font-weight:700;font-size:.95rem;box-shadow:var(--shadow);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-outline{
+    border:2px solid #fff;color:#fff;padding:12px 24px;border-radius:40px;
+    font-weight:700;font-size:.95rem;
+  }
+
+  /* Info strip */
+  .info-strip{ background:var(--red-dark);color:var(--cream);padding:22px 20px; }
+  .info-strip .wrap{ display:flex;flex-wrap:wrap;gap:18px;justify-content:center;text-align:center; }
+  .info-strip .item{flex:1;min-width:170px;max-width:250px;}
+  .info-strip .item .ico{font-size:1.5rem;margin-bottom:6px;}
+  .info-strip .item h4{color:var(--gold);font-size:.85rem;font-weight:700;margin-bottom:3px;}
+  .info-strip .item p{font-size:.78rem;opacity:.85;}
+
+  /* Badges row (halal / platforms) */
+  .badges{background:#fff;padding:16px 20px;border-bottom:1px solid #f1e0b8;}
+  .badges .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;}
+  .badge-pill{
+    display:flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--red-2);
+    background:#fff3d6;padding:7px 14px;border-radius:30px;border:1px solid #ffe1a3;
+  }
+
+  /* Section headers */
+  .section{padding:48px 20px;}
+  .section-head{text-align:center;margin-bottom:30px;}
+  .section-head .eyebrow{
+    letter-spacing:3px;font-size:.75rem;font-weight:700;color:var(--red-1);
+    text-transform:uppercase;margin-bottom:6px;
+  }
+  .section-head h2{font-size:clamp(1.5rem,4vw,2.2rem);color:var(--red-dark);}
+  .section-head p{color:var(--ink);opacity:.7;font-size:.9rem;margin-top:6px;}
+
+  /* Menu category */
+  .menu-cat{margin-bottom:40px;}
+  .menu-cat h3{
+    display:inline-block;background:var(--red-1);color:#fff;
+    padding:6px 18px;border-radius:30px;font-size:1rem;font-weight:700;
+    margin-bottom:16px;font-family:'Poppins',sans-serif;
+  }
+  .menu-cat .cat-note{font-size:.78rem;color:var(--red-2);opacity:.8;margin:-10px 0 14px 4px;}
+  .menu-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;
+  }
+  .menu-card{
+    background:var(--card);border-radius:14px;padding:14px 16px;
+    box-shadow:var(--shadow);border:1px solid #f3e2b8;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .menu-card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .menu-card .name{font-weight:600;font-size:.93rem;color:var(--red-dark);}
+  .menu-card .note{font-size:.76rem;color:var(--red-2);opacity:.8;}
+  .menu-card .price{
+    background:#fff3d6;color:var(--red-2);font-weight:800;font-size:.85rem;
+    padding:4px 10px;border-radius:20px;white-space:nowrap;
+  }
+  .menu-card .order-btn{
+    align-self:flex-start;font-size:.75rem;font-weight:600;color:var(--green);
+    display:inline-flex;align-items:center;gap:5px;margin-top:2px;
+  }
+  .menu-card .order-btn:hover{text-decoration:underline;}
+
+  /* Gallery */
+  .gallery{background:#ffedbb;}
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;
+  }
+  .gallery-card{
+    border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
+    background:var(--card);text-align:center;
+  }
+  .gallery-img{
+    height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;
+  }
+  .gallery-card p{padding:12px 14px 16px;font-size:.83rem;font-weight:600;color:var(--red-dark);}
+
+  /* Order steps */
+  .steps{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;
+  }
+  .step-card{
+    background:var(--card);border-radius:14px;padding:24px 20px;text-align:center;
+    box-shadow:var(--shadow);
+  }
+  .step-card .num{
+    width:36px;height:36px;border-radius:50%;background:var(--red-1);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;
+    margin:0 auto 12px;
+  }
+  .step-card h4{font-size:.95rem;margin-bottom:6px;color:var(--red-dark);}
+  .step-card p{font-size:.82rem;color:var(--ink);opacity:.75;}
+
+  /* Notes box */
+  .note-box{
+    background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    color:var(--red-dark);border-radius:18px;padding:24px 26px;max-width:520px;margin:0 auto;
+    box-shadow:var(--shadow);text-align:center;
+  }
+  .note-box .ico{font-size:2rem;margin-bottom:8px;}
+  .note-box h4{font-size:1.05rem;font-weight:800;margin-bottom:4px;}
+  .note-box p{font-size:.88rem;opacity:.9;}
+
+  /* Footer */
+  footer{
+    background:var(--red-dark);color:var(--cream);padding:36px 20px 90px;text-align:center;
+  }
+  footer .brand{justify-content:center;margin-bottom:12px;}
+  footer p{font-size:.82rem;opacity:.78;max-width:440px;margin:0 auto;}
+  footer .fnav{margin-top:16px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:.8rem;}
+  footer .fnav a:hover{color:var(--gold);}
+
+  /* Sticky mobile CTA */
+  .sticky-cta{
+    position:fixed;bottom:0;left:0;right:0;z-index:60;
+    background:#fff;box-shadow:0 -6px 20px rgba(0,0,0,.12);
+    padding:12px 16px;display:flex;justify-content:center;
+  }
+  .sticky-cta a{
+    background:linear-gradient(120deg,#25D366,var(--green));color:#fff;font-weight:700;
+    padding:12px 30px;border-radius:40px;font-size:.9rem;display:inline-flex;align-items:center;gap:8px;
+    box-shadow:0 6px 16px rgba(37,211,102,.4);
+  }
+  @media(min-width:900px){ .sticky-cta{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="mark">🍜</span> MIE AYAM BANGKA AYUNG</div>
+    <nav class="nav-links">
+      <a href="#menu">Menu Mie</a>
+      <a href="#lauk">Lauk</a>
+      <a href="#goreng">Nasi/Mie Goreng</a>
+      <a href="#pesan">Cara Pesan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <a class="btn-wa" id="wa-top" href="#" target="_blank" rel="noopener">💬 Pesan WA</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="tag">Halal • Buka 24 Jam • Siap Antar</p>
+    <h1>MIE AYAM<br>BANGKA AYUNG</h1>
+    <p class="sub">Rasa mantap, porsi pas, bikin nagih! Mie ayam, kwetiau, bihun, nasi tim, aneka lauk sampai nasi &amp; mie goreng — siap antar sampai depan rumah, minimal order 2 porsi.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" id="wa-hero" href="#" target="_blank" rel="noopener">💬 Pesan Sekarang</a>
+      <a class="btn-outline" href="#menu">Lihat Menu</a>
+    </div>
+  </div>
+</section>
+
+<div class="info-strip">
+  <div class="wrap">
+    <div class="item">
+      <div class="ico">🛵</div>
+      <h4>Siap Antar</h4>
+      <p>Sampai depan rumah, via WA / Grab / Gojek / Shopee.</p>
+    </div>
+    <div class="item">
+      <div class="ico">📌</div>
+      <h4>Minimal Order 2 Porsi</h4>
+      <p>Berlaku untuk pesan antar.</p>
+    </div>
+    <div class="item">
+      <div class="ico">⏰</div>
+      <h4>Buka 24 Jam</h4>
+      <p>Kapan pun lapar, tinggal chat.</p>
+    </div>
+    <div class="item">
+      <div class="ico">✅</div>
+      <h4>Halal Indonesia</h4>
+      <p>Terjamin dan bikin tenang.</p>
+    </div>
+  </div>
+</div>
+
+<div class="badges">
+  <div class="wrap">
+    <span class="badge-pill">✅ Halal Indonesia</span>
+    <span class="badge-pill">🟢 Grab</span>
+    <span class="badge-pill">🟢 Gojek</span>
+    <span class="badge-pill">🟠 Shopee / Shopee Food</span>
+    <span class="badge-pill">⏰ Buka 24 Jam</span>
+  </div>
+</div>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Menu Andalan</p>
+      <h2>Mie, Kwetiau, Bihun &amp; Nasi Tim Ayam</h2>
+      <p>Tiap varian tersedia polos, pangsit, bakso, atau komplit. Tap "Pesan" untuk order langsung via WhatsApp.</p>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Mie Ayam Bangka</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Mie ayam bangka polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Mie ayam bangka polos" data-price="12rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie ayam bangka pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie ayam bangka pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie ayam bangka bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie ayam bangka bakso" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie ayam bangka komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie ayam bangka komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Mie Lebar Ayam Bangka</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar ayam bangka polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Mie lebar ayam bangka polos" data-price="12rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar ayam bangka pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie lebar ayam bangka pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar ayam bangka bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie lebar ayam bangka bakso" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar ayam bangka komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie lebar ayam bangka komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Kwetiau Ayam Bangka</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau ayam bangka polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Kwetiau ayam bangka polos" data-price="12rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau ayam bangka pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Kwetiau ayam bangka pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau ayam bangka bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Kwetiau ayam bangka bakso" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau ayam bangka komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Kwetiau ayam bangka komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Bihun Ayam Bangka</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Bihun ayam bangka polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Bihun ayam bangka polos" data-price="12rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun ayam bangka pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bihun ayam bangka pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun ayam bangka bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bihun ayam bangka bakso" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun ayam bangka komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Bihun ayam bangka komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Mie Chili Oil</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Mie chili oil polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Mie chili oil polos" data-price="12rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie chili oil pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie chili oil pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie chili oil bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie chili oil bakso" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie chili oil komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie chili oil komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Nasi Tim Ayam</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Nasi tim ayam polos" data-price="12rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Nasi tim ayam pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Nasi tim ayam bakso" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Nasi tim ayam komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam krupuk pangsit</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Nasi tim ayam krupuk pangsit" data-price="12rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Bakso Pangsit</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Bakso kuah</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bakso kuah" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Pangsit kuah</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Pangsit kuah" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bakso pangsit kuah</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bakso pangsit kuah" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Pangsit goreng spesial</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Pangsit goreng spesial" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bakso oseng pedas manis</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bakso oseng pedas manis" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Pangsit chili oil</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Pangsit chili oil" data-price="15rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Krupuk Pangsit</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Krupuk pangsit</div><div class="price">Rp 1rb</div></div><a class="order-btn" data-item="Krupuk pangsit" data-price="1rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Krupuk pangsit jumbo</div><div class="price">Rp 2,5rb</div></div><a class="order-btn" data-item="Krupuk pangsit jumbo" data-price="2,5rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="lauk" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Buka 24 Jam</p>
+      <h2>Aneka Lauk</h2>
+      <p>Cocok buat lauk dadakan atau nemenin mie/nasi goreng. Harga sudah termasuk pilihan pakai nasi.</p>
+    </div>
+    <div class="menu-cat">
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div><div class="name">Ayam goreng</div><div class="note">+ nasi Rp 15rb</div></div><div class="price">Rp 10rb</div></div><a class="order-btn" data-item="Ayam goreng" data-price="10rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div><div class="name">Ayam geprek</div><div class="note">+ nasi Rp 15rb</div></div><div class="price">Rp 10rb</div></div><a class="order-btn" data-item="Ayam geprek" data-price="10rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div><div class="name">Ayam penyet sambal ijo</div><div class="note">+ nasi Rp 15rb</div></div><div class="price">Rp 10rb</div></div><a class="order-btn" data-item="Ayam penyet sambal ijo" data-price="10rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div><div class="name">Lele goreng</div><div class="note">+ nasi Rp 13rb</div></div><div class="price">Rp 8rb</div></div><a class="order-btn" data-item="Lele goreng" data-price="8rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div><div class="name">2 ati ampela</div><div class="note">+ nasi Rp 13rb</div></div><div class="price">Rp 8rb</div></div><a class="order-btn" data-item="2 ati ampela" data-price="8rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div><div class="name">2 telur geprek + nasi</div></div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="2 telur geprek + nasi" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div><div class="name">4 kepala ayam goreng</div></div><div class="price">Rp 10rb</div></div><a class="order-btn" data-item="4 kepala ayam goreng" data-price="10rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div><div class="name">Tempe + tahu goreng + nasi</div></div><div class="price">Rp 11rb</div></div><a class="order-btn" data-item="Tempe + tahu goreng + nasi" data-price="11rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="goreng">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Serba Goreng</p>
+      <h2>Nasi, Mie, Mie Lebar, Kwetiau &amp; Bihun Goreng</h2>
+      <p>Setiap varian tersedia biasa atau spesial. Pilih topping: ayam, sosis, bakso, udang, atau sapi.</p>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Nasi Goreng</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Nasi goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Nasi goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Nasi goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Nasi goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Nasi goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Nasi goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Nasi goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Nasi goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Nasi goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Nasi goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Nasi goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Mie Goreng</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Mie goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Mie goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Mie goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Mie goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Mie Lebar Goreng</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie lebar goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie lebar goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Mie lebar goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie lebar goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Mie lebar goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie lebar goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie lebar goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Mie lebar goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie lebar goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Mie lebar goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Kwetiau Goreng</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Kwetiau goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Kwetiau goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Kwetiau goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Kwetiau goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Kwetiau goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Kwetiau goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Kwetiau goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Kwetiau goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Kwetiau goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Kwetiau goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3>Bihun Goreng</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bihun goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Bihun goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Bihun goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Bihun goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Bihun goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Bihun goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Bihun goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Bihun goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Bihun goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card"><div class="top"><div class="name">Bihun goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Bihun goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section gallery" id="galeri">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Rasa Mantap</p>
+      <h2>Sekilas Menu Favorit</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <div class="gallery-img" style="background:linear-gradient(160deg,#ffb703,#c81e1e);">🍜</div>
+        <p>Mie ayam bangka komplit, gurih &amp; nagih</p>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img" style="background:linear-gradient(160deg,#f5b400,#a30f0f);">🍚</div>
+        <p>Nasi ati ampela, sambal dan lalapan segar</p>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img" style="background:linear-gradient(160deg,#ffdd8a,#f5960b);">🍤</div>
+        <p>Nasi/mie goreng spesial isi udang</p>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img" style="background:linear-gradient(160deg,#c81e1e,#6e0a0a);">🍗</div>
+        <p>Ayam geprek &amp; penyet sambal ijo pedas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pesan" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Gampang &amp; Cepat</p>
+      <h2>Cara Pesan</h2>
+    </div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="num">1</div>
+        <h4>Pilih Menu</h4>
+        <p>Lihat menu di atas, boleh campur beberapa varian.</p>
+      </div>
+      <div class="step-card">
+        <div class="num">2</div>
+        <h4>Chat via WhatsApp</h4>
+        <p>Kirim pesanan, alamat, dan jumlah porsi (min. 2 porsi).</p>
+      </div>
+      <div class="step-card">
+        <div class="num">3</div>
+        <h4>Atau via Aplikasi</h4>
+        <p>Bisa juga pesan lewat Grab, Gojek, atau Shopee Food.</p>
+      </div>
+      <div class="step-card">
+        <div class="num">4</div>
+        <h4>Diantar Sampai Rumah</h4>
+        <p>Buka 24 jam, siap antar sampai depan rumah.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;">
+      <div class="note-box">
+        <div class="ico">📌</div>
+        <h4>Minimal Order 2 Porsi</h4>
+        <p>Berlaku untuk layanan pesan-antar. Rasa mantap, porsi pas — maturnuwun, ditunggu pesanannya!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="kontak">
+  <div class="brand"><span class="mark" style="background:radial-gradient(circle at 30% 30%,var(--gold),var(--gold-2) 75%);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🍜</span> MIE AYAM BANGKA AYUNG</div>
+  <p>Halal Indonesia, buka 24 jam, siap antar sampai depan rumah. Minimal order 2 porsi. Tersedia via WhatsApp, Grab, Gojek, dan Shopee.</p>
+  <div class="fnav">
+    <a href="#menu">Menu</a>
+    <a href="#lauk">Lauk</a>
+    <a href="#goreng">Goreng</a>
+    <a id="wa-footer" href="#" target="_blank" rel="noopener">Chat WhatsApp</a>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a id="wa-sticky" href="#" target="_blank" rel="noopener">💬 Pesan via WhatsApp</a>
+</div>
+
+<script>
+  const WA_NUMBER = "6285810808015";
+  const defaultMsg = "Halo Mie Ayam Bangka Ayung, saya mau pesan:\n- \n\nJumlah porsi (min. 2): \nAlamat antar: ";
+
+  function waLink(msg){
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+  }
+
+  document.getElementById("wa-top").href = waLink(defaultMsg);
+  document.getElementById("wa-hero").href = waLink(defaultMsg);
+  document.getElementById("wa-footer").href = waLink(defaultMsg);
+  document.getElementById("wa-sticky").href = waLink(defaultMsg);
+
+  document.querySelectorAll(".order-btn").forEach(function(btn){
+    const item = btn.getAttribute("data-item");
+    const price = btn.getAttribute("data-price");
+    const msg = "Halo Mie Ayam Bangka Ayung, saya mau pesan:\n- " + item + " (Rp " + price + ")\n\nJumlah porsi (min. 2): \nAlamat antar: ";
+    btn.href = waLink(msg);
+  });
+</script>
+
+</body>
+</html>
