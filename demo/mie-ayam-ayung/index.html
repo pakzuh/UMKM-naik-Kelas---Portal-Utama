@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mie Ayam Bangka Ayung — Buka 24 Jam, Siap Antar</title>
-<meta name="description" content="Mie Ayam Bangka Ayung — mie ayam, kwetiau, bihun, nasi tim, aneka lauk & nasi goreng. Halal, buka 24 jam, siap antar sampai depan rumah. Order via WhatsApp.">
+<title>Mie Ayam Bangka Ayung — Cabang Jl. Bandara Timika Malang</title>
+<meta name="description" content="Mie Ayam Bangka Ayung Jalan Bandara Timika Malang. Mie Ayam Komplit, Kwetiau, Bihun, Nasi Tim, & Nasi Goreng. Pesan instan via Keranjang & WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -51,6 +51,16 @@
   }
   .nav-links{display:none;gap:20px;font-size:.88rem;font-weight:500;}
   .nav-links a:hover{color:var(--gold);}
+  .top-actions{display:flex;align-items:center;gap:10px;}
+  
+  .btn-cart-nav{
+    background:var(--gold);
+    color:var(--red-dark);padding:8px 16px;border-radius:30px;font-weight:800;font-size:.85rem;
+    display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:none;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);transition:all 0.2s ease;
+  }
+  .btn-cart-nav:hover{background:var(--gold-2);}
+
   .btn-wa{
     background:linear-gradient(120deg,#25D366,var(--green));
     color:#fff;padding:9px 16px;border-radius:30px;font-weight:700;font-size:.82rem;
@@ -81,7 +91,7 @@
     line-height:1.08;
   }
   .hero p.sub{
-    max-width:520px;margin:16px auto 0;font-size:.95rem;font-weight:500;opacity:.95;
+    max-width:560px;margin:16px auto 0;font-size:.95rem;font-weight:500;opacity:.95;
   }
   .hero-cta{
     margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
@@ -89,7 +99,7 @@
   .btn-primary{
     background:var(--red-dark);color:var(--gold);padding:14px 26px;border-radius:40px;
     font-weight:700;font-size:.95rem;box-shadow:var(--shadow);
-    display:inline-flex;align-items:center;gap:8px;
+    display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;
   }
   .btn-outline{
     border:2px solid #fff;color:#fff;padding:12px 24px;border-radius:40px;
@@ -104,7 +114,7 @@
   .info-strip .item h4{color:var(--gold);font-size:.85rem;font-weight:700;margin-bottom:3px;}
   .info-strip .item p{font-size:.78rem;opacity:.85;}
 
-  /* Badges row (halal / platforms) */
+  /* Badges row */
   .badges{background:#fff;padding:16px 20px;border-bottom:1px solid #f1e0b8;}
   .badges .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;}
   .badge-pill{
@@ -129,67 +139,32 @@
     padding:6px 18px;border-radius:30px;font-size:1rem;font-weight:700;
     margin-bottom:16px;font-family:'Poppins',sans-serif;
   }
-  .menu-cat .cat-note{font-size:.78rem;color:var(--red-2);opacity:.8;margin:-10px 0 14px 4px;}
   .menu-grid{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;
   }
   .menu-card{
-    background:var(--card);border-radius:14px;padding:14px 16px;
+    background:var(--card);border-radius:16px;padding:16px;
     box-shadow:var(--shadow);border:1px solid #f3e2b8;
-    display:flex;flex-direction:column;gap:8px;
+    display:flex;flex-direction:column;justify-content:space-between;gap:12px;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .menu-card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
-  .menu-card .name{font-weight:600;font-size:.93rem;color:var(--red-dark);}
-  .menu-card .note{font-size:.76rem;color:var(--red-2);opacity:.8;}
+  .menu-card:hover{
+    transform:translateY(-4px);box-shadow:0 12px 32px rgba(110,10,10,0.22);
+  }
+  .menu-card .name{font-weight:700;font-size:1rem;color:var(--red-dark);line-height:1.25;}
+  .menu-card .desc{font-size:.78rem;color:var(--ink);opacity:.75;}
+  .menu-card .bottom{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
   .menu-card .price{
-    background:#fff3d6;color:var(--red-2);font-weight:800;font-size:.85rem;
-    padding:4px 10px;border-radius:20px;white-space:nowrap;
+    background:#fff3d6;color:var(--red-2);font-weight:800;font-size:.92rem;
+    padding:5px 12px;border-radius:20px;white-space:nowrap;
   }
-  .menu-card .order-btn{
-    align-self:flex-start;font-size:.75rem;font-weight:600;color:var(--green);
-    display:inline-flex;align-items:center;gap:5px;margin-top:2px;
+  .btn-add-cart{
+    background:linear-gradient(120deg,var(--red-1),var(--red-dark));
+    color:var(--gold);font-size:.8rem;font-weight:700;padding:8px 14px;border-radius:20px;
+    border:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;
+    transition:transform 0.15s ease;
   }
-  .menu-card .order-btn:hover{text-decoration:underline;}
-
-  /* Gallery */
-  .gallery{background:#ffedbb;}
-  .gallery-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;
-  }
-  .gallery-card{
-    border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
-    background:var(--card);text-align:center;
-  }
-  .gallery-img{
-    height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;
-  }
-  .gallery-card p{padding:12px 14px 16px;font-size:.83rem;font-weight:600;color:var(--red-dark);}
-
-  /* Order steps */
-  .steps{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;
-  }
-  .step-card{
-    background:var(--card);border-radius:14px;padding:24px 20px;text-align:center;
-    box-shadow:var(--shadow);
-  }
-  .step-card .num{
-    width:36px;height:36px;border-radius:50%;background:var(--red-1);color:#fff;
-    display:flex;align-items:center;justify-content:center;font-weight:800;
-    margin:0 auto 12px;
-  }
-  .step-card h4{font-size:.95rem;margin-bottom:6px;color:var(--red-dark);}
-  .step-card p{font-size:.82rem;color:var(--ink);opacity:.75;}
-
-  /* Notes box */
-  .note-box{
-    background:linear-gradient(135deg,var(--gold),var(--gold-2));
-    color:var(--red-dark);border-radius:18px;padding:24px 26px;max-width:520px;margin:0 auto;
-    box-shadow:var(--shadow);text-align:center;
-  }
-  .note-box .ico{font-size:2rem;margin-bottom:8px;}
-  .note-box h4{font-size:1.05rem;font-weight:800;margin-bottom:4px;}
-  .note-box p{font-size:.88rem;opacity:.9;}
+  .btn-add-cart:active{transform:scale(0.94);}
 
   /* Footer */
   footer{
@@ -200,18 +175,78 @@
   footer .fnav{margin-top:16px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:.8rem;}
   footer .fnav a:hover{color:var(--gold);}
 
+  /* Cart Drawer Sheet & Overlay */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(3px);
+    z-index: 100; opacity: 0; visibility: hidden; transition: all .3s ease;
+  }
+  .overlay.show { opacity: 1; visibility: visible; }
+  
+  .cart-sheet {
+    position: fixed; top: 0; right: -420px; width: 100%; max-width: 400px; height: 100%;
+    background: #fff; z-index: 101; box-shadow: -4px 0 24px rgba(0,0,0,0.25);
+    display: flex; flex-direction: column; transition: right .3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cart-sheet.open { right: 0; }
+  
+  .cart-head {
+    background: linear-gradient(135deg, var(--red-dark), var(--red-2)); color: #fff;
+    padding: 18px 20px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .cart-head h3 { margin: 0; font-size: 1.15rem; color: var(--gold); }
+  .cart-head .close-btn { background: none; border: none; color: #fff; font-size: 1.6rem; cursor: pointer; }
+  
+  .cart-body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+  
+  .cart-empty { text-align: center; color: var(--ink); opacity: 0.6; padding: 40px 10px; font-size: 0.9rem; }
+  
+  .cart-item { display: flex; align-items: center; justify-content: space-between; background: var(--cream); padding: 12px 14px; border-radius: 14px; border: 1px solid #f1e0b8; }
+  .cart-item-info { flex: 1; margin-right: 10px; }
+  .cart-item-name { font-weight: 700; font-size: 0.88rem; color: var(--red-dark); line-height: 1.2; }
+  .cart-item-price { font-size: 0.8rem; color: var(--red-1); font-weight: 600; margin-top: 2px; }
+  
+  .cart-qty-ctrl { display: flex; align-items: center; gap: 8px; }
+  .qty-btn { width: 28px; height: 28px; border-radius: 50%; border: none; background: var(--gold); color: var(--red-dark); font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+  .qty-btn:hover { background: var(--gold-2); }
+  .qty-val { font-weight: 800; font-size: 0.9rem; min-width: 20px; text-align: center; }
+  
+  .cart-foot { padding: 20px; border-top: 2px solid #f1e0b8; background: #fff; }
+  .cart-total { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.15rem; color: var(--red-dark); margin-bottom: 14px; }
+  
+  .btn-checkout-wa {
+    width: 100%; padding: 14px; background: linear-gradient(120deg,#25D366,var(--green)); color: #fff;
+    font-weight: 800; font-size: 0.95rem; border-radius: 30px; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 16px rgba(37,211,102,.4);
+    transition: transform 0.15s ease;
+  }
+  .btn-checkout-wa:active{ transform: scale(0.97); }
+
+  .cart-badge-count {
+    background: var(--gold); color: var(--red-dark); font-size: 0.75rem; font-weight: 800;
+    padding: 2px 8px; border-radius: 999px; margin-left: 4px;
+  }
+
+  .toast {
+    position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%);
+    background: var(--red-dark); color: var(--gold); padding: 10px 24px; border-radius: 30px;
+    font-size: 0.85rem; font-weight: 700; z-index: 120; box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    opacity: 0; transition: opacity 0.3s ease; pointer-events: none; border: 1px solid var(--gold);
+  }
+  .toast.show { opacity: 1; }
+
   /* Sticky mobile CTA */
   .sticky-cta{
     position:fixed;bottom:0;left:0;right:0;z-index:60;
     background:#fff;box-shadow:0 -6px 20px rgba(0,0,0,.12);
-    padding:12px 16px;display:flex;justify-content:center;
+    padding:10px 16px;display:flex;justify-content:center;gap:10px;
   }
-  .sticky-cta a{
-    background:linear-gradient(120deg,#25D366,var(--green));color:#fff;font-weight:700;
-    padding:12px 30px;border-radius:40px;font-size:.9rem;display:inline-flex;align-items:center;gap:8px;
-    box-shadow:0 6px 16px rgba(37,211,102,.4);
+  .sticky-cta button{
+    flex:1;max-width:280px;background:linear-gradient(120deg,var(--red-1),var(--red-dark));color:var(--gold);
+    font-weight:800;padding:12px 20px;border-radius:40px;font-size:.9rem;display:inline-flex;
+    align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;
+    box-shadow:0 6px 16px rgba(110,10,10,.3);
   }
-  @media(min-width:900px){ .sticky-cta{display:none;} }
 </style>
 </head>
 <body>
@@ -220,24 +255,25 @@
   <div class="wrap">
     <div class="brand"><span class="mark">🍜</span> MIE AYAM BANGKA AYUNG</div>
     <nav class="nav-links">
-      <a href="#menu">Menu Mie</a>
-      <a href="#lauk">Lauk</a>
-      <a href="#goreng">Nasi/Mie Goreng</a>
-      <a href="#pesan">Cara Pesan</a>
-      <a href="#kontak">Kontak</a>
+      <a href="#menu-utama">Mie &amp; Kwetiau</a>
+      <a href="#goreng">Serba Goreng</a>
+      <a href="#sup">Sup &amp; Lauk</a>
+      <a href="#minuman">Minuman</a>
     </nav>
-    <a class="btn-wa" id="wa-top" href="#" target="_blank" rel="noopener">💬 Pesan WA</a>
+    <div class="top-actions">
+      <button class="btn-cart-nav" onclick="openCart()">🛒 Keranjang <span class="cart-badge-count" id="navCartCount">0</span></button>
+    </div>
   </div>
 </div>
 
 <section class="hero">
   <div class="wrap">
-    <p class="tag">Halal • Buka 24 Jam • Siap Antar</p>
+    <p class="tag">📍 Cabang Jl. Bandara Timika Malang • Halal • Order WA</p>
     <h1>MIE AYAM<br>BANGKA AYUNG</h1>
-    <p class="sub">Rasa mantap, porsi pas, bikin nagih! Mie ayam, kwetiau, bihun, nasi tim, aneka lauk sampai nasi &amp; mie goreng — siap antar sampai depan rumah, minimal order 2 porsi.</p>
+    <p class="sub">Nikmati racikan Mie Ayam Bangka asli di Malang! Porsi pas, rasa mantap gurih nagih, komplet dengan bakso &amp; pangsit kuah. Tambah menu ke keranjang dan checkout instan ke WhatsApp.</p>
     <div class="hero-cta">
-      <a class="btn-primary" id="wa-hero" href="#" target="_blank" rel="noopener">💬 Pesan Sekarang</a>
-      <a class="btn-outline" href="#menu">Lihat Menu</a>
+      <button class="btn-primary" onclick="openCart()">🛒 Lihat Keranjang Pesanan</button>
+      <a class="btn-outline" href="#menu-utama">Lihat Daftar Menu</a>
     </div>
   </div>
 </section>
@@ -246,340 +282,412 @@
   <div class="wrap">
     <div class="item">
       <div class="ico">🛵</div>
-      <h4>Siap Antar</h4>
-      <p>Sampai depan rumah, via WA / Grab / Gojek / Shopee.</p>
+      <h4>Pesan via WA / GoFood</h4>
+      <p>Bisa dikirim via kurir WA / GoFood terdekat.</p>
     </div>
     <div class="item">
-      <div class="ico">📌</div>
-      <h4>Minimal Order 2 Porsi</h4>
-      <p>Berlaku untuk pesan antar.</p>
+      <div class="ico">🍜</div>
+      <h4>Bumbu Khas Bangka</h4>
+      <p>Mie kenyal, topping ayam gurih &amp; kuah terpisah.</p>
     </div>
     <div class="item">
-      <div class="ico">⏰</div>
-      <h4>Buka 24 Jam</h4>
-      <p>Kapan pun lapar, tinggal chat.</p>
-    </div>
-    <div class="item">
-      <div class="ico">✅</div>
-      <h4>Halal Indonesia</h4>
-      <p>Terjamin dan bikin tenang.</p>
+      <div class="ico">💯</div>
+      <h4>100% Halal &amp; Higienis</h4>
+      <p>Bahan segar berkualitas setiap hari.</p>
     </div>
   </div>
 </div>
 
-<div class="badges">
-  <div class="wrap">
-    <span class="badge-pill">✅ Halal Indonesia</span>
-    <span class="badge-pill">🟢 Grab</span>
-    <span class="badge-pill">🟢 Gojek</span>
-    <span class="badge-pill">🟠 Shopee / Shopee Food</span>
-    <span class="badge-pill">⏰ Buka 24 Jam</span>
-  </div>
-</div>
-
-<section class="section" id="menu">
+<!-- MENU UTAMA -->
+<section class="section" id="menu-utama">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Menu Andalan</p>
-      <h2>Mie, Kwetiau, Bihun &amp; Nasi Tim Ayam</h2>
-      <p>Tiap varian tersedia polos, pangsit, bakso, atau komplit. Tap "Pesan" untuk order langsung via WhatsApp.</p>
+      <p class="eyebrow">Menu Utama Khas Bangka</p>
+      <h2>Daftar Menu &amp; Harga (GoFood Ready)</h2>
+      <p>Klik <strong>+ Tambah</strong> pada menu favoritmu untuk dimasukkan ke keranjang pesanan.</p>
     </div>
 
+    <!-- Kategori 1: Mie & Kwetiau -->
     <div class="menu-cat">
-      <h3>Mie Ayam Bangka</h3>
+      <h3>🍜 Mie Ayam &amp; Kwetiau Bangka (Kuah Pisah)</h3>
       <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Mie ayam bangka polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Mie ayam bangka polos" data-price="12rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie ayam bangka pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie ayam bangka pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie ayam bangka bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie ayam bangka bakso" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie ayam bangka komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie ayam bangka komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card">
+          <div>
+            <div class="name">Mie Ayam Bangka Komplit</div>
+            <div class="desc">Mie kenyal, potongan ayam gurih, 2 bakso sapi, pangsit kuah, dan sayur segar.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 25.000</div>
+            <button class="btn-add-cart" onclick="addToCart('m1', 'Mie Ayam Bangka Komplit', 25000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Mie Ayam Bangka Bakso</div>
+            <div class="desc">Mie khas Bangka + topping ayam gurih &amp; 2 bakso sapi.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 22.000</div>
+            <button class="btn-add-cart" onclick="addToCart('m2', 'Mie Ayam Bangka Bakso', 22000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Mie Ayam Bangka Pangsit</div>
+            <div class="desc">Mie khas Bangka + topping ayam &amp; pangsit kuah lembut.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 22.000</div>
+            <button class="btn-add-cart" onclick="addToCart('m3', 'Mie Ayam Bangka Pangsit', 22000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Mie Ayam Bangka Biasa</div>
+            <div class="desc">Mie ayam Bangka versi ekonomis rasa tetap mantap.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 18.000</div>
+            <button class="btn-add-cart" onclick="addToCart('m4', 'Mie Ayam Bangka Biasa', 18000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Kwetiau Ayam Bangka Komplit</div>
+            <div class="desc">Kwetiau lembut + ayam, 2 bakso sapi, &amp; pangsit kuah.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 25.000</div>
+            <button class="btn-add-cart" onclick="addToCart('m5', 'Kwetiau Ayam Bangka Komplit', 25000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Bihun Ayam Bangka Komplit</div>
+            <div class="desc">Bihun halus + ayam gurih, bakso sapi, &amp; pangsit kuah.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 25.000</div>
+            <button class="btn-add-cart" onclick="addToCart('m6', 'Bihun Ayam Bangka Komplit', 25000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Nasi Tim Ayam Bangka</div>
+            <div class="desc">Nasi tim kukus berkaldu ayam hangat &amp; potongan ayam lezat.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 23.000</div>
+            <button class="btn-add-cart" onclick="addToCart('m7', 'Nasi Tim Ayam Bangka', 23000)">+ Tambah</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="menu-cat">
-      <h3>Mie Lebar Ayam Bangka</h3>
+    <!-- Kategori 2: Serba Goreng -->
+    <div class="menu-cat" id="goreng">
+      <h3>🔥 Serba Goreng (Nasi, Mie &amp; Kwetiau Goreng)</h3>
       <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar ayam bangka polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Mie lebar ayam bangka polos" data-price="12rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar ayam bangka pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie lebar ayam bangka pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar ayam bangka bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie lebar ayam bangka bakso" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar ayam bangka komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie lebar ayam bangka komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card">
+          <div>
+            <div class="name">Kwetiau Goreng Ayam</div>
+            <div class="desc">Kwetiau goreng bumbu gurih, potongan ayam, telur, &amp; bakso.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 25.000</div>
+            <button class="btn-add-cart" onclick="addToCart('g1', 'Kwetiau Goreng Ayam', 25000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Mie Goreng Bangka</div>
+            <div class="desc">Mie goreng khas dengan kecap manis gurih + telur &amp; bakso.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 25.000</div>
+            <button class="btn-add-cart" onclick="addToCart('g2', 'Mie Goreng Bangka', 25000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Nasi Goreng Ayam Bangka</div>
+            <div class="desc">Nasi goreng bumbu rempah pilihan, potongan ayam &amp; telur.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 24.000</div>
+            <button class="btn-add-cart" onclick="addToCart('g3', 'Nasi Goreng Ayam Bangka', 24000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Nasi Goreng Spesial Udang</div>
+            <div class="desc">Nasi goreng istimewa dengan topping udang segar + telur.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 28.000</div>
+            <button class="btn-add-cart" onclick="addToCart('g4', 'Nasi Goreng Spesial Udang', 28000)">+ Tambah</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="menu-cat">
-      <h3>Kwetiau Ayam Bangka</h3>
+    <!-- Kategori 3: Sup, Bakso & Pangsit -->
+    <div class="menu-cat" id="sup">
+      <h3>🍲 Sup, Bakso &amp; Pangsit</h3>
       <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau ayam bangka polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Kwetiau ayam bangka polos" data-price="12rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau ayam bangka pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Kwetiau ayam bangka pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau ayam bangka bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Kwetiau ayam bangka bakso" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau ayam bangka komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Kwetiau ayam bangka komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card">
+          <div>
+            <div class="name">Bakso + Pangsit Kuah (1 Porsi)</div>
+            <div class="desc">Kombinasi bakso sapi kenyal &amp; pangsit kuah dalam kaldu gurih.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 23.000</div>
+            <button class="btn-add-cart" onclick="addToCart('s1', 'Bakso + Pangsit Kuah (1 Porsi)', 23000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Pangsit Kuah (1 Porsi)</div>
+            <div class="desc">Pangsit isi olahan ayam berkuah kaldu hangat (5 pcs).</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 18.000</div>
+            <button class="btn-add-cart" onclick="addToCart('s2', 'Pangsit Kuah (1 Porsi)', 18000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Bakso Kuah (1 Porsi)</div>
+            <div class="desc">Bakso sapi super gurih dipadu dengan kuah kaldu (5 pcs).</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 18.000</div>
+            <button class="btn-add-cart" onclick="addToCart('s3', 'Bakso Kuah (1 Porsi)', 18000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Pangsit Goreng Renyah (3 pcs)</div>
+            <div class="desc">Pangsit goreng kriuk cocok untuk cemilan pendamping.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 10.000</div>
+            <button class="btn-add-cart" onclick="addToCart('s4', 'Pangsit Goreng Renyah (3 pcs)', 10000)">+ Tambah</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="menu-cat">
-      <h3>Bihun Ayam Bangka</h3>
+    <!-- Kategori 4: Minuman -->
+    <div class="menu-cat" id="minuman">
+      <h3>🥤 Minuman Segar</h3>
       <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Bihun ayam bangka polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Bihun ayam bangka polos" data-price="12rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun ayam bangka pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bihun ayam bangka pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun ayam bangka bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bihun ayam bangka bakso" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun ayam bangka komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Bihun ayam bangka komplit" data-price="18rb" href="#">💬 Pesan</a></div>
+        <div class="menu-card">
+          <div>
+            <div class="name">Es Teh Manis</div>
+            <div class="desc">Teh manis dingin menyegarkan.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 5.000</div>
+            <button class="btn-add-cart" onclick="addToCart('d1', 'Es Teh Manis', 5000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Es Jeruk Segar</div>
+            <div class="desc">Perasan jeruk asli dingin.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 7.000</div>
+            <button class="btn-add-cart" onclick="addToCart('d2', 'Es Jeruk Segar', 7000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Teh Botol Sosro</div>
+            <div class="desc">Kemasan botol dingin.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 7.000</div>
+            <button class="btn-add-cart" onclick="addToCart('d3', 'Teh Botol Sosro', 7000)">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div>
+            <div class="name">Air Mineral Botol</div>
+            <div class="desc">Air mineral 600ml.</div>
+          </div>
+          <div class="bottom">
+            <div class="price">Rp 5.000</div>
+            <button class="btn-add-cart" onclick="addToCart('d4', 'Air Mineral Botol', 5000)">+ Tambah</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="menu-cat">
-      <h3>Mie Chili Oil</h3>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Mie chili oil polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Mie chili oil polos" data-price="12rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie chili oil pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie chili oil pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie chili oil bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie chili oil bakso" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie chili oil komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie chili oil komplit" data-price="18rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
-
-    <div class="menu-cat">
-      <h3>Nasi Tim Ayam</h3>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam polos</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Nasi tim ayam polos" data-price="12rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam pangsit</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Nasi tim ayam pangsit" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam bakso</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Nasi tim ayam bakso" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam komplit</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Nasi tim ayam komplit" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi tim ayam krupuk pangsit</div><div class="price">Rp 12rb</div></div><a class="order-btn" data-item="Nasi tim ayam krupuk pangsit" data-price="12rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
-
-    <div class="menu-cat">
-      <h3>Bakso Pangsit</h3>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Bakso kuah</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bakso kuah" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Pangsit kuah</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Pangsit kuah" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bakso pangsit kuah</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bakso pangsit kuah" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Pangsit goreng spesial</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Pangsit goreng spesial" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bakso oseng pedas manis</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bakso oseng pedas manis" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Pangsit chili oil</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Pangsit chili oil" data-price="15rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
-
-    <div class="menu-cat">
-      <h3>Krupuk Pangsit</h3>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Krupuk pangsit</div><div class="price">Rp 1rb</div></div><a class="order-btn" data-item="Krupuk pangsit" data-price="1rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Krupuk pangsit jumbo</div><div class="price">Rp 2,5rb</div></div><a class="order-btn" data-item="Krupuk pangsit jumbo" data-price="2,5rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
   </div>
 </section>
 
-<section class="section" id="lauk" style="background:#fff;">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Buka 24 Jam</p>
-      <h2>Aneka Lauk</h2>
-      <p>Cocok buat lauk dadakan atau nemenin mie/nasi goreng. Harga sudah termasuk pilihan pakai nasi.</p>
-    </div>
-    <div class="menu-cat">
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div><div class="name">Ayam goreng</div><div class="note">+ nasi Rp 15rb</div></div><div class="price">Rp 10rb</div></div><a class="order-btn" data-item="Ayam goreng" data-price="10rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div><div class="name">Ayam geprek</div><div class="note">+ nasi Rp 15rb</div></div><div class="price">Rp 10rb</div></div><a class="order-btn" data-item="Ayam geprek" data-price="10rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div><div class="name">Ayam penyet sambal ijo</div><div class="note">+ nasi Rp 15rb</div></div><div class="price">Rp 10rb</div></div><a class="order-btn" data-item="Ayam penyet sambal ijo" data-price="10rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div><div class="name">Lele goreng</div><div class="note">+ nasi Rp 13rb</div></div><div class="price">Rp 8rb</div></div><a class="order-btn" data-item="Lele goreng" data-price="8rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div><div class="name">2 ati ampela</div><div class="note">+ nasi Rp 13rb</div></div><div class="price">Rp 8rb</div></div><a class="order-btn" data-item="2 ati ampela" data-price="8rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div><div class="name">2 telur geprek + nasi</div></div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="2 telur geprek + nasi" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div><div class="name">4 kepala ayam goreng</div></div><div class="price">Rp 10rb</div></div><a class="order-btn" data-item="4 kepala ayam goreng" data-price="10rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div><div class="name">Tempe + tahu goreng + nasi</div></div><div class="price">Rp 11rb</div></div><a class="order-btn" data-item="Tempe + tahu goreng + nasi" data-price="11rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="goreng">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Serba Goreng</p>
-      <h2>Nasi, Mie, Mie Lebar, Kwetiau &amp; Bihun Goreng</h2>
-      <p>Setiap varian tersedia biasa atau spesial. Pilih topping: ayam, sosis, bakso, udang, atau sapi.</p>
-    </div>
-
-    <div class="menu-cat">
-      <h3>Nasi Goreng</h3>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Nasi goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Nasi goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Nasi goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Nasi goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Nasi goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Nasi goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Nasi goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Nasi goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Nasi goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Nasi goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Nasi goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
-
-    <div class="menu-cat">
-      <h3>Mie Goreng</h3>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Mie goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Mie goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Mie goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Mie goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
-
-    <div class="menu-cat">
-      <h3>Mie Lebar Goreng</h3>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Mie lebar goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie lebar goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Mie lebar goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie lebar goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Mie lebar goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Mie lebar goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie lebar goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Mie lebar goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Mie lebar goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Mie lebar goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Mie lebar goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
-
-    <div class="menu-cat">
-      <h3>Kwetiau Goreng</h3>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Kwetiau goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Kwetiau goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Kwetiau goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Kwetiau goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Kwetiau goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Kwetiau goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Kwetiau goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Kwetiau goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Kwetiau goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Kwetiau goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Kwetiau goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
-
-    <div class="menu-cat">
-      <h3>Bihun Goreng</h3>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng ayam</div><div class="price">Rp 15rb</div></div><a class="order-btn" data-item="Bihun goreng ayam" data-price="15rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng ayam spesial</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Bihun goreng ayam spesial" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng sosis</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Bihun goreng sosis" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng sosis spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Bihun goreng sosis spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng bakso</div><div class="price">Rp 13rb</div></div><a class="order-btn" data-item="Bihun goreng bakso" data-price="13rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng bakso spesial</div><div class="price">Rp 18rb</div></div><a class="order-btn" data-item="Bihun goreng bakso spesial" data-price="18rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng udang</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Bihun goreng udang" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng udang spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Bihun goreng udang spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng sapi</div><div class="price">Rp 20rb</div></div><a class="order-btn" data-item="Bihun goreng sapi" data-price="20rb" href="#">💬 Pesan</a></div>
-        <div class="menu-card"><div class="top"><div class="name">Bihun goreng sapi spesial</div><div class="price">Rp 25rb</div></div><a class="order-btn" data-item="Bihun goreng sapi spesial" data-price="25rb" href="#">💬 Pesan</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section gallery" id="galeri">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Rasa Mantap</p>
-      <h2>Sekilas Menu Favorit</h2>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-card">
-        <div class="gallery-img" style="background:linear-gradient(160deg,#ffb703,#c81e1e);">🍜</div>
-        <p>Mie ayam bangka komplit, gurih &amp; nagih</p>
-      </div>
-      <div class="gallery-card">
-        <div class="gallery-img" style="background:linear-gradient(160deg,#f5b400,#a30f0f);">🍚</div>
-        <p>Nasi ati ampela, sambal dan lalapan segar</p>
-      </div>
-      <div class="gallery-card">
-        <div class="gallery-img" style="background:linear-gradient(160deg,#ffdd8a,#f5960b);">🍤</div>
-        <p>Nasi/mie goreng spesial isi udang</p>
-      </div>
-      <div class="gallery-card">
-        <div class="gallery-img" style="background:linear-gradient(160deg,#c81e1e,#6e0a0a);">🍗</div>
-        <p>Ayam geprek &amp; penyet sambal ijo pedas</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="pesan" style="background:#fff;">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Gampang &amp; Cepat</p>
-      <h2>Cara Pesan</h2>
-    </div>
-    <div class="steps">
-      <div class="step-card">
-        <div class="num">1</div>
-        <h4>Pilih Menu</h4>
-        <p>Lihat menu di atas, boleh campur beberapa varian.</p>
-      </div>
-      <div class="step-card">
-        <div class="num">2</div>
-        <h4>Chat via WhatsApp</h4>
-        <p>Kirim pesanan, alamat, dan jumlah porsi (min. 2 porsi).</p>
-      </div>
-      <div class="step-card">
-        <div class="num">3</div>
-        <h4>Atau via Aplikasi</h4>
-        <p>Bisa juga pesan lewat Grab, Gojek, atau Shopee Food.</p>
-      </div>
-      <div class="step-card">
-        <div class="num">4</div>
-        <h4>Diantar Sampai Rumah</h4>
-        <p>Buka 24 jam, siap antar sampai depan rumah.</p>
-      </div>
-    </div>
-
-    <div style="margin-top:40px;">
-      <div class="note-box">
-        <div class="ico">📌</div>
-        <h4>Minimal Order 2 Porsi</h4>
-        <p>Berlaku untuk layanan pesan-antar. Rasa mantap, porsi pas — maturnuwun, ditunggu pesanannya!</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer id="kontak">
-  <div class="brand"><span class="mark" style="background:radial-gradient(circle at 30% 30%,var(--gold),var(--gold-2) 75%);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🍜</span> MIE AYAM BANGKA AYUNG</div>
-  <p>Halal Indonesia, buka 24 jam, siap antar sampai depan rumah. Minimal order 2 porsi. Tersedia via WhatsApp, Grab, Gojek, dan Shopee.</p>
-  <div class="fnav">
-    <a href="#menu">Menu</a>
-    <a href="#lauk">Lauk</a>
-    <a href="#goreng">Goreng</a>
-    <a id="wa-footer" href="#" target="_blank" rel="noopener">Chat WhatsApp</a>
+  <div class="brand">
+    <span class="mark" style="background:radial-gradient(circle at 30% 30%,var(--gold),var(--gold-2) 75%);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🍜</span> 
+    MIE AYAM BANGKA AYUNG
   </div>
+  <p>Cabang Jl. Bandara Timika, Malang. Halal Indonesia, porsi mantap, siap antar via WhatsApp / GoFood.</p>
 </footer>
 
+<!-- STICKY MOBILE CTA -->
 <div class="sticky-cta">
-  <a id="wa-sticky" href="#" target="_blank" rel="noopener">💬 Pesan via WhatsApp</a>
+  <button onclick="openCart()">🛒 Keranjang Pesanan (<span id="stickyCartCount">0</span>)</button>
 </div>
 
+<!-- CART DRAWER SHEET & OVERLAY -->
+<div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<div class="cart-sheet" id="cartSheet">
+  <div class="cart-head">
+    <h3>🛒 Keranjang Pesanan</h3>
+    <button class="close-btn" onclick="closeCart()">&times;</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">Keranjang Anda masih kosong.<br>Pilih menu favoritmu di atas! 🍜</div>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none;">
+    <div class="cart-total">
+      <span>Total Pembelian:</span>
+      <span id="cartTotalPrice">Rp 0</span>
+    </div>
+    <button class="btn-checkout-wa" onclick="checkoutWA()">💬 Kirim Pesanan via WhatsApp ↗</button>
+  </div>
+</div>
+
+<div class="toast" id="toast">✔ Menu ditambahkan ke keranjang!</div>
+
+<!-- JAVASCRIPT KERANJANG -->
 <script>
   const WA_NUMBER = "6285810808015";
-  const defaultMsg = "Halo Mie Ayam Bangka Ayung, saya mau pesan:\n- \n\nJumlah porsi (min. 2): \nAlamat antar: ";
+  let cart = {};
 
-  function waLink(msg){
-    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+  function addToCart(id, name, price) {
+    if (cart[id]) {
+      cart[id].qty += 1;
+    } else {
+      cart[id] = { name, price, qty: 1 };
+    }
+    renderCart();
+    showToast(`✔ ${name} ditambahkan!`);
   }
 
-  document.getElementById("wa-top").href = waLink(defaultMsg);
-  document.getElementById("wa-hero").href = waLink(defaultMsg);
-  document.getElementById("wa-footer").href = waLink(defaultMsg);
-  document.getElementById("wa-sticky").href = waLink(defaultMsg);
+  function updateQty(id, delta) {
+    if (!cart[id]) return;
+    cart[id].qty += delta;
+    if (cart[id].qty <= 0) {
+      delete cart[id];
+    }
+    renderCart();
+  }
 
-  document.querySelectorAll(".order-btn").forEach(function(btn){
-    const item = btn.getAttribute("data-item");
-    const price = btn.getAttribute("data-price");
-    const msg = "Halo Mie Ayam Bangka Ayung, saya mau pesan:\n- " + item + " (Rp " + price + ")\n\nJumlah porsi (min. 2): \nAlamat antar: ";
-    btn.href = waLink(msg);
-  });
+  function renderCart() {
+    const cartBody = document.getElementById("cartBody");
+    const cartFoot = document.getElementById("cartFoot");
+    const navCartCount = document.getElementById("navCartCount");
+    const stickyCartCount = document.getElementById("stickyCartCount");
+
+    let totalQty = 0;
+    let totalPrice = 0;
+    let itemsHtml = "";
+
+    const keys = Object.keys(cart);
+    if (keys.length === 0) {
+      cartBody.innerHTML = '<div class="cart-empty">Keranjang Anda masih kosong.<br>Pilih menu favoritmu di atas! 🍜</div>';
+      cartFoot.style.display = "none";
+      navCartCount.innerText = "0";
+      stickyCartCount.innerText = "0";
+      return;
+    }
+
+    keys.forEach(id => {
+      const item = cart[id];
+      const itemSubtotal = item.price * item.qty;
+      totalQty += item.qty;
+      totalPrice += itemSubtotal;
+
+      itemsHtml += `
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">Rp ${itemSubtotal.toLocaleString('id-ID')} (${item.qty}x @ Rp ${item.price.toLocaleString('id-ID')})</div>
+          </div>
+          <div class="cart-qty-ctrl">
+            <button class="qty-btn" onclick="updateQty('${id}', -1)">-</button>
+            <span class="qty-val">${item.qty}</span>
+            <button class="qty-btn" onclick="updateQty('${id}', 1)">+</button>
+          </div>
+        </div>
+      `;
+    });
+
+    cartBody.innerHTML = itemsHtml;
+    cartFoot.style.display = "block";
+    document.getElementById("cartTotalPrice").innerText = "Rp " + totalPrice.toLocaleString('id-ID');
+    navCartCount.innerText = totalQty;
+    stickyCartCount.innerText = totalQty;
+  }
+
+  function openCart() {
+    document.getElementById("cartOverlay").classList.add("show");
+    document.getElementById("cartSheet").classList.add("open");
+  }
+
+  function closeCart() {
+    document.getElementById("cartOverlay").classList.remove("show");
+    document.getElementById("cartSheet").classList.remove("open");
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById("toast");
+    t.innerText = msg;
+    t.classList.add("show");
+    setTimeout(() => { t.classList.remove("show"); }, 2000);
+  }
+
+  function checkoutWA() {
+    const keys = Object.keys(cart);
+    if (keys.length === 0) return;
+
+    let text = "*PESANAN MIE AYAM BANGKA AYUNG (Jl. Bandara Timika Malang)*\n\n";
+    let totalPrice = 0;
+
+    keys.forEach((id, index) => {
+      const item = cart[id];
+      const subtotal = item.price * item.qty;
+      totalPrice += subtotal;
+      text += `${index + 1}. *${item.name}* x${item.qty} = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+    });
+
+    text += `\n----------------------------------\n`;
+    text += `*TOTAL PEMBELIAN:* Rp ${totalPrice.toLocaleString('id-ID')}\n\n`;
+    text += `*DETAIL PENGIRIMAN:*\nNama: \nAlamat Lengkap: \nCatatan Tambahan (Misal: pedas / kuah pisah): `;
+
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+  }
 </script>
 
 </body>
