@@ -1,0 +1,10 @@
+.git
+.git/**
+.gitignore
+node_modules
+*.md
+*.ps1
+*.txt
+*.gs
+**/Rawfoto
+**/*.tsv
