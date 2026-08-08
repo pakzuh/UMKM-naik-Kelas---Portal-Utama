@@ -2055,11 +2055,71 @@ footer {
   color: #ffffff;
 }
 
+.featured-samples-title, .dev-samples-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-top: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.featured-grid {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  margin-bottom: 40px;
+}
+
+.dev-grid {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.sample-card-featured {
+  border: 2px solid var(--primary-border);
+  box-shadow: var(--shadow-md);
+}
+
+.sample-card-featured .sample-card-head {
+  background: linear-gradient(135deg, #0F766E, #0D9488);
+}
+
+.badge-featured {
+  background: #FEF3C7;
+  color: #B45309;
+  border-color: #FCD34D;
+}
+
+.badge-dev {
+  background: rgba(255, 255, 255, 0.15);
+  color: #94A3B8;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.sample-card-dev {
+  opacity: 0.88;
+}
+
+.sample-card-dev:hover {
+  opacity: 1;
+}
+
+.btn-demo-dev {
+  background: var(--space-card);
+  color: #E2E8F0;
+}
+
+.btn-demo-dev:hover {
+  background: var(--space-dark);
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
-  .portfolio-grid {
+  .portfolio-grid, .featured-grid, .dev-grid {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 

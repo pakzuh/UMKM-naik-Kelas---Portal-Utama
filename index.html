@@ -284,22 +284,16 @@
         <p class="muted">Klik &amp; buka langsung contoh website buatan kami dari HP/Laptop Anda untuk mencoba fitur-fiturnya secara real-time.</p>
       </div>
 
-      <!-- FILTER KATEGORI -->
-      <div class="portfolio-filter">
-        <button class="filter-btn active" onclick="filterPortfolio('all', this)">Semua (9)</button>
-        <button class="filter-btn" onclick="filterPortfolio('kuliner', this)">☕ Kafe &amp; Resto</button>
-        <button class="filter-btn" onclick="filterPortfolio('kesehatan', this)">💊 Kesehatan &amp; Apotek</button>
-        <button class="filter-btn" onclick="filterPortfolio('laundry', this)">🧴 Sabun &amp; Laundry</button>
-        <button class="filter-btn" onclick="filterPortfolio('pasar', this)">🥦 Sayur &amp; Kelontong</button>
-        <button class="filter-btn" onclick="filterPortfolio('properti', this)">🏠 Properti &amp; Penginapan</button>
+      <!-- 4 SAMPEL UTAMA (FEATURED BARIS BESAR) -->
+      <div class="featured-samples-title">
+        <span>⭐ 4 Sampel Utama Siap Pakai (Prioritas Rekomendasi):</span>
       </div>
 
-      <!-- GRID KARTU SAMPEL -->
-      <div class="portfolio-grid" id="portfolioGrid">
+      <div class="portfolio-grid featured-grid">
         <!-- 1. Perpus.cafe -->
-        <div class="sample-card" data-category="kuliner">
+        <div class="sample-card sample-card-featured">
           <div class="sample-card-head">
-            <span class="sample-badge">⭐ Top Featured</span>
+            <span class="sample-badge badge-featured">⭐ Live Featured</span>
             <div class="sample-icon">📚☕</div>
             <h3 class="sample-title">Perpus.cafe</h3>
             <div class="sample-subtitle">Kafe, Resto &amp; Perpustakaan Digital</div>
@@ -317,31 +311,31 @@
           </div>
         </div>
 
-        <!-- 2. Template Cafe -->
-        <div class="sample-card" data-category="kuliner">
+        <!-- 2. Omah Etas Djawara -->
+        <div class="sample-card sample-card-featured">
           <div class="sample-card-head">
-            <span class="sample-badge">☕ Resto / Warkop</span>
-            <div class="sample-icon">🥐☕</div>
-            <h3 class="sample-title">Template Kafe &amp; Resto</h3>
-            <div class="sample-subtitle">Menu Digital &amp; Pemesanan Meja</div>
+            <span class="sample-badge badge-featured">⭐ Live Featured</span>
+            <div class="sample-icon">🏡🌴</div>
+            <h3 class="sample-title">Omah Etas Djawara</h3>
+            <div class="sample-subtitle">Villa, Homestay &amp; Penginapan</div>
           </div>
           <div class="sample-card-body">
-            <p class="sample-desc">Tampilan modern katalog makanan, minuman, &amp; cemilan. Pembeli bisa langsung checkout Take Away / Dine In ke WhatsApp.</p>
+            <p class="sample-desc">Showcase foto villa, fasilitas lengkap, tarif sewa per malam, &amp; pemesanan kamar langsung via WhatsApp tanpa komisi agen.</p>
             <div class="sample-tags">
-              <span class="sample-tag">Menu Foto</span>
-              <span class="sample-tag">Checkout WA</span>
-              <span class="sample-tag">Dine In / Antar</span>
+              <span class="sample-tag">Galeri Foto</span>
+              <span class="sample-tag">Tipe Kamar</span>
+              <span class="sample-tag">Booking WA</span>
             </div>
             <div class="sample-actions">
-              <a class="btn-demo-live" href="demo/template-cafe/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+              <a class="btn-demo-live" href="demo/omah-etas-djawara/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
             </div>
           </div>
         </div>
 
         <!-- 3. Website Apotek -->
-        <div class="sample-card" data-category="kesehatan">
+        <div class="sample-card sample-card-featured">
           <div class="sample-card-head">
-            <span class="sample-badge">💊 Apotek &amp; Obat</span>
+            <span class="sample-badge badge-featured">⭐ Live Featured</span>
             <div class="sample-icon">💊🏥</div>
             <h3 class="sample-title">Website Apotek Digital</h3>
             <div class="sample-subtitle">Katalog Obat &amp; Resep Dokter</div>
@@ -360,9 +354,9 @@
         </div>
 
         <!-- 4. Dailywash -->
-        <div class="sample-card" data-category="laundry">
+        <div class="sample-card sample-card-featured">
           <div class="sample-card-head">
-            <span class="sample-badge">🧴 Sabun &amp; Laundry</span>
+            <span class="sample-badge badge-featured">⭐ Live Featured</span>
             <div class="sample-icon">🧺🧴</div>
             <h3 class="sample-title">Daily Wash Indonesia</h3>
             <div class="sample-subtitle">Pabrik &amp; Supplier Sabun Curah</div>
@@ -379,11 +373,18 @@
             </div>
           </div>
         </div>
+      </div>
 
+      <!-- SAMPEL KATEGORI LAINNYA (UNDER DEVELOPMENT) -->
+      <div class="dev-samples-title">
+        <span>⚙️ Sampel Lainnya (Dalam Pengembangan):</span>
+      </div>
+
+      <div class="portfolio-grid dev-grid">
         <!-- 5. Mie Ayam Bangka Ayung -->
-        <div class="sample-card" data-category="kuliner">
+        <div class="sample-card sample-card-dev">
           <div class="sample-card-head">
-            <span class="sample-badge">🍜 Kuliner khas</span>
+            <span class="sample-badge badge-dev">⚙️ In Development</span>
             <div class="sample-icon">🍜🥟</div>
             <h3 class="sample-title">Mie Ayam Bangka Ayung</h3>
             <div class="sample-subtitle">Warung Kuliner &amp; Takeaway</div>
@@ -393,18 +394,17 @@
             <div class="sample-tags">
               <span class="sample-tag">Varian Porsi</span>
               <span class="sample-tag">Lokasi Maps</span>
-              <span class="sample-tag">Order Instan</span>
             </div>
             <div class="sample-actions">
-              <a class="btn-demo-live" href="demo/mie-ayam-ayung/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+              <a class="btn-demo-live btn-demo-dev" href="demo/mie-ayam-ayung/index.html" target="_blank" rel="noopener">🛠️ Cek Preview Dev ↗</a>
             </div>
           </div>
         </div>
 
         <!-- 6. Pawon Ayu -->
-        <div class="sample-card" data-category="kuliner">
+        <div class="sample-card sample-card-dev">
           <div class="sample-card-head">
-            <span class="sample-badge">🍱 Resto &amp; Katering</span>
+            <span class="sample-badge badge-dev">⚙️ In Development</span>
             <div class="sample-icon">🍱🍲</div>
             <h3 class="sample-title">Pawon Ayu Resto</h3>
             <div class="sample-subtitle">Kuliner Tradisional &amp; Katering</div>
@@ -414,18 +414,17 @@
             <div class="sample-tags">
               <span class="sample-tag">Nasi Boks</span>
               <span class="sample-tag">Paket Katering</span>
-              <span class="sample-tag">Reservasi WA</span>
             </div>
             <div class="sample-actions">
-              <a class="btn-demo-live" href="demo/pawon-ayu/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+              <a class="btn-demo-live btn-demo-dev" href="demo/pawon-ayu/index.html" target="_blank" rel="noopener">🛠️ Cek Preview Dev ↗</a>
             </div>
           </div>
         </div>
 
         <!-- 7. Mlijo Keliling -->
-        <div class="sample-card" data-category="pasar">
+        <div class="sample-card sample-card-dev">
           <div class="sample-card-head">
-            <span class="sample-badge">🥦 Sayur &amp; Sembako</span>
+            <span class="sample-badge badge-dev">⚙️ In Development</span>
             <div class="sample-icon">🥦🛒</div>
             <h3 class="sample-title">Mlijo Keliling</h3>
             <div class="sample-subtitle">Toko Sayur Segar &amp; Sembako</div>
@@ -435,39 +434,17 @@
             <div class="sample-tags">
               <span class="sample-tag">Sayur Segar</span>
               <span class="sample-tag">Paket Masak</span>
-              <span class="sample-tag">Pesan Antar</span>
             </div>
             <div class="sample-actions">
-              <a class="btn-demo-live" href="demo/mlijo-keliling/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+              <a class="btn-demo-live btn-demo-dev" href="demo/mlijo-keliling/index.html" target="_blank" rel="noopener">🛠️ Cek Preview Dev ↗</a>
             </div>
           </div>
         </div>
 
-        <!-- 8. Omah Etas Djawara -->
-        <div class="sample-card" data-category="properti">
+        <!-- 8. Kopi Link -->
+        <div class="sample-card sample-card-dev">
           <div class="sample-card-head">
-            <span class="sample-badge">🏠 Villa &amp; Penginapan</span>
-            <div class="sample-icon">🏡🌴</div>
-            <h3 class="sample-title">Omah Etas Djawara</h3>
-            <div class="sample-subtitle">Villa, Homestay &amp; Penginapan</div>
-          </div>
-          <div class="sample-card-body">
-            <p class="sample-desc">Showcase foto villa, fasilitas lengkap, tarif sewa per malam, &amp; pemesanan kamar langsung via WhatsApp tanpa komisi agen.</p>
-            <div class="sample-tags">
-              <span class="sample-tag">Galeri Foto</span>
-              <span class="sample-tag">Tipe Kamar</span>
-              <span class="sample-tag">Booking WA</span>
-            </div>
-            <div class="sample-actions">
-              <a class="btn-demo-live" href="demo/omah-etas-djawara/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9. Kopi Link -->
-        <div class="sample-card" data-category="kuliner">
-          <div class="sample-card-head">
-            <span class="sample-badge">☕ Warkop Digital</span>
+            <span class="sample-badge badge-dev">⚙️ In Development</span>
             <div class="sample-icon">☕📲</div>
             <h3 class="sample-title">Kopi Link Warkop</h3>
             <div class="sample-subtitle">Menu Ringkas &amp; Link Bio WA</div>
@@ -477,15 +454,14 @@
             <div class="sample-tags">
               <span class="sample-tag">Link Bio</span>
               <span class="sample-tag">Super Cepat</span>
-              <span class="sample-tag">Maps &amp; Jam Buka</span>
             </div>
             <div class="sample-actions">
-              <a class="btn-demo-live" href="demo/kopi-link/index.html" target="_blank" rel="noopener">🌐 Buka Live Demo ↗</a>
+              <a class="btn-demo-live btn-demo-dev" href="demo/kopi-link/index.html" target="_blank" rel="noopener">🛠️ Cek Preview Dev ↗</a>
             </div>
           </div>
         </div>
-
       </div>
+
     </div>
   </section>
 
