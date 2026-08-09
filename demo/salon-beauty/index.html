@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow & Grace Studio — Salon Kecantikan, Hair & Spa Studio</title>
+<meta name="description" content="Glow & Grace Studio — Salon kecantikan modern, haircut & styling, hair spa, facial glow, manicure, & makeup. Booking jadwal & jam perawatan online via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose-primary: #be185d;
+    --rose-dark: #881337;
+    --rose-light: #fce7f3;
+    --rose-soft: #fff1f2;
+    --gold: #d97706;
+    --gold-light: #fef3c7;
+    --dark: #1c1917;
+    --text-body: #44403c;
+    --muted: #78716c;
+    --card-bg: #ffffff;
+    --bg-main: #fafaf9;
+    --border: #e7e5e4;
+    --shadow-sm: 0 4px 12px rgba(136, 19, 55, 0.06);
+    --shadow-md: 0 12px 30px rgba(136, 19, 55, 0.12);
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .serif-font { font-family: 'Playfair Display', serif; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+  /* HEADER */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.3rem; color: var(--rose-dark); }
+  .brand-icon {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose-primary), var(--rose-dark));
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; box-shadow: 0 4px 14px rgba(190, 24, 93, 0.3);
+  }
+  .brand-text span { font-style: italic; font-weight: 400; color: var(--gold); }
+
+  .nav-links { display: none; gap: 24px; font-weight: 600; font-size: 0.92rem; color: var(--text-body); }
+  .nav-links a:hover { color: var(--rose-primary); }
+  @media(min-width: 768px) { .nav-links { display: flex; } }
+
+  .btn-book-header {
+    background: linear-gradient(135deg, var(--rose-primary), var(--rose-dark));
+    color: #fff; padding: 10px 22px; border-radius: 999px; font-weight: 700;
+    font-size: 0.88rem; border: none; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(190, 24, 93, 0.3); transition: all 0.2s ease;
+  }
+  .btn-book-header:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(190, 24, 93, 0.4); }
+
+  /* HERO BANNER */
+  .hero-section {
+    position: relative; overflow: hidden;
+    background: radial-gradient(circle at 80% 20%, #fbcfe8 0%, #fff1f2 40%, #fafaf9 100%);
+    padding: 64px 20px 72px; text-align: center;
+  }
+  .hero-tag {
+    display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--rose-primary); background: #fff;
+    padding: 6px 18px; border-radius: 999px; border: 1px solid var(--rose-light);
+    margin-bottom: 18px; box-shadow: var(--shadow-sm);
+  }
+  .hero-title {
+    font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; color: var(--rose-dark);
+    line-height: 1.12; margin-bottom: 18px; max-width: 800px; margin-left: auto; margin-right: auto;
+  }
+  .hero-desc {
+    font-size: 1.05rem; color: var(--muted); max-width: 600px; margin: 0 auto 32px;
+  }
+  .hero-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary-hero {
+    background: linear-gradient(135deg, var(--rose-primary), var(--rose-dark));
+    color: #fff; padding: 14px 32px; border-radius: 999px; font-weight: 700;
+    font-size: 0.95rem; border: none; cursor: pointer; box-shadow: var(--shadow-md);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-secondary-hero {
+    background: #fff; color: var(--rose-dark); padding: 14px 28px; border-radius: 999px;
+    font-weight: 700; font-size: 0.95rem; border: 1.5px solid var(--rose-light);
+  }
+
+  /* SERVICES SECTION */
+  .section { padding: 60px 0; }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+  .section-eyebrow {
+    font-size: 0.78rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px; display: block;
+  }
+  .section-head h2 { font-size: 2.2rem; color: var(--rose-dark); margin-bottom: 10px; }
+  .section-head p { color: var(--muted); font-size: 0.95rem; }
+
+  .service-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;
+  }
+  .service-card {
+    background: var(--card-bg); border-radius: var(--radius); padding: 24px;
+    border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+  }
+  .service-card:hover {
+    transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--rose-light);
+  }
+  .service-icon {
+    width: 54px; height: 54px; border-radius: 16px; background: var(--rose-soft);
+    color: var(--rose-primary); font-size: 1.8rem; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .service-title { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .service-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+  .service-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px dashed var(--border); }
+  .service-price { font-size: 1.1rem; font-weight: 800; color: var(--rose-primary); }
+  .service-duration { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+  
+  .btn-select-service {
+    width: 100%; padding: 10px; background: var(--rose-soft); color: var(--rose-primary);
+    border: 1px solid var(--rose-light); font-weight: 700; font-size: 0.85rem;
+    border-radius: 12px; cursor: pointer; transition: all 0.2s ease;
+  }
+  .btn-select-service:hover, .btn-select-service.selected {
+    background: var(--rose-primary); color: #fff; border-color: var(--rose-primary);
+  }
+
+  /* BOOKING FORM SECTION */
+  .booking-section {
+    background: linear-gradient(135deg, #fff1f2 0%, #fce7f3 100%);
+    border-top: 1px solid var(--rose-light); border-bottom: 1px solid var(--rose-light);
+    padding: 60px 0;
+  }
+  .booking-card {
+    background: #fff; border-radius: 24px; padding: 36px;
+    box-shadow: var(--shadow-md); max-width: 840px; margin: 0 auto; border: 1px solid rgba(190, 24, 93, 0.1);
+  }
+  .booking-card h3 { font-size: 1.8rem; color: var(--rose-dark); margin-bottom: 6px; text-align: center; }
+  .booking-card p.sub { text-align: center; color: var(--muted); font-size: 0.9rem; margin-bottom: 30px; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media(min-width: 640px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
+  .form-input, .form-select {
+    padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border);
+    font-family: inherit; font-size: 0.92rem; outline: none; background: var(--bg-main);
+    transition: all 0.2s ease;
+  }
+  .form-input:focus, .form-select:focus {
+    border-color: var(--rose-primary); background: #fff; box-shadow: 0 0 0 4px var(--rose-light);
+  }
+
+  /* TIME SLOT SELECTOR */
+  .time-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px; margin-top: 4px; }
+  .time-slot {
+    padding: 10px; border: 1px solid var(--border); border-radius: 10px;
+    font-size: 0.85rem; font-weight: 700; text-align: center; cursor: pointer;
+    background: var(--bg-main); transition: all 0.2s ease;
+  }
+  .time-slot:hover, .time-slot.selected {
+    background: var(--rose-primary); color: #fff; border-color: var(--rose-primary);
+  }
+
+  .booking-summary-box {
+    background: var(--rose-soft); border-radius: 16px; padding: 20px;
+    border: 1px solid var(--rose-light); margin-top: 10px;
+  }
+  .summary-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 6px; }
+  .summary-row.total { font-weight: 800; font-size: 1.1rem; color: var(--rose-dark); border-top: 1px dashed var(--rose-light); padding-top: 10px; margin-top: 10px; }
+
+  .btn-submit-booking {
+    width: 100%; padding: 16px; background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff; font-weight: 800; font-size: 1rem; border-radius: 14px; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35); transition: transform 0.15s ease;
+  }
+  .btn-submit-booking:active { transform: scale(0.98); }
+
+  /* REVIEWS & GALLERY */
+  .stylists-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .stylist-card {
+    background: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+  }
+  .stylist-avatar {
+    width: 80px; height: 80px; border-radius: 50%; background: var(--rose-light);
+    color: var(--rose-primary); font-size: 2.2rem; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px; border: 3px solid #fff; box-shadow: var(--shadow-sm);
+  }
+  .stylist-name { font-weight: 700; font-size: 1.05rem; color: var(--dark); }
+  .stylist-role { font-size: 0.8rem; color: var(--rose-primary); font-weight: 700; margin-bottom: 6px; }
+  .stylist-exp { font-size: 0.76rem; color: var(--muted); }
+
+  /* FOOTER */
+  footer { background: var(--dark); color: #fff; padding: 48px 0 24px; }
+  .footer-inner { display: flex; flex-wrap: wrap; gap: 36px; justify-content: space-between; margin-bottom: 36px; }
+  .footer-col { flex: 1; min-width: 240px; }
+  .footer-col h4 { color: #fff; font-size: 1.1rem; margin-bottom: 14px; }
+  .footer-col p { color: #a8a29e; font-size: 0.88rem; line-height: 1.6; }
+  .footer-bottom { text-align: center; border-top: 1px solid #292524; padding-top: 24px; color: #78716c; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="brand-icon">✨</div>
+      <div class="brand-text">Glow<span>&amp;Grace</span></div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#layanan">Layanan &amp; Harga</a>
+      <a href="#booking">Booking Jadwal</a>
+      <a href="#stylist">Tim Beautician</a>
+      <a href="#kontak">Lokasi &amp; Jam</a>
+    </nav>
+
+    <button class="btn-book-header" onclick="scrollToBooking()">📅 Booking Online</button>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <div class="wrap">
+    <span class="hero-tag">✨ Beauty Salon &amp; Hair Spa Studio</span>
+    <h1 class="hero-title serif-font">Tampil Cantik &amp; Percaya Diri Setiap Hari</h1>
+    <p class="hero-desc">Layanan haircut &amp; styling profesional, creambath relaksasi, facial glow, &amp; manicure pedicure. Pesan slot jam &amp; beautician pilihanmu secara online.</p>
+    
+    <div class="hero-cta-btns">
+      <button class="btn-primary-hero" onclick="scrollToBooking()">📅 Reservasi Jadwal Perawatan</button>
+      <a class="btn-secondary-hero" href="#layanan">Lihat Daftar Layanan</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES LIST -->
+<section class="section" id="layanan">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Daftar Treatment</span>
+      <h2 class="serif-font">Pilihan Layanan &amp; Harga</h2>
+      <p>Klik layanan yang diinginkan untuk otomatis dimasukkan ke formulir reservasi jam.</p>
+    </div>
+
+    <div class="service-grid">
+      <!-- 1. Haircut & Blow -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">💇‍♀️</div>
+          <div class="service-title">Haircut &amp; Styling Blow</div>
+          <div class="service-desc">Potong rambut wanita sesuai bentuk wajah + cuci rambut &amp; blow dry rapi anggun.</div>
+        </div>
+        <div>
+          <div class="service-meta">
+            <span class="service-price">Rp 85.000</span>
+            <span class="service-duration">⏱ 45 Menit</span>
+          </div>
+          <button class="btn-select-service" onclick="selectService('Haircut &amp; Styling Blow', 85000, 45, this)">+ Pilih Layanan Ini</button>
+        </div>
+      </div>
+
+      <!-- 2. Hair Spa Creambath -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">💆‍♀️</div>
+          <div class="service-title">Hair Spa &amp; Creambath Aromatherapy</div>
+          <div class="service-desc">Perawatan akar rambut dengan vitamin buah/ginseng + pijat pundak &amp; punggung relaksasi.</div>
+        </div>
+        <div>
+          <div class="service-meta">
+            <span class="service-price">Rp 120.000</span>
+            <span class="service-duration">⏱ 60 Menit</span>
+          </div>
+          <button class="btn-select-service" onclick="selectService('Hair Spa &amp; Creambath', 120000, 60, this)">+ Pilih Layanan Ini</button>
+        </div>
+      </div>
+
+      <!-- 3. Hair Coloring -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">🎨</div>
+          <div class="service-title">Hair Coloring &amp; Highlighting</div>
+          <div class="service-desc">Pewarnaan rambut tren kekinian memakai cat rambut berkualitas internasional tidak merusak rambut.</div>
+        </div>
+        <div>
+          <div class="service-meta">
+            <span class="service-price">Rp 250.000</span>
+            <span class="service-duration">⏱ 120 Menit</span>
+          </div>
+          <button class="btn-select-service" onclick="selectService('Hair Coloring &amp; Highlighting', 250000, 120, this)">+ Pilih Layanan Ini</button>
+        </div>
+      </div>
+
+      <!-- 4. Smooth Keratin -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">✨</div>
+          <div class="service-title">Smoothing Keratin Silk</div>
+          <div class="service-desc">Pelurusan rambut halus alami berkilau bebas kaku dengan nutrisi serum protein keratin.</div>
+        </div>
+        <div>
+          <div class="service-meta">
+            <span class="service-price">Rp 350.000</span>
+            <span class="service-duration">⏱ 150 Menit</span>
+          </div>
+          <button class="btn-select-service" onclick="selectService('Smoothing Keratin Silk', 350000, 150, this)">+ Pilih Layanan Ini</button>
+        </div>
+      </div>
+
+      <!-- 5. Facial Glow Up -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">🌸</div>
+          <div class="service-title">Facial Glowing &amp; Deep Cleansing</div>
+          <div class="service-desc">Pembersihan komedo instan, masker kolagen murni, &amp; pijat totok wajah mencerahkan kulit.</div>
+        </div>
+        <div>
+          <div class="service-meta">
+            <span class="service-price">Rp 150.000</span>
+            <span class="service-duration">⏱ 60 Menit</span>
+          </div>
+          <button class="btn-select-service" onclick="selectService('Facial Glowing &amp; Deep Cleansing', 150000, 60, this)">+ Pilih Layanan Ini</button>
+        </div>
+      </div>
+
+      <!-- 6. Manicure Pedicure -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">💅</div>
+          <div class="service-title">Gel Manicure &amp; Pedicure Spa</div>
+          <div class="service-desc">Pembersihan kuku tangan &amp; kaki, perapihan kutikula, rendam garam spa, &amp; cat kuku gel awet.</div>
+        </div>
+        <div>
+          <div class="service-meta">
+            <span class="service-price">Rp 135.000</span>
+            <span class="service-duration">⏱ 60 Menit</span>
+          </div>
+          <button class="btn-select-service" onclick="selectService('Gel Manicure &amp; Pedicure Spa', 135000, 60, this)">+ Pilih Layanan Ini</button>
+        </div>
+      </div>
+
+      <!-- 7. Makeup Event -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">💄</div>
+          <div class="service-title">Make Up Wisuda &amp; Special Event</div>
+          <div class="service-desc">Riasan wajah flawless tahan lama untuk wisuda, kondangan, pesta, atau photoshoot.</div>
+        </div>
+        <div>
+          <div class="service-meta">
+            <span class="service-price">Rp 200.000</span>
+            <span class="service-duration">⏱ 90 Menit</span>
+          </div>
+          <button class="btn-select-service" onclick="selectService('Make Up Wisuda &amp; Event', 200000, 90, this)">+ Pilih Layanan Ini</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE BOOKING FORM -->
+<section class="booking-section" id="booking">
+  <div class="wrap">
+    <div class="booking-card">
+      <h3 class="serif-font">Formulir Booking Jam &amp; Perawatan</h3>
+      <p class="sub">Pilih tanggal, slot jam, &amp; beautician pilihanmu agar tidak perlu mengantre saat datang.</p>
+
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <div class="form-grid">
+          <!-- Nama Pelanggan -->
+          <div class="form-group">
+            <label>Nama Lengkap Pelanggan:</label>
+            <input type="text" class="form-input" id="clientName" placeholder="Contoh: Kak Anita Permata" required>
+          </div>
+
+          <!-- No WA -->
+          <div class="form-group">
+            <label>Nomor WhatsApp (Untuk Konfirmasi):</label>
+            <input type="tel" class="form-input" id="clientPhone" placeholder="Contoh: 081234567890" required>
+          </div>
+
+          <!-- Pilihan Layanan -->
+          <div class="form-group full">
+            <label>Layanan Treatment Dipilih:</label>
+            <select class="form-select" id="selectedService" onchange="updateServiceFromSelect()">
+              <option value="">-- Pilih Layanan Salon --</option>
+              <option value="Haircut &amp; Styling Blow|85000|45">Haircut &amp; Styling Blow (Rp 85.000 - 45m)</option>
+              <option value="Hair Spa &amp; Creambath|120000|60">Hair Spa &amp; Creambath Aromatherapy (Rp 120.000 - 60m)</option>
+              <option value="Hair Coloring &amp; Highlighting|250000|120">Hair Coloring &amp; Highlighting (Rp 250.000 - 120m)</option>
+              <option value="Smoothing Keratin Silk|350000|150">Smoothing Keratin Silk (Rp 350.000 - 150m)</option>
+              <option value="Facial Glowing &amp; Deep Cleansing|150000|60">Facial Glowing &amp; Deep Cleansing (Rp 150.000 - 60m)</option>
+              <option value="Gel Manicure &amp; Pedicure Spa|135000|60">Gel Manicure &amp; Pedicure Spa (Rp 135.000 - 60m)</option>
+              <option value="Make Up Wisuda &amp; Event|200000|90">Make Up Wisuda &amp; Event (Rp 200.000 - 90m)</option>
+            </select>
+          </div>
+
+          <!-- Pilihan Beautician -->
+          <div class="form-group">
+            <label>Stylist / Beautician Pilihan:</label>
+            <select class="form-select" id="selectedStylist">
+              <option value="Bebas (Siapa Saja yang Ready)">Bebas (Siapa saja yang ready)</option>
+              <option value="Stylist Rina (Senior Hair Stylist)">Stylist Rina (Senior Hair Stylist)</option>
+              <option value="Stylist Maya (Coloring Specialist)">Stylist Maya (Coloring Specialist)</option>
+              <option value="Beautician Sarah (Facial &amp; Spa Specialist)">Beautician Sarah (Facial &amp; Spa)</option>
+            </select>
+          </div>
+
+          <!-- Tanggal Booking -->
+          <div class="form-group">
+            <label>Pilih Tanggal Kedatangan:</label>
+            <input type="date" class="form-input" id="bookingDate" required>
+          </div>
+
+          <!-- Slot Jam Kedatangan -->
+          <div class="form-group full">
+            <label>Pilih Jam Kunjungan:</label>
+            <div class="time-slots">
+              <div class="time-slot" onclick="selectTimeSlot('09:00 WIB', this)">09:00</div>
+              <div class="time-slot" onclick="selectTimeSlot('10:30 WIB', this)">10:30</div>
+              <div class="time-slot" onclick="selectTimeSlot('13:00 WIB', this)">13:00</div>
+              <div class="time-slot" onclick="selectTimeSlot('14:30 WIB', this)">14:30</div>
+              <div class="time-slot" onclick="selectTimeSlot('16:00 WIB', this)">16:00</div>
+              <div class="time-slot" onclick="selectTimeSlot('18:00 WIB', this)">18:00</div>
+              <div class="time-slot" onclick="selectTimeSlot('19:30 WIB', this)">19:30</div>
+            </div>
+          </div>
+
+          <!-- Ringkasan Booking -->
+          <div class="form-group full">
+            <div class="booking-summary-box">
+              <div class="summary-row">
+                <span>Layanan Dipilih:</span>
+                <b id="sumServiceText">Belum Dipilih</b>
+              </div>
+              <div class="summary-row">
+                <span>Estimasi Durasi:</span>
+                <span id="sumDurationText">-</span>
+              </div>
+              <div class="summary-row">
+                <span>Jadwal Jam:</span>
+                <span id="sumTimeText">Belum Dipilih</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total Estimasi Biaya:</span>
+                <span id="sumTotalPrice">Rp 0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <button type="submit" class="btn-submit-booking">📅 Kirim Reservasi Jadwal via WhatsApp ↗</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- BEAUTICIAN TEAM -->
+<section class="section" id="stylist">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Tim Profesional</span>
+      <h2 class="serif-font">Stylist &amp; Beautician Pilihan</h2>
+      <p>Ditangani oleh staf berpengalaman &amp; bersertifikat resmi di bidang perawatan kecantikan.</p>
+    </div>
+
+    <div class="stylists-grid">
+      <div class="stylist-card">
+        <div class="stylist-avatar">💇‍♀️</div>
+        <div class="stylist-name">Stylist Rina</div>
+        <div class="stylist-role">Senior Hair Stylist</div>
+        <div class="stylist-exp">Pengalaman 8+ Tahun di Haircut &amp; Keratin</div>
+      </div>
+
+      <div class="stylist-card">
+        <div class="stylist-avatar">🎨</div>
+        <div class="stylist-name">Stylist Maya</div>
+        <div class="stylist-role">Coloring &amp; Perm Expert</div>
+        <div class="stylist-exp">Spesialis Cat Rambut Tren &amp; Balayage</div>
+      </div>
+
+      <div class="stylist-card">
+        <div class="stylist-avatar">🌸</div>
+        <div class="stylist-name">Beautician Sarah</div>
+        <div class="stylist-role">Facial &amp; Skin Care</div>
+        <div class="stylist-exp">Spesialis Perawatan Wajah Glow &amp; Spa</div>
+      </div>
+
+      <div class="stylist-card">
+        <div class="stylist-avatar">💅</div>
+        <div class="stylist-name">Beautician Lisa</div>
+        <div class="stylist-role">Nail Art &amp; Manicure</div>
+        <div class="stylist-exp">Spesialis Custom Nail Art &amp; Kuku Gel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <h4>Glow &amp; Grace Studio</h4>
+      <p>Studio kecantikan &amp; perawatan rambut modern. Menghadirkan rasa percaya diri melalui perawatan terbaik &amp; suasana tempat yang nyaman.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Jam Operasional Studio</h4>
+      <p>Senin - Minggu: 09.00 - 20.00 WIB<br>Melayani booking jadwal online &amp; walk-in.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Lokasi &amp; Kontak</h4>
+      <p>Jl. Mawar Cantik No. 12, Malang<br>WhatsApp Booking: 0857-3669-9198</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Glow &amp; Grace Studio • Powered by rakyat.space
+  </div>
+</footer>
+
+<script>
+  const WA_NUMBER = "6285736699198";
+  let activeService = null;
+  let activePrice = 0;
+  let activeDuration = 0;
+  let activeTimeSlot = "";
+
+  // Set default min date to today
+  document.addEventListener("DOMContentLoaded", () => {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("bookingDate").value = today;
+    document.getElementById("bookingDate").min = today;
+  });
+
+  function scrollToBooking() {
+    document.getElementById("booking").scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function selectService(name, price, duration, btnEl) {
+    document.querySelectorAll(".btn-select-service").forEach(b => {
+      b.classList.remove("selected");
+      b.innerText = "+ Pilih Layanan Ini";
+    });
+
+    if (btnEl) {
+      btnEl.classList.add("selected");
+      btnEl.innerText = "✓ Layanan Dipilih";
+    }
+
+    activeService = name;
+    activePrice = price;
+    activeDuration = duration;
+
+    // Update select dropdown
+    const select = document.getElementById("selectedService");
+    for (let opt of select.options) {
+      if (opt.value.startsWith(name)) {
+        select.value = opt.value;
+        break;
+      }
+    }
+
+    updateSummaryUI();
+    scrollToBooking();
+  }
+
+  function updateServiceFromSelect() {
+    const val = document.getElementById("selectedService").value;
+    if (!val) {
+      activeService = null;
+      activePrice = 0;
+      activeDuration = 0;
+    } else {
+      const parts = val.split('|');
+      activeService = parts[0];
+      activePrice = parseInt(parts[1]);
+      activeDuration = parseInt(parts[2]);
+    }
+    updateSummaryUI();
+  }
+
+  function selectTimeSlot(time, slotEl) {
+    document.querySelectorAll(".time-slot").forEach(s => s.classList.remove("selected"));
+    slotEl.classList.add("selected");
+    activeTimeSlot = time;
+    updateSummaryUI();
+  }
+
+  function updateSummaryUI() {
+    document.getElementById("sumServiceText").innerText = activeService || "Belum Dipilih";
+    document.getElementById("sumDurationText").innerText = activeDuration ? `${activeDuration} Menit` : "-";
+    document.getElementById("sumTimeText").innerText = activeTimeSlot || "Belum Dipilih";
+    document.getElementById("sumTotalPrice").innerText = activePrice ? "Rp " + activePrice.toLocaleString('id-ID') : "Rp 0";
+  }
+
+  function submitBooking(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("clientName").value;
+    const phone = document.getElementById("clientPhone").value;
+    const date = document.getElementById("bookingDate").value;
+    const stylist = document.getElementById("selectedStylist").value;
+
+    if (!activeService) {
+      alert("Silakan pilih jenis layanan treatment terlebih dahulu!");
+      return;
+    }
+    if (!activeTimeSlot) {
+      alert("Silakan pilih jam kedatangan kunjungan Anda!");
+      return;
+    }
+
+    let text = `*RESERVASI JADWAL SALON - GLOW & GRACE STUDIO*\n\n`;
+    text += `*DATA PELANGGAN:*\nNama: *${name}*\nNo. WA: *${phone}*\n\n`;
+    text += `*DETAIL PERAWATAN:*\n`;
+    text += `• Layanan: *${activeService}*\n`;
+    text += `• Durasi: *${activeDuration} Menit*\n`;
+    text += `• Stylist/Beautician: *${stylist}*\n`;
+    text += `• Tanggal Kunjungan: *${date}*\n`;
+    text += `• Jam Kedatangan: *${activeTimeSlot}*\n\n`;
+    text += `----------------------------------\n`;
+    text += `*ESTIMASI BIAYA:* Rp ${activePrice.toLocaleString('id-ID')}\n\n`;
+    text += `Apakah jadwal untuk *${date}* jam *${activeTimeSlot}* ini masih tersedia? Terima kasih!`;
+
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+  }
+</script>
+
+</body>
+</html>
