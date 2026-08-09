@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glow & Grace Studio — Salon Kecantikan, Hair & Spa Studio</title>
-<meta name="description" content="Glow & Grace Studio — Salon kecantikan modern, haircut & styling, hair spa, facial glow, manicure, & makeup. Booking jadwal & jam perawatan online via WhatsApp.">
+<title>Glow & Grace Syar'i Studio — Salon Kecantikan Muslimah, Hair & Spa</title>
+<meta name="description" content="Glow & Grace Syar'i Studio — Salon & Spa khusus Muslimah modern. Treatment rambut, facial glow, manicure, creambath, & spa relaksasi. Booking jam online via WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -73,40 +73,45 @@
   }
   .btn-book-header:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(190, 24, 93, 0.4); }
 
-  /* HERO BANNER */
+  /* HERO BANNER WITH REAL SYAR'I SALON IMAGE */
   .hero-section {
-    position: relative; overflow: hidden;
-    background: radial-gradient(circle at 80% 20%, #fbcfe8 0%, #fff1f2 40%, #fafaf9 100%);
-    padding: 64px 20px 72px; text-align: center;
+    position: relative; overflow: hidden; color: #fff;
+    padding: 72px 20px 80px; text-align: center;
+    background: linear-gradient(180deg, rgba(136, 19, 55, 0.88) 0%, rgba(28, 25, 23, 0.85) 100%), url('assets/hero_banner.jpg');
+    background-size: cover; background-position: center;
+    border-bottom: 4px solid var(--rose-primary);
   }
   .hero-tag {
     display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--rose-primary); background: #fff;
-    padding: 6px 18px; border-radius: 999px; border: 1px solid var(--rose-light);
-    margin-bottom: 18px; box-shadow: var(--shadow-sm);
+    text-transform: uppercase; color: var(--gold-light); background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px); padding: 6px 20px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.3); margin-bottom: 20px;
   }
   .hero-title {
-    font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; color: var(--rose-dark);
-    line-height: 1.12; margin-bottom: 18px; max-width: 800px; margin-left: auto; margin-right: auto;
+    font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 800; color: #fff;
+    line-height: 1.12; margin-bottom: 18px; max-width: 840px; margin-left: auto; margin-right: auto;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.5);
   }
   .hero-desc {
-    font-size: 1.05rem; color: var(--muted); max-width: 600px; margin: 0 auto 32px;
+    font-size: 1.05rem; color: #fecdd3; max-width: 620px; margin: 0 auto 36px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
   }
   .hero-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
   .btn-primary-hero {
-    background: linear-gradient(135deg, var(--rose-primary), var(--rose-dark));
-    color: #fff; padding: 14px 32px; border-radius: 999px; font-weight: 700;
-    font-size: 0.95rem; border: none; cursor: pointer; box-shadow: var(--shadow-md);
-    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--rose-primary), #9f1239);
+    color: #fff; padding: 14px 34px; border-radius: 999px; font-weight: 700;
+    font-size: 0.98rem; border: none; cursor: pointer; box-shadow: 0 8px 24px rgba(190, 24, 93, 0.5);
+    display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s ease;
   }
+  .btn-primary-hero:hover { transform: translateY(-2px); }
   .btn-secondary-hero {
-    background: #fff; color: var(--rose-dark); padding: 14px 28px; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95); color: var(--rose-dark); padding: 14px 28px; border-radius: 999px;
     font-weight: 700; font-size: 0.95rem; border: 1.5px solid var(--rose-light);
   }
 
-  /* SERVICES SECTION */
-  .section { padding: 60px 0; }
+  /* SERVICES SECTION WITH REAL IMAGES */
+  .section { padding: 64px 0; }
   .section-head { text-align: center; max-width: 640px; margin: 0 auto 44px; }
   .section-eyebrow {
     font-size: 0.78rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
@@ -116,22 +121,27 @@
   .section-head p { color: var(--muted); font-size: 0.95rem; }
 
   .service-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 26px;
   }
   .service-card {
-    background: var(--card-bg); border-radius: var(--radius); padding: 24px;
+    background: var(--card-bg); border-radius: var(--radius); overflow: hidden;
     border: 1px solid var(--border); box-shadow: var(--shadow-sm);
-    display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
-    transition: all 0.3s ease; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: all 0.3s ease; position: relative;
   }
   .service-card:hover {
     transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--rose-light);
   }
-  .service-icon {
-    width: 54px; height: 54px; border-radius: 16px; background: var(--rose-soft);
-    color: var(--rose-primary); font-size: 1.8rem; display: flex; align-items: center; justify-content: center;
-    margin-bottom: 12px;
+  .service-img-box {
+    height: 180px; position: relative; overflow: hidden; background: #fce7f3;
   }
+  .service-img-box img {
+    width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;
+  }
+  .service-card:hover .service-img-box img {
+    transform: scale(1.08);
+  }
+  .service-card-content { padding: 20px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; gap: 14px; }
   .service-title { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
   .service-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
   .service-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px dashed var(--border); }
@@ -139,8 +149,8 @@
   .service-duration { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
   
   .btn-select-service {
-    width: 100%; padding: 10px; background: var(--rose-soft); color: var(--rose-primary);
-    border: 1px solid var(--rose-light); font-weight: 700; font-size: 0.85rem;
+    width: 100%; padding: 11px; background: var(--rose-soft); color: var(--rose-primary);
+    border: 1px solid var(--rose-light); font-weight: 700; font-size: 0.88rem;
     border-radius: 12px; cursor: pointer; transition: all 0.2s ease;
   }
   .btn-select-service:hover, .btn-select-service.selected {
@@ -200,20 +210,21 @@
   }
   .btn-submit-booking:active { transform: scale(0.98); }
 
-  /* REVIEWS & GALLERY */
-  .stylists-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  /* BEAUTICIAN SYAR'I TEAM */
+  .stylists-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
   .stylist-card {
-    background: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
-    border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+    background: #fff; border-radius: var(--radius); padding: 24px 20px; text-align: center;
+    border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: transform 0.25s ease;
   }
+  .stylist-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .stylist-avatar {
-    width: 80px; height: 80px; border-radius: 50%; background: var(--rose-light);
-    color: var(--rose-primary); font-size: 2.2rem; display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 12px; border: 3px solid #fff; box-shadow: var(--shadow-sm);
+    width: 90px; height: 90px; border-radius: 50%; background: var(--rose-light);
+    color: var(--rose-primary); font-size: 2.5rem; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 14px; border: 3px solid #fff; box-shadow: var(--shadow-sm); overflow: hidden;
   }
-  .stylist-name { font-weight: 700; font-size: 1.05rem; color: var(--dark); }
-  .stylist-role { font-size: 0.8rem; color: var(--rose-primary); font-weight: 700; margin-bottom: 6px; }
-  .stylist-exp { font-size: 0.76rem; color: var(--muted); }
+  .stylist-name { font-weight: 700; font-size: 1.08rem; color: var(--dark); }
+  .stylist-role { font-size: 0.82rem; color: var(--rose-primary); font-weight: 700; margin-bottom: 6px; }
+  .stylist-exp { font-size: 0.78rem; color: var(--muted); }
 
   /* FOOTER */
   footer { background: var(--dark); color: #fff; padding: 48px 0 24px; }
@@ -231,13 +242,13 @@
   <div class="wrap header-inner">
     <div class="brand">
       <div class="brand-icon">✨</div>
-      <div class="brand-text">Glow<span>&amp;Grace</span></div>
+      <div class="brand-text">Glow<span>&amp;Grace Syar'i</span></div>
     </div>
 
     <nav class="nav-links">
       <a href="#layanan">Layanan &amp; Harga</a>
       <a href="#booking">Booking Jadwal</a>
-      <a href="#stylist">Tim Beautician</a>
+      <a href="#stylist">Tim Beautician Syar'i</a>
       <a href="#kontak">Lokasi &amp; Jam</a>
     </nav>
 
@@ -245,12 +256,12 @@
   </div>
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO SECTION WITH SYAR'I BEAUTY VISUAL -->
 <section class="hero-section">
   <div class="wrap">
-    <span class="hero-tag">✨ Beauty Salon &amp; Hair Spa Studio</span>
-    <h1 class="hero-title serif-font">Tampil Cantik &amp; Percaya Diri Setiap Hari</h1>
-    <p class="hero-desc">Layanan haircut &amp; styling profesional, creambath relaksasi, facial glow, &amp; manicure pedicure. Pesan slot jam &amp; beautician pilihanmu secara online.</p>
+    <span class="hero-tag">🌸 Salon &amp; Hair Spa Khusus Muslimah</span>
+    <h1 class="hero-title serif-font">Tampil Cantik, Segar &amp; Anggun dengan Perawatan Syar'i</h1>
+    <p class="hero-desc">Ruangan privat khusus wanita yang nyaman. Layanan haircut, creambath, facial glow, &amp; manicure pedicure oleh staf profesional berhijab. Pesan slot jam online tanpa antre.</p>
     
     <div class="hero-cta-btns">
       <button class="btn-primary-hero" onclick="scrollToBooking()">📅 Reservasi Jadwal Perawatan</button>
@@ -259,7 +270,7 @@
   </div>
 </section>
 
-<!-- SERVICES LIST -->
+<!-- SERVICES LIST WITH STUNNING PHOTOS -->
 <section class="section" id="layanan">
   <div class="wrap">
     <div class="section-head">
@@ -271,113 +282,121 @@
     <div class="service-grid">
       <!-- 1. Haircut & Blow -->
       <div class="service-card">
-        <div>
-          <div class="service-icon">💇‍♀️</div>
-          <div class="service-title">Haircut &amp; Styling Blow</div>
-          <div class="service-desc">Potong rambut wanita sesuai bentuk wajah + cuci rambut &amp; blow dry rapi anggun.</div>
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&auto=format&fit=crop&q=80" alt="Haircut Styling">
         </div>
-        <div>
-          <div class="service-meta">
-            <span class="service-price">Rp 85.000</span>
-            <span class="service-duration">⏱ 45 Menit</span>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Haircut &amp; Styling Blow</div>
+            <div class="service-desc">Potong rambut wanita sesuai bentuk wajah + cuci rambut &amp; blow dry rapi anggun di ruangan privat.</div>
           </div>
-          <button class="btn-select-service" onclick="selectService('Haircut &amp; Styling Blow', 85000, 45, this)">+ Pilih Layanan Ini</button>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 85.000</span>
+              <span class="service-duration">⏱ 45 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Haircut &amp; Styling Blow', 85000, 45, this)">+ Pilih Layanan Ini</button>
+          </div>
         </div>
       </div>
 
       <!-- 2. Hair Spa Creambath -->
       <div class="service-card">
-        <div>
-          <div class="service-icon">💆‍♀️</div>
-          <div class="service-title">Hair Spa &amp; Creambath Aromatherapy</div>
-          <div class="service-desc">Perawatan akar rambut dengan vitamin buah/ginseng + pijat pundak &amp; punggung relaksasi.</div>
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&auto=format&fit=crop&q=80" alt="Creambath Spa">
         </div>
-        <div>
-          <div class="service-meta">
-            <span class="service-price">Rp 120.000</span>
-            <span class="service-duration">⏱ 60 Menit</span>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Hair Spa &amp; Creambath Aromatherapy</div>
+            <div class="service-desc">Perawatan akar rambut dengan vitamin buah/ginseng + pijat pundak &amp; punggung relaksasi.</div>
           </div>
-          <button class="btn-select-service" onclick="selectService('Hair Spa &amp; Creambath', 120000, 60, this)">+ Pilih Layanan Ini</button>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 120.000</span>
+              <span class="service-duration">⏱ 60 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Hair Spa &amp; Creambath', 120000, 60, this)">+ Pilih Layanan Ini</button>
+          </div>
         </div>
       </div>
 
-      <!-- 3. Hair Coloring -->
+      <!-- 3. Facial Glow Up -->
       <div class="service-card">
-        <div>
-          <div class="service-icon">🎨</div>
-          <div class="service-title">Hair Coloring &amp; Highlighting</div>
-          <div class="service-desc">Pewarnaan rambut tren kekinian memakai cat rambut berkualitas internasional tidak merusak rambut.</div>
+        <div class="service-img-box">
+          <img src="assets/facial_treatment.jpg" alt="Facial Glowing">
         </div>
-        <div>
-          <div class="service-meta">
-            <span class="service-price">Rp 250.000</span>
-            <span class="service-duration">⏱ 120 Menit</span>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Facial Glowing &amp; Deep Cleansing</div>
+            <div class="service-desc">Pembersihan komedo instan, masker kolagen murni, &amp; pijat totok wajah mencerahkan kulit.</div>
           </div>
-          <button class="btn-select-service" onclick="selectService('Hair Coloring &amp; Highlighting', 250000, 120, this)">+ Pilih Layanan Ini</button>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 150.000</span>
+              <span class="service-duration">⏱ 60 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Facial Glowing &amp; Deep Cleansing', 150000, 60, this)">+ Pilih Layanan Ini</button>
+          </div>
         </div>
       </div>
 
-      <!-- 4. Smooth Keratin -->
+      <!-- 4. Smoothing Keratin -->
       <div class="service-card">
-        <div>
-          <div class="service-icon">✨</div>
-          <div class="service-title">Smoothing Keratin Silk</div>
-          <div class="service-desc">Pelurusan rambut halus alami berkilau bebas kaku dengan nutrisi serum protein keratin.</div>
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=80" alt="Smoothing Keratin">
         </div>
-        <div>
-          <div class="service-meta">
-            <span class="service-price">Rp 350.000</span>
-            <span class="service-duration">⏱ 150 Menit</span>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Smoothing Keratin Silk</div>
+            <div class="service-desc">Pelurusan rambut halus alami berkilau bebas kaku dengan nutrisi serum protein keratin.</div>
           </div>
-          <button class="btn-select-service" onclick="selectService('Smoothing Keratin Silk', 350000, 150, this)">+ Pilih Layanan Ini</button>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 350.000</span>
+              <span class="service-duration">⏱ 150 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Smoothing Keratin Silk', 350000, 150, this)">+ Pilih Layanan Ini</button>
+          </div>
         </div>
       </div>
 
-      <!-- 5. Facial Glow Up -->
+      <!-- 5. Manicure Pedicure -->
       <div class="service-card">
-        <div>
-          <div class="service-icon">🌸</div>
-          <div class="service-title">Facial Glowing &amp; Deep Cleansing</div>
-          <div class="service-desc">Pembersihan komedo instan, masker kolagen murni, &amp; pijat totok wajah mencerahkan kulit.</div>
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&auto=format&fit=crop&q=80" alt="Manicure Pedicure">
         </div>
-        <div>
-          <div class="service-meta">
-            <span class="service-price">Rp 150.000</span>
-            <span class="service-duration">⏱ 60 Menit</span>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Gel Manicure &amp; Pedicure Spa</div>
+            <div class="service-desc">Pembersihan kuku tangan &amp; kaki, perapihan kutikula, rendam garam spa, &amp; cat kuku gel halal awet.</div>
           </div>
-          <button class="btn-select-service" onclick="selectService('Facial Glowing &amp; Deep Cleansing', 150000, 60, this)">+ Pilih Layanan Ini</button>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 135.000</span>
+              <span class="service-duration">⏱ 60 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Gel Manicure &amp; Pedicure Spa', 135000, 60, this)">+ Pilih Layanan Ini</button>
+          </div>
         </div>
       </div>
 
-      <!-- 6. Manicure Pedicure -->
+      <!-- 6. Makeup Event -->
       <div class="service-card">
-        <div>
-          <div class="service-icon">💅</div>
-          <div class="service-title">Gel Manicure &amp; Pedicure Spa</div>
-          <div class="service-desc">Pembersihan kuku tangan &amp; kaki, perapihan kutikula, rendam garam spa, &amp; cat kuku gel awet.</div>
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&auto=format&fit=crop&q=80" alt="Makeup Hijab">
         </div>
-        <div>
-          <div class="service-meta">
-            <span class="service-price">Rp 135.000</span>
-            <span class="service-duration">⏱ 60 Menit</span>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Make Up Wisuda &amp; Special Event</div>
+            <div class="service-desc">Riasan wajah flawless tahan lama &amp; kreasi hijab do anggun untuk wisuda, kondangan, atau photoshoot.</div>
           </div>
-          <button class="btn-select-service" onclick="selectService('Gel Manicure &amp; Pedicure Spa', 135000, 60, this)">+ Pilih Layanan Ini</button>
-        </div>
-      </div>
-
-      <!-- 7. Makeup Event -->
-      <div class="service-card">
-        <div>
-          <div class="service-icon">💄</div>
-          <div class="service-title">Make Up Wisuda &amp; Special Event</div>
-          <div class="service-desc">Riasan wajah flawless tahan lama untuk wisuda, kondangan, pesta, atau photoshoot.</div>
-        </div>
-        <div>
-          <div class="service-meta">
-            <span class="service-price">Rp 200.000</span>
-            <span class="service-duration">⏱ 90 Menit</span>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 200.000</span>
+              <span class="service-duration">⏱ 90 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Make Up Wisuda &amp; Event', 200000, 90, this)">+ Pilih Layanan Ini</button>
           </div>
-          <button class="btn-select-service" onclick="selectService('Make Up Wisuda &amp; Event', 200000, 90, this)">+ Pilih Layanan Ini</button>
         </div>
       </div>
     </div>
@@ -389,7 +408,7 @@
   <div class="wrap">
     <div class="booking-card">
       <h3 class="serif-font">Formulir Booking Jam &amp; Perawatan</h3>
-      <p class="sub">Pilih tanggal, slot jam, &amp; beautician pilihanmu agar tidak perlu mengantre saat datang.</p>
+      <p class="sub">Pilih tanggal, slot jam, &amp; beautician berhijab pilihanmu agar tidak perlu mengantre saat datang.</p>
 
       <form id="bookingForm" onsubmit="submitBooking(event)">
         <div class="form-grid">
@@ -412,22 +431,22 @@
               <option value="">-- Pilih Layanan Salon --</option>
               <option value="Haircut &amp; Styling Blow|85000|45">Haircut &amp; Styling Blow (Rp 85.000 - 45m)</option>
               <option value="Hair Spa &amp; Creambath|120000|60">Hair Spa &amp; Creambath Aromatherapy (Rp 120.000 - 60m)</option>
-              <option value="Hair Coloring &amp; Highlighting|250000|120">Hair Coloring &amp; Highlighting (Rp 250.000 - 120m)</option>
-              <option value="Smoothing Keratin Silk|350000|150">Smoothing Keratin Silk (Rp 350.000 - 150m)</option>
               <option value="Facial Glowing &amp; Deep Cleansing|150000|60">Facial Glowing &amp; Deep Cleansing (Rp 150.000 - 60m)</option>
+              <option value="Smoothing Keratin Silk|350000|150">Smoothing Keratin Silk (Rp 350.000 - 150m)</option>
               <option value="Gel Manicure &amp; Pedicure Spa|135000|60">Gel Manicure &amp; Pedicure Spa (Rp 135.000 - 60m)</option>
               <option value="Make Up Wisuda &amp; Event|200000|90">Make Up Wisuda &amp; Event (Rp 200.000 - 90m)</option>
             </select>
           </div>
 
-          <!-- Pilihan Beautician -->
+          <!-- Pilihan Beautician Syar'i -->
           <div class="form-group">
             <label>Stylist / Beautician Pilihan:</label>
             <select class="form-select" id="selectedStylist">
               <option value="Bebas (Siapa Saja yang Ready)">Bebas (Siapa saja yang ready)</option>
-              <option value="Stylist Rina (Senior Hair Stylist)">Stylist Rina (Senior Hair Stylist)</option>
+              <option value="Stylist Rina, S.Pd (Senior Hair Stylist)">Stylist Rina (Senior Hair Stylist)</option>
               <option value="Stylist Maya (Coloring Specialist)">Stylist Maya (Coloring Specialist)</option>
               <option value="Beautician Sarah (Facial &amp; Spa Specialist)">Beautician Sarah (Facial &amp; Spa)</option>
+              <option value="Beautician Lisa (Nail &amp; Hijab Do)">Beautician Lisa (Nail &amp; Hijab Do)</option>
             </select>
           </div>
 
@@ -482,42 +501,42 @@
   </div>
 </section>
 
-<!-- BEAUTICIAN TEAM -->
+<!-- BEAUTICIAN SYAR'I TEAM -->
 <section class="section" id="stylist">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-eyebrow">Tim Profesional</span>
-      <h2 class="serif-font">Stylist &amp; Beautician Pilihan</h2>
-      <p>Ditangani oleh staf berpengalaman &amp; bersertifikat resmi di bidang perawatan kecantikan.</p>
+      <span class="section-eyebrow">Tim Profesional Berhijab</span>
+      <h2 class="serif-font">Stylist &amp; Beautician Syar'i</h2>
+      <p>Ditangani oleh staf wanita berhijab berpengalaman &amp; bersertifikat resmi di bidang perawatan kecantikan.</p>
     </div>
 
     <div class="stylists-grid">
       <div class="stylist-card">
-        <div class="stylist-avatar">💇‍♀️</div>
+        <div class="stylist-avatar">🧕</div>
         <div class="stylist-name">Stylist Rina</div>
         <div class="stylist-role">Senior Hair Stylist</div>
         <div class="stylist-exp">Pengalaman 8+ Tahun di Haircut &amp; Keratin</div>
       </div>
 
       <div class="stylist-card">
-        <div class="stylist-avatar">🎨</div>
+        <div class="stylist-avatar">🧕</div>
         <div class="stylist-name">Stylist Maya</div>
         <div class="stylist-role">Coloring &amp; Perm Expert</div>
-        <div class="stylist-exp">Spesialis Cat Rambut Tren &amp; Balayage</div>
+        <div class="stylist-exp">Spesialis Cat Rambut Halal &amp; Balayage</div>
       </div>
 
       <div class="stylist-card">
-        <div class="stylist-avatar">🌸</div>
+        <div class="stylist-avatar">🧕</div>
         <div class="stylist-name">Beautician Sarah</div>
         <div class="stylist-role">Facial &amp; Skin Care</div>
         <div class="stylist-exp">Spesialis Perawatan Wajah Glow &amp; Spa</div>
       </div>
 
       <div class="stylist-card">
-        <div class="stylist-avatar">💅</div>
+        <div class="stylist-avatar">🧕</div>
         <div class="stylist-name">Beautician Lisa</div>
-        <div class="stylist-role">Nail Art &amp; Manicure</div>
-        <div class="stylist-exp">Spesialis Custom Nail Art &amp; Kuku Gel</div>
+        <div class="stylist-role">Nail Art &amp; Hijab Do</div>
+        <div class="stylist-exp">Spesialis Riasan Hijab Do &amp; Nail Art</div>
       </div>
     </div>
   </div>
@@ -527,12 +546,12 @@
 <footer id="kontak">
   <div class="wrap footer-inner">
     <div class="footer-col">
-      <h4>Glow &amp; Grace Studio</h4>
-      <p>Studio kecantikan &amp; perawatan rambut modern. Menghadirkan rasa percaya diri melalui perawatan terbaik &amp; suasana tempat yang nyaman.</p>
+      <h4>Glow &amp; Grace Syar'i Studio</h4>
+      <p>Studio kecantikan khusus Muslimah modern. Menghadirkan rasa percaya diri melalui perawatan terbaik &amp; suasana private room yang aman dan nyaman.</p>
     </div>
     <div class="footer-col">
       <h4>Jam Operasional Studio</h4>
-      <p>Senin - Minggu: 09.00 - 20.00 WIB<br>Melayani booking jadwal online &amp; walk-in.</p>
+      <p>Senin - Minggu: 09.00 - 20.00 WIB<br>Melayani booking jadwal online &amp; reservasi tempat.</p>
     </div>
     <div class="footer-col">
       <h4>Lokasi &amp; Kontak</h4>
@@ -540,7 +559,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    &copy; 2026 Glow &amp; Grace Studio • Powered by rakyat.space
+    &copy; 2026 Glow &amp; Grace Syar'i Studio • Powered by rakyat.space
   </div>
 </footer>
 
@@ -636,12 +655,12 @@
       return;
     }
 
-    let text = `*RESERVASI JADWAL SALON - GLOW & GRACE STUDIO*\n\n`;
+    let text = `*RESERVASI JADWAL SALON MUSLIMAH - GLOW & GRACE SYAR'I*\n\n`;
     text += `*DATA PELANGGAN:*\nNama: *${name}*\nNo. WA: *${phone}*\n\n`;
     text += `*DETAIL PERAWATAN:*\n`;
     text += `• Layanan: *${activeService}*\n`;
     text += `• Durasi: *${activeDuration} Menit*\n`;
-    text += `• Stylist/Beautician: *${stylist}*\n`;
+    text += `• Beautician Syar'i: *${stylist}*\n`;
     text += `• Tanggal Kunjungan: *${date}*\n`;
     text += `• Jam Kedatangan: *${activeTimeSlot}*\n\n`;
     text += `----------------------------------\n`;

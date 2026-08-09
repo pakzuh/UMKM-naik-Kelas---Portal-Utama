@@ -89,25 +89,27 @@
     font-weight: 800; padding: 2px 8px; border-radius: 999px;
   }
 
-  /* HERO BANNER */
+  /* HERO BANNER WITH REAL VISUAL IMAGE */
   .hero-banner {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
-    color: #fff; padding: 48px 20px; position: relative; overflow: hidden;
+    position: relative; color: #fff; padding: 64px 20px; overflow: hidden;
+    background: linear-gradient(90deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.65) 60%, rgba(15, 23, 42, 0.3) 100%), url('assets/hero_banner.jpg');
+    background-size: cover; background-position: center;
+    border-bottom: 4px solid var(--primary);
   }
   .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 36px; }
-  .hero-text { flex: 1; max-width: 600px; }
+  .hero-text { flex: 1; max-width: 620px; }
   .hero-badge {
-    display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2); color: #7dd3fc; font-size: 0.78rem;
-    font-weight: 700; padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
+    display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.3); color: #7dd3fc; font-size: 0.8rem;
+    font-weight: 700; padding: 6px 16px; border-radius: 999px; margin-bottom: 18px;
   }
-  .hero-text h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
-  .hero-text p { font-size: 1rem; color: #94a3b8; margin-bottom: 24px; }
+  .hero-text h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.12; margin-bottom: 16px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+  .hero-text p { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 28px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
   .hero-stats { display: flex; gap: 24px; flex-wrap: wrap; }
-  .stat-item { display: flex; align-items: center; gap: 10px; }
+  .stat-item { display: flex; align-items: center; gap: 10px; background: rgba(15, 23, 42, 0.6); padding: 8px 16px; border-radius: 12px; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.1); }
   .stat-icon { font-size: 1.6rem; }
   .stat-info div { font-size: 0.92rem; font-weight: 700; color: #fff; }
-  .stat-info span { font-size: 0.76rem; color: #94a3b8; }
+  .stat-info span { font-size: 0.76rem; color: #cbd5e1; }
 
   /* PROMO STRIP */
   .promo-strip {
@@ -130,14 +132,14 @@
     box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
   }
 
-  /* PRODUCTS SECTION */
+  /* PRODUCTS SECTION WITH STUNNING IMAGES */
   .section { padding: 40px 0 60px; }
   .section-head { margin-bottom: 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .section-head h2 { font-size: 1.6rem; font-weight: 800; color: var(--dark); }
   .section-head p { font-size: 0.88rem; color: var(--text-muted); }
 
   .product-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px;
   }
   .product-card {
     background: var(--card-bg); border-radius: var(--radius);
@@ -150,11 +152,16 @@
   .badge-tag {
     position: absolute; top: 12px; left: 12px; z-index: 2;
     background: var(--danger); color: #fff; font-size: 0.7rem; font-weight: 800;
-    padding: 3px 8px; border-radius: 6px; text-transform: uppercase;
+    padding: 4px 9px; border-radius: 6px; text-transform: uppercase;
   }
   .product-img-box {
-    height: 160px; background: #f1f5f9; display: flex; align-items: center; justify-content: center;
-    font-size: 4rem; position: relative; overflow: hidden;
+    height: 180px; background: #f1f5f9; position: relative; overflow: hidden;
+  }
+  .product-img-box img {
+    width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;
+  }
+  .product-card:hover .product-img-box img {
+    transform: scale(1.06);
   }
   .product-info { padding: 16px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; gap: 12px; }
   .product-cat { font-size: 0.75rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; }
@@ -324,7 +331,7 @@
   </div>
 </div>
 
-<!-- PRODUCTS CATALOG -->
+<!-- PRODUCTS CATALOG WITH REAL IMAGES -->
 <section class="section">
   <div class="wrap">
     <div class="section-head">
@@ -338,7 +345,9 @@
       <!-- 1. Minyak Goreng -->
       <div class="product-card" data-cat="sembako" data-name="Minyak Goreng Sawit 2L">
         <span class="badge-tag">BEST SELLER</span>
-        <div class="product-img-box">🍳</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&auto=format&fit=crop&q=80" alt="Minyak Goreng">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Sembako</div>
@@ -358,7 +367,9 @@
       <!-- 2. Beras Premium -->
       <div class="product-card" data-cat="sembako" data-name="Beras Setra Ramos 5kg">
         <span class="badge-tag">FAVORIT</span>
-        <div class="product-img-box">🌾</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&auto=format&fit=crop&q=80" alt="Beras Premium">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Sembako</div>
@@ -377,7 +388,9 @@
 
       <!-- 3. Gula Pasir -->
       <div class="product-card" data-cat="sembako" data-name="Gula Pasir Kristal 1kg">
-        <div class="product-img-box">🍬</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=500&auto=format&fit=crop&q=80" alt="Gula Pasir">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Sembako</div>
@@ -395,7 +408,9 @@
 
       <!-- 4. Telur Ayam -->
       <div class="product-card" data-cat="sembako" data-name="Telur Ayam Negeri 1kg">
-        <div class="product-img-box">🥚</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=500&auto=format&fit=crop&q=80" alt="Telur Ayam">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Sembako</div>
@@ -413,8 +428,10 @@
 
       <!-- 5. Deterjen Cair -->
       <div class="product-card" data-cat="kebersihan" data-name="Deterjen Cair Konsentrat 750ml">
-        <span class="badge-tag">DISAKON 15%</span>
-        <div class="product-img-box">🧺</div>
+        <span class="badge-tag">DISKON 15%</span>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1585832770485-e68a5fc88280?w=500&auto=format&fit=crop&q=80" alt="Deterjen">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Kebersihan</div>
@@ -433,7 +450,9 @@
 
       <!-- 6. Sabun Mandi Cair -->
       <div class="product-card" data-cat="kebersihan" data-name="Sabun Mandi Bodywash 450ml">
-        <div class="product-img-box">🧴</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1608248597260-657d644d6736?w=500&auto=format&fit=crop&q=80" alt="Sabun Mandi">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Kebersihan</div>
@@ -451,7 +470,9 @@
 
       <!-- 7. Shampoo -->
       <div class="product-card" data-cat="kebersihan" data-name="Shampoo Anti Ketombe 160ml">
-        <div class="product-img-box">🧼</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=80" alt="Shampoo">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Kebersihan</div>
@@ -470,7 +491,9 @@
       <!-- 8. Kopi Instan -->
       <div class="product-card" data-cat="snack" data-name="Kopi Latte Instan Pack 10s">
         <span class="badge-tag">HEMAT</span>
-        <div class="product-img-box">☕</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&auto=format&fit=crop&q=80" alt="Kopi Instan">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Snack &amp; Minuman</div>
@@ -488,7 +511,9 @@
 
       <!-- 9. Susu UHT 1 Liter -->
       <div class="product-card" data-cat="snack" data-name="Susu UHT Full Cream 1L">
-        <div class="product-img-box">🥛</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500&auto=format&fit=crop&q=80" alt="Susu UHT">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Snack &amp; Minuman</div>
@@ -506,7 +531,9 @@
 
       <!-- 10. Keripik Kentang -->
       <div class="product-card" data-cat="snack" data-name="Keripik Kentang Original 68g">
-        <div class="product-img-box">🍟</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=500&auto=format&fit=crop&q=80" alt="Keripik Kentang">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Snack &amp; Minuman</div>
@@ -524,7 +551,9 @@
 
       <!-- 11. Tissue Wajah -->
       <div class="product-card" data-cat="rumahtangga" data-name="Tissue Wajah 250 Sheets">
-        <div class="product-img-box">🧻</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80" alt="Tissue">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Rumah Tangga</div>
@@ -542,7 +571,9 @@
 
       <!-- 12. Lampu LED -->
       <div class="product-card" data-cat="rumahtangga" data-name="Lampu LED Hemat Energi 10W">
-        <div class="product-img-box">💡</div>
+        <div class="product-img-box">
+          <img src="https://images.unsplash.com/photo-1550985616-10810253b84d?w=500&auto=format&fit=crop&q=80" alt="Lampu LED">
+        </div>
         <div class="product-info">
           <div>
             <div class="product-cat">Rumah Tangga</div>
