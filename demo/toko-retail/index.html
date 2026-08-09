@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MartPlus Retail Modern — Toko Retail & Kebutuhan Harian</title>
+<meta name="description" content="MartPlus Retail Modern — Belanja kebutuhan harian, sembako, makanan ringan, & perlengkapan rumah tangga super cepat. Pesan online via WhatsApp & antar hari ini.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --primary-light: #e0f2fe;
+    --secondary: #0d9488;
+    --accent: #f59e0b;
+    --accent-light: #fef3c7;
+    --danger: #ef4444;
+    --dark: #0f172a;
+    --card-bg: #ffffff;
+    --bg-main: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
+    --shadow-lg: 0 20px 35px -10px rgba(15, 23, 42, 0.15);
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .brand-title { font-family: 'Outfit', sans-serif; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+  /* HEADER TOPBAR */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem; color: var(--dark); }
+  .brand-logo {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; font-weight: 800; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+  }
+  .brand-text span { color: var(--primary); }
+
+  .search-bar-wrap {
+    flex: 1; max-width: 460px; position: relative; display: none;
+  }
+  @media(min-width: 768px) { .search-bar-wrap { display: block; } }
+  .search-input {
+    width: 100%; padding: 10px 16px 10px 42px; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--bg-main);
+    font-family: inherit; font-size: 0.88rem; outline: none; transition: all 0.2s ease;
+  }
+  .search-input:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px var(--primary-light); }
+  .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); opacity: 0.5; font-size: 0.95rem; }
+
+  .header-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-cart-head {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff; border: none; padding: 10px 18px; border-radius: 999px;
+    font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex;
+    align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+    transition: transform 0.2s ease;
+  }
+  .btn-cart-head:active { transform: scale(0.96); }
+  .cart-count-badge {
+    background: var(--accent); color: var(--dark); font-size: 0.75rem;
+    font-weight: 800; padding: 2px 8px; border-radius: 999px;
+  }
+
+  /* HERO BANNER */
+  .hero-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+    color: #fff; padding: 48px 20px; position: relative; overflow: hidden;
+  }
+  .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 36px; }
+  .hero-text { flex: 1; max-width: 600px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2); color: #7dd3fc; font-size: 0.78rem;
+    font-weight: 700; padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
+  }
+  .hero-text h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
+  .hero-text p { font-size: 1rem; color: #94a3b8; margin-bottom: 24px; }
+  .hero-stats { display: flex; gap: 24px; flex-wrap: wrap; }
+  .stat-item { display: flex; align-items: center; gap: 10px; }
+  .stat-icon { font-size: 1.6rem; }
+  .stat-info div { font-size: 0.92rem; font-weight: 700; color: #fff; }
+  .stat-info span { font-size: 0.76rem; color: #94a3b8; }
+
+  /* PROMO STRIP */
+  .promo-strip {
+    background: var(--accent-light); border-bottom: 1px solid #fde68a;
+    padding: 12px 20px; font-size: 0.85rem; font-weight: 700; color: #b45309; text-align: center;
+  }
+
+  /* CATEGORIES NAV */
+  .cat-nav-section { padding: 28px 0; background: #fff; border-bottom: 1px solid var(--border); }
+  .cat-pills { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .cat-pills::-webkit-scrollbar { display: none; }
+  .cat-pill {
+    background: var(--bg-main); border: 1px solid var(--border);
+    color: var(--text-main); font-size: 0.88rem; font-weight: 700;
+    padding: 10px 20px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+    transition: all 0.2s ease; display: flex; align-items: center; gap: 8px;
+  }
+  .cat-pill:hover, .cat-pill.active {
+    background: var(--primary); color: #fff; border-color: var(--primary);
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+  }
+
+  /* PRODUCTS SECTION */
+  .section { padding: 40px 0 60px; }
+  .section-head { margin-bottom: 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .section-head h2 { font-size: 1.6rem; font-weight: 800; color: var(--dark); }
+  .section-head p { font-size: 0.88rem; color: var(--text-muted); }
+
+  .product-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;
+  }
+  .product-card {
+    background: var(--card-bg); border-radius: var(--radius);
+    border: 1px solid var(--border); overflow: hidden; box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; transition: all 0.25s ease; position: relative;
+  }
+  .product-card:hover {
+    transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary-light);
+  }
+  .badge-tag {
+    position: absolute; top: 12px; left: 12px; z-index: 2;
+    background: var(--danger); color: #fff; font-size: 0.7rem; font-weight: 800;
+    padding: 3px 8px; border-radius: 6px; text-transform: uppercase;
+  }
+  .product-img-box {
+    height: 160px; background: #f1f5f9; display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; position: relative; overflow: hidden;
+  }
+  .product-info { padding: 16px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; gap: 12px; }
+  .product-cat { font-size: 0.75rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; }
+  .product-name { font-size: 0.95rem; font-weight: 700; color: var(--dark); line-height: 1.3; }
+  .product-unit { font-size: 0.78rem; color: var(--text-muted); }
+  
+  .price-row { display: flex; align-items: baseline; gap: 8px; }
+  .price-current { font-size: 1.1rem; font-weight: 800; color: var(--primary-dark); }
+  .price-old { font-size: 0.78rem; color: var(--text-muted); text-decoration: line-through; }
+
+  .btn-add-item {
+    width: 100%; padding: 10px; background: var(--primary-light); color: var(--primary-dark);
+    font-weight: 700; font-size: 0.85rem; border: none; border-radius: 10px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.2s ease;
+  }
+  .btn-add-item:hover { background: var(--primary); color: #fff; }
+
+  /* CART SHEET DRAWER */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
+    z-index: 100; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+  }
+  .overlay.show { opacity: 1; visibility: visible; }
+
+  .cart-sheet {
+    position: fixed; top: 0; right: -430px; width: 100%; max-width: 420px; height: 100%;
+    background: #fff; z-index: 101; box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    display: flex; flex-direction: column; transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cart-sheet.open { right: 0; }
+
+  .cart-head {
+    background: var(--dark); color: #fff; padding: 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cart-head h3 { margin: 0; font-size: 1.15rem; color: #fff; display: flex; align-items: center; gap: 8px; }
+  .close-cart-btn { background: none; border: none; color: #fff; font-size: 1.6rem; cursor: pointer; }
+
+  .cart-body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .cart-empty { text-align: center; color: var(--text-muted); padding: 60px 10px; font-size: 0.92rem; }
+
+  .cart-item {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bg-main); padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border);
+  }
+  .cart-item-title { font-weight: 700; font-size: 0.88rem; color: var(--dark); }
+  .cart-item-sub { font-size: 0.78rem; color: var(--primary-dark); font-weight: 700; margin-top: 2px; }
+
+  .qty-ctrl { display: flex; align-items: center; gap: 8px; }
+  .qty-btn {
+    width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--border);
+    background: #fff; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .qty-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .qty-num { font-weight: 800; font-size: 0.9rem; min-width: 20px; text-align: center; }
+
+  .cart-foot { padding: 20px; border-top: 1px solid var(--border); background: #fff; }
+  .delivery-mode-select { margin-bottom: 14px; }
+  .delivery-mode-select label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 6px; }
+  .mode-options { display: flex; gap: 8px; }
+  .mode-opt {
+    flex: 1; padding: 8px; border: 1px solid var(--border); border-radius: 8px;
+    font-size: 0.82rem; font-weight: 700; text-align: center; cursor: pointer; background: var(--bg-main);
+  }
+  .mode-opt.selected { background: var(--primary-light); color: var(--primary-dark); border-color: var(--primary); }
+
+  .cart-total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.15rem; color: var(--dark); margin-bottom: 16px; }
+
+  .btn-checkout-wa {
+    width: 100%; padding: 14px; background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff; font-weight: 800; font-size: 0.95rem; border-radius: 12px; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+  }
+
+  /* TOAST NOTIFICATION */
+  .toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    background: var(--dark); color: #fff; padding: 12px 24px; border-radius: 999px;
+    font-size: 0.88rem; font-weight: 700; z-index: 120; box-shadow: var(--shadow-lg);
+    opacity: 0; transition: opacity 0.3s ease; pointer-events: none; border: 1px solid rgba(255,255,255,0.2);
+  }
+  .toast.show { opacity: 1; }
+
+  /* FOOTER */
+  footer { background: var(--dark); color: #fff; padding: 48px 0 24px; margin-top: 40px; }
+  .footer-inner { display: flex; flex-wrap: wrap; gap: 36px; justify-content: space-between; margin-bottom: 36px; }
+  .footer-col { flex: 1; min-width: 240px; }
+  .footer-col h4 { color: #fff; font-size: 1.1rem; margin-bottom: 14px; }
+  .footer-col p { color: #94a3b8; font-size: 0.88rem; line-height: 1.6; }
+  .footer-bottom { text-align: center; border-top: 1px solid #334155; padding-top: 24px; color: #64748b; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="brand-logo">🛒</div>
+      <div class="brand-text">Mart<span>Plus</span></div>
+    </div>
+
+    <div class="search-bar-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" id="searchInput" placeholder="Cari sembako, sabun, snack, minuman..." onkeyup="searchProducts()">
+    </div>
+
+    <div class="header-actions">
+      <button class="btn-cart-head" onclick="openCart()">
+        🛒 Keranjang <span class="cart-count-badge" id="cartCountBadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- PROMO STRIP -->
+<div class="promo-strip">
+  ⚡ PROMO HARI INI: Gratis Ongkir Wilayah Kota untuk Minimal Belanja Rp 50.000! 🚚
+</div>
+
+<!-- HERO BANNER -->
+<section class="hero-banner">
+  <div class="wrap hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">🏪 Toko Retail &amp; Minimarket Modern</div>
+      <h1>Belanja Kebutuhan Harian Lebih Cepat &amp; Hemat</h1>
+      <p>Lengkapi kebutuhan dapur, kebersihan rumah, makanan ringan, dan perawatan keluarga. Pesan via WhatsApp, kirim langsung ke rumah!</p>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-icon">🚚</div>
+          <div class="stat-info">
+            <div>Kirim Hari Ini</div>
+            <span>Siap Antar Instan</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">💯</div>
+          <div class="stat-info">
+            <div>Produk Asli</div>
+            <span>Jaminan Kualitas</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">💬</div>
+          <div class="stat-info">
+            <div>Order WA</div>
+            <span>Tanpa Aplikasi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY FILTER -->
+<div class="cat-nav-section">
+  <div class="wrap">
+    <div class="cat-pills">
+      <button class="cat-pill active" onclick="filterCategory('all', this)">🛒 Semua Produk</button>
+      <button class="cat-pill" onclick="filterCategory('sembako', this)">🌾 Sembako &amp; Dapur</button>
+      <button class="cat-pill" onclick="filterCategory('kebersihan', this)">🧴 Sabun &amp; Kebersihan</button>
+      <button class="cat-pill" onclick="filterCategory('snack', this)">🍿 Snack &amp; Minuman</button>
+      <button class="cat-pill" onclick="filterCategory('rumahtangga', this)">🏠 Rumah Tangga</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS CATALOG -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Katalog Produk Retail</h2>
+        <p>Pilih produk yang Anda butuhkan dan masukkan ke keranjang belanja.</p>
+      </div>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <!-- 1. Minyak Goreng -->
+      <div class="product-card" data-cat="sembako" data-name="Minyak Goreng Sawit 2L">
+        <span class="badge-tag">BEST SELLER</span>
+        <div class="product-img-box">🍳</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Sembako</div>
+            <div class="product-name">Minyak Goreng Premium 2 Liter</div>
+            <div class="product-unit">Kemasan Refill 2 Liter</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 34.000</span>
+              <span class="price-old">Rp 38.000</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p1', 'Minyak Goreng Premium 2L', 34000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Beras Premium -->
+      <div class="product-card" data-cat="sembako" data-name="Beras Setra Ramos 5kg">
+        <span class="badge-tag">FAVORIT</span>
+        <div class="product-img-box">🌾</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Sembako</div>
+            <div class="product-name">Beras Setra Ramos Super 5kg</div>
+            <div class="product-unit">Karung 5 Kilogram</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 69.500</span>
+              <span class="price-old">Rp 74.000</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p2', 'Beras Setra Ramos 5kg', 69500)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Gula Pasir -->
+      <div class="product-card" data-cat="sembako" data-name="Gula Pasir Kristal 1kg">
+        <div class="product-img-box">🍬</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Sembako</div>
+            <div class="product-name">Gula Pasir Kristal Putih 1kg</div>
+            <div class="product-unit">Kemasan 1 Kilogram</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 17.500</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p3', 'Gula Pasir Kristal 1kg', 17500)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Telur Ayam -->
+      <div class="product-card" data-cat="sembako" data-name="Telur Ayam Negeri 1kg">
+        <div class="product-img-box">🥚</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Sembako</div>
+            <div class="product-name">Telur Ayam Negeri Fresh 1kg</div>
+            <div class="product-unit">Isi ±16 butir</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 28.000</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p4', 'Telur Ayam Negeri 1kg', 28000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Deterjen Cair -->
+      <div class="product-card" data-cat="kebersihan" data-name="Deterjen Cair Konsentrat 750ml">
+        <span class="badge-tag">DISAKON 15%</span>
+        <div class="product-img-box">🧺</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Kebersihan</div>
+            <div class="product-name">Deterjen Cair Konsentrat 750ml</div>
+            <div class="product-unit">Pouch Refill</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 18.500</span>
+              <span class="price-old">Rp 22.000</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p5', 'Deterjen Cair Konsentrat 750ml', 18500)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Sabun Mandi Cair -->
+      <div class="product-card" data-cat="kebersihan" data-name="Sabun Mandi Bodywash 450ml">
+        <div class="product-img-box">🧴</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Kebersihan</div>
+            <div class="product-name">Sabun Mandi Bodywash Antibakteri 450ml</div>
+            <div class="product-unit">Pouch Refill</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 21.000</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p6', 'Sabun Mandi Bodywash 450ml', 21000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Shampoo -->
+      <div class="product-card" data-cat="kebersihan" data-name="Shampoo Anti Ketombe 160ml">
+        <div class="product-img-box">🧼</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Kebersihan</div>
+            <div class="product-name">Shampoo Anti Ketombe &amp; Scalp Care 160ml</div>
+            <div class="product-unit">Botol 160ml</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 24.500</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p7', 'Shampoo Anti Ketombe 160ml', 24500)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Kopi Instan -->
+      <div class="product-card" data-cat="snack" data-name="Kopi Latte Instan Pack 10s">
+        <span class="badge-tag">HEMAT</span>
+        <div class="product-img-box">☕</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Snack &amp; Minuman</div>
+            <div class="product-name">Kopi Latte Instan Pack (10 sachet)</div>
+            <div class="product-unit">Bag 10 Sachet</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 15.000</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p8', 'Kopi Latte Instan 10s', 15000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Susu UHT 1 Liter -->
+      <div class="product-card" data-cat="snack" data-name="Susu UHT Full Cream 1L">
+        <div class="product-img-box">🥛</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Snack &amp; Minuman</div>
+            <div class="product-name">Susu UHT Full Cream 1 Liter</div>
+            <div class="product-unit">Kartu 1000ml</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 19.000</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p9', 'Susu UHT Full Cream 1L', 19000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Keripik Kentang -->
+      <div class="product-card" data-cat="snack" data-name="Keripik Kentang Original 68g">
+        <div class="product-img-box">🍟</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Snack &amp; Minuman</div>
+            <div class="product-name">Keripik Kentang Original Crispy 68g</div>
+            <div class="product-unit">Bungkus 68 gram</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 11.500</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p10', 'Keripik Kentang 68g', 11500)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Tissue Wajah -->
+      <div class="product-card" data-cat="rumahtangga" data-name="Tissue Wajah 250 Sheets">
+        <div class="product-img-box">🧻</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Rumah Tangga</div>
+            <div class="product-name">Tissue Wajah Soft 2-Ply 250 Sheets</div>
+            <div class="product-unit">Pack 250 Lembar</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 13.500</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p11', 'Tissue Wajah 250 Sheets', 13500)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Lampu LED -->
+      <div class="product-card" data-cat="rumahtangga" data-name="Lampu LED Hemat Energi 10W">
+        <div class="product-img-box">💡</div>
+        <div class="product-info">
+          <div>
+            <div class="product-cat">Rumah Tangga</div>
+            <div class="product-name">Lampu LED Hemat Energi 10 Watt (Putih)</div>
+            <div class="product-unit">Garansi 1 Tahun</div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-current">Rp 27.000</span>
+              <span class="price-old">Rp 32.000</span>
+            </div>
+            <button class="btn-add-item" onclick="addToCart('p12', 'Lampu LED 10W', 27000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<div class="cart-sheet" id="cartSheet">
+  <div class="cart-head">
+    <h3>🛒 Keranjang Belanja</h3>
+    <button class="close-cart-btn" onclick="closeCart()">&times;</button>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">
+      Keranjang belanja Anda masih kosong.<br>Silakan pilih produk di atas! 🛒
+    </div>
+  </div>
+
+  <div class="cart-foot" id="cartFoot" style="display:none;">
+    <div class="delivery-mode-select">
+      <label>Pilihan Layanan:</label>
+      <div class="mode-options">
+        <div class="mode-opt selected" id="optAntar" onclick="selectDeliveryMode('antar')">🛵 Dikirim ke Rumah</div>
+        <div class="mode-opt" id="optAmbil" onclick="selectDeliveryMode('ambil')">🏪 Ambil di Toko</div>
+      </div>
+    </div>
+
+    <div class="cart-total-row">
+      <span>Total Belanja:</span>
+      <span id="cartTotalPrice">Rp 0</span>
+    </div>
+
+    <button class="btn-checkout-wa" onclick="checkoutWA()">💬 Kirim Pesanan via WhatsApp ↗</button>
+  </div>
+</div>
+
+<div class="toast" id="toast">✔ Produk dimasukkan ke keranjang!</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <h4>MartPlus Retail Modern</h4>
+      <p>Pusat belanja barang kebutuhan harian, sembako, minuman, snack, dan peralatan rumah tangga terpercaya. Melayani pembelian eceran &amp; grosir.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Jam Operasional Toko</h4>
+      <p>Senin - Minggu: 07.00 - 21.30 WIB<br>Layanan pesan antar aktif setiap hari.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak &amp; Alamat</h4>
+      <p>Jl. Raya Utama No. 88, Malang<br>WhatsApp: 0857-3669-9198</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 MartPlus Retail Modern • Powered by rakyat.space
+  </div>
+</footer>
+
+<script>
+  const WA_NUMBER = "6285736699198";
+  let cart = {};
+  let deliveryMode = "antar";
+
+  function addToCart(id, name, price) {
+    if (cart[id]) {
+      cart[id].qty += 1;
+    } else {
+      cart[id] = { name, price, qty: 1 };
+    }
+    renderCart();
+    showToast(`✔ ${name} dimasukkan ke keranjang!`);
+  }
+
+  function updateQty(id, delta) {
+    if (!cart[id]) return;
+    cart[id].qty += delta;
+    if (cart[id].qty <= 0) {
+      delete cart[id];
+    }
+    renderCart();
+  }
+
+  function selectDeliveryMode(mode) {
+    deliveryMode = mode;
+    document.getElementById("optAntar").classList.toggle("selected", mode === 'antar');
+    document.getElementById("optAmbil").classList.toggle("selected", mode === 'ambil');
+  }
+
+  function renderCart() {
+    const cartBody = document.getElementById("cartBody");
+    const cartFoot = document.getElementById("cartFoot");
+    const badge = document.getElementById("cartCountBadge");
+
+    let totalQty = 0;
+    let totalPrice = 0;
+    let itemsHtml = "";
+
+    const keys = Object.keys(cart);
+    if (keys.length === 0) {
+      cartBody.innerHTML = '<div class="cart-empty">Keranjang belanja Anda masih kosong.<br>Silakan pilih produk di atas! 🛒</div>';
+      cartFoot.style.display = "none";
+      badge.innerText = "0";
+      return;
+    }
+
+    keys.forEach(id => {
+      const item = cart[id];
+      const itemSubtotal = item.price * item.qty;
+      totalQty += item.qty;
+      totalPrice += itemSubtotal;
+
+      itemsHtml += `
+        <div class="cart-item">
+          <div>
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-sub">Rp ${itemSubtotal.toLocaleString('id-ID')} (${item.qty}x @ Rp ${item.price.toLocaleString('id-ID')})</div>
+          </div>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="updateQty('${id}', -1)">-</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="updateQty('${id}', 1)">+</button>
+          </div>
+        </div>
+      `;
+    });
+
+    cartBody.innerHTML = itemsHtml;
+    cartFoot.style.display = "block";
+    document.getElementById("cartTotalPrice").innerText = "Rp " + totalPrice.toLocaleString('id-ID');
+    badge.innerText = totalQty;
+  }
+
+  function openCart() {
+    document.getElementById("cartOverlay").classList.add("show");
+    document.getElementById("cartSheet").classList.add("open");
+  }
+
+  function closeCart() {
+    document.getElementById("cartOverlay").classList.remove("show");
+    document.getElementById("cartSheet").classList.remove("open");
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById("toast");
+    t.innerText = msg;
+    t.classList.add("show");
+    setTimeout(() => { t.classList.remove("show"); }, 2000);
+  }
+
+  function filterCategory(cat, btnEl) {
+    document.querySelectorAll(".cat-pill").forEach(b => b.classList.remove("active"));
+    if (btnEl) btnEl.classList.add("active");
+
+    const cards = document.querySelectorAll(".product-card");
+    cards.forEach(card => {
+      if (cat === "all" || card.getAttribute("data-cat") === cat) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  function searchProducts() {
+    const q = document.getElementById("searchInput").value.toLowerCase();
+    const cards = document.querySelectorAll(".product-card");
+    cards.forEach(card => {
+      const name = card.getAttribute("data-name").toLowerCase();
+      if (name.includes(q)) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  function checkoutWA() {
+    const keys = Object.keys(cart);
+    if (keys.length === 0) return;
+
+    const modeText = deliveryMode === 'antar' ? 'Dikirim ke Alamat Rumah' : 'Ambil Mandiri di Toko';
+    let text = `*ORDER BELANJA - MARTPLUS RETAIL*\n`;
+    text += `Layanan: *${modeText}*\n\n*DAFTAR BARANG:*\n`;
+
+    let totalPrice = 0;
+    keys.forEach((id, index) => {
+      const item = cart[id];
+      const subtotal = item.price * item.qty;
+      totalPrice += subtotal;
+      text += `${index + 1}. *${item.name}* x${item.qty} = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+    });
+
+    text += `\n----------------------------------\n`;
+    text += `*TOTAL BAYAR:* Rp ${totalPrice.toLocaleString('id-ID')}\n\n`;
+    text += `*DATA PEMESAN:*\nNama: \nNo. HP: \nAlamat Lengkap (Jika dikirim): \nCatatan: `;
+
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+  }
+</script>
+
+</body>
+</html>
