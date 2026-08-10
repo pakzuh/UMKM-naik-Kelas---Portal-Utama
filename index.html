@@ -1307,10 +1307,19 @@
       });
     }
 
-    // Initialize on DOM load
+    // Initialize on DOM load & auto-close mobile menu on link click
     document.addEventListener('DOMContentLoaded', () => {
       renderDomainGrid();
       calculateDomainCost();
+
+      const navContainer = document.getElementById('navLinks');
+      if (navContainer) {
+        navContainer.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navContainer.classList.remove('open');
+          });
+        });
+      }
     });
   </script>
 

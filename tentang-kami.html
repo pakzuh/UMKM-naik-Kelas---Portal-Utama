@@ -252,5 +252,18 @@
 
 <a class="wa-float" href="https://wa.me/6285736699198?text=Halo%20rakyat.space,%20saya%20mau%20tanya%20layanan" title="Chat WhatsApp" aria-label="Chat WhatsApp">💬</a>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navContainer = document.getElementById('navLinks');
+    if (navContainer) {
+      navContainer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navContainer.classList.remove('open');
+        });
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
