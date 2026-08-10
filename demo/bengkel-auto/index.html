@@ -176,69 +176,87 @@
   /* CART DRAWER SLIDE-OUT */
   .overlay {
     position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px);
+    background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(4px);
     z-index: 100; opacity: 0; visibility: hidden; transition: all 0.3s ease;
   }
   .overlay.show { opacity: 1; visibility: visible; }
 
   .cart-sheet {
-    position: fixed; top: 0; right: -460px; width: 100%; max-width: 440px; height: 100%;
-    background: #fff; z-index: 101; box-shadow: -10px 0 35px rgba(0,0,0,0.2);
-    display: flex; flex-direction: column; transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: fixed; top: 0; right: -520px; width: 100%; max-width: 480px; height: 100%;
+    background: #fff; z-index: 101; box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+    display: flex; flex-direction: column; transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .cart-sheet.open { right: 0; }
 
   .cart-head {
-    background: var(--dark); color: #fff; padding: 20px;
+    background: var(--dark); color: #fff; padding: 18px 24px;
     display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 3px solid var(--primary);
+    border-bottom: 3px solid var(--primary); flex-shrink: 0;
   }
   .cart-head h3 { margin: 0; font-size: 1.5rem; color: #fff; display: flex; align-items: center; gap: 10px; text-transform: uppercase; }
   .close-cart-btn { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; line-height: 1; }
 
-  .cart-body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
-  .cart-empty { text-align: center; color: var(--text-muted); padding: 60px 10px; font-size: 0.92rem; }
+  /* UNIFIED SCROLL CONTAINER */
+  .cart-body {
+    flex: 1; overflow-y: auto; padding: 24px;
+    display: flex; flex-direction: column; gap: 22px;
+    scroll-behavior: smooth;
+  }
+  .cart-section-title {
+    font-size: 0.85rem; font-weight: 800; text-transform: uppercase;
+    color: var(--dark); letter-spacing: 0.5px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 6px; border-bottom: 2px solid var(--primary-light);
+  }
 
+  .cart-empty { text-align: center; color: var(--text-muted); padding: 80px 20px; font-size: 0.95rem; line-height: 1.6; }
+
+  .cart-items-container { display: flex; flex-direction: column; gap: 10px; }
   .cart-item {
     display: flex; align-items: center; justify-content: space-between;
-    background: var(--bg-main); padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border);
+    background: var(--bg-main); padding: 14px 16px; border-radius: 14px; border: 1px solid var(--border);
+    gap: 12px;
   }
-  .cart-item-title { font-weight: 800; font-size: 0.92rem; color: var(--dark); text-transform: uppercase; }
-  .cart-item-sub { font-size: 0.78rem; color: var(--primary-dark); font-weight: 800; margin-top: 2px; }
+  .cart-item-title { font-weight: 800; font-size: 0.95rem; color: var(--dark); text-transform: uppercase; line-height: 1.2; }
+  .cart-item-sub { font-size: 0.82rem; color: var(--primary-dark); font-weight: 800; margin-top: 4px; }
 
-  .qty-ctrl { display: flex; align-items: center; gap: 8px; }
+  .qty-ctrl { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
   .qty-btn {
-    width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--border);
-    background: #fff; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border);
+    background: #fff; font-weight: 800; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
   .qty-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
-  .qty-num { font-weight: 800; font-size: 0.95rem; min-width: 20px; text-align: center; }
+  .qty-num { font-weight: 800; font-size: 1rem; min-width: 22px; text-align: center; color: var(--dark); }
 
-  .cart-foot { padding: 20px; border-top: 1px solid var(--border); background: #fff; }
-  
-  .form-group-cart { margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px; }
+  .cart-form-box { display: flex; flex-direction: column; gap: 14px; background: #fff; }
+  .form-group-cart { display: flex; flex-direction: column; gap: 6px; }
   .form-group-cart label { font-size: 0.78rem; font-weight: 800; color: var(--dark); text-transform: uppercase; }
   .cart-input, .cart-select {
-    padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border);
-    font-family: inherit; font-size: 0.88rem; outline: none; background: var(--bg-main);
+    padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border);
+    font-family: inherit; font-size: 0.9rem; outline: none; background: var(--bg-main);
   }
-  .cart-input:focus, .cart-select:focus { border-color: var(--primary); background: #fff; }
+  .cart-input:focus, .cart-select:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px var(--primary-light); }
 
   /* TIME SLOTS IN CART */
   .cart-time-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 4px; }
   .cart-time-slot {
-    padding: 6px 4px; border: 1px solid var(--border); border-radius: 8px;
-    font-size: 0.78rem; font-weight: 800; text-align: center; cursor: pointer; background: var(--bg-main);
+    padding: 8px 4px; border: 1px solid var(--border); border-radius: 10px;
+    font-size: 0.82rem; font-weight: 800; text-align: center; cursor: pointer; background: var(--bg-main);
   }
   .cart-time-slot.selected { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-  .cart-total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.2rem; color: var(--dark); margin: 16px 0 14px; }
+  .cart-summary-box {
+    background: var(--primary-light); padding: 18px; border-radius: 16px;
+    border: 1px solid #fde68a; margin-top: 6px;
+  }
+  .cart-total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.25rem; color: var(--dark); margin-bottom: 14px; }
 
   .btn-checkout-wa {
-    width: 100%; padding: 15px; background: linear-gradient(135deg, #10b981, #059669);
-    color: #fff; font-weight: 800; font-size: 0.98rem; border-radius: 12px; border: none; cursor: pointer;
+    width: 100%; padding: 16px; background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff; font-weight: 800; font-size: 0.98rem; border-radius: 14px; border: none; cursor: pointer;
     display: flex; align-items: center; justify-content: center; gap: 8px; text-transform: uppercase;
-    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); transition: transform 0.15s ease;
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35); transition: transform 0.15s ease;
   }
   .btn-checkout-wa:active { transform: scale(0.98); }
 
@@ -514,55 +532,6 @@
       Keranjang servis Anda masih kosong.<br>Silakan pilih paket perawatan di atas! 🛠️
     </div>
   </div>
-
-  <div class="cart-foot" id="cartFoot" style="display:none;">
-    <!-- Form Data Kendaraan & Jadwal -->
-    <div class="form-group-cart">
-      <label>Nama Pemilik Kendaraan:</label>
-      <input type="text" class="cart-input" id="cartName" placeholder="Contoh: Pak Hendra Perkasa" required>
-    </div>
-
-    <div class="form-group-cart">
-      <label>Nomor WhatsApp (Konfirmasi):</label>
-      <input type="tel" class="cart-input" id="cartPhone" placeholder="Contoh: 081234567890" required>
-    </div>
-
-    <div class="form-group-cart">
-      <label>Merk &amp; Plat Nomor Kendaraan:</label>
-      <input type="text" class="cart-input" id="cartVehicle" placeholder="Contoh: Avanza 2021 (N 1234 ABC)" required>
-    </div>
-
-    <div class="form-group-cart">
-      <label>Lokasi Layanan:</label>
-      <select class="cart-select" id="cartLocation">
-        <option value="Datang Langsung ke Bengkel">🏪 Datang Langsung ke Bengkel</option>
-        <option value="Pesan Montir Home Service (Ke Rumah)">🏡 Pesan Montir Home Service (Ke Rumah)</option>
-        <option value="Emergency Towing (Mogok di Jalan)">🚨 Emergency Towing (Mogok di Jalan)</option>
-      </select>
-    </div>
-
-    <div class="form-group-cart">
-      <label>Pilih Tanggal Servis:</label>
-      <input type="date" class="cart-input" id="cartDate" required>
-    </div>
-
-    <div class="form-group-cart">
-      <label>Pilih Slot Jam Servis:</label>
-      <div class="cart-time-slots">
-        <div class="cart-time-slot" onclick="selectCartTimeSlot('08:30 WIB', this)">08:30</div>
-        <div class="cart-time-slot" onclick="selectCartTimeSlot('10:00 WIB', this)">10:00</div>
-        <div class="cart-time-slot" onclick="selectCartTimeSlot('13:30 WIB', this)">13:30</div>
-        <div class="cart-time-slot" onclick="selectCartTimeSlot('16:00 WIB', this)">16:00</div>
-      </div>
-    </div>
-
-    <div class="cart-total-row">
-      <span>Total Biaya Jasa:</span>
-      <span id="cartTotalPrice">Rp 0</span>
-    </div>
-
-    <button class="btn-checkout-wa" onclick="checkoutWA()">💬 Kirim Booking Servis via WhatsApp ↗</button>
-  </div>
 </div>
 
 <div class="toast" id="toast">✔ Paket servis dimasukkan ke keranjang!</div>
@@ -605,15 +574,6 @@
   let cart = {};
   let cartTimeSlot = "";
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const today = new Date().toISOString().split('T')[0];
-    const dateInput = document.getElementById("cartDate");
-    if (dateInput) {
-      dateInput.value = today;
-      dateInput.min = today;
-    }
-  });
-
   function addToCart(id, name, price, duration) {
     if (cart[id]) {
       cart[id].qty += 1;
@@ -635,13 +595,12 @@
 
   function selectCartTimeSlot(time, slotEl) {
     document.querySelectorAll(".cart-time-slot").forEach(s => s.classList.remove("selected"));
-    slotEl.classList.add("selected");
+    if (slotEl) slotEl.classList.add("selected");
     cartTimeSlot = time;
   }
 
   function renderCart() {
     const cartBody = document.getElementById("cartBody");
-    const cartFoot = document.getElementById("cartFoot");
     const badge = document.getElementById("cartCountBadge");
     const bottomBar = document.getElementById("bottomCartBar");
 
@@ -652,7 +611,6 @@
     const keys = Object.keys(cart);
     if (keys.length === 0) {
       cartBody.innerHTML = '<div class="cart-empty">Keranjang servis Anda masih kosong.<br>Silakan pilih paket perawatan di atas! 🛠️</div>';
-      cartFoot.style.display = "none";
       badge.innerText = "0";
       if (bottomBar) bottomBar.classList.remove("show");
       return;
@@ -679,11 +637,77 @@
       `;
     });
 
-    cartBody.innerHTML = itemsHtml;
-    cartFoot.style.display = "block";
-    document.getElementById("cartTotalPrice").innerText = "Rp " + totalPrice.toLocaleString('id-ID');
-    badge.innerText = totalQty;
+    const today = new Date().toISOString().split('T')[0];
 
+    cartBody.innerHTML = `
+      <!-- Section 1: Daftar Layanan Dipilih -->
+      <div>
+        <div class="cart-section-title">
+          <span>🛠️ Paket Servis Dipilih</span>
+          <span style="color:var(--primary-dark)">${totalQty} Item</span>
+        </div>
+        <div class="cart-items-container">
+          ${itemsHtml}
+        </div>
+      </div>
+
+      <!-- Section 2: Formulir Data & Jadwal -->
+      <div class="cart-form-box">
+        <div class="cart-section-title">
+          <span>📋 Data Pemilik &amp; Kendaraan</span>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Nama Pemilik Kendaraan:</label>
+          <input type="text" class="cart-input" id="cartName" placeholder="Contoh: Pak Hendra Perkasa" required>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Nomor WhatsApp (Konfirmasi):</label>
+          <input type="tel" class="cart-input" id="cartPhone" placeholder="Contoh: 081234567890" required>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Merk &amp; Plat Nomor Kendaraan:</label>
+          <input type="text" class="cart-input" id="cartVehicle" placeholder="Contoh: Avanza 2021 (N 1234 ABC)" required>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Lokasi Layanan:</label>
+          <select class="cart-select" id="cartLocation">
+            <option value="Datang Langsung ke Bengkel">🏪 Datang Langsung ke Bengkel</option>
+            <option value="Pesan Montir Home Service (Ke Rumah)">🏡 Pesan Montir Home Service (Ke Rumah)</option>
+            <option value="Emergency Towing (Mogok di Jalan)">🚨 Emergency Towing (Mogok di Jalan)</option>
+          </select>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Pilih Tanggal Servis:</label>
+          <input type="date" class="cart-input" id="cartDate" value="${today}" min="${today}" required>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Pilih Slot Jam Servis:</label>
+          <div class="cart-time-slots">
+            <div class="cart-time-slot ${cartTimeSlot === '08:30 WIB' ? 'selected' : ''}" onclick="selectCartTimeSlot('08:30 WIB', this)">08:30</div>
+            <div class="cart-time-slot ${cartTimeSlot === '10:00 WIB' ? 'selected' : ''}" onclick="selectCartTimeSlot('10:00 WIB', this)">10:00</div>
+            <div class="cart-time-slot ${cartTimeSlot === '13:30 WIB' ? 'selected' : ''}" onclick="selectCartTimeSlot('13:30 WIB', this)">13:30</div>
+            <div class="cart-time-slot ${cartTimeSlot === '16:00 WIB' ? 'selected' : ''}" onclick="selectCartTimeSlot('16:00 WIB', this)">16:00</div>
+          </div>
+        </div>
+
+        <div class="cart-summary-box">
+          <div class="cart-total-row">
+            <span>Total Biaya Jasa:</span>
+            <span>Rp ${totalPrice.toLocaleString('id-ID')}</span>
+          </div>
+
+          <button class="btn-checkout-wa" onclick="checkoutWA()">💬 Kirim Booking Servis via WhatsApp ↗</button>
+        </div>
+      </div>
+    `;
+
+    badge.innerText = totalQty;
     if (bottomBar) {
       bottomBar.classList.add("show");
       document.getElementById("bottomCartCount").innerText = `${totalQty} Paket Servis Dipilih`;
