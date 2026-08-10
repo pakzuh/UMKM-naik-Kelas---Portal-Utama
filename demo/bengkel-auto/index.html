@@ -663,13 +663,8 @@
         </div>
 
         <div class="form-group-cart">
-          <label>Nomor WhatsApp (Konfirmasi):</label>
-          <input type="tel" class="cart-input" id="cartPhone" placeholder="Contoh: 081234567890" required>
-        </div>
-
-        <div class="form-group-cart">
-          <label>Merk &amp; Plat Nomor Kendaraan:</label>
-          <input type="text" class="cart-input" id="cartVehicle" placeholder="Contoh: Avanza 2021 (N 1234 ABC)" required>
+          <label>Merk / Tipe Kendaraan:</label>
+          <input type="text" class="cart-input" id="cartVehicle" placeholder="Contoh: Avanza / Vario / Pajero" required>
         </div>
 
         <div class="form-group-cart">
@@ -740,13 +735,12 @@
     }
 
     const name = document.getElementById("cartName").value;
-    const phone = document.getElementById("cartPhone").value;
     const vehicle = document.getElementById("cartVehicle").value;
     const location = document.getElementById("cartLocation").value;
     const date = document.getElementById("cartDate").value;
 
-    if (!name || !phone || !vehicle) {
-      alert("Silakan lengkapi Nama Pemilik, No. WA, dan Merk/Plat Nomor Kendaraan!");
+    if (!name || !vehicle) {
+      alert("Silakan isi Nama Pemilik dan Merk/Tipe Kendaraan!");
       return;
     }
     if (!cartTimeSlot) {
@@ -755,7 +749,7 @@
     }
 
     let text = `*BOOKING SERVIS BENGKEL - AUTOPRO GARAGE*\n\n`;
-    text += `*DATA PEMILIK & KENDARAAN:*\nNama: *${name}*\nNo. WA: *${phone}*\nKendaraan & Plat: *${vehicle}*\n\n`;
+    text += `*DATA PEMILIK & KENDARAAN:*\nNama: *${name}*\nKendaraan: *${vehicle}*\n\n`;
     text += `*DAFTAR PAKET SERVIS DIPILIH:*\n`;
 
     let totalPrice = 0;
