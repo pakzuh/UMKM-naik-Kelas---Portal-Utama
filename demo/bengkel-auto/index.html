@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoPro Garage — Bengkel Mobil & Motor Modern</title>
+<meta name="description" content="AutoPro Garage — Jasa servis mobil & motor profesional, ganti oli, tune up, spooring 3D, AC mobil, & layanan montir home service 24 jam. Booking jadwal servis online via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #d97706;
+    --primary-dark: #b45309;
+    --primary-light: #fef3c7;
+    --secondary: #0284c7;
+    --dark: #0f172a;
+    --dark-surface: #1e293b;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --card-bg: #ffffff;
+    --bg-main: #f8fafc;
+    --border: #e2e8f0;
+    --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.12);
+    --radius: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .brand-font { font-family: 'Teko', sans-serif; letter-spacing: 0.5px; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+  /* HEADER */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(15, 23, 42, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--primary);
+    box-shadow: var(--shadow-sm);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 1.6rem; font-weight: 700; color: #fff; text-transform: uppercase; }
+  .brand-logo {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+  }
+  .brand-text span { color: var(--primary); }
+
+  .nav-links { display: none; gap: 24px; font-weight: 700; font-size: 0.9rem; color: #cbd5e1; text-transform: uppercase; }
+  .nav-links a:hover { color: var(--primary); }
+  @media(min-width: 768px) { .nav-links { display: flex; } }
+
+  .btn-book-header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff; padding: 10px 22px; border-radius: 999px; font-weight: 800;
+    font-size: 0.88rem; border: none; cursor: pointer; text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35); transition: all 0.2s ease;
+  }
+  .btn-book-header:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(217, 119, 6, 0.45); }
+
+  /* HERO BANNER */
+  .hero-section {
+    position: relative; overflow: hidden; color: #fff;
+    padding: 72px 20px 84px; text-align: center;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 100%), url('assets/hero_banner.jpg');
+    background-size: cover; background-position: center;
+    border-bottom: 4px solid var(--primary);
+  }
+  .hero-tag {
+    display: inline-block; font-size: 0.82rem; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--primary-light); background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px); padding: 6px 20px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.25); margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 6.5vw, 4.2rem); font-weight: 700; color: #fff;
+    line-height: 1.05; margin-bottom: 18px; max-width: 860px; margin-left: auto; margin-right: auto;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.6); text-transform: uppercase;
+  }
+  .hero-desc {
+    font-size: 1.05rem; color: #cbd5e1; max-width: 640px; margin: 0 auto 36px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  }
+  .hero-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary-hero {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff; padding: 14px 34px; border-radius: 999px; font-weight: 800;
+    font-size: 0.95rem; border: none; cursor: pointer; box-shadow: 0 8px 24px rgba(217, 119, 6, 0.45);
+    display: inline-flex; align-items: center; gap: 8px; text-transform: uppercase;
+    transition: transform 0.2s ease;
+  }
+  .btn-primary-hero:hover { transform: translateY(-2px); }
+  .btn-secondary-hero {
+    background: rgba(255, 255, 255, 0.95); color: var(--dark); padding: 14px 28px; border-radius: 999px;
+    font-weight: 800; font-size: 0.95rem; border: 1.5px solid var(--border); text-transform: uppercase;
+  }
+
+  .hero-features {
+    display: flex; justify-content: center; gap: 24px; margin-top: 40px; flex-wrap: wrap;
+  }
+  .feature-badge {
+    display: flex; align-items: center; gap: 10px; background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(8px); padding: 10px 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);
+  }
+  .feature-badge span { font-size: 1.4rem; }
+  .feature-badge div { font-size: 0.85rem; font-weight: 700; color: #fff; text-align: left; }
+
+  /* SERVICES SECTION */
+  .section { padding: 64px 0; }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+  .section-eyebrow {
+    font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--primary); margin-bottom: 8px; display: block;
+  }
+  .section-head h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 10px; text-transform: uppercase; }
+  .section-head p { color: var(--text-muted); font-size: 0.95rem; }
+
+  .service-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 24px;
+  }
+  .service-card {
+    background: var(--card-bg); border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: all 0.3s ease; position: relative;
+  }
+  .service-card:hover {
+    transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--primary);
+  }
+  .service-img-box {
+    height: 180px; position: relative; overflow: hidden; background: #e2e8f0;
+  }
+  .service-img-box img {
+    width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;
+  }
+  .service-card:hover .service-img-box img {
+    transform: scale(1.08);
+  }
+  .service-card-content { padding: 20px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; gap: 14px; }
+  .service-title { font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; text-transform: uppercase; }
+  .service-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+  .service-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px dashed var(--border); }
+  .service-price { font-size: 1.15rem; font-weight: 800; color: var(--primary-dark); }
+  .service-duration { font-size: 0.78rem; color: var(--text-muted); font-weight: 700; }
+  
+  .btn-select-service {
+    width: 100%; padding: 11px; background: var(--primary-light); color: var(--primary-dark);
+    border: 1px solid #fde68a; font-weight: 800; font-size: 0.88rem;
+    border-radius: 12px; cursor: pointer; transition: all 0.2s ease; text-transform: uppercase;
+  }
+  .btn-select-service:hover, .btn-select-service.selected {
+    background: var(--primary); color: #fff; border-color: var(--primary);
+  }
+
+  /* BOOKING FORM SECTION */
+  .booking-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff; border-top: 4px solid var(--primary); padding: 64px 0;
+  }
+  .booking-card {
+    background: #fff; color: var(--text-main); border-radius: 24px; padding: 36px;
+    box-shadow: var(--shadow-md); max-width: 860px; margin: 0 auto;
+  }
+  .booking-card h3 { font-size: 2.2rem; color: var(--dark); margin-bottom: 6px; text-align: center; text-transform: uppercase; }
+  .booking-card p.sub { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media(min-width: 640px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.85rem; font-weight: 800; color: var(--dark); text-transform: uppercase; }
+  .form-input, .form-select {
+    padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border);
+    font-family: inherit; font-size: 0.92rem; outline: none; background: var(--bg-main);
+    transition: all 0.2s ease;
+  }
+  .form-input:focus, .form-select:focus {
+    border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px var(--primary-light);
+  }
+
+  /* TIME SLOT SELECTOR */
+  .time-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px; margin-top: 4px; }
+  .time-slot {
+    padding: 10px; border: 1px solid var(--border); border-radius: 10px;
+    font-size: 0.85rem; font-weight: 800; text-align: center; cursor: pointer;
+    background: var(--bg-main); transition: all 0.2s ease;
+  }
+  .time-slot:hover, .time-slot.selected {
+    background: var(--primary); color: #fff; border-color: var(--primary);
+  }
+
+  .booking-summary-box {
+    background: var(--primary-light); border-radius: 16px; padding: 20px;
+    border: 1px solid #fde68a; margin-top: 10px;
+  }
+  .summary-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 6px; }
+  .summary-row.total { font-weight: 800; font-size: 1.15rem; color: var(--dark); border-top: 1px dashed #f59e0b; padding-top: 10px; margin-top: 10px; }
+
+  .btn-submit-booking {
+    width: 100%; padding: 16px; background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff; font-weight: 800; font-size: 1rem; border-radius: 14px; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px; text-transform: uppercase;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35); transition: transform 0.15s ease;
+  }
+  .btn-submit-booking:active { transform: scale(0.98); }
+
+  /* FOOTER */
+  footer { background: var(--dark); color: #fff; padding: 48px 0 24px; }
+  .footer-inner { display: flex; flex-wrap: wrap; gap: 36px; justify-content: space-between; margin-bottom: 36px; }
+  .footer-col { flex: 1; min-width: 240px; }
+  .footer-col h4 { color: #fff; font-size: 1.4rem; margin-bottom: 14px; text-transform: uppercase; }
+  .footer-col p { color: #94a3b8; font-size: 0.88rem; line-height: 1.6; }
+  .footer-bottom { text-align: center; border-top: 1px solid #334155; padding-top: 24px; color: #64748b; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="brand-logo">🛠️</div>
+      <div class="brand-text">Auto<span>Pro Garage</span></div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#layanan">Layanan Servis</a>
+      <a href="#booking">Booking Jadwal</a>
+      <a href="#kontak">Home Service &amp; Lokasi</a>
+    </nav>
+
+    <button class="btn-book-header" onclick="scrollToBooking()">📅 Booking Servis</button>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <div class="wrap">
+    <span class="hero-tag">⚙️ Bengkel Mobil &amp; Motor Modern Profesional</span>
+    <h1 class="hero-title brand-font">Servis Bergaransi, Cepat &amp; Tanpa Antre</h1>
+    <p class="hero-desc">Solusi ganti oli, tune up carbon clean, 3D laser spooring, service AC, overhaul rem, &amp; pesan montir panggilan 24 jam langsung ke rumah Anda.</p>
+    
+    <div class="hero-cta-btns">
+      <button class="btn-primary-hero" onclick="scrollToBooking()">📅 Booking Jadwal Servis Online</button>
+      <a class="btn-secondary-hero" href="#layanan">Lihat Daftar Paket Servis</a>
+    </div>
+
+    <div class="hero-features">
+      <div class="feature-badge">
+        <span>🏆</span>
+        <div>Montir Bersertifikat<br><small style="color:#cbd5e1">Pengalaman 10+ Thn</small></div>
+      </div>
+      <div class="feature-badge">
+        <span>🛡️</span>
+        <div>Garansi Servis<br><small style="color:#cbd5e1">Garansi Hingga 30 Hari</small></div>
+      </div>
+      <div class="feature-badge">
+        <span>🚨</span>
+        <div>Home Service 24/7<br><small style="color:#cbd5e1">Montir Panggilan Siap Antar</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES CATALOG WITH VISUAL IMAGES -->
+<section class="section" id="layanan">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Pilihan Paket Perawatan</span>
+      <h2 class="brand-font">Daftar Layanan &amp; Tarif Servis</h2>
+      <p>Pilih paket layanan yang Anda perlukan untuk langsung dimasukkan ke formulir pemesanan jadwal.</p>
+    </div>
+
+    <div class="service-grid">
+      <!-- 1. Ganti Oli Engine -->
+      <div class="service-card">
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=600&auto=format&fit=crop&q=80" alt="Ganti Oli Engine" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#fef3c7,#fde68a);">🛢️</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Ganti Oli Engine &amp; Filter</div>
+            <div class="service-desc">Kuras oli mesin synthetic (Shell/Motul/Pertamina) + ganti filter oli &amp; Cek 15 Titik Kendaraan.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 175.000</span>
+              <span class="service-duration">⏱ 30 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Ganti Oli Engine &amp; Filter', 175000, 30, this)">+ Pilih Layanan Ini</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Tune Up Injector -->
+      <div class="service-card">
+        <div class="service-img-box">
+          <img src="assets/mechanic_work.jpg" alt="Tune Up Engine" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#e0f2fe,#bae6fd);">⚙️</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Tune Up &amp; Carbon Clean Injector</div>
+            <div class="service-desc">Pembersihan kerak ruang bakar, injector cleaning, bersihkan throttle body, &amp; perapihan busi.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 250.000</span>
+              <span class="service-duration">⏱ 45 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Tune Up &amp; Carbon Clean Injector', 250000, 45, this)">+ Pilih Layanan Ini</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Spooring Balancing -->
+      <div class="service-card">
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&auto=format&fit=crop&q=80" alt="Spooring Balancing" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#ccfbf1,#99f6e4);">🛞</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Spooring &amp; Balancing 3D Laser</div>
+            <div class="service-desc">Setel kelurusan roda 3D laser komputer &amp; balancing 4 roda agar kemudi stabil bebas getar.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 180.000</span>
+              <span class="service-duration">⏱ 40 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Spooring &amp; Balancing 3D Laser', 180000, 40, this)">+ Pilih Layanan Ini</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Service AC Mobil -->
+      <div class="service-card">
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&auto=format&fit=crop&q=80" alt="Service AC Mobil" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#e0e7ff,#c7d2fe);">❄️</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Service AC Mobil Full Package</div>
+            <div class="service-desc">Kuras oli kompresor, ganti freon R134a, cuci evaporator, ganti filter kabin, &amp; fogging pembunuh bakteri.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 220.000</span>
+              <span class="service-duration">⏱ 60 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Service AC Mobil Full Package', 220000, 60, this)">+ Pilih Layanan Ini</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Servis Rem -->
+      <div class="service-card">
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1600793575654-910699b5e4d4?w=600&auto=format&fit=crop&q=80" alt="Servis Rem" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#fee2e2,#fca5a5);">🛑</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Servis Rem &amp; Ganti Kampas Rem</div>
+            <div class="service-desc">Pembersihan piringan cakram, ganti kampas rem depan/belakang, kuras minyak rem, &amp; penyetelan rem tangan.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 150.000</span>
+              <span class="service-duration">⏱ 45 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Servis Rem &amp; Ganti Kampas Rem', 150000, 45, this)">+ Pilih Layanan Ini</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Servis Motor Matic -->
+      <div class="service-card">
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&auto=format&fit=crop&q=80" alt="Servis Motor" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#fed7aa,#fdba74);">🛵</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Servis Rutin Motor Matic / Manual</div>
+            <div class="service-desc">Ganti oli mesin &amp; gardan, servis CVT/injeksi, pembersihan busi &amp; filter udara, setel rantai/rem.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 65.000</span>
+              <span class="service-duration">⏱ 30 Menit</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Servis Rutin Motor Matic / Manual', 65000, 30, this)">+ Pilih Layanan Ini</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Emergency Towing & Home Service -->
+      <div class="service-card">
+        <div class="service-img-box">
+          <img src="https://images.unsplash.com/photo-1562920851-b366ed760633?w=600&auto=format&fit=crop&q=80" alt="Home Service Towing" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#fecdd3,#fda4af);">🚨</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Emergency Towing &amp; Home Service 24j</div>
+            <div class="service-desc">Layanan montir panggilan ke rumah / lokasi mobil mogok di jalan. Jump-start aki, ganti ban, &amp; towing.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 150.000</span>
+              <span class="service-duration">⏱ Standby 24/7</span>
+            </div>
+            <button class="btn-select-service" onclick="selectService('Emergency Towing &amp; Home Service 24j', 150000, 60, this)">+ Pilih Layanan Ini</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE BOOKING FORM -->
+<section class="booking-section" id="booking">
+  <div class="wrap">
+    <div class="booking-card">
+      <h3 class="brand-font">Formulir Booking Jadwal Servis</h3>
+      <p class="sub">Isi data kendaraan &amp; pilih jam kunjungan Anda untuk servis langsung tanpa antre.</p>
+
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <div class="form-grid">
+          <!-- Nama Pemilik -->
+          <div class="form-group">
+            <label>Nama Pemilik Kendaraan:</label>
+            <input type="text" class="form-input" id="clientName" placeholder="Contoh: Pak Hendra Perkasa" required>
+          </div>
+
+          <!-- No WA -->
+          <div class="form-group">
+            <label>Nomor WhatsApp (Konfirmasi Status):</label>
+            <input type="tel" class="form-input" id="clientPhone" placeholder="Contoh: 081234567890" required>
+          </div>
+
+          <!-- Jenis Kendaraan -->
+          <div class="form-group">
+            <label>Jenis Kendaraan:</label>
+            <select class="form-select" id="vehicleType" required>
+              <option value="Mobil (Passenger / MPV / SUV)">🚗 Mobil (Passenger / MPV / SUV)</option>
+              <option value="Motor (Matic / Manual / Sport)">🛵 Motor (Matic / Manual / Sport)</option>
+              <option value="Komersial (Pick Up / Truk Ringan)">L300 / Pick Up / Komersial</option>
+            </select>
+          </div>
+
+          <!-- Merk & Plat Nomor -->
+          <div class="form-group">
+            <label>Merk &amp; Plat Nomor Kendaraan:</label>
+            <input type="text" class="form-input" id="vehicleDetail" placeholder="Contoh: Avanza 2021 (N 1234 ABC)" required>
+          </div>
+
+          <!-- Pilihan Paket Servis -->
+          <div class="form-group full">
+            <label>Paket Layanan Servis Dipilih:</label>
+            <select class="form-select" id="selectedService" onchange="updateServiceFromSelect()">
+              <option value="">-- Pilih Paket Layanan Bengkel --</option>
+              <option value="Ganti Oli Engine &amp; Filter|175000|30">Ganti Oli Engine &amp; Filter (Rp 175.000 - 30m)</option>
+              <option value="Tune Up &amp; Carbon Clean Injector|250000|45">Tune Up &amp; Carbon Clean Injector (Rp 250.000 - 45m)</option>
+              <option value="Spooring &amp; Balancing 3D Laser|180000|40">Spooring &amp; Balancing 3D Laser (Rp 180.000 - 40m)</option>
+              <option value="Service AC Mobil Full Package|220000|60">Service AC Mobil Full Package (Rp 220.000 - 60m)</option>
+              <option value="Servis Rem &amp; Ganti Kampas Rem|150000|45">Servis Rem &amp; Ganti Kampas Rem (Rp 150.000 - 45m)</option>
+              <option value="Servis Rutin Motor Matic / Manual|65000|30">Servis Rutin Motor Matic / Manual (Rp 65.000 - 30m)</option>
+              <option value="Emergency Towing &amp; Home Service 24j|150000|60">Emergency Towing &amp; Home Service 24j (Rp 150.000 - 24/7)</option>
+            </select>
+          </div>
+
+          <!-- Pilihan Lokasi Servis -->
+          <div class="form-group">
+            <label>Lokasi Servis:</label>
+            <select class="form-select" id="serviceLocation">
+              <option value="Datang Langsung ke Bengkel">🏪 Datang Langsung ke Bengkel</option>
+              <option value="Pesan Montir Home Service (Ke Rumah)">🏡 Pesan Montir Home Service (Ke Rumah)</option>
+              <option value="Emergency Towing (Mogok di Jalan)">🚨 Emergency Towing (Mogok di Jalan)</option>
+            </select>
+          </div>
+
+          <!-- Tanggal Booking -->
+          <div class="form-group">
+            <label>Pilih Tanggal Servis:</label>
+            <input type="date" class="form-input" id="bookingDate" required>
+          </div>
+
+          <!-- Slot Jam Kedatangan -->
+          <div class="form-group full">
+            <label>Pilih Slot Jam Servis:</label>
+            <div class="time-slots">
+              <div class="time-slot" onclick="selectTimeSlot('08:30 WIB', this)">08:30</div>
+              <div class="time-slot" onclick="selectTimeSlot('10:00 WIB', this)">10:00</div>
+              <div class="time-slot" onclick="selectTimeSlot('11:30 WIB', this)">11:30</div>
+              <div class="time-slot" onclick="selectTimeSlot('13:30 WIB', this)">13:30</div>
+              <div class="time-slot" onclick="selectTimeSlot('15:00 WIB', this)">15:00</div>
+              <div class="time-slot" onclick="selectTimeSlot('16:30 WIB', this)">16:30</div>
+              <div class="time-slot" onclick="selectTimeSlot('18:30 WIB', this)">18:30</div>
+            </div>
+          </div>
+
+          <!-- Ringkasan Booking -->
+          <div class="form-group full">
+            <div class="booking-summary-box">
+              <div class="summary-row">
+                <span>Layanan Dipilih:</span>
+                <b id="sumServiceText">Belum Dipilih</b>
+              </div>
+              <div class="summary-row">
+                <span>Estimasi Durasi Pengerjaan:</span>
+                <span id="sumDurationText">-</span>
+              </div>
+              <div class="summary-row">
+                <span>Jadwal Jam Servis:</span>
+                <span id="sumTimeText">Belum Dipilih</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total Estimasi Biaya Jasa:</span>
+                <span id="sumTotalPrice">Rp 0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <button type="submit" class="btn-submit-booking">💬 Booking Jadwal Servis via WhatsApp ↗</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <h4>AutoPro Garage</h4>
+      <p>Bengkel mobil &amp; motor modern dengan peralatan komplit 3D laser &amp; komputer diagnostic scanner. Menjaga performa mesin prima &amp; kenyamanan berkendara Anda.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Jam Operasional Bengkel</h4>
+      <p>Senin - Minggu: 08.00 - 19.00 WIB<br>Emergency Home Service &amp; Towing: Standby 24 Jam.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Lokasi &amp; Kontak</h4>
+      <p>Jl. Otomotif Raya No. 45, Malang<br>WhatsApp Booking: 0857-3669-9198</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 AutoPro Garage • Powered by rakyat.space
+  </div>
+</footer>
+
+<script>
+  const WA_NUMBER = "6285736699198";
+  let activeService = null;
+  let activePrice = 0;
+  let activeDuration = 0;
+  let activeTimeSlot = "";
+
+  // Set default min date to today
+  document.addEventListener("DOMContentLoaded", () => {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("bookingDate").value = today;
+    document.getElementById("bookingDate").min = today;
+  });
+
+  function scrollToBooking() {
+    document.getElementById("booking").scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function selectService(name, price, duration, btnEl) {
+    document.querySelectorAll(".btn-select-service").forEach(b => {
+      b.classList.remove("selected");
+      b.innerText = "+ Pilih Layanan Ini";
+    });
+
+    if (btnEl) {
+      btnEl.classList.add("selected");
+      btnEl.innerText = "✓ Layanan Dipilih";
+    }
+
+    activeService = name;
+    activePrice = price;
+    activeDuration = duration;
+
+    // Update select dropdown
+    const select = document.getElementById("selectedService");
+    for (let opt of select.options) {
+      if (opt.value.startsWith(name)) {
+        select.value = opt.value;
+        break;
+      }
+    }
+
+    updateSummaryUI();
+    scrollToBooking();
+  }
+
+  function updateServiceFromSelect() {
+    const val = document.getElementById("selectedService").value;
+    if (!val) {
+      activeService = null;
+      activePrice = 0;
+      activeDuration = 0;
+    } else {
+      const parts = val.split('|');
+      activeService = parts[0];
+      activePrice = parseInt(parts[1]);
+      activeDuration = parseInt(parts[2]);
+    }
+    updateSummaryUI();
+  }
+
+  function selectTimeSlot(time, slotEl) {
+    document.querySelectorAll(".time-slot").forEach(s => s.classList.remove("selected"));
+    slotEl.classList.add("selected");
+    activeTimeSlot = time;
+    updateSummaryUI();
+  }
+
+  function updateSummaryUI() {
+    document.getElementById("sumServiceText").innerText = activeService || "Belum Dipilih";
+    document.getElementById("sumDurationText").innerText = activeDuration ? `${activeDuration} Menit` : "-";
+    document.getElementById("sumTimeText").innerText = activeTimeSlot || "Belum Dipilih";
+    document.getElementById("sumTotalPrice").innerText = activePrice ? "Rp " + activePrice.toLocaleString('id-ID') : "Rp 0";
+  }
+
+  function submitBooking(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("clientName").value;
+    const phone = document.getElementById("clientPhone").value;
+    const vehicleType = document.getElementById("vehicleType").value;
+    const vehicleDetail = document.getElementById("vehicleDetail").value;
+    const location = document.getElementById("serviceLocation").value;
+    const date = document.getElementById("bookingDate").value;
+
+    if (!activeService) {
+      alert("Silakan pilih jenis paket layanan servis terlebih dahulu!");
+      return;
+    }
+    if (!activeTimeSlot) {
+      alert("Silakan pilih slot jam kunjungan servis Anda!");
+      return;
+    }
+
+    let text = `*BOOKING SERVIS BENGKEL - AUTOPRO GARAGE*\n\n`;
+    text += `*DATA PEMILIK & KENDARAAN:*\nNama: *${name}*\nNo. WA: *${phone}*\nJenis: *${vehicleType}*\nKendaraan & Plat: *${vehicleDetail}*\n\n`;
+    text += `*DETAIL SERVIS:*\n`;
+    text += `• Paket Servis: *${activeService}*\n`;
+    text += `• Estimasi Durasi: *${activeDuration} Menit*\n`;
+    text += `• Lokasi Layanan: *${location}*\n`;
+    text += `• Tanggal Servis: *${date}*\n`;
+    text += `• Slot Jam Kunjungan: *${activeTimeSlot}*\n\n`;
+    text += `----------------------------------\n`;
+    text += `*ESTIMASI BIAYA JASA:* Rp ${activePrice.toLocaleString('id-ID')}\n\n`;
+    text += `Apakah jadwal servis tanggal *${date}* jam *${activeTimeSlot}* ini tersedia? Terima kasih!`;
+
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desain Cetak: Mini Card & Surat Penawaran — rakyat.space</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --emerald: #10b981;
+      --emerald-dark: #059669;
+      --orange: #f97316;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background: #f1f5f9;
+      color: #334155;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .no-print-bar {
+      background: #ffffff;
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .no-print-bar h2 {
+      font-size: 1.2rem;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .no-print-bar p {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .btn-print {
+      background: var(--emerald-dark);
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-print:hover {
+      background: #047857;
+    }
+
+    /* SECTION TITLE */
+    .section-label {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid var(--emerald);
+      padding-bottom: 4px;
+      margin-bottom: 16px;
+    }
+
+    /* MINI CARD DESIGN (90mm x 55mm) */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .card-frame {
+      width: 90mm;
+      height: 55mm;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border-radius: 8mm;
+      padding: 5mm 6mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* CARD DEPAN */
+    .card-front {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-front::after {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-logo {
+      font-weight: 800;
+      font-size: 13pt;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-logo span {
+      color: var(--emerald);
+    }
+
+    .card-tag {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      font-size: 6.5pt;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .card-hero-text {
+      margin-top: 2mm;
+    }
+
+    .card-hero-text h3 {
+      font-size: 11pt;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .card-hero-text h3 span {
+      color: var(--orange);
+    }
+
+    .card-price-badge {
+      display: inline-block;
+      margin-top: 1.5mm;
+      background: var(--emerald);
+      color: #0f172a;
+      font-size: 9.5pt;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 5px;
+    }
+
+    .card-features {
+      font-size: 6.5pt;
+      color: var(--text-muted);
+      margin-top: 1mm;
+      line-height: 1.3;
+    }
+
+    .card-features li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-features li::before {
+      content: '✓';
+      color: var(--emerald);
+      font-weight: bold;
+    }
+
+    .card-footer-front {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 6.5pt;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    /* CARD BELAKANG */
+    .card-back {
+      background: #0f172a;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .card-back-grid {
+      display: grid;
+      grid-template-columns: 32mm 1fr;
+      gap: 4mm;
+      height: 100%;
+      align-items: center;
+    }
+
+    .qr-box {
+      background: #fff;
+      padding: 2mm;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-box img {
+      width: 28mm;
+      height: 28mm;
+      display: block;
+    }
+
+    .qr-label {
+      font-size: 5.5pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin-top: 1mm;
+      text-align: center;
+    }
+
+    .card-back-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5mm;
+    }
+
+    .card-back-title {
+      font-size: 8.5pt;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .card-back-title span {
+      color: var(--emerald);
+    }
+
+    .contact-item {
+      font-size: 7pt;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .contact-item strong {
+      color: var(--emerald);
+    }
+
+    .business-tags {
+      font-size: 5.5pt;
+      color: var(--text-muted);
+      line-height: 1.2;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5mm 2mm;
+      border-radius: 4px;
+      margin-top: 1mm;
+    }
+
+    /* SURAT PENAWARAN A5 (148mm x 210mm) */
+    .letter-frame {
+      width: 148mm;
+      min-height: 210mm;
+      background: #fff;
+      color: #1e293b;
+      padding: 15mm;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .letter-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 4mm;
+      margin-bottom: 5mm;
+    }
+
+    .letter-brand {
+      font-size: 16pt;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .letter-brand span {
+      color: var(--emerald-dark);
+    }
+
+    .letter-sub {
+      font-size: 8pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .letter-contact {
+      text-align: right;
+      font-size: 7.5pt;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    .letter-recipient {
+      font-size: 9pt;
+      margin-bottom: 4mm;
+      line-height: 1.4;
+    }
+
+    .letter-recipient input {
+      border: none;
+      border-bottom: 1px dashed #94a3b8;
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 9pt;
+      width: 180px;
+      outline: none;
+    }
+
+    .letter-body {
+      font-size: 8.5pt;
+      line-height: 1.5;
+      color: #334155;
+    }
+
+    .letter-body p {
+      margin-bottom: 3mm;
+    }
+
+    .letter-box-highlight {
+      background: #f8fafc;
+      border-left: 3px solid var(--emerald-dark);
+      padding: 3mm 4mm;
+      margin: 3mm 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .letter-box-highlight h4 {
+      font-size: 9pt;
+      color: #0f172a;
+      margin-bottom: 1.5mm;
+    }
+
+    .letter-box-highlight ul {
+      margin-left: 4mm;
+    }
+
+    .letter-box-highlight li {
+      font-size: 8pt;
+      margin-bottom: 1mm;
+    }
+
+    .letter-closing {
+      margin-top: 5mm;
+      font-size: 8.5pt;
+    }
+
+    .letter-signature {
+      margin-top: 8mm;
+    }
+
+    .letter-signature img {
+      height: 12mm;
+    }
+
+    .letter-sign-name {
+      font-weight: 800;
+      color: #0f172a;
+      margin-top: 1mm;
+    }
+
+    .clip-placeholder {
+      position: absolute;
+      top: 12mm;
+      right: 12mm;
+      background: #fef3c7;
+      border: 1px dashed #d97706;
+      color: #b45309;
+      font-size: 6.5pt;
+      font-weight: 700;
+      padding: 2mm 3mm;
+      border-radius: 4px;
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+
+      .no-print-bar,
+      .section-label,
+      .clip-placeholder {
+        display: none;
+      }
+
+      .cards-container,
+      .letter-frame {
+        box-shadow: none;
+        page-break-after: always;
+      }
+
+      .card-frame {
+        border: 1px solid #ccc;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="no-print-bar">
+    <h2>🖨️ Desain Cetak: Mini Card &amp; Surat Penawaran rakyat.space</h2>
+    <p>File ini disetting presisi untuk dicetak (Mini Card 9x5.5 cm &amp; Surat Penawaran A5). Anda bisa langsung klik tombol di bawah untuk mencetak atau simpan ke PDF.</p>
+    <button class="btn-print" onclick="window.print()">🖨️ Cetak / Simpan PDF</button>
+  </div>
+
+  <!-- SECTION 1: MINI CARD -->
+  <div>
+    <div class="section-label">1. Mini Card (Kartu Saku 9 x 5.5 cm)</div>
+    <div class="cards-container">
+      
+      <!-- CARD DEPAN -->
+      <div class="card-frame card-front">
+        <div class="card-header">
+          <div class="card-logo">rakyat<span>.space</span></div>
+          <div class="card-tag">Space UMKM</div>
+        </div>
+
+        <div class="card-hero-text">
+          <h3>Bikin Website Usahamu<br>Cuma <span>Rp200.000</span></h3>
+          <div class="card-price-badge"> Sekali Bayar Selamanya</div>
+        </div>
+
+        <ul class="card-features">
+          <li><strong>Bebas Biaya Hosting (Rp0 Selamanya)</strong></li>
+          <li><strong>Tanpa DP</strong> — Draft dibuatkan dulu, baru bayar</li>
+          <li>Integrasi Katalog HP &amp; Order Instan WA</li>
+        </ul>
+
+        <div class="card-footer-front">
+          <span>⚡ Pengerjaan 1-2 Hari</span>
+          <span>🤝 Guaranteed Satisfied</span>
+        </div>
+      </div>
+
+      <!-- CARD BELAKANG WITH QR CODE -->
+      <div class="card-frame card-back">
+        <div class="card-back-grid">
+          <div class="qr-box">
+            <img src="assets/qr-rakyat-space.png" alt="QR Code rakyat.space">
+            <div class="qr-label">SCAN UNTUK DEMO</div>
+          </div>
+          
+          <div class="card-back-info">
+            <div class="card-back-title">
+              Cek Live Demo<br>Di HP Anda:
+            </div>
+            
+            <div class="contact-item">
+              🌐 <strong>rakyat.space</strong>
+            </div>
+            <div class="contact-item">
+              💬 WA: <strong>0857-3669-9198</strong>
+            </div>
+
+            <div class="business-tags">
+              Kuliner • Warkop • Toko Sembako • Apotek • Salon • Laundry • Bengkel • Jasa
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: SURAT PENAWARAN PERSONAL -->
+  <div>
+    <div class="section-label">2. Surat Penawaran Personal (Ukuran A5)</div>
+    <div class="letter-frame">
+      <div class="clip-placeholder">📌 Tempat Klip Mini Card di sini</div>
+
+      <div class="letter-head">
+        <div>
+          <div class="letter-brand">rakyat<span>.space</span></div>
+          <div class="letter-sub">Solusi Digital Ringkas &amp; Efisien untuk UMKM</div>
+        </div>
+        <div class="letter-contact">
+          🌐 rakyat.space<br>
+          💬 WA: 0857-3669-9198<br>
+          📍 Indonesia
+        </div>
+      </div>
+
+      <div class="letter-recipient">
+        <strong>Kepada Yth.</strong><br>
+        Pemilik / Pengelola: <input type="text" placeholder="[Tulis Nama Usaha Di Sini]"><br>
+        <em>Di Tempat</em>
+      </div>
+
+      <div class="letter-body">
+        <p>Halo Kak, salam kenal 🙏 Semoga usaha Kakak senantiasa lancar, ramai pembeli, dan sukses selalu.</p>
+        
+        <p>Saya <strong>Pakzuh</strong> dari <strong>rakyat.space</strong>. Saya menulis surat ini secara khusus karena melihat potensi besar dari usaha Kakak, dan ingin menawarkan cara praktis agar usaha Kakak gampang dicari pelanggan baru di internet.</p>
+
+        <p>Banyak UMKM batal bikin website karena <strong>biaya mahal jutaan rupiah</strong> dan <strong>ribet sewa server tiap tahun</strong>. Di rakyat.space, kami buatkan solusi yang jauh lebih hemat &amp; fleksibel:</p>
+
+        <div class="letter-box-highlight">
+          <h4>🔥 Keunggulan Website rakyat.space:</h4>
+          <ul>
+            <li><strong>Cuma Rp200.000 (Sekali Bayar):</strong> Tanpa sewa hosting bulanan (Rp0 seumur hidup).</li>
+            <li><strong>🤝 TANPA DP:</strong> Kirim data usaha Kakak, kami buatkan draft website-nya dalam 1-2 hari. Kakak cek di HP — <strong>bayar hanya kalau sudah cocok &amp; puas!</strong></li>
+            <li><strong>Order WA Instan:</strong> Pembeli pilih produk di web, pesanan langsung masuk rapi ke WA Kakak.</li>
+            <li><strong>Update Katalog dari HP:</strong> Bisa ganti harga &amp; produk sendiri kapan saja via Google Sheets.</li>
+          </ul>
+        </div>
+
+        <p>Coba dan buktikan sendiri dengan **meng-scan QR Code pada Mini Card yang kami lampirkan**, atau langsung buka link <strong>`rakyat.space`</strong> dari browser HP Kakak untuk melihat berbagai contoh (Live Demo).</p>
+      </div>
+
+      <div class="letter-closing">
+        <p>Jika Kakak mau tanya-tanya dulu, silakan chat WhatsApp saya di <strong>0857-3669-9198</strong>.</p>
+        
+        <div class="letter-signature">
+          <div>Hormat kami,</div>
+          <div class="letter-sign-name">Pakzuh</div>
+          <div style="font-size:7.5pt;color:#64748b;">Inisiator rakyat.space — Space Digital UMKM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
