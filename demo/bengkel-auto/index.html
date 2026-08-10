@@ -64,13 +64,19 @@
   .nav-links a:hover { color: var(--primary); }
   @media(min-width: 768px) { .nav-links { display: flex; } }
 
-  .btn-book-header {
+  .header-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-cart-head {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: #fff; padding: 10px 22px; border-radius: 999px; font-weight: 800;
-    font-size: 0.88rem; border: none; cursor: pointer; text-transform: uppercase;
-    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35); transition: all 0.2s ease;
+    color: #fff; border: none; padding: 10px 20px; border-radius: 999px;
+    font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex;
+    align-items: center; gap: 8px; text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35); transition: transform 0.2s ease;
   }
-  .btn-book-header:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(217, 119, 6, 0.45); }
+  .btn-cart-head:active { transform: scale(0.96); }
+  .cart-count-badge {
+    background: #fff; color: var(--dark); font-size: 0.78rem;
+    font-weight: 800; padding: 2px 8px; border-radius: 999px;
+  }
 
   /* HERO BANNER */
   .hero-section {
@@ -167,57 +173,83 @@
     background: var(--primary); color: #fff; border-color: var(--primary);
   }
 
-  /* BOOKING FORM SECTION */
-  .booking-section {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: #fff; border-top: 4px solid var(--primary); padding: 64px 0;
+  /* CART DRAWER SLIDE-OUT */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px);
+    z-index: 100; opacity: 0; visibility: hidden; transition: all 0.3s ease;
   }
-  .booking-card {
-    background: #fff; color: var(--text-main); border-radius: 24px; padding: 36px;
-    box-shadow: var(--shadow-md); max-width: 860px; margin: 0 auto;
-  }
-  .booking-card h3 { font-size: 2.2rem; color: var(--dark); margin-bottom: 6px; text-align: center; text-transform: uppercase; }
-  .booking-card p.sub { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; }
+  .overlay.show { opacity: 1; visibility: visible; }
 
-  .form-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-  @media(min-width: 640px) { .form-grid { grid-template-columns: 1fr 1fr; } }
-  .form-group { display: flex; flex-direction: column; gap: 8px; }
-  .form-group.full { grid-column: 1 / -1; }
-  .form-group label { font-size: 0.85rem; font-weight: 800; color: var(--dark); text-transform: uppercase; }
-  .form-input, .form-select {
-    padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border);
-    font-family: inherit; font-size: 0.92rem; outline: none; background: var(--bg-main);
-    transition: all 0.2s ease;
+  .cart-sheet {
+    position: fixed; top: 0; right: -460px; width: 100%; max-width: 440px; height: 100%;
+    background: #fff; z-index: 101; box-shadow: -10px 0 35px rgba(0,0,0,0.2);
+    display: flex; flex-direction: column; transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .form-input:focus, .form-select:focus {
-    border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px var(--primary-light);
-  }
+  .cart-sheet.open { right: 0; }
 
-  /* TIME SLOT SELECTOR */
-  .time-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px; margin-top: 4px; }
-  .time-slot {
-    padding: 10px; border: 1px solid var(--border); border-radius: 10px;
-    font-size: 0.85rem; font-weight: 800; text-align: center; cursor: pointer;
-    background: var(--bg-main); transition: all 0.2s ease;
+  .cart-head {
+    background: var(--dark); color: #fff; padding: 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 3px solid var(--primary);
   }
-  .time-slot:hover, .time-slot.selected {
-    background: var(--primary); color: #fff; border-color: var(--primary);
-  }
+  .cart-head h3 { margin: 0; font-size: 1.5rem; color: #fff; display: flex; align-items: center; gap: 10px; text-transform: uppercase; }
+  .close-cart-btn { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; line-height: 1; }
 
-  .booking-summary-box {
-    background: var(--primary-light); border-radius: 16px; padding: 20px;
-    border: 1px solid #fde68a; margin-top: 10px;
-  }
-  .summary-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 6px; }
-  .summary-row.total { font-weight: 800; font-size: 1.15rem; color: var(--dark); border-top: 1px dashed #f59e0b; padding-top: 10px; margin-top: 10px; }
+  .cart-body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+  .cart-empty { text-align: center; color: var(--text-muted); padding: 60px 10px; font-size: 0.92rem; }
 
-  .btn-submit-booking {
-    width: 100%; padding: 16px; background: linear-gradient(135deg, #10b981, #059669);
-    color: #fff; font-weight: 800; font-size: 1rem; border-radius: 14px; border: none; cursor: pointer;
+  .cart-item {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bg-main); padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border);
+  }
+  .cart-item-title { font-weight: 800; font-size: 0.92rem; color: var(--dark); text-transform: uppercase; }
+  .cart-item-sub { font-size: 0.78rem; color: var(--primary-dark); font-weight: 800; margin-top: 2px; }
+
+  .qty-ctrl { display: flex; align-items: center; gap: 8px; }
+  .qty-btn {
+    width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--border);
+    background: #fff; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .qty-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .qty-num { font-weight: 800; font-size: 0.95rem; min-width: 20px; text-align: center; }
+
+  .cart-foot { padding: 20px; border-top: 1px solid var(--border); background: #fff; }
+  
+  .form-group-cart { margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px; }
+  .form-group-cart label { font-size: 0.78rem; font-weight: 800; color: var(--dark); text-transform: uppercase; }
+  .cart-input, .cart-select {
+    padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border);
+    font-family: inherit; font-size: 0.88rem; outline: none; background: var(--bg-main);
+  }
+  .cart-input:focus, .cart-select:focus { border-color: var(--primary); background: #fff; }
+
+  /* TIME SLOTS IN CART */
+  .cart-time-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 4px; }
+  .cart-time-slot {
+    padding: 6px 4px; border: 1px solid var(--border); border-radius: 8px;
+    font-size: 0.78rem; font-weight: 800; text-align: center; cursor: pointer; background: var(--bg-main);
+  }
+  .cart-time-slot.selected { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+  .cart-total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.2rem; color: var(--dark); margin: 16px 0 14px; }
+
+  .btn-checkout-wa {
+    width: 100%; padding: 15px; background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff; font-weight: 800; font-size: 0.98rem; border-radius: 12px; border: none; cursor: pointer;
     display: flex; align-items: center; justify-content: center; gap: 8px; text-transform: uppercase;
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35); transition: transform 0.15s ease;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); transition: transform 0.15s ease;
   }
-  .btn-submit-booking:active { transform: scale(0.98); }
+  .btn-checkout-wa:active { transform: scale(0.98); }
+
+  /* TOAST NOTIFICATION */
+  .toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    background: var(--dark); color: #fff; padding: 12px 24px; border-radius: 999px;
+    font-size: 0.88rem; font-weight: 800; z-index: 120; box-shadow: var(--shadow-md);
+    opacity: 0; transition: opacity 0.3s ease; pointer-events: none; border: 1px solid rgba(255,255,255,0.2);
+  }
+  .toast.show { opacity: 1; }
 
   /* FOOTER */
   footer { background: var(--dark); color: #fff; padding: 48px 0 24px; }
@@ -240,11 +272,14 @@
 
     <nav class="nav-links">
       <a href="#layanan">Layanan Servis</a>
-      <a href="#booking">Booking Jadwal</a>
       <a href="#kontak">Home Service &amp; Lokasi</a>
     </nav>
 
-    <button class="btn-book-header" onclick="scrollToBooking()">📅 Booking Servis</button>
+    <div class="header-actions">
+      <button class="btn-cart-head" onclick="openCart()">
+        🛒 Keranjang Servis <span class="cart-count-badge" id="cartCountBadge">0</span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -256,8 +291,8 @@
     <p class="hero-desc">Solusi ganti oli, tune up carbon clean, 3D laser spooring, service AC, overhaul rem, &amp; pesan montir panggilan 24 jam langsung ke rumah Anda.</p>
     
     <div class="hero-cta-btns">
-      <button class="btn-primary-hero" onclick="scrollToBooking()">📅 Booking Jadwal Servis Online</button>
-      <a class="btn-secondary-hero" href="#layanan">Lihat Daftar Paket Servis</a>
+      <button class="btn-primary-hero" onclick="openCart()">🛒 Keranjang Booking Servis</button>
+      <a class="btn-secondary-hero" href="#layanan">Lihat Paket Servis</a>
     </div>
 
     <div class="hero-features">
@@ -277,13 +312,13 @@
   </div>
 </section>
 
-<!-- SERVICES CATALOG WITH VISUAL IMAGES -->
+<!-- SERVICES CATALOG WITH VISUAL IMAGES & ADD TO CART -->
 <section class="section" id="layanan">
   <div class="wrap">
     <div class="section-head">
       <span class="section-eyebrow">Pilihan Paket Perawatan</span>
       <h2 class="brand-font">Daftar Layanan &amp; Tarif Servis</h2>
-      <p>Pilih paket layanan yang Anda perlukan untuk langsung dimasukkan ke formulir pemesanan jadwal.</p>
+      <p>Klik <b>+ Tambah ke Keranjang</b> untuk memilih paket perawatan yang diinginkan!</p>
     </div>
 
     <div class="service-grid">
@@ -303,7 +338,7 @@
               <span class="service-price">Rp 175.000</span>
               <span class="service-duration">⏱ 30 Menit</span>
             </div>
-            <button class="btn-select-service" onclick="selectService('Ganti Oli Engine &amp; Filter', 175000, 30, this)">+ Pilih Layanan Ini</button>
+            <button class="btn-select-service" onclick="addToCart('s1', 'Ganti Oli Engine &amp; Filter', 175000, 30)">+ Tambah ke Keranjang</button>
           </div>
         </div>
       </div>
@@ -324,7 +359,7 @@
               <span class="service-price">Rp 250.000</span>
               <span class="service-duration">⏱ 45 Menit</span>
             </div>
-            <button class="btn-select-service" onclick="selectService('Tune Up &amp; Carbon Clean Injector', 250000, 45, this)">+ Pilih Layanan Ini</button>
+            <button class="btn-select-service" onclick="addToCart('s2', 'Tune Up &amp; Carbon Clean Injector', 250000, 45)">+ Tambah ke Keranjang</button>
           </div>
         </div>
       </div>
@@ -345,7 +380,7 @@
               <span class="service-price">Rp 180.000</span>
               <span class="service-duration">⏱ 40 Menit</span>
             </div>
-            <button class="btn-select-service" onclick="selectService('Spooring &amp; Balancing 3D Laser', 180000, 40, this)">+ Pilih Layanan Ini</button>
+            <button class="btn-select-service" onclick="addToCart('s3', 'Spooring &amp; Balancing 3D Laser', 180000, 40)">+ Tambah ke Keranjang</button>
           </div>
         </div>
       </div>
@@ -366,7 +401,7 @@
               <span class="service-price">Rp 220.000</span>
               <span class="service-duration">⏱ 60 Menit</span>
             </div>
-            <button class="btn-select-service" onclick="selectService('Service AC Mobil Full Package', 220000, 60, this)">+ Pilih Layanan Ini</button>
+            <button class="btn-select-service" onclick="addToCart('s4', 'Service AC Mobil Full Package', 220000, 60)">+ Tambah ke Keranjang</button>
           </div>
         </div>
       </div>
@@ -387,7 +422,7 @@
               <span class="service-price">Rp 150.000</span>
               <span class="service-duration">⏱ 45 Menit</span>
             </div>
-            <button class="btn-select-service" onclick="selectService('Servis Rem &amp; Ganti Kampas Rem', 150000, 45, this)">+ Pilih Layanan Ini</button>
+            <button class="btn-select-service" onclick="addToCart('s5', 'Servis Rem &amp; Ganti Kampas Rem', 150000, 45)">+ Tambah ke Keranjang</button>
           </div>
         </div>
       </div>
@@ -408,7 +443,7 @@
               <span class="service-price">Rp 65.000</span>
               <span class="service-duration">⏱ 30 Menit</span>
             </div>
-            <button class="btn-select-service" onclick="selectService('Servis Rutin Motor Matic / Manual', 65000, 30, this)">+ Pilih Layanan Ini</button>
+            <button class="btn-select-service" onclick="addToCart('s6', 'Servis Rutin Motor Matic / Manual', 65000, 30)">+ Tambah ke Keranjang</button>
           </div>
         </div>
       </div>
@@ -429,7 +464,7 @@
               <span class="service-price">Rp 150.000</span>
               <span class="service-duration">⏱ Standby 24/7</span>
             </div>
-            <button class="btn-select-service" onclick="selectService('Emergency Towing &amp; Home Service 24j', 150000, 60, this)">+ Pilih Layanan Ini</button>
+            <button class="btn-select-service" onclick="addToCart('s7', 'Emergency Towing &amp; Home Service 24j', 150000, 60)">+ Tambah ke Keranjang</button>
           </div>
         </div>
       </div>
@@ -437,118 +472,72 @@
   </div>
 </section>
 
-<!-- INTERACTIVE BOOKING FORM -->
-<section class="booking-section" id="booking">
-  <div class="wrap">
-    <div class="booking-card">
-      <h3 class="brand-font">Formulir Booking Jadwal Servis</h3>
-      <p class="sub">Isi data kendaraan &amp; pilih jam kunjungan Anda untuk servis langsung tanpa antre.</p>
+<!-- CART SHEET DRAWER SLIDE-OUT -->
+<div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
 
-      <form id="bookingForm" onsubmit="submitBooking(event)">
-        <div class="form-grid">
-          <!-- Nama Pemilik -->
-          <div class="form-group">
-            <label>Nama Pemilik Kendaraan:</label>
-            <input type="text" class="form-input" id="clientName" placeholder="Contoh: Pak Hendra Perkasa" required>
-          </div>
+<div class="cart-sheet" id="cartSheet">
+  <div class="cart-head">
+    <h3 class="brand-font">🛒 Keranjang Booking Servis</h3>
+    <button class="close-cart-btn" onclick="closeCart()">&times;</button>
+  </div>
 
-          <!-- No WA -->
-          <div class="form-group">
-            <label>Nomor WhatsApp (Konfirmasi Status):</label>
-            <input type="tel" class="form-input" id="clientPhone" placeholder="Contoh: 081234567890" required>
-          </div>
-
-          <!-- Jenis Kendaraan -->
-          <div class="form-group">
-            <label>Jenis Kendaraan:</label>
-            <select class="form-select" id="vehicleType" required>
-              <option value="Mobil (Passenger / MPV / SUV)">🚗 Mobil (Passenger / MPV / SUV)</option>
-              <option value="Motor (Matic / Manual / Sport)">🛵 Motor (Matic / Manual / Sport)</option>
-              <option value="Komersial (Pick Up / Truk Ringan)">L300 / Pick Up / Komersial</option>
-            </select>
-          </div>
-
-          <!-- Merk & Plat Nomor -->
-          <div class="form-group">
-            <label>Merk &amp; Plat Nomor Kendaraan:</label>
-            <input type="text" class="form-input" id="vehicleDetail" placeholder="Contoh: Avanza 2021 (N 1234 ABC)" required>
-          </div>
-
-          <!-- Pilihan Paket Servis -->
-          <div class="form-group full">
-            <label>Paket Layanan Servis Dipilih:</label>
-            <select class="form-select" id="selectedService" onchange="updateServiceFromSelect()">
-              <option value="">-- Pilih Paket Layanan Bengkel --</option>
-              <option value="Ganti Oli Engine &amp; Filter|175000|30">Ganti Oli Engine &amp; Filter (Rp 175.000 - 30m)</option>
-              <option value="Tune Up &amp; Carbon Clean Injector|250000|45">Tune Up &amp; Carbon Clean Injector (Rp 250.000 - 45m)</option>
-              <option value="Spooring &amp; Balancing 3D Laser|180000|40">Spooring &amp; Balancing 3D Laser (Rp 180.000 - 40m)</option>
-              <option value="Service AC Mobil Full Package|220000|60">Service AC Mobil Full Package (Rp 220.000 - 60m)</option>
-              <option value="Servis Rem &amp; Ganti Kampas Rem|150000|45">Servis Rem &amp; Ganti Kampas Rem (Rp 150.000 - 45m)</option>
-              <option value="Servis Rutin Motor Matic / Manual|65000|30">Servis Rutin Motor Matic / Manual (Rp 65.000 - 30m)</option>
-              <option value="Emergency Towing &amp; Home Service 24j|150000|60">Emergency Towing &amp; Home Service 24j (Rp 150.000 - 24/7)</option>
-            </select>
-          </div>
-
-          <!-- Pilihan Lokasi Servis -->
-          <div class="form-group">
-            <label>Lokasi Servis:</label>
-            <select class="form-select" id="serviceLocation">
-              <option value="Datang Langsung ke Bengkel">🏪 Datang Langsung ke Bengkel</option>
-              <option value="Pesan Montir Home Service (Ke Rumah)">🏡 Pesan Montir Home Service (Ke Rumah)</option>
-              <option value="Emergency Towing (Mogok di Jalan)">🚨 Emergency Towing (Mogok di Jalan)</option>
-            </select>
-          </div>
-
-          <!-- Tanggal Booking -->
-          <div class="form-group">
-            <label>Pilih Tanggal Servis:</label>
-            <input type="date" class="form-input" id="bookingDate" required>
-          </div>
-
-          <!-- Slot Jam Kedatangan -->
-          <div class="form-group full">
-            <label>Pilih Slot Jam Servis:</label>
-            <div class="time-slots">
-              <div class="time-slot" onclick="selectTimeSlot('08:30 WIB', this)">08:30</div>
-              <div class="time-slot" onclick="selectTimeSlot('10:00 WIB', this)">10:00</div>
-              <div class="time-slot" onclick="selectTimeSlot('11:30 WIB', this)">11:30</div>
-              <div class="time-slot" onclick="selectTimeSlot('13:30 WIB', this)">13:30</div>
-              <div class="time-slot" onclick="selectTimeSlot('15:00 WIB', this)">15:00</div>
-              <div class="time-slot" onclick="selectTimeSlot('16:30 WIB', this)">16:30</div>
-              <div class="time-slot" onclick="selectTimeSlot('18:30 WIB', this)">18:30</div>
-            </div>
-          </div>
-
-          <!-- Ringkasan Booking -->
-          <div class="form-group full">
-            <div class="booking-summary-box">
-              <div class="summary-row">
-                <span>Layanan Dipilih:</span>
-                <b id="sumServiceText">Belum Dipilih</b>
-              </div>
-              <div class="summary-row">
-                <span>Estimasi Durasi Pengerjaan:</span>
-                <span id="sumDurationText">-</span>
-              </div>
-              <div class="summary-row">
-                <span>Jadwal Jam Servis:</span>
-                <span id="sumTimeText">Belum Dipilih</span>
-              </div>
-              <div class="summary-row total">
-                <span>Total Estimasi Biaya Jasa:</span>
-                <span id="sumTotalPrice">Rp 0</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group full">
-            <button type="submit" class="btn-submit-booking">💬 Booking Jadwal Servis via WhatsApp ↗</button>
-          </div>
-        </div>
-      </form>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">
+      Keranjang servis Anda masih kosong.<br>Silakan pilih paket perawatan di atas! 🛠️
     </div>
   </div>
-</section>
+
+  <div class="cart-foot" id="cartFoot" style="display:none;">
+    <!-- Form Data Kendaraan & Jadwal -->
+    <div class="form-group-cart">
+      <label>Nama Pemilik Kendaraan:</label>
+      <input type="text" class="cart-input" id="cartName" placeholder="Contoh: Pak Hendra Perkasa" required>
+    </div>
+
+    <div class="form-group-cart">
+      <label>Nomor WhatsApp (Konfirmasi):</label>
+      <input type="tel" class="cart-input" id="cartPhone" placeholder="Contoh: 081234567890" required>
+    </div>
+
+    <div class="form-group-cart">
+      <label>Merk &amp; Plat Nomor Kendaraan:</label>
+      <input type="text" class="cart-input" id="cartVehicle" placeholder="Contoh: Avanza 2021 (N 1234 ABC)" required>
+    </div>
+
+    <div class="form-group-cart">
+      <label>Lokasi Layanan:</label>
+      <select class="cart-select" id="cartLocation">
+        <option value="Datang Langsung ke Bengkel">🏪 Datang Langsung ke Bengkel</option>
+        <option value="Pesan Montir Home Service (Ke Rumah)">🏡 Pesan Montir Home Service (Ke Rumah)</option>
+        <option value="Emergency Towing (Mogok di Jalan)">🚨 Emergency Towing (Mogok di Jalan)</option>
+      </select>
+    </div>
+
+    <div class="form-group-cart">
+      <label>Pilih Tanggal Servis:</label>
+      <input type="date" class="cart-input" id="cartDate" required>
+    </div>
+
+    <div class="form-group-cart">
+      <label>Pilih Slot Jam Servis:</label>
+      <div class="cart-time-slots">
+        <div class="cart-time-slot" onclick="selectCartTimeSlot('08:30 WIB', this)">08:30</div>
+        <div class="cart-time-slot" onclick="selectCartTimeSlot('10:00 WIB', this)">10:00</div>
+        <div class="cart-time-slot" onclick="selectCartTimeSlot('13:30 WIB', this)">13:30</div>
+        <div class="cart-time-slot" onclick="selectCartTimeSlot('16:00 WIB', this)">16:00</div>
+      </div>
+    </div>
+
+    <div class="cart-total-row">
+      <span>Total Biaya Jasa:</span>
+      <span id="cartTotalPrice">Rp 0</span>
+    </div>
+
+    <button class="btn-checkout-wa" onclick="checkoutWA()">💬 Kirim Booking Servis via WhatsApp ↗</button>
+  </div>
+</div>
+
+<div class="toast" id="toast">✔ Paket servis dimasukkan ke keranjang!</div>
 
 <!-- FOOTER -->
 <footer id="kontak">
@@ -573,109 +562,148 @@
 
 <script>
   const WA_NUMBER = "6285736699198";
-  let activeService = null;
-  let activePrice = 0;
-  let activeDuration = 0;
-  let activeTimeSlot = "";
+  let cart = {};
+  let cartTimeSlot = "";
 
-  // Set default min date to today
   document.addEventListener("DOMContentLoaded", () => {
     const today = new Date().toISOString().split('T')[0];
-    document.getElementById("bookingDate").value = today;
-    document.getElementById("bookingDate").min = today;
+    const dateInput = document.getElementById("cartDate");
+    if (dateInput) {
+      dateInput.value = today;
+      dateInput.min = today;
+    }
   });
 
-  function scrollToBooking() {
-    document.getElementById("booking").scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function selectService(name, price, duration, btnEl) {
-    document.querySelectorAll(".btn-select-service").forEach(b => {
-      b.classList.remove("selected");
-      b.innerText = "+ Pilih Layanan Ini";
-    });
-
-    if (btnEl) {
-      btnEl.classList.add("selected");
-      btnEl.innerText = "✓ Layanan Dipilih";
-    }
-
-    activeService = name;
-    activePrice = price;
-    activeDuration = duration;
-
-    // Update select dropdown
-    const select = document.getElementById("selectedService");
-    for (let opt of select.options) {
-      if (opt.value.startsWith(name)) {
-        select.value = opt.value;
-        break;
-      }
-    }
-
-    updateSummaryUI();
-    scrollToBooking();
-  }
-
-  function updateServiceFromSelect() {
-    const val = document.getElementById("selectedService").value;
-    if (!val) {
-      activeService = null;
-      activePrice = 0;
-      activeDuration = 0;
+  function addToCart(id, name, price, duration) {
+    if (cart[id]) {
+      cart[id].qty += 1;
     } else {
-      const parts = val.split('|');
-      activeService = parts[0];
-      activePrice = parseInt(parts[1]);
-      activeDuration = parseInt(parts[2]);
+      cart[id] = { name, price, duration, qty: 1 };
     }
-    updateSummaryUI();
+    renderCart();
+    showToast(`✔ ${name} dimasukkan ke keranjang!`);
   }
 
-  function selectTimeSlot(time, slotEl) {
-    document.querySelectorAll(".time-slot").forEach(s => s.classList.remove("selected"));
+  function updateQty(id, delta) {
+    if (!cart[id]) return;
+    cart[id].qty += delta;
+    if (cart[id].qty <= 0) {
+      delete cart[id];
+    }
+    renderCart();
+  }
+
+  function selectCartTimeSlot(time, slotEl) {
+    document.querySelectorAll(".cart-time-slot").forEach(s => s.classList.remove("selected"));
     slotEl.classList.add("selected");
-    activeTimeSlot = time;
-    updateSummaryUI();
+    cartTimeSlot = time;
   }
 
-  function updateSummaryUI() {
-    document.getElementById("sumServiceText").innerText = activeService || "Belum Dipilih";
-    document.getElementById("sumDurationText").innerText = activeDuration ? `${activeDuration} Menit` : "-";
-    document.getElementById("sumTimeText").innerText = activeTimeSlot || "Belum Dipilih";
-    document.getElementById("sumTotalPrice").innerText = activePrice ? "Rp " + activePrice.toLocaleString('id-ID') : "Rp 0";
-  }
+  function renderCart() {
+    const cartBody = document.getElementById("cartBody");
+    const cartFoot = document.getElementById("cartFoot");
+    const badge = document.getElementById("cartCountBadge");
 
-  function submitBooking(e) {
-    e.preventDefault();
+    let totalQty = 0;
+    let totalPrice = 0;
+    let itemsHtml = "";
 
-    const name = document.getElementById("clientName").value;
-    const phone = document.getElementById("clientPhone").value;
-    const vehicleType = document.getElementById("vehicleType").value;
-    const vehicleDetail = document.getElementById("vehicleDetail").value;
-    const location = document.getElementById("serviceLocation").value;
-    const date = document.getElementById("bookingDate").value;
-
-    if (!activeService) {
-      alert("Silakan pilih jenis paket layanan servis terlebih dahulu!");
+    const keys = Object.keys(cart);
+    if (keys.length === 0) {
+      cartBody.innerHTML = '<div class="cart-empty">Keranjang servis Anda masih kosong.<br>Silakan pilih paket perawatan di atas! 🛠️</div>';
+      cartFoot.style.display = "none";
+      badge.innerText = "0";
       return;
     }
-    if (!activeTimeSlot) {
-      alert("Silakan pilih slot jam kunjungan servis Anda!");
+
+    keys.forEach(id => {
+      const item = cart[id];
+      const subtotal = item.price * item.qty;
+      totalQty += item.qty;
+      totalPrice += subtotal;
+
+      itemsHtml += `
+        <div class="cart-item">
+          <div>
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-sub">Rp ${subtotal.toLocaleString('id-ID')} (${item.qty}x @ Rp ${item.price.toLocaleString('id-ID')})</div>
+          </div>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="updateQty('${id}', -1)">-</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="updateQty('${id}', 1)">+</button>
+          </div>
+        </div>
+      `;
+    });
+
+    cartBody.innerHTML = itemsHtml;
+    cartFoot.style.display = "block";
+    document.getElementById("cartTotalPrice").innerText = "Rp " + totalPrice.toLocaleString('id-ID');
+    badge.innerText = totalQty;
+  }
+
+  function openCart() {
+    document.getElementById("cartOverlay").classList.add("show");
+    document.getElementById("cartSheet").classList.add("open");
+  }
+
+  function closeCart() {
+    document.getElementById("cartOverlay").classList.remove("show");
+    document.getElementById("cartSheet").classList.remove("open");
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById("toast");
+    t.innerText = msg;
+    t.classList.add("show");
+    setTimeout(() => { t.classList.remove("show"); }, 2000);
+  }
+
+  function checkoutWA() {
+    const keys = Object.keys(cart);
+    if (keys.length === 0) {
+      alert("Keranjang servis Anda masih kosong!");
+      return;
+    }
+
+    const name = document.getElementById("cartName").value;
+    const phone = document.getElementById("cartPhone").value;
+    const vehicle = document.getElementById("cartVehicle").value;
+    const location = document.getElementById("cartLocation").value;
+    const date = document.getElementById("cartDate").value;
+
+    if (!name || !phone || !vehicle) {
+      alert("Silakan lengkapi Nama Pemilik, No. WA, dan Merk/Plat Nomor Kendaraan!");
+      return;
+    }
+    if (!cartTimeSlot) {
+      alert("Silakan pilih slot jam servis!");
       return;
     }
 
     let text = `*BOOKING SERVIS BENGKEL - AUTOPRO GARAGE*\n\n`;
-    text += `*DATA PEMILIK & KENDARAAN:*\nNama: *${name}*\nNo. WA: *${phone}*\nJenis: *${vehicleType}*\nKendaraan & Plat: *${vehicleDetail}*\n\n`;
-    text += `*DETAIL SERVIS:*\n`;
-    text += `• Paket Servis: *${activeService}*\n`;
-    text += `• Estimasi Durasi: *${activeDuration} Menit*\n`;
+    text += `*DATA PEMILIK & KENDARAAN:*\nNama: *${name}*\nNo. WA: *${phone}*\nKendaraan & Plat: *${vehicle}*\n\n`;
+    text += `*DAFTAR PAKET SERVIS DIPILIH:*\n`;
+
+    let totalPrice = 0;
+    let totalDuration = 0;
+    keys.forEach((id, index) => {
+      const item = cart[id];
+      const subtotal = item.price * item.qty;
+      totalPrice += subtotal;
+      totalDuration += item.duration * item.qty;
+      text += `${index + 1}. *${item.name}* x${item.qty} = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+    });
+
+    text += `\n*DETAIL KUNJUNGAN:*\n`;
     text += `• Lokasi Layanan: *${location}*\n`;
     text += `• Tanggal Servis: *${date}*\n`;
-    text += `• Slot Jam Kunjungan: *${activeTimeSlot}*\n\n`;
+    text += `• Slot Jam Kunjungan: *${cartTimeSlot}*\n`;
+    text += `• Est. Total Durasi: *${totalDuration} Menit*\n`;
     text += `----------------------------------\n`;
-    text += `*ESTIMASI BIAYA JASA:* Rp ${activePrice.toLocaleString('id-ID')}\n\n`;
-    text += `Apakah jadwal servis tanggal *${date}* jam *${activeTimeSlot}* ini tersedia? Terima kasih!`;
+    text += `*TOTAL ESTIMASI BIAYA JASA:* Rp ${totalPrice.toLocaleString('id-ID')}\n\n`;
+    text += `Apakah jadwal servis tanggal *${date}* jam *${cartTimeSlot}* ini masih tersedia? Terima kasih!`;
 
     const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(waUrl, '_blank');
