@@ -251,6 +251,34 @@
   }
   .toast.show { opacity: 1; }
 
+  /* STICKY FLOATING BOTTOM CART BAR */
+  .bottom-cart-bar {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(160%);
+    width: calc(100% - 32px); max-width: 540px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff; padding: 12px 18px; border-radius: 18px; z-index: 99;
+    border: 2px solid var(--primary); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.45);
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    cursor: pointer; transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .bottom-cart-bar.show {
+    transform: translateX(-50%) translateY(0);
+  }
+  .bottom-cart-info { display: flex; align-items: center; gap: 12px; }
+  .bottom-cart-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.4);
+  }
+  .bottom-cart-title { font-weight: 800; font-size: 0.92rem; text-transform: uppercase; color: #fff; }
+  .bottom-cart-price { font-size: 0.85rem; color: var(--primary-light); font-weight: 700; }
+  .btn-bottom-cart-action {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff; border: none; padding: 10px 18px; border-radius: 12px;
+    font-weight: 800; font-size: 0.85rem; text-transform: uppercase; cursor: pointer;
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35); pointer-events: none;
+  }
+
   /* FOOTER */
   footer { background: var(--dark); color: #fff; padding: 48px 0 24px; }
   .footer-inner { display: flex; flex-wrap: wrap; gap: 36px; justify-content: space-between; margin-bottom: 36px; }
@@ -539,6 +567,18 @@
 
 <div class="toast" id="toast">✔ Paket servis dimasukkan ke keranjang!</div>
 
+<!-- STICKY FLOATING BOTTOM CART BAR -->
+<div class="bottom-cart-bar" id="bottomCartBar" onclick="openCart()">
+  <div class="bottom-cart-info">
+    <div class="bottom-cart-icon">🛒</div>
+    <div>
+      <div class="bottom-cart-title" id="bottomCartCount">0 Paket Servis Dipilih</div>
+      <div class="bottom-cart-price" id="bottomCartPrice">Total: Rp 0</div>
+    </div>
+  </div>
+  <button class="btn-bottom-cart-action">Lihat Keranjang ↗</button>
+</div>
+
 <!-- FOOTER -->
 <footer id="kontak">
   <div class="wrap footer-inner">
@@ -603,6 +643,7 @@
     const cartBody = document.getElementById("cartBody");
     const cartFoot = document.getElementById("cartFoot");
     const badge = document.getElementById("cartCountBadge");
+    const bottomBar = document.getElementById("bottomCartBar");
 
     let totalQty = 0;
     let totalPrice = 0;
@@ -613,6 +654,7 @@
       cartBody.innerHTML = '<div class="cart-empty">Keranjang servis Anda masih kosong.<br>Silakan pilih paket perawatan di atas! 🛠️</div>';
       cartFoot.style.display = "none";
       badge.innerText = "0";
+      if (bottomBar) bottomBar.classList.remove("show");
       return;
     }
 
@@ -641,6 +683,12 @@
     cartFoot.style.display = "block";
     document.getElementById("cartTotalPrice").innerText = "Rp " + totalPrice.toLocaleString('id-ID');
     badge.innerText = totalQty;
+
+    if (bottomBar) {
+      bottomBar.classList.add("show");
+      document.getElementById("bottomCartCount").innerText = `${totalQty} Paket Servis Dipilih`;
+      document.getElementById("bottomCartPrice").innerText = `Total: Rp ${totalPrice.toLocaleString('id-ID')}`;
+    }
   }
 
   function openCart() {
