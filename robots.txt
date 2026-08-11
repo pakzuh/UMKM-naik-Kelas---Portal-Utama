@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /cetak-mini-card-dan-surat.html
+Disallow: /demo/template-cafe/
+
+Sitemap: https://rakyat.space/sitemap.xml

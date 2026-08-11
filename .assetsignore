@@ -5,6 +5,7 @@ node_modules
 *.md
 *.ps1
 *.txt
+!robots.txt
 *.gs
 **/Rawfoto
 **/*.tsv
