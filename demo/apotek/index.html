@@ -60,35 +60,145 @@
     button { font-family: inherit; cursor: pointer; }
     input, select, textarea { font-family: inherit; }
 
-    /* ====== HEADER ====== */
+    /* ====== HEADER & HERO PHARMACY ====== */
     .site-header {
-      background: var(--primary);
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
       color: #fff;
-      padding: 14px 16px 13px;
+      padding: 22px 18px 24px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(4,120,87,0.25);
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .site-header::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-inner-box {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 5px 16px 5px 8px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .logo-icon-emblem {
+      width: 36px;
+      height: 36px;
+      background: #ffffff;
+      color: #047857;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 900;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
 
     .header-name {
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: -.02em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .header-name span {
+      color: #a7f3d0;
+      font-weight: 400;
+    }
+
+    .header-tagline {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ecfdf5;
+      margin-top: 4px;
+      letter-spacing: -0.01em;
     }
 
     .header-address {
-      font-size: .75rem;
-      opacity: .85;
-      margin-top: 2px;
+      font-size: .78rem;
+      color: #d1fae5;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
     }
 
-    .header-hours {
+    .header-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .header-badge-pill {
+      font-size: .72rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.18);
+      color: #ffffff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .btn-resep-quick {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      font-size: .72rem;
-      background: rgba(255,255,255,.18);
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-top: 6px;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      background: #ffffff;
+      color: #047857;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      transition: transform 0.15s, background 0.15s;
+    }
+    .btn-resep-quick:hover {
+      transform: translateY(-1px);
+      background: #f0fdf4;
     }
 
     /* ====== SEARCH ====== */
@@ -673,11 +783,31 @@
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER HERO ===== -->
 <header class="site-header">
-  <div class="header-name">+ Apotek Sehat</div>
-  <div class="header-address">Jl. Raya Sampel No. 123, Kota Contoh</div>
-  <div class="header-hours">⏰ Buka setiap hari 08.00 – 22.00 WIB</div>
+  <div class="header-inner-box">
+    <!-- Logo Toko Minimalis -->
+    <div class="brand-logo-wrap">
+      <div class="logo-icon-emblem">➕</div>
+      <div class="header-name">Apotek<span>Sehat</span></div>
+    </div>
+
+    <!-- Tagline & Alamat -->
+    <div class="header-tagline">Pesan Obat Online &amp; Tebus Resep Praktis via WhatsApp</div>
+    <div class="header-address">📍 Jl. Raya Sampel No. 123, Kota Contoh</div>
+
+    <!-- Hero Badges -->
+    <div class="header-badges">
+      <span class="header-badge-pill">🛡️ 100% Obat Asli &amp; BPOM</span>
+      <span class="header-badge-pill">🚚 Antar Obat ke Rumah</span>
+      <span class="header-badge-pill">⏰ Buka Setiap Hari 08.00 – 22.00 WIB</span>
+    </div>
+
+    <!-- Tombol Tebus Resep WA -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Apotek%20Sehat,%20saya%20mau%20tebus%20resep%20dokter" target="_blank" rel="noopener" class="btn-resep-quick">
+      📄 Ada Resep Dokter? Kirim Foto Resep via WA ↗
+    </a>
+  </div>
 </header>
 
 <!-- ===== SEARCH ===== -->
