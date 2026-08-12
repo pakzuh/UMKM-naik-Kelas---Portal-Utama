@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aparsi Keripik Mbote — Renyah, Gurih, Bikin Nagih!</title>
+<meta name="description" content="Aparsi Keripik Mbote (Talas) — Varian rasa Pedas & Asin, mulai Rp6.000. Renyah, gurih, tanpa pengawet. Bisa COD, delivery, atau ambil sendiri. Order via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #dc2626;
+    --primary-dark: #b91c1c;
+    --primary-light: #fee2e2;
+    --secondary: #f59e0b;
+    --secondary-dark: #d97706;
+    --secondary-light: #fef3c7;
+    --dark: #1c1210;
+    --text-main: #44352e;
+    --text-muted: #7a685e;
+    --card-bg: #ffffff;
+    --bg-main: #fffaf3;
+    --border: #f0e2d0;
+    --shadow-sm: 0 4px 12px rgba(28, 18, 16, 0.07);
+    --shadow-md: 0 12px 30px rgba(28, 18, 16, 0.14);
+    --radius: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .brand-font { font-family: 'Baloo 2', sans-serif; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+  /* HEADER */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(28, 18, 16, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--secondary);
+    box-shadow: var(--shadow-sm);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 1.6rem; font-weight: 700; color: #fff; }
+  .brand-logo {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
+  }
+  .brand-text span { color: var(--secondary); }
+
+  .nav-links { display: none; gap: 24px; font-weight: 700; font-size: 0.9rem; color: #ecd9c6; }
+  .nav-links a:hover { color: var(--secondary); }
+  @media(min-width: 768px) { .nav-links { display: flex; } }
+
+  .header-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-cart-head {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff; border: none; padding: 10px 20px; border-radius: 999px;
+    font-weight: 800; font-size: 0.88rem; cursor: pointer; display: flex;
+    align-items: center; gap: 8px;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35); transition: transform 0.2s ease;
+  }
+  .btn-cart-head:active { transform: scale(0.96); }
+  .cart-count-badge {
+    background: #fff; color: var(--dark); font-size: 0.78rem;
+    font-weight: 800; padding: 2px 8px; border-radius: 999px;
+  }
+
+  /* HERO — foto latar bisa diisi belakangan: assets/hero_banner.jpg */
+  .hero-section {
+    position: relative; overflow: hidden; color: #fff;
+    padding: 72px 20px 84px; text-align: center;
+    background: linear-gradient(160deg, rgba(28, 18, 16, 0.93) 0%, rgba(185, 28, 28, 0.55) 100%), url('assets/hero_banner.jpg');
+    background-size: cover; background-position: center;
+    border-bottom: 4px solid var(--secondary);
+  }
+  .hero-tag {
+    display: inline-block; font-size: 0.82rem; font-weight: 800; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--secondary-light); background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px); padding: 6px 20px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.25); margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: clamp(2.3rem, 6vw, 3.8rem); font-weight: 700; color: #fff;
+    line-height: 1.1; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.6);
+  }
+  .hero-desc {
+    font-size: 1.05rem; color: #f5e9da; max-width: 600px; margin: 0 auto 36px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  }
+  .hero-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary-hero {
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+    color: #1c1210; padding: 14px 34px; border-radius: 999px; font-weight: 800;
+    font-size: 0.95rem; border: none; cursor: pointer; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.45);
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform 0.2s ease;
+  }
+  .btn-primary-hero:hover { transform: translateY(-2px); }
+  .btn-secondary-hero {
+    background: rgba(255, 255, 255, 0.95); color: var(--dark); padding: 14px 28px; border-radius: 999px;
+    font-weight: 800; font-size: 0.95rem; border: 1.5px solid var(--border);
+  }
+
+  .hero-features {
+    display: flex; justify-content: center; gap: 20px; margin-top: 40px; flex-wrap: wrap;
+  }
+  .feature-badge {
+    display: flex; align-items: center; gap: 10px; background: rgba(28, 18, 16, 0.5);
+    backdrop-filter: blur(8px); padding: 10px 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15);
+  }
+  .feature-badge span { font-size: 1.4rem; }
+  .feature-badge div { font-size: 0.85rem; font-weight: 700; color: #fff; text-align: left; }
+
+  /* PRODUCTS SECTION */
+  .section { padding: 60px 0; }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 12px; }
+  .section-eyebrow {
+    font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--primary-dark); margin-bottom: 8px; display: block;
+  }
+  .section-head h2 { font-size: 2.1rem; color: var(--dark); margin-bottom: 10px; }
+  .section-head p { color: var(--text-muted); font-size: 0.95rem; }
+  .section-note {
+    text-align: center; max-width: 560px; margin: 0 auto 36px; font-size: 0.82rem;
+    color: var(--primary-dark); font-weight: 700; background: var(--primary-light);
+    padding: 8px 16px; border-radius: 999px; display: block; width: fit-content;
+  }
+
+  .flavor-title {
+    display: flex; align-items: center; gap: 10px; font-size: 1.3rem; font-weight: 700;
+    color: var(--dark); margin: 40px 0 18px;
+  }
+  .flavor-title:first-of-type { margin-top: 0; }
+  .flavor-title .dot { width: 12px; height: 12px; border-radius: 50%; }
+
+  .service-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px;
+  }
+  .service-card {
+    background: var(--card-bg); border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: all 0.3s ease; position: relative;
+  }
+  .service-card:hover {
+    transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--secondary);
+  }
+  .service-img-box {
+    height: 160px; position: relative; overflow: hidden; background: #f0e2d0;
+  }
+  .service-img-box img {
+    width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;
+  }
+  .service-card:hover .service-img-box img {
+    transform: scale(1.08);
+  }
+  .img-fallback { width:100%; height:100%; align-items:center; justify-content:center; font-size:3.2rem; }
+  .service-card-content { padding: 18px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; gap: 12px; }
+  .service-title { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .service-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
+  .service-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px dashed var(--border); }
+  .service-price { font-size: 1.08rem; font-weight: 800; color: var(--primary-dark); }
+  .service-unit { font-size: 0.76rem; color: var(--text-muted); font-weight: 700; }
+
+  .btn-select-service {
+    width: 100%; padding: 11px; background: var(--secondary-light); color: var(--secondary-dark);
+    border: 1px solid #fde68a; font-weight: 800; font-size: 0.86rem;
+    border-radius: 12px; cursor: pointer; transition: all 0.2s ease;
+  }
+  .btn-select-service:hover, .btn-select-service.selected {
+    background: var(--secondary); color: #1c1210; border-color: var(--secondary);
+  }
+
+  /* CART DRAWER SLIDE-OUT */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(28, 18, 16, 0.75); backdrop-filter: blur(4px);
+    z-index: 100; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+  }
+  .overlay.show { opacity: 1; visibility: visible; }
+
+  .cart-sheet {
+    position: fixed; top: 0; right: -520px; width: 100%; max-width: 480px; height: 100%;
+    background: #fff; z-index: 101; box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+    display: flex; flex-direction: column; transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cart-sheet.open { right: 0; }
+
+  .cart-head {
+    background: var(--dark); color: #fff; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 3px solid var(--secondary); flex-shrink: 0;
+  }
+  .cart-head h3 { margin: 0; font-size: 1.4rem; color: #fff; display: flex; align-items: center; gap: 10px; }
+  .close-cart-btn { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; line-height: 1; }
+
+  /* UNIFIED SCROLL CONTAINER */
+  .cart-body {
+    flex: 1; overflow-y: auto; padding: 24px;
+    display: flex; flex-direction: column; gap: 22px;
+    scroll-behavior: smooth;
+  }
+  .cart-section-title {
+    font-size: 0.85rem; font-weight: 800; text-transform: uppercase;
+    color: var(--dark); letter-spacing: 0.5px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 6px; border-bottom: 2px solid var(--secondary-light);
+  }
+
+  .cart-empty { text-align: center; color: var(--text-muted); padding: 80px 20px; font-size: 0.95rem; line-height: 1.6; }
+
+  .cart-items-container { display: flex; flex-direction: column; gap: 10px; }
+  .cart-item {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bg-main); padding: 14px 16px; border-radius: 14px; border: 1px solid var(--border);
+    gap: 12px;
+  }
+  .cart-item-title { font-weight: 800; font-size: 0.95rem; color: var(--dark); line-height: 1.2; }
+  .cart-item-sub { font-size: 0.82rem; color: var(--primary-dark); font-weight: 800; margin-top: 4px; }
+
+  .qty-ctrl { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .qty-btn {
+    width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border);
+    background: #fff; font-weight: 800; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .qty-btn:hover { background: var(--secondary); color: #1c1210; border-color: var(--secondary); }
+  .qty-num { font-weight: 800; font-size: 1rem; min-width: 22px; text-align: center; color: var(--dark); }
+
+  .cart-form-box { display: flex; flex-direction: column; gap: 14px; background: #fff; }
+  .form-group-cart { display: flex; flex-direction: column; gap: 6px; }
+  .form-group-cart label { font-size: 0.78rem; font-weight: 800; color: var(--dark); text-transform: uppercase; }
+  .cart-input, .cart-select, .cart-textarea {
+    padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border);
+    font-family: inherit; font-size: 0.9rem; outline: none; background: var(--bg-main); resize: vertical;
+  }
+  .cart-input:focus, .cart-select:focus, .cart-textarea:focus { border-color: var(--secondary); background: #fff; box-shadow: 0 0 0 3px var(--secondary-light); }
+
+  .cart-summary-box {
+    background: var(--secondary-light); padding: 18px; border-radius: 16px;
+    border: 1px solid #fde68a; margin-top: 6px;
+  }
+  .cart-total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.25rem; color: var(--dark); margin-bottom: 14px; }
+
+  .btn-checkout-wa {
+    width: 100%; padding: 16px; background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff; font-weight: 800; font-size: 0.98rem; border-radius: 14px; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35); transition: transform 0.15s ease;
+  }
+  .btn-checkout-wa:active { transform: scale(0.98); }
+
+  /* TOAST NOTIFICATION */
+  .toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    background: var(--dark); color: #fff; padding: 12px 24px; border-radius: 999px;
+    font-size: 0.88rem; font-weight: 800; z-index: 120; box-shadow: var(--shadow-md);
+    opacity: 0; transition: opacity 0.3s ease; pointer-events: none; border: 1px solid rgba(255,255,255,0.2);
+  }
+  .toast.show { opacity: 1; }
+
+  /* STICKY FLOATING BOTTOM CART BAR */
+  .bottom-cart-bar {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(160%);
+    width: calc(100% - 32px); max-width: 540px; background: linear-gradient(135deg, #1c1210 0%, #2b1a15 100%);
+    color: #fff; padding: 12px 18px; border-radius: 18px; z-index: 99;
+    border: 2px solid var(--secondary); box-shadow: 0 10px 30px rgba(28, 18, 16, 0.5);
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    cursor: pointer; transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .bottom-cart-bar.show {
+    transform: translateX(-50%) translateY(0);
+  }
+  .bottom-cart-info { display: flex; align-items: center; gap: 12px; }
+  .bottom-cart-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+  }
+  .bottom-cart-title { font-weight: 800; font-size: 0.92rem; color: #fff; }
+  .bottom-cart-price { font-size: 0.85rem; color: var(--secondary-light); font-weight: 700; }
+  .btn-bottom-cart-action {
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+    color: #1c1210; border: none; padding: 10px 18px; border-radius: 12px;
+    font-weight: 800; font-size: 0.85rem; cursor: pointer;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35); pointer-events: none;
+  }
+
+  /* WHY US STRIP */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .why-card { background: #fff; border-radius: 16px; padding: 24px 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); text-align: center; }
+  .why-card .ic { font-size: 2rem; display: block; margin-bottom: 10px; }
+  .why-card h3 { font-size: 1.02rem; margin-bottom: 6px; color: var(--dark); }
+  .why-card p { color: var(--text-muted); font-size: 0.85rem; }
+
+  /* FOOTER */
+  footer { background: var(--dark); color: #fff; padding: 48px 0 24px; }
+  .footer-inner { display: flex; flex-wrap: wrap; gap: 36px; justify-content: space-between; margin-bottom: 36px; }
+  .footer-col { flex: 1; min-width: 240px; }
+  .footer-col h4 { color: #fff; font-size: 1.25rem; margin-bottom: 14px; }
+  .footer-col p { color: #c2a98f; font-size: 0.88rem; line-height: 1.6; }
+  .footer-bottom { text-align: center; border-top: 1px solid #3a2a22; padding-top: 24px; color: #8a7565; font-size: 0.82rem; }
+</style>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍟</text></svg>">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="id_ID">
+<meta property="og:title" content="Aparsi Keripik Mbote — Renyah, Gurih, Bikin Nagih!">
+<meta property="og:description" content="Keripik mbote (talas) varian Pedas & Asin, mulai Rp6.000. Renyah, gurih, tanpa pengawet. COD, delivery, atau ambil sendiri, order via WhatsApp.">
+<meta property="og:url" content="https://rakyat.space/demo/aparsi-keripik/index.html">
+<meta property="og:image" content="https://rakyat.space/demo/aparsi-keripik/assets/hero_banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="brand-logo">🍟</div>
+      <div class="brand-text">Aparsi<span> Keripik</span></div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#produk">Varian &amp; Harga</a>
+      <a href="#kontak">Cara Order</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn-cart-head" onclick="openCart()">
+        🛒 Keranjang <span class="cart-count-badge" id="cartCountBadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO SECTION — foto latar bisa diisi belakangan: assets/hero_banner.jpg -->
+<section class="hero-section">
+  <div class="wrap">
+    <span class="hero-tag">🎉 Open Order Setiap Hari</span>
+    <h1 class="hero-title brand-font">Keripik Mbote Aparsi<br>Renyah, Gurih, Bikin Nagih!</h1>
+    <p class="hero-desc">Keripik mbote (talas) dengan 2 varian rasa favorit: Pedas &amp; Asin. Lumer di lidah, harga murah meriah, dijamin ga bakal rugi!</p>
+
+    <div class="hero-cta-btns">
+      <button class="btn-primary-hero" onclick="openCart()">🛒 Pesan Sekarang</button>
+      <a class="btn-secondary-hero" href="#produk">Lihat Varian &amp; Harga</a>
+    </div>
+
+    <div class="hero-features">
+      <div class="feature-badge">
+        <span>🌶️</span>
+        <div>2 Varian Rasa<br><small style="color:#f5e9da">Pedas &amp; Asin</small></div>
+      </div>
+      <div class="feature-badge">
+        <span>💰</span>
+        <div>Mulai Rp 6.000<br><small style="color:#f5e9da">Murah Meriah</small></div>
+      </div>
+      <div class="feature-badge">
+        <span>🚚</span>
+        <div>Delivery / COD<br><small style="color:#f5e9da">Bisa Ambil Sendiri</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUK CATALOG WITH ADD TO CART — gambar bisa disisipkan belakangan sesuai nama file di assets/ -->
+<section class="section" id="produk">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Pilihan Varian &amp; Ukuran</span>
+      <h2 class="brand-font">Daftar Varian &amp; Harga</h2>
+      <p>Klik <b>+ Tambah ke Keranjang</b> untuk memilih varian &amp; ukuran yang diinginkan!</p>
+    </div>
+    <span class="section-note">💡 Tersedia 3 ukuran kemasan: Small 50gr, Sedang 100gr, Jumbo 200gr</span>
+
+    <!-- VARIAN PEDAS (CHILI) -->
+    <div class="flavor-title"><span class="dot" style="background:var(--primary);"></span>🌶️ Varian Pedas (Chili)</div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-img-box">
+          <img loading="lazy" src="assets/aparsi-chili-small.jpg" alt="Aparsi Keripik Mbote Chili Small" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:flex; background:linear-gradient(135deg,#fee2e2,#fca5a5);">🌶️</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Aparsi Chili — Small (50gr)</div>
+            <div class="service-desc">Keripik mbote pedas gurih, kemasan pas untuk cemilan sendiri.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 6.000</span>
+              <span class="service-unit">50 gram</span>
+            </div>
+            <button class="btn-select-service" onclick="addToCart('c1', 'Aparsi Chili - Small (50gr)', 6000, 'pcs')">+ Tambah ke Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-box">
+          <img loading="lazy" src="assets/aparsi-chili-sedang.jpg" alt="Aparsi Keripik Mbote Chili Sedang" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:flex; background:linear-gradient(135deg,#fecaca,#f87171);">🌶️</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Aparsi Chili — Sedang (100gr)</div>
+            <div class="service-desc">Ukuran pas untuk berbagi bersama teman atau keluarga di rumah.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 11.000</span>
+              <span class="service-unit">100 gram</span>
+            </div>
+            <button class="btn-select-service" onclick="addToCart('c2', 'Aparsi Chili - Sedang (100gr)', 11000, 'pcs')">+ Tambah ke Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-box">
+          <img loading="lazy" src="assets/aparsi-chili-jumbo.jpg" alt="Aparsi Keripik Mbote Chili Jumbo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:flex; background:linear-gradient(135deg,#fca5a5,#ef4444);">🌶️</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Aparsi Chili — Jumbo (200gr)</div>
+            <div class="service-desc">Paket hemat ukuran besar, puas ngemil tanpa takut kehabisan.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 22.000</span>
+              <span class="service-unit">200 gram</span>
+            </div>
+            <button class="btn-select-service" onclick="addToCart('c3', 'Aparsi Chili - Jumbo (200gr)', 22000, 'pcs')">+ Tambah ke Keranjang</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VARIAN ASIN (SALT) -->
+    <div class="flavor-title"><span class="dot" style="background:var(--secondary);"></span>🧂 Varian Asin (Salt)</div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-img-box">
+          <img loading="lazy" src="assets/aparsi-salt-small.jpg" alt="Aparsi Keripik Mbote Salt Small" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:flex; background:linear-gradient(135deg,#fef3c7,#fde68a);">🧂</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Aparsi Salt — Small (50gr)</div>
+            <div class="service-desc">Keripik mbote asin gurih klasik, renyah tahan lama.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 6.000</span>
+              <span class="service-unit">50 gram</span>
+            </div>
+            <button class="btn-select-service" onclick="addToCart('s1', 'Aparsi Salt - Small (50gr)', 6000, 'pcs')">+ Tambah ke Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-box">
+          <img loading="lazy" src="assets/aparsi-salt-sedang.jpg" alt="Aparsi Keripik Mbote Salt Sedang" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:flex; background:linear-gradient(135deg,#fde68a,#fbbf24);">🧂</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Aparsi Salt — Sedang (100gr)</div>
+            <div class="service-desc">Cocok untuk stok cemilan mingguan di rumah atau kantor.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 11.000</span>
+              <span class="service-unit">100 gram</span>
+            </div>
+            <button class="btn-select-service" onclick="addToCart('s2', 'Aparsi Salt - Sedang (100gr)', 11000, 'pcs')">+ Tambah ke Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-box">
+          <img loading="lazy" src="assets/aparsi-salt-jumbo.jpg" alt="Aparsi Keripik Mbote Salt Jumbo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-fallback" style="display:flex; background:linear-gradient(135deg,#fbbf24,#f59e0b);">🧂</div>
+        </div>
+        <div class="service-card-content">
+          <div>
+            <div class="service-title">Aparsi Salt — Jumbo (200gr)</div>
+            <div class="service-desc">Paket hemat ukuran besar untuk yang doyan banget ngemil asin.</div>
+          </div>
+          <div>
+            <div class="service-meta">
+              <span class="service-price">Rp 22.000</span>
+              <span class="service-unit">200 gram</span>
+            </div>
+            <button class="btn-select-service" onclick="addToCart('s3', 'Aparsi Salt - Jumbo (200gr)', 22000, 'pcs')">+ Tambah ke Keranjang</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" style="padding-top:0;" id="kontak">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="ic">🔥</span>
+        <h3>Digoreng Fresh Setiap Hari</h3>
+        <p>Diproduksi rumahan dalam batch kecil, renyah &amp; gak apek meski disimpan lama.</p>
+      </div>
+      <div class="why-card">
+        <span class="ic">🚫</span>
+        <h3>Tanpa Pengawet</h3>
+        <p>Bahan alami pilihan, aman dikonsumsi keluarga termasuk anak-anak.</p>
+      </div>
+      <div class="why-card">
+        <span class="ic">📦</span>
+        <h3>Kemasan Rapi &amp; Higienis</h3>
+        <p>Dikemas kedap udara supaya tetap renyah sampai di tangan Anda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CART SHEET DRAWER SLIDE-OUT -->
+<div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<div class="cart-sheet" id="cartSheet">
+  <div class="cart-head">
+    <h3 class="brand-font">🛒 Keranjang Pesanan</h3>
+    <button class="close-cart-btn" onclick="closeCart()">&times;</button>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">
+      Keranjang Anda masih kosong.<br>Silakan pilih varian keripik di atas! 🍟
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">✔ Ditambahkan ke keranjang!</div>
+
+<!-- STICKY FLOATING BOTTOM CART BAR -->
+<div class="bottom-cart-bar" id="bottomCartBar" onclick="openCart()">
+  <div class="bottom-cart-info">
+    <div class="bottom-cart-icon">🛒</div>
+    <div>
+      <div class="bottom-cart-title" id="bottomCartCount">0 Item Dipilih</div>
+      <div class="bottom-cart-price" id="bottomCartPrice">Total: Rp 0</div>
+    </div>
+  </div>
+  <button class="btn-bottom-cart-action">Lihat Keranjang ↗</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <h4>Aparsi Keripik Mbote</h4>
+      <p>Keripik mbote (talas) renyah &amp; gurih, tersedia varian Pedas &amp; Asin. Cemilan rumahan yang bikin nagih.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Cara Order</h4>
+      <p>Pilih varian &amp; ukuran, isi data pemesan, lalu kirim pesanan via WhatsApp. Bisa COD, delivery, atau ambil sendiri.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <p>WhatsApp Order: 0831-1994-6023</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Aparsi Keripik Mbote • Powered by rakyat.space
+  </div>
+</footer>
+
+<script>
+  const WA_NUMBER = "6283119946023";
+  let cart = {};
+
+  function addToCart(id, name, price, unit) {
+    if (cart[id]) {
+      cart[id].qty += 1;
+    } else {
+      cart[id] = { name, price, unit, qty: 1 };
+    }
+    renderCart();
+    showToast(`✔ ${name} dimasukkan ke keranjang!`);
+  }
+
+  function updateQty(id, delta) {
+    if (!cart[id]) return;
+    cart[id].qty += delta;
+    if (cart[id].qty <= 0) {
+      delete cart[id];
+    }
+    renderCart();
+  }
+
+  function renderCart() {
+    const cartBody = document.getElementById("cartBody");
+    const badge = document.getElementById("cartCountBadge");
+    const bottomBar = document.getElementById("bottomCartBar");
+
+    let totalQty = 0;
+    let totalPrice = 0;
+    let itemsHtml = "";
+
+    const keys = Object.keys(cart);
+    if (keys.length === 0) {
+      cartBody.innerHTML = '<div class="cart-empty">Keranjang Anda masih kosong.<br>Silakan pilih varian keripik di atas! 🍟</div>';
+      badge.innerText = "0";
+      if (bottomBar) bottomBar.classList.remove("show");
+      return;
+    }
+
+    keys.forEach(id => {
+      const item = cart[id];
+      const subtotal = item.price * item.qty;
+      totalQty += item.qty;
+      totalPrice += subtotal;
+
+      itemsHtml += `
+        <div class="cart-item">
+          <div>
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-sub">Rp ${subtotal.toLocaleString('id-ID')} (${item.qty}x @ Rp ${item.price.toLocaleString('id-ID')})</div>
+          </div>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="updateQty('${id}', -1)">-</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="updateQty('${id}', 1)">+</button>
+          </div>
+        </div>
+      `;
+    });
+
+    cartBody.innerHTML = `
+      <!-- Section 1: Daftar Item Dipilih -->
+      <div>
+        <div class="cart-section-title">
+          <span>🍟 Item Dipilih</span>
+          <span style="color:var(--primary-dark)">${totalQty} Item</span>
+        </div>
+        <div class="cart-items-container">
+          ${itemsHtml}
+        </div>
+      </div>
+
+      <!-- Section 2: Formulir Data Pemesan -->
+      <div class="cart-form-box">
+        <div class="cart-section-title">
+          <span>📋 Data Pemesan</span>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Nama Pemesan:</label>
+          <input type="text" class="cart-input" id="cartName" placeholder="Contoh: Bu Rina" required>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Metode Pengambilan:</label>
+          <select class="cart-select" id="cartMethod">
+            <option value="Delivery (Antar)">🚚 Delivery (Antar)</option>
+            <option value="COD (Bayar di Tempat)">💵 COD (Bayar di Tempat)</option>
+            <option value="Ambil Sendiri di Lokasi">🏪 Ambil Sendiri di Lokasi</option>
+          </select>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Alamat (jika Delivery/COD):</label>
+          <input type="text" class="cart-input" id="cartAddress" placeholder="Contoh: Jl. Melati No. 5, dekat Indomaret">
+        </div>
+
+        <div class="cart-summary-box">
+          <div class="cart-total-row">
+            <span>Total Belanja:</span>
+            <span>Rp ${totalPrice.toLocaleString('id-ID')}</span>
+          </div>
+
+          <button class="btn-checkout-wa" onclick="checkoutWA()">💬 Kirim Pesanan via WhatsApp ↗</button>
+        </div>
+      </div>
+    `;
+
+    badge.innerText = totalQty;
+    if (bottomBar) {
+      bottomBar.classList.add("show");
+      document.getElementById("bottomCartCount").innerText = `${totalQty} Item Dipilih`;
+      document.getElementById("bottomCartPrice").innerText = `Total: Rp ${totalPrice.toLocaleString('id-ID')}`;
+    }
+  }
+
+  function openCart() {
+    document.getElementById("cartOverlay").classList.add("show");
+    document.getElementById("cartSheet").classList.add("open");
+  }
+
+  function closeCart() {
+    document.getElementById("cartOverlay").classList.remove("show");
+    document.getElementById("cartSheet").classList.remove("open");
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById("toast");
+    t.innerText = msg;
+    t.classList.add("show");
+    setTimeout(() => { t.classList.remove("show"); }, 2000);
+  }
+
+  function checkoutWA() {
+    const keys = Object.keys(cart);
+    if (keys.length === 0) {
+      alert("Keranjang Anda masih kosong!");
+      return;
+    }
+
+    const name = document.getElementById("cartName").value;
+    const method = document.getElementById("cartMethod").value;
+    const address = document.getElementById("cartAddress").value;
+
+    if (!name) {
+      alert("Silakan isi Nama Pemesan!");
+      return;
+    }
+
+    let text = `*PESANAN BARU - APARSI KERIPIK MBOTE*\n\n`;
+    text += `Nama: *${name}*\n\n`;
+    text += `*DAFTAR PESANAN:*\n`;
+
+    let totalPrice = 0;
+    keys.forEach((id, index) => {
+      const item = cart[id];
+      const subtotal = item.price * item.qty;
+      totalPrice += subtotal;
+      text += `${index + 1}. *${item.name}* x${item.qty} = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+    });
+
+    text += `\n*DETAIL PENGAMBILAN:*\n`;
+    text += `• Metode: *${method}*\n`;
+    if (address) text += `• Alamat: *${address}*\n`;
+    text += `----------------------------------\n`;
+    text += `*TOTAL BELANJA:* Rp ${totalPrice.toLocaleString('id-ID')}\n\n`;
+    text += `Apakah pesanan ini bisa diproses? Terima kasih! 😊`;
+
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+  }
+</script>
+
+</body>
+</html>
