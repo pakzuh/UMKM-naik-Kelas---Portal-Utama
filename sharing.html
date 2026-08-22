@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan Customer Journey — Sosmed ke Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --accent: #F59E0B;
+      --success: #10B981;
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text: #0F172A;
+      --muted: #475569;
+      --border: #E2E8F0;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      --radius: 18px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .badge {
+      display: inline-block;
+      background: #EFF6FF;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      border: 1px solid #DBEAFE;
+    }
+    .header h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* FUNNEL OVERVIEW BANNER */
+    .funnel-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      background: #FFFFFF;
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 40px;
+    }
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: #F1F5F9;
+      padding: 10px 18px;
+      border-radius: 12px;
+    }
+    .flow-arrow {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    /* GRID CARDS */
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.08);
+    }
+
+    .card-number {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #F1F5F9;
+      line-height: 1;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .c-blue { background: #EFF6FF; color: #2563EB; }
+    .c-amber { background: #FEF3C7; color: #D97706; }
+    .c-purple { background: #F3E8FF; color: #9333EA; }
+    .c-green { background: #D1FAE5; color: #059669; }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .info-group {
+      margin-bottom: 14px;
+    }
+    .info-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .info-value {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .action-box {
+      background: #F8FAFC;
+      border-left: 4px solid var(--primary);
+      padding: 12px 16px;
+      border-radius: 0 10px 10px 0;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+    .action-box.green { border-color: var(--success); background: #F0FDF4; }
+
+    /* SUMMARY / TIPS CARD */
+    .tips-card {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+    .tips-card h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .tip-item {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .tip-item h4 {
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .tip-item p {
+      font-size: 0.9rem;
+      color: #94A3B8;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.75rem; }
+      .funnel-flow { flex-direction: column; align-items: stretch; }
+      .flow-arrow { text-align: center; transform: rotate(90deg); margin: 4px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="badge">Konsep Praktis Bisnis</span>
+    <h1>Customer Journey: Sosmed ke Website</h1>
+    <p>Cara sederhana mengubah pengikut di media sosial menjadi pembeli setia lewat fungsi website yang tepat.</p>
+  </div>
+
+  <!-- ALUR RINGKAS -->
+  <div class="funnel-flow">
+    <div class="flow-step">📱 1. Penasaran di Sosmed</div>
+    <div class="flow-arrow">➔</div>
+    <div class="flow-step">⚡ 2. Masuk Website Cepat</div>
+    <div class="flow-arrow">➔</div>
+    <div class="flow-step">🔍 3. Yakin Beli (Katalog & Harga)</div>
+    <div class="flow-arrow">➔</div>
+    <div class="flow-step">📲 4. Order via WhatsApp</div>
+  </div>
+
+  <!-- CARDS GRID -->
+  <div class="journey-grid">
+
+    <!-- CARD 1 -->
+    <div class="card">
+      <span class="card-number">01</span>
+      <div>
+        <div class="card-icon c-blue">📱</div>
+        <h3>Langkah 1: Pancingan Sosmed</h3>
+        <div class="card-subtitle">Awareness (Bikin Orang Penasaran)</div>
+        
+        <div class="info-group">
+          <div class="info-label">Apa yang Dilakukan Pembeli?</div>
+          <div class="info-value">Melihat postingan, Reels, TikTok, atau story promo kamu saat lagi scroll HP.</div>
+        </div>
+
+        <div class="info-group">
+          <div class="info-label">Tugas Media Sosial</div>
+          <div class="info-value">Kasih tahu masalah pembeli & tawarkan solusi singkat. Bikin mereka penasaran mau tahu lebih banyak.</div>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <strong>💡 Aksi Praktis:</strong> Pasang kata pengajak (CTA) jelas: <em>"Klik link di Bio untuk info promo lengkap & daftar harga!"</em>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+      <span class="card-number">02</span>
+      <div>
+        <div class="card-icon c-amber">⚡</div>
+        <h3>Langkah 2: Klik Link Bio</h3>
+        <div class="card-subtitle">First Impression (Kunjungan Pertama)</div>
+        
+        <div class="info-group">
+          <div class="info-label">Apa yang Dilakukan Pembeli?</div>
+          <div class="info-value">Nge-klik link di bio/postingan dan masuk ke website kamu.</div>
+        </div>
+
+        <div class="info-group">
+          <div class="info-label">Tugas Utama Website</div>
+          <div class="info-value">Buka super cepat di HP (&lt; 3 detik) & menampilkan judul yang sesuai dengan promo di sosmed tadi.</div>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <strong>💡 Aksi Praktis:</strong> Jangan biarkan pengunjung bingung. Judul paling atas website harus langsung menyapa dengan promo yang relevan.
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card">
+      <span class="card-number">03</span>
+      <div>
+        <div class="card-icon c-purple">🔍</div>
+        <h3>Langkah 3: Cek Detail Produk</h3>
+        <div class="card-subtitle">Consideration (Bikin Yakin & Percaya)</div>
+        
+        <div class="info-group">
+          <div class="info-label">Apa yang Dilakukan Pembeli?</div>
+          <div class="info-value">Scroll website, lihat foto produk, baca deskripsi, cek harga, dan baca ulasan pembeli lain.</div>
+        </div>
+
+        <div class="info-group">
+          <div class="info-label">Tugas Utama Website</div>
+          <div class="info-value">Menyediakan katalog rapi, harga jelas, keunggulan produk, dan **bukti kepuasan pelanggan** (testimoni).</div>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <strong>💡 Aksi Praktis:</strong> Tampilkan foto asli produk dan testimoni WA/rating pembeli lain agar rasa ragu hilang.
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="card">
+      <span class="card-number">04</span>
+      <div>
+        <div class="card-icon c-green">📲</div>
+        <h3>Langkah 4: Tombol Order & Bayar</h3>
+        <div class="card-subtitle">Conversion (Transaksi Tanpa Ribet)</div>
+        
+        <div class="info-group">
+          <div class="info-label">Apa yang Dilakukan Pembeli?</div>
+          <div class="info-value">Klik tombol order/WA karena sudah siap membeli.</div>
+        </div>
+
+        <div class="info-group">
+          <div class="info-label">Tugas Utama Website</div>
+          <div class="info-value">Mempermudah jalur transaksi. Cukup 1 kali klik langsung terhubung ke chat WA atau form pesan singkat.</div>
+        </div>
+      </div>
+
+      <div class="action-box green">
+        <strong>💡 Aksi Praktis:</strong> Pasang **Tombol Hijau WhatsApp Melayang** di pojok bawah HP yang selalu kelihatan saat di-scroll.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TIPS CARD -->
+  <div class="tips-card">
+    <h2>🚀 3 Rumus Emas Biar Website Makin Laris</h2>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <h4>1. Mobile-First (Bagus di HP)</h4>
+        <p>Lebih dari 90% pembeli dari sosmed membuka website via HP. Tampilan harus pas di layar HP, tulisan terbaca jelas, dan tombol mudah dipencet jempol.</p>
+      </div>
+      <div class="tip-item">
+        <h4>2. Mengurangi Ribet (Low Friction)</h4>
+        <p>Jangan paksa calon pembeli isi formulir panjang atau registrasi akun jika belum perlu. Makin sedikit langkahnya, makin tinggi angka penjualannya.</p>
+      </div>
+      <div class="tip-item">
+        <h4>3. Penawaran Jelas (Clear CTA)</h4>
+        <p>Gunakan tombol aksi yang tegas dan menarik, contohnya: <em>"Pesan via WhatsApp (Diskon 20% Hari Ini)"</em> bukan sekadar <em>"Submit"</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Konsep Customer Journey — rakyat.space</p>
+  </div>
+
+</div>
+
+</body>
+</html>
