@@ -410,7 +410,7 @@
 
 <!-- MAIN CONTENT & MENU GRID -->
 <main>
-  <!-- 1. KATEGORI KOPI ESPRESSO -->
+  <!-- 1. KATEGORI KOPI ESPRESSO & SIGNATURE -->
   <div class="menu-sec" data-cat="kopi">
     <div class="section-title">☕ Kopi Espresso &amp; Signature</div>
     <div class="grid">
@@ -445,6 +445,37 @@
         </div>
       </div>
 
+      <!-- Kopi Pandan Cream -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/kopi_pandan.jpg" alt="Kopi Sundeng Pandan Cream">
+          <span class="badge">⭐ Favorit</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Kopi Sundeng Pandan Cream</div>
+          <div class="card-desc">Seduhan espresso wangi aroma pandan alami disiram cream gurih.</div>
+          <div class="card-price">Rp 20.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('c5', 'Kopi Sundeng Pandan Cream', 20000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kopi Avocado Cream -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/kopi_avocado.jpg" alt="Kopi Sundeng Avocado Cream">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Kopi Sundeng Avocado Cream</div>
+          <div class="card-desc">Espresso kental disajikan dengan jus alpukat lembut &amp; es krim.</div>
+          <div class="card-price">Rp 22.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('c6', 'Kopi Sundeng Avocado Cream', 22000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Americano Cold Brew -->
       <div class="card">
         <div class="card-img">
@@ -456,6 +487,51 @@
           <div class="card-price">Rp 15.000</div>
           <div class="card-footer">
             <button class="add-btn" onclick="addToCart('c3', 'Americano Cold Brew', 15000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cappuccino -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/cappuccino.jpg" alt="Cappuccino Warm Foam">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Cappuccino Warm Foam / Ice</div>
+          <div class="card-desc">Espresso kental dengan busa susu tebal lembut &amp; taburan cokelat.</div>
+          <div class="card-price">Rp 20.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('c7', 'Cappuccino Warm Foam / Ice', 20000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caffe Latte -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/caffe_latte.jpg" alt="Caffè Latte / Flat White">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Caffè Latte / Flat White</div>
+          <div class="card-desc">Perpaduan espresso halus dan susu steamed silky yang lembut.</div>
+          <div class="card-price">Rp 20.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('c8', 'Caffè Latte / Flat White', 20000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caramel Macchiato -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/caramel_macchiato.jpg" alt="Caramel Macchiato">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Caramel Macchiato</div>
+          <div class="card-desc">Espresso disiram sirup vanila &amp; saus karamel lezat di atasnya.</div>
+          <div class="card-price">Rp 22.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('c9', 'Caramel Macchiato', 22000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -477,21 +553,52 @@
           <div class="card-desc">Filter V60 biji kopi nusantara pilihan (Gayo/Toraja/Kintamani).</div>
           <div class="card-price">Rp 22.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('c4', 'Manual Brew V60 Single Origin', 22000)">+ Tambah</button>
+            <button class="add-btn" onclick="addToCart('m1', 'Manual Brew V60 Single Origin', 22000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Japanese Drip -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/japanese_drip.jpg" alt="Japanese Drip Ice Coffee">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Japanese Drip Ice Coffee</div>
+          <div class="card-desc">Seduhan filter drip langsung di atas es batu, rasa segar &amp; acidity pas.</div>
+          <div class="card-price">Rp 23.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('m2', 'Japanese Drip Ice Coffee', 23000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kopi Tubruk -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/kopi_tubruk.jpg" alt="Kopi Tubruk Premium Arabika">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Kopi Tubruk Premium Arabika</div>
+          <div class="card-desc">Kopi seduh tradisional hitam pekat aromatik khas nusantara.</div>
+          <div class="card-price">Rp 12.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('m3', 'Kopi Tubruk Premium Arabika', 12000)">+ Tambah</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 3. KATEGORI NON-COFFEE -->
+  <!-- 3. KATEGORI NON-COFFEE & MILK BASED -->
   <div class="menu-sec" data-cat="non-coffee">
-    <div class="section-title">🍵 Non Coffee &amp; Milk Based</div>
+    <div class="section-title">🍵 Non Coffee &amp; Milk Series</div>
     <div class="grid">
       <!-- Matcha Latte -->
       <div class="card">
         <div class="card-img">
           <img loading="lazy" src="assets/matcha_latte.jpg" alt="Matcha Latte Premium">
+          <span class="badge">⭐ Recommended</span>
         </div>
         <div class="card-body">
           <div class="card-name">Matcha Latte Premium</div>
@@ -517,10 +624,70 @@
           </div>
         </div>
       </div>
+
+      <!-- Red Velvet Latte -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/red_velvet.jpg" alt="Red Velvet Latte">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Red Velvet Latte</div>
+          <div class="card-desc">Minuman manis rasa kue red velvet gurih dipadu susu segar.</div>
+          <div class="card-price">Rp 20.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('n3', 'Red Velvet Latte', 20000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Taro Velvet Cream -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/taro_latte.jpg" alt="Taro Velvet Cream">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Taro Velvet Cream</div>
+          <div class="card-desc">Rasa talas ungu manis khas dipadu susu murni &amp; cream gurih.</div>
+          <div class="card-price">Rp 20.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('n4', 'Taro Velvet Cream', 20000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lemon Tea -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/lemon_tea.jpg" alt="Es Lemon Tea Segar">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Es Lemon Tea Segar</div>
+          <div class="card-desc">Teh segar dingin perasan sari buah lemon asli pembunuh dahaga.</div>
+          <div class="card-price">Rp 12.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('n5', 'Es Lemon Tea Segar', 12000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lychee Tea -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/lychee_tea.jpg" alt="Lychee Tea Ice">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Lychee Tea Ice</div>
+          <div class="card-desc">Teh manis wangi rasa buah lici manis segar lengkap buah lici.</div>
+          <div class="card-price">Rp 15.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('n6', 'Lychee Tea Ice', 15000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 4. KATEGORI SNACK & PASTRY -->
+  <!-- 4. KATEGORI SNACK, TOAST & PASTRY -->
   <div class="menu-sec" data-cat="snack">
     <div class="section-title">🥐 Snack, Toast &amp; Pastry</div>
     <div class="grid">
@@ -528,6 +695,7 @@
       <div class="card">
         <div class="card-img">
           <img loading="lazy" src="assets/toast_roti_bakar.jpg" alt="Roti Bakar Cokelat Keju">
+          <span class="badge">🔥 Best Seller</span>
         </div>
         <div class="card-body">
           <div class="card-name">Roti Bakar Cokelat Keju</div>
@@ -535,6 +703,21 @@
           <div class="card-price">Rp 15.000</div>
           <div class="card-footer">
             <button class="add-btn" onclick="addToCart('s1', 'Roti Bakar Cokelat Keju', 15000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Roti Bakar Srikaya -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/roti_srikaya.jpg" alt="Roti Bakar Srikaya Butter">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Roti Bakar Srikaya Butter</div>
+          <div class="card-desc">Roti panggang mentega hangat dengan olesan selai srikaya legendaris.</div>
+          <div class="card-price">Rp 15.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('s4', 'Roti Bakar Srikaya Butter', 15000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -565,6 +748,51 @@
           <div class="card-price">Rp 14.000</div>
           <div class="card-footer">
             <button class="add-btn" onclick="addToCart('s3', 'French Fries Potato Basket', 14000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cireng Rujak -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/cireng_rujak.jpg" alt="Cireng Rujak Bumbu Pedas">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Cireng Rujak Bumbu Pedas</div>
+          <div class="card-desc">Cireng goreng krispi kenyal disajikan bumbu rujak pedas manis.</div>
+          <div class="card-price">Rp 12.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('s5', 'Cireng Rujak Bumbu Pedas', 12000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sosis & Nugget Platter -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/sosis_platter.jpg" alt="Sosis &amp; Nugget Platter">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Sosis &amp; Nugget Platter</div>
+          <div class="card-desc">Cemilan kombinasi sosis panggang &amp; nugget ayam goreng garing.</div>
+          <div class="card-price">Rp 16.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('s6', 'Sosis &amp; Nugget Platter', 16000)">+ Tambah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Singkong Goreng Keju -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="assets/singkong_goreng.jpg" alt="Singkong Goreng Keju">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Singkong Goreng Keju</div>
+          <div class="card-desc">Singkong merekah gurih empuk ditaburi keju parut gurih.</div>
+          <div class="card-price">Rp 13.000</div>
+          <div class="card-footer">
+            <button class="add-btn" onclick="addToCart('s7', 'Singkong Goreng Keju', 13000)">+ Tambah</button>
           </div>
         </div>
       </div>
