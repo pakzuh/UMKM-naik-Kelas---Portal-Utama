@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Journey — Sosmed ke Website</title>
+  <title>Customer Journey — Pendekatan "Mengapa?"</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #2563EB;
       --primary-soft: #EFF6FF;
-      --accent: #F59E0B;
-      --success: #10B981;
+      --accent: #D97706;
+      --accent-soft: #FEF3C7;
+      --success: #059669;
+      --success-soft: #D1FAE5;
       --bg: #F8FAFC;
       --card-bg: #FFFFFF;
       --text: #0F172A;
       --muted: #64748B;
       --border: #E2E8F0;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      --shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
       --radius: 14px;
     }
 
@@ -41,9 +43,9 @@
     }
     .badge {
       display: inline-block;
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-weight: 700;
+      background: #FEF3C7;
+      color: #B45309;
+      font-weight: 800;
       font-size: 0.75rem;
       padding: 4px 12px;
       border-radius: 999px;
@@ -61,7 +63,7 @@
       font-size: 0.9rem;
     }
 
-    /* ALUR ICON BAR */
+    /* FUNNEL QUESTION BAR */
     .funnel-bar {
       display: flex;
       align-items: center;
@@ -121,10 +123,14 @@
     }
 
     .card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-size: 1.02rem;
+      font-weight: 800;
       color: var(--text);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .card-title span.why-highlight {
+      color: var(--primary);
     }
 
     .card-desc {
@@ -152,12 +158,13 @@
     }
     details.detail-switch summary::-webkit-details-marker { display: none; }
     details.detail-switch summary::after {
-      content: "▼";
-      font-size: 0.65rem;
-      transition: transform 0.2s;
+      content: "❓ Jawaban & Solusi ▾";
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
     }
     details.detail-switch[open] summary::after {
-      transform: rotate(180deg);
+      content: "▲ Sembunyikan";
     }
 
     .detail-content {
@@ -195,7 +202,7 @@
     .tips-toggle summary::after {
       content: "▼";
       font-size: 0.75rem;
-      color: var(--accent);
+      color: #F59E0B;
     }
     .tips-toggle[open] summary::after { transform: rotate(180deg); }
 
@@ -214,7 +221,7 @@
     }
     .tip-box h4 {
       font-size: 0.85rem;
-      color: var(--accent);
+      color: #F59E0B;
       margin-bottom: 4px;
     }
     .tip-box p {
@@ -242,16 +249,16 @@
 <div class="container">
 
   <div class="header">
-    <span class="badge">Ringkas & Praktis</span>
-    <h1>Customer Journey: Sosmed ➔ Website</h1>
-    <p>Alur sederhana mengubah pengikut sosmed jadi pembeli.</p>
+    <span class="badge">Pendekatan Mengapa? (Why Funnel)</span>
+    <h1>Customer Journey: Bedah "Mengapa" Pembeli Mau Transaksi</h1>
+    <p>Memahami alasan psikologis di balik setiap langkah calon pembeli dari sosmed ke website.</p>
   </div>
 
   <div class="funnel-bar">
-    <span>📱 1. Sosmed</span> <span class="arrow">➔</span>
-    <span>⚡ 2. Masuk Cepat</span> <span class="arrow">➔</span>
-    <span>🔍 3. Cek Produk</span> <span class="arrow">➔</span>
-    <span>📲 4. Order WA</span>
+    <span>📱 1. Mengapa Klik?</span> <span class="arrow">➔</span>
+    <span>⚡ 2. Mengapa Bertahan?</span> <span class="arrow">➔</span>
+    <span>🔍 3. Mengapa Yakin?</span> <span class="arrow">➔</span>
+    <span>📲 4. Mengapa Beli?</span>
   </div>
 
   <!-- GRID 2 CARD PER ROW -->
@@ -261,18 +268,18 @@
     <div class="card-mini">
       <div>
         <div class="card-top">
-          <span class="card-tag">LANGKAH 01</span>
+          <span class="card-tag">TANYA 01</span>
           <span class="icon-badge">📱</span>
         </div>
-        <div class="card-title">Pancingan Sosmed</div>
-        <div class="card-desc">Bikin audiens penasaran & klik link di bio saat scroll feeds.</div>
+        <div class="card-title"><span class="why-highlight">Mengapa</span> Pembeli Mau Klik Link di Bio Sosmed Kamu?</div>
+        <div class="card-desc">Karena postinganmu menyentuh **masalah nyata** mereka, bukan sekadar memaksa jualan.</div>
       </div>
 
       <details class="detail-switch">
-        <summary>Detail & Aksi Praktis</summary>
+        <summary></summary>
         <div class="detail-content">
-          <p><strong>Tugas Sosmed:</strong> Tampilkan masalah & solusi singkat di IG/TikTok/FB.</p>
-          <p><strong>Aksi Penting:</strong> Pasang CTA tegas: <em>"Klik link di bio untuk katalog & diskon!"</em></p>
+          <p><strong>Alasan Psikologis:</strong> Orang tidak suka "dijualin", tapi suka diberi solusi atas masalahnya.</p>
+          <p><strong>Solusi Praktis:</strong> Beri alasan kuat di postingan/story: <em>"Klik link di bio untuk solusi [masalah] & klaim penawaran terbatas!"</em></p>
         </div>
       </details>
     </div>
@@ -281,18 +288,18 @@
     <div class="card-mini">
       <div>
         <div class="card-top">
-          <span class="card-tag">LANGKAH 02</span>
+          <span class="card-tag">TANYA 02</span>
           <span class="icon-badge">⚡</span>
         </div>
-        <div class="card-title">Sambutan Website</div>
-        <div class="card-desc">Buka &lt; 3 detik di HP & judul langsung nyambung promo sosmed.</div>
+        <div class="card-title"><span class="why-highlight">Mengapa</span> 3 Detik Pertama di Website Sangat Menentukan?</div>
+        <div class="card-desc">Jika website lambat atau judulnya beda dari sosmed, pembeli langsung kabur.</div>
       </div>
 
       <details class="detail-switch">
-        <summary>Detail & Aksi Praktis</summary>
+        <summary></summary>
         <div class="detail-content">
-          <p><strong>Tugas Website:</strong> Menyambut tanpa bikin bingung (Message Match).</p>
-          <p><strong>Aksi Penting:</strong> Judul paling atas langsung pajang promo utama dari sosmed.</p>
+          <p><strong>Alasan Psikologis:</strong> Otak pembeli mencari kepastian (*Message Match*) bahwa mereka berada di tempat yang tepat.</p>
+          <p><strong>Solusi Praktis:</strong> Samakan judul paling atas website dengan kalimat promo yang ada di sosmed.</p>
         </div>
       </details>
     </div>
@@ -301,18 +308,18 @@
     <div class="card-mini">
       <div>
         <div class="card-top">
-          <span class="card-tag">LANGKAH 03</span>
+          <span class="card-tag">TANYA 03</span>
           <span class="icon-badge">🔍</span>
         </div>
-        <div class="card-title">Cek Produk & Harga</div>
-        <div class="card-desc">Katalog rapi, harga jelas, & ulasan pembeli lain.</div>
+        <div class="card-title"><span class="why-highlight">Mengapa</span> Foto & Harga Produk Aja Masih Belum Cukup?</div>
+        <div class="card-desc">Pembeli butuh bukti sosial (*Social Proof*) bahwa toko ini jujur & terpercaya.</div>
       </div>
 
       <details class="detail-switch">
-        <summary>Detail & Aksi Praktis</summary>
+        <summary></summary>
         <div class="detail-content">
-          <p><strong>Tugas Website:</strong> Menghilangkan ragu & membangun kepercayaan.</p>
-          <p><strong>Aksi Penting:</strong> Tampilkan foto asli + ulasan/testimoni chat WA pembeli.</p>
+          <p><strong>Alasan Psikologis:</strong> Pembeli takut rugi/tertipu. Ulasan pelanggan lain memberi validasi keamanan psikologis.</p>
+          <p><strong>Solusi Praktis:</strong> Tampilkan foto produk asli + screenshot testimoni chat WA pembeli yang puas.</p>
         </div>
       </details>
     </div>
@@ -321,18 +328,18 @@
     <div class="card-mini">
       <div>
         <div class="card-top">
-          <span class="card-tag" style="background:#D1FAE5;color:#059669">LANGKAH 04</span>
+          <span class="card-tag" style="background:#D1FAE5;color:#059669">TANYA 04</span>
           <span class="icon-badge">📲</span>
         </div>
-        <div class="card-title">Order & Transaksi</div>
-        <div class="card-desc">1x klik tombol WA melayang untuk langsung pesan & bayar.</div>
+        <div class="card-title"><span class="why-highlight">Mengapa</span> Pembelian Harus Selesai dalam 1 Klik (Tanpa Ribet)?</div>
+        <div class="card-desc">Makin banyak formulir/langkah login, makin tinggi pembeli batal memesan.</div>
       </div>
 
       <details class="detail-switch">
-        <summary>Detail & Aksi Praktis</summary>
+        <summary></summary>
         <div class="detail-content" style="border-color:#10B981;background:#F0FDF4">
-          <p><strong>Tugas Website:</strong> Mempermudah jalur transaksi tanpa registrasi ribet.</p>
-          <p><strong>Aksi Penting:</strong> Tombol WhatsApp mengambang (Sticky WA) di pojok bawah HP.</p>
+          <p><strong>Alasan Psikologis:</strong> Setiap langkah tambahan menambah hambatan emosional (*friction*) yang memicu penundaan.</p>
+          <p><strong>Solusi Praktis:</strong> Pasang **Tombol Hijau WhatsApp Melayang** di layar HP agar bisa langsung pesan dalam 1 klik.</p>
         </div>
       </details>
     </div>
@@ -341,25 +348,25 @@
 
   <!-- RUMUS EMAS TOGGLE -->
   <details class="tips-toggle" open>
-    <summary>🚀 3 Rumus Emas Biar Website Laris</summary>
+    <summary>💡 Mengapa 3 Prinsip Ini Menentukan Laris/Sejinya Website?</summary>
     <div class="tips-body">
       <div class="tip-box">
-        <h4>1. Mobile-First</h4>
-        <p>Bagus & pas di layar HP karena 90%+ pembeli datang dari HP.</p>
+        <h4>1. Mengapa Mobile-First?</h4>
+        <p>Karena 90%+ pembeli sosmed menggunakan HP. Jika buruk di HP, 90% calon omzet hilang.</p>
       </div>
       <div class="tip-box">
-        <h4>2. Tanpa Ribet</h4>
-        <p>Makin sedikit langkah checkout, makin tinggi angka penjualannya.</p>
+        <h4>2. Mengapa Tanpa Ribet?</h4>
+        <p>Makin sedikit hambatan checkout, makin tinggi rasio orang menyelesaikan transfer.</p>
       </div>
       <div class="tip-box">
-        <h4>3. CTA Jelas</h4>
-        <p>Tombol tegas: <em>"Pesan WA (Diskon 20%)"</em> bukan sekadar <em>"Submit"</em>.</p>
+        <h4>3. Mengapa CTA Tegas?</h4>
+        <p>Perintah langsung (*Pesan via WA*) mengarahkan tindakan spontan dibanding kata ambigu.</p>
       </div>
     </div>
   </details>
 
   <div class="footer">
-    <p>Customer Journey Card Concept — rakyat.space</p>
+    <p>Customer Journey Concept — rakyat.space</p>
   </div>
 
 </div>
