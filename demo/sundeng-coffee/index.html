@@ -3,24 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sundeng Coffee — Order Online &amp; Menu Digital</title>
-<meta name="description" content="Menu Digital Sundeng Coffee. Pesan kopi susu aren, espresso, manual brew, matcha, &amp; snack secara instant via WhatsApp. Nongkrong syahdu &amp; nugas nyaman.">
+<title>Sundeng Coffee — Good Taste, Good Place</title>
+<meta name="description" content="Sundeng Coffee — Fishing &amp; Coffee. Good Taste, Good Place. Pesan kopi susu aren, espresso, manual brew, matcha &amp; snack instant via WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green-dark: #1b120c;
-    --green: #2d1e16;
-    --green-mid: #c2410c;
-    --cream: #fef3c7;
-    --cream-2: #fffaf5;
-    --paper: #f7f3ed;
-    --ink: #2b1f17;
-    --muted: #786558;
-    --accent: #d97706;
+    --green-dark: #0e3a2f;
+    --green: #134e3f;
+    --green-mid: #1a6351;
+    --green-light: #e8f2ef;
+    --gold: #c69c52;
+    --gold-dark: #a47e38;
+    --gold-light: #f7eed8;
+    --paper: #f8f6f0;
+    --cream-2: #ffffff;
+    --ink: #192723;
+    --muted: #5e7069;
+    --accent: #c69c52;
     --danger: #b91c1c;
     --radius: 14px;
-    --shadow: 0 4px 14px rgba(27,18,12,0.09);
+    --shadow: 0 4px 14px rgba(14,58,47,0.08);
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
@@ -33,63 +36,71 @@
   }
   a { color: inherit; text-decoration: none; }
 
-  /* HEADER TOP */
+  /* HEADER TOP - CLEAN FOREST GREEN & GOLD */
   header.top {
-    background: linear-gradient(135deg, var(--green-dark), var(--green));
+    background: var(--green-dark);
     color: #fff;
-    padding: 24px 18px 20px;
+    padding: 24px 18px 22px;
     position: relative;
-    overflow: hidden;
-    border-bottom: 3px solid var(--accent);
-  }
-  header.top::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: radial-gradient(circle at 85% -10%, rgba(217,119,6,0.25), transparent 55%);
+    border-bottom: 3px solid var(--gold);
   }
   .brand {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     position: relative;
     z-index: 1;
   }
-  .brand-badge {
-    width: 58px; height: 58px; border-radius: 14px;
-    background: var(--accent);
-    display: flex; align-items: center; justify-content: center;
+  .brand-logo-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    object-fit: contain;
+    background: #fff;
+    padding: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
     flex-shrink: 0;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    font-size: 1.8rem; color: #fff;
   }
-  .brand h1 {
+  .brand-text-box h1 {
     margin: 0;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 800;
-    letter-spacing: 0.3px;
-    color: #fff;
+    letter-spacing: 0.5px;
+    color: var(--gold);
+    text-transform: lowercase;
   }
-  .brand p {
+  .brand-text-box .sub-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #d1dfdb;
+    font-weight: 700;
+  }
+  .brand-text-box .slogan {
     margin: 3px 0 0;
     font-size: 12.5px;
-    color: #eed5c2;
+    font-style: italic;
+    color: #f7eed8;
   }
+
   .top-meta {
     position: relative; z-index: 1;
     margin-top: 16px;
     font-size: 12px;
-    color: #e2cebf;
+    color: #d1dfdb;
     line-height: 1.6;
-    display: flex; flex-wrap: wrap; gap: 8px 14px;
+    display: flex; flex-wrap: wrap; gap: 8px 16px;
+    border-top: 1px dashed rgba(255,255,255,0.15);
+    padding-top: 12px;
   }
-  .top-meta span { display: inline-flex; align-items: center; gap: 4px; }
+  .top-meta span { display: inline-flex; align-items: center; gap: 5px; }
 
   /* CATEGORY NAV (STICKY HORIZONTAL SCROLL) */
   nav.cats {
     position: sticky; top: 0; z-index: 30;
-    background: rgba(255, 250, 245, 0.96);
+    background: rgba(248, 246, 240, 0.96);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #e5d8c8;
+    border-bottom: 1px solid #e2dad0;
     display: flex;
     gap: 8px;
     padding: 10px 14px;
@@ -100,7 +111,7 @@
   nav.cats::-webkit-scrollbar { display: none; }
   nav.cats button {
     flex: 0 0 auto;
-    border: 1px solid #dccbb8;
+    border: 1px solid #dcd3c5;
     background: #fff;
     color: var(--green-dark);
     padding: 8px 16px;
@@ -112,10 +123,10 @@
     transition: all 0.2s ease;
   }
   nav.cats button.active {
-    background: var(--green-mid);
-    border-color: var(--green-mid);
-    color: #fff;
-    box-shadow: 0 3px 10px rgba(194, 65, 12, 0.3);
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+    color: var(--gold);
+    box-shadow: 0 3px 10px rgba(14,58,47,0.25);
   }
 
   /* MAIN CONTENT & MENU GRID */
@@ -130,12 +141,6 @@
     gap: 8px;
   }
   .section-title:first-of-type { margin-top: 8px; }
-  .section-note {
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 500;
-    margin-bottom: 12px;
-  }
 
   .grid {
     display: grid;
@@ -156,16 +161,16 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    border: 1px solid #ebdcd0;
+    border: 1px solid #e8e2d5;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(27,18,12,0.13);
+    box-shadow: 0 8px 24px rgba(14,58,47,0.12);
   }
   .card-img {
     aspect-ratio: 1/1;
-    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    background: var(--green-light);
     display: flex; align-items: center; justify-content: center;
     font-size: 36px;
     position: relative;
@@ -183,13 +188,13 @@
 
   .badge {
     position: absolute; top: 8px; right: 8px;
-    background: var(--accent);
+    background: var(--gold);
     color: #fff;
     font-size: 10px;
     font-weight: 800;
     padding: 3px 8px;
     border-radius: 999px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
 
   .card-body {
@@ -231,46 +236,22 @@
     gap: 6px;
   }
 
-  .stepper {
-    display: flex;
-    align-items: center;
-    border: 1px solid #dccbb8;
-    border-radius: 8px;
-    overflow: hidden;
-    background: var(--cream-2);
-  }
-  .stepper button {
-    background: var(--cream);
-    border: none;
-    width: 28px; height: 28px;
-    font-size: 16px;
-    font-weight: 800;
-    color: var(--green-dark);
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .stepper span {
-    width: 24px;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 800;
-  }
-
   .add-btn {
     flex: 1;
-    background: var(--green-mid);
-    color: #fff;
+    background: var(--green-dark);
+    color: var(--gold);
     border: none;
     border-radius: 8px;
     padding: 8px 6px;
     font-size: 12.5px;
     font-weight: 800;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
   }
   .add-btn:active { transform: scale(0.97); }
+  .add-btn:hover { background: var(--green); }
 
-  /* AMBIENCE GALLERY SECTION (LIKE PERPUS.CAFE PHOTO HIGHLIGHT) */
+  /* GALLERY SECTION */
   .gallery-title {
     font-size: 17px; font-weight: 800; color: var(--green-dark); margin: 32px 2px 12px;
   }
@@ -280,7 +261,7 @@
   @media(min-width: 640px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
   .gallery-card {
     position: relative; border-radius: var(--radius); overflow: hidden; height: 180px;
-    box-shadow: var(--shadow); border: 1px solid #ebdcd0;
+    box-shadow: var(--shadow); border: 1px solid #e8e2d5;
   }
   .gallery-card img {
     width: 100%; height: 100%; object-fit: cover; display: block;
@@ -289,13 +270,13 @@
   .gallery-card:hover img { transform: scale(1.08); }
   .gallery-cap {
     position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(0deg, rgba(27,18,12,0.92) 0%, rgba(27,18,12,0) 100%);
+    background: linear-gradient(0deg, rgba(14,58,47,0.92) 0%, rgba(14,58,47,0) 100%);
     color: #fff; padding: 10px 12px; font-size: 12px; font-weight: 700;
   }
 
   /* UNIFIED CART DRAWER */
   .overlay {
-    position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6);
+    position: fixed; inset: 0; background: rgba(14, 58, 47, 0.5);
     backdrop-filter: blur(4px); z-index: 90; opacity: 0; visibility: hidden;
     transition: all 0.3s ease;
   }
@@ -311,9 +292,9 @@
 
   .cart-head {
     padding: 18px 20px; background: var(--green-dark); color: #fff;
-    display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--accent);
+    display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold);
   }
-  .cart-head h3 { font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px; color: #fff; margin: 0; }
+  .cart-head h3 { font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px; color: var(--gold); margin: 0; }
   .close-cart-btn {
     background: rgba(255,255,255,0.15); border: none; color: #fff; width: 32px; height: 32px;
     border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -322,12 +303,12 @@
   .cart-body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 18px; }
   .cart-section-title {
     font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
-    color: var(--green-mid); border-bottom: 2px solid #ebdcd0; padding-bottom: 6px; margin-bottom: 10px;
+    color: var(--green-mid); border-bottom: 2px solid #e8e2d5; padding-bottom: 6px; margin-bottom: 10px;
   }
 
   .cart-item-row {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 12px; background: var(--paper); border-radius: 12px; border: 1px solid #ebdcd0; gap: 12px;
+    padding: 12px; background: var(--paper); border-radius: 12px; border: 1px solid #e8e2d5; gap: 12px;
   }
   .cart-item-info { flex: 1; }
   .cart-item-name { font-weight: 800; font-size: 0.9rem; color: var(--green-dark); }
@@ -335,22 +316,22 @@
   
   .cart-qty-ctrl { display: flex; align-items: center; gap: 6px; }
   .btn-qty {
-    width: 26px; height: 26px; border-radius: 6px; border: 1px solid #dccbb8;
+    width: 26px; height: 26px; border-radius: 6px; border: 1px solid #dcd3c5;
     background: #fff; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center;
   }
   .qty-num { font-weight: 800; font-size: 0.88rem; min-width: 18px; text-align: center; }
 
-  .cart-form-box { background: var(--paper); padding: 16px; border-radius: 14px; border: 1px solid #ebdcd0; }
+  .cart-form-box { background: var(--paper); padding: 16px; border-radius: 14px; border: 1px solid #e8e2d5; }
   .form-group-cart { margin-bottom: 12px; }
   .form-group-cart label { display: block; font-size: 0.8rem; font-weight: 800; color: var(--green-dark); margin-bottom: 4px; }
   .cart-input, .cart-select {
-    width: 100%; padding: 10px 12px; border: 1.5px solid #ebdcd0; border-radius: 10px;
+    width: 100%; padding: 10px 12px; border: 1.5px solid #e8e2d5; border-radius: 10px;
     font-size: 0.86rem; font-family: inherit; background: #fff; color: var(--green-dark); outline: none;
   }
   .cart-input:focus, .cart-select:focus { border-color: var(--green-mid); }
 
   .cart-summary-box {
-    background: #fff8f0; padding: 14px; border-radius: 14px; border: 1px solid #fed7aa;
+    background: var(--gold-light); padding: 14px; border-radius: 14px; border: 1px solid #e5c994;
   }
   .cart-total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.05rem; color: var(--green-dark); margin-bottom: 12px; }
 
@@ -362,12 +343,12 @@
   }
   .btn-checkout-wa:active { transform: scale(0.98); }
 
-  /* FLOATING STICKY BOTTOM CART BAR (PERPUS.CAFE STYLE) */
+  /* FLOATING STICKY BOTTOM CART BAR */
   .bottom-cart-bar {
     position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%) translateY(120%);
     width: calc(100% - 24px); max-width: 480px; background: var(--green-dark); color: #fff;
-    padding: 10px 18px; border-radius: 999px; border: 2px solid var(--accent);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35); z-index: 80;
+    padding: 10px 18px; border-radius: 999px; border: 2px solid var(--gold);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3); z-index: 80;
     display: flex; align-items: center; justify-content: space-between;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer;
   }
@@ -375,37 +356,38 @@
   .bottom-cart-info { display: flex; align-items: center; gap: 10px; }
   .bottom-cart-icon { font-size: 1.4rem; }
   .bottom-cart-title { font-weight: 800; font-size: 0.88rem; color: #fff; }
-  .bottom-cart-price { font-size: 0.8rem; color: var(--cream); font-weight: 700; }
+  .bottom-cart-price { font-size: 0.8rem; color: var(--gold); font-weight: 700; }
   .btn-bottom-cart-action {
-    background: var(--green-mid); color: #fff; padding: 8px 16px; border-radius: 999px;
+    background: var(--gold); color: var(--green-dark); padding: 8px 16px; border-radius: 999px;
     font-weight: 800; font-size: 0.8rem; border: none;
   }
 
   .toast {
     position: fixed; bottom: 84px; left: 50%; transform: translateX(-50%) translateY(20px);
-    background: rgba(27,18,12,0.95); color: #fff; padding: 10px 18px; border-radius: 999px;
+    background: rgba(14,58,47,0.95); color: #fff; padding: 10px 18px; border-radius: 999px;
     font-weight: 800; font-size: 0.83rem; z-index: 200; opacity: 0; visibility: hidden;
-    transition: all 0.3s ease; pointer-events: none; border: 1px solid var(--accent);
+    transition: all 0.3s ease; pointer-events: none; border: 1px solid var(--gold);
   }
   .toast.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 
   /* FOOTER */
-  footer { background: var(--green-dark); color: #eed5c2; padding: 40px 16px 24px; margin-top: 40px; border-top: 3px solid var(--accent); }
+  footer { background: var(--green-dark); color: #d1dfdb; padding: 40px 16px 24px; margin-top: 40px; border-top: 3px solid var(--gold); }
   .footer-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
-  .footer-col h4 { font-size: 1.1rem; color: #fff; margin-bottom: 12px; font-weight: 800; }
-  .footer-col p { font-size: 0.85rem; color: #bda897; line-height: 1.6; }
-  .footer-bottom { text-align: center; border-top: 1px solid #3d2a1f; padding-top: 20px; margin-top: 24px; color: #947e70; font-size: 0.8rem; }
+  .footer-col h4 { font-size: 1.1rem; color: var(--gold); margin-bottom: 12px; font-weight: 800; }
+  .footer-col p { font-size: 0.85rem; color: #b7c9c4; line-height: 1.6; }
+  .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 24px; color: #8ea39d; font-size: 0.8rem; }
 </style>
 </head>
 <body>
 
-<!-- HEADER TOP (PERPUS.CAFE STYLE) -->
+<!-- HEADER TOP - CLEAN GREEN & GOLD -->
 <header class="top">
   <div class="brand">
-    <div class="brand-badge">☕</div>
-    <div>
-      <h1>Sundeng Coffee</h1>
-      <p>Seduhan Kopi Otentik &amp; Tempat Nongkrong Syahdu</p>
+    <img src="assets/logo.png" alt="sundeng coffee logo" class="brand-logo-img">
+    <div class="brand-text-box">
+      <div class="sub-tag">Fishing &amp; Coffee</div>
+      <h1>sundeng coffee</h1>
+      <div class="slogan">good taste, good place</div>
     </div>
   </div>
 
@@ -631,7 +613,7 @@
 
 <div class="toast" id="toast">✔ Menu dimasukkan ke keranjang!</div>
 
-<!-- FLOATING STICKY BOTTOM CART BAR (PERPUS.CAFE STYLE) -->
+<!-- FLOATING STICKY BOTTOM CART BAR -->
 <div class="bottom-cart-bar" id="bottomCartBar" onclick="openCart()">
   <div class="bottom-cart-info">
     <div class="bottom-cart-icon">☕</div>
@@ -648,7 +630,7 @@
   <div class="footer-inner">
     <div class="footer-col">
       <h4>Sundeng Coffee</h4>
-      <p>Racikan kopi otentik pilihan barista, menyajikan kehangatan rasa &amp; suasana nongkrong terbaik.</p>
+      <p>Fishing &amp; Coffee. Good taste, good place. Racikan kopi otentik pilihan barista, menyajikan kehangatan rasa &amp; suasana nongkrong terbaik.</p>
     </div>
     <div class="footer-col">
       <h4>Informasi Kontak</h4>
@@ -660,7 +642,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    &copy; 2026 Sundeng Coffee. Powered by <a href="https://rakyat.space" style="color:var(--accent)">rakyat.space</a> — Portal Website UMKM Indonesia.
+    &copy; 2026 Sundeng Coffee • Fishing &amp; Coffee. Powered by <a href="https://rakyat.space" style="color:var(--gold)">rakyat.space</a> — Portal Website UMKM Indonesia.
   </div>
 </footer>
 
