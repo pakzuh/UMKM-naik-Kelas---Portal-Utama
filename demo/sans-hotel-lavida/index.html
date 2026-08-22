@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sans Hotel La Vida Malang — Room Service &amp; Resto Digital Menu</title>
+<meta name="description" content="Pesan makanan &amp; minuman kamar hotel (Room Service) atau Dine-In Resto Sans Hotel La Vida Malang. Praktis, cepat, langsung terhubung ke Dapur via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-dark: #092552;
+    --blue-main: #0f4c9c;
+    --blue-light: #eef5ff;
+    --orange-bright: #ff6600;
+    --orange-hover: #e05500;
+    --orange-light: #fff3eb;
+    --sand-bg: #f7fafc;
+    --card-bg: #ffffff;
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+    --radius: 14px;
+    --shadow: 0 4px 16px rgba(15, 76, 156, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { scroll-behavior: smooth; }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--sand-bg);
+    color: var(--text-dark);
+    padding-bottom: 100px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* HEADER TOP SANS HOTEL */
+  header.top-header {
+    background: linear-gradient(135deg, #071c3d 0%, #0f4c9c 60%, #1664cc 100%);
+    color: #fff;
+    padding: 22px 18px 20px;
+    position: relative;
+    border-bottom: 3.5px solid var(--orange-bright);
+    box-shadow: 0 4px 20px rgba(9, 37, 82, 0.2);
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .brand-neon-badge {
+    width: 60px;
+    height: 60px;
+    background: #092552;
+    border: 2px solid var(--orange-bright);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 16px rgba(255, 102, 0, 0.4);
+    flex-shrink: 0;
+  }
+  .brand-neon-title {
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .brand-neon-sub {
+    font-size: 8px;
+    font-weight: 800;
+    color: var(--orange-bright);
+    letter-spacing: 1.5px;
+    margin-top: 2px;
+  }
+
+  .brand-text h1 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+  .brand-text h1 span { color: var(--orange-bright); }
+  .brand-subtitle {
+    font-size: 11.5px;
+    color: #dbe8fb;
+    font-weight: 600;
+  }
+
+  .header-meta {
+    max-width: 1080px;
+    margin: 14px auto 0;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.18);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 11.5px;
+    color: #e2eeff;
+  }
+  .header-meta span { display: inline-flex; align-items: center; gap: 5px; }
+
+  /* ORDER MODE SWITCHER BAR (ROOM SERVICE vs RESTO DINE-IN) */
+  .mode-switch-wrap {
+    background: #fff;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  .mode-switch-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .mode-btn-group {
+    display: flex;
+    background: #f1f5f9;
+    padding: 3px;
+    border-radius: 999px;
+    flex: 1;
+    max-width: 420px;
+  }
+  .mode-btn {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text-muted);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .mode-btn.active {
+    background: var(--blue-main);
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(15, 76, 156, 0.25);
+  }
+
+  .mode-info-tag {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--orange-bright);
+    background: var(--orange-light);
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: none;
+  }
+  @media(min-width: 540px) { .mode-info-tag { display: block; } }
+
+  /* CATEGORY NAV (STICKY PILLS) */
+  nav.cats {
+    position: sticky; top: 51px; z-index: 35;
+    background: rgba(247, 250, 252, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    gap: 8px;
+    padding: 10px 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav.cats::-webkit-scrollbar { display: none; }
+  nav.cats button {
+    flex: 0 0 auto;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    color: var(--blue-dark);
+    padding: 7px 15px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  nav.cats button.active {
+    background: var(--orange-bright);
+    border-color: var(--orange-bright);
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(255, 102, 0, 0.25);
+  }
+
+  /* MAIN CONTENT & MENU GRID */
+  main { max-width: 1080px; margin: 0 auto; padding: 16px 14px 10px; }
+  
+  .section-title {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: var(--blue-dark);
+    margin: 24px 2px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title:first-of-type { margin-top: 6px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  @media(min-width: 640px) { .grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+  @media(min-width: 900px) { .grid { grid-template-columns: repeat(4, 1fr); gap: 18px; } }
+
+  .card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(15, 76, 156, 0.12);
+  }
+  .card-img {
+    aspect-ratio: 1/1;
+    background: var(--blue-light);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .card:hover .card-img img { transform: scale(1.08); }
+
+  .badge {
+    position: absolute; top: 8px; right: 8px;
+    background: var(--orange-bright);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .card-body {
+    padding: 12px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .card-name {
+    font-size: 13.5px;
+    font-weight: 800;
+    line-height: 1.35;
+    margin: 0 0 4px;
+    color: var(--blue-dark);
+    min-height: 36px;
+  }
+  .card-desc {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-price {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--blue-main);
+    margin: 0 0 10px;
+  }
+
+  .add-btn {
+    width: 100%;
+    background: var(--blue-main);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 6px;
+    font-size: 12.5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .add-btn:hover { background: #0c3d7e; }
+
+  /* CART DRAWER */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(9, 37, 82, 0.5);
+    backdrop-filter: blur(4px); z-index: 90; opacity: 0; visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  .overlay.show { opacity: 1; visibility: visible; }
+
+  .cart-sheet {
+    position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 460px;
+    background: #ffffff; z-index: 100; transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.25); display: flex; flex-direction: column;
+  }
+  .cart-sheet.open { transform: translateX(0); }
+
+  .cart-head {
+    padding: 18px 20px; background: var(--blue-dark); color: #fff;
+    display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--orange-bright);
+  }
+  .cart-head h3 { font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px; color: #fff; margin: 0; }
+  .close-cart-btn {
+    background: rgba(255,255,255,0.15); border: none; color: #fff; width: 32px; height: 32px;
+    border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+
+  .cart-body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 18px; }
+  .cart-section-title {
+    font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--blue-main); border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; margin-bottom: 10px;
+  }
+
+  .cart-item-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px; background: var(--sand-bg); border-radius: 12px; border: 1px solid #e2e8f0; gap: 12px;
+  }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-weight: 800; font-size: 0.88rem; color: var(--blue-dark); }
+  .cart-item-price { font-size: 0.82rem; color: var(--blue-main); font-weight: 800; margin-top: 2px; }
+
+  .cart-qty-ctrl { display: flex; align-items: center; gap: 6px; }
+  .btn-qty {
+    width: 26px; height: 26px; border-radius: 6px; border: 1px solid #cbd5e1;
+    background: #fff; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .qty-num { font-weight: 800; font-size: 0.88rem; min-width: 18px; text-align: center; }
+
+  .cart-form-box { background: var(--sand-bg); padding: 16px; border-radius: 14px; border: 1px solid #e2e8f0; }
+  .form-group-cart { margin-bottom: 12px; }
+  .form-group-cart label { display: block; font-size: 0.8rem; font-weight: 800; color: var(--blue-dark); margin-bottom: 4px; }
+  .cart-input, .cart-select {
+    width: 100%; padding: 10px 12px; border: 1.5px solid #cbd5e1; border-radius: 10px;
+    font-size: 0.86rem; font-family: inherit; background: #fff; color: var(--blue-dark); outline: none;
+  }
+  .cart-input:focus, .cart-select:focus { border-color: var(--blue-main); }
+
+  .cart-summary-box {
+    background: var(--orange-light); padding: 14px; border-radius: 14px; border: 1px solid #ffd6be;
+  }
+  .cart-total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.05rem; color: var(--blue-dark); margin-bottom: 12px; }
+
+  .btn-checkout-wa {
+    width: 100%; padding: 13px; background: #25D366; color: #fff; border: none;
+    border-radius: 12px; font-weight: 800; font-size: 0.92rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35); transition: transform 0.2s ease;
+  }
+
+  /* FLOATING STICKY BOTTOM CART BAR */
+  .bottom-cart-bar {
+    position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%) translateY(120%);
+    width: calc(100% - 24px); max-width: 480px; background: var(--blue-dark); color: #fff;
+    padding: 10px 18px; border-radius: 999px; border: 2px solid var(--orange-bright);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3); z-index: 80;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer;
+  }
+  .bottom-cart-bar.show { transform: translateX(-50%) translateY(0); }
+  .bottom-cart-info { display: flex; align-items: center; gap: 10px; }
+  .bottom-cart-title { font-weight: 800; font-size: 0.88rem; color: #fff; }
+  .bottom-cart-price { font-size: 0.8rem; color: var(--orange-bright); font-weight: 700; }
+  .btn-bottom-cart-action {
+    background: var(--orange-bright); color: #fff; padding: 8px 16px; border-radius: 999px;
+    font-weight: 800; font-size: 0.8rem; border: none;
+  }
+
+  .toast {
+    position: fixed; bottom: 84px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: rgba(9,37,82,0.95); color: #fff; padding: 10px 18px; border-radius: 999px;
+    font-weight: 800; font-size: 0.83rem; z-index: 200; opacity: 0; visibility: hidden;
+    transition: all 0.3s ease; pointer-events: none; border: 1px solid var(--orange-bright);
+  }
+  .toast.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+  /* FOOTER */
+  footer { background: var(--blue-dark); color: #cbd5e1; padding: 40px 16px 24px; margin-top: 40px; border-top: 3.5px solid var(--orange-bright); }
+  .footer-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .footer-col h4 { font-size: 1.1rem; color: #fff; margin-bottom: 12px; font-weight: 800; }
+  .footer-col p { font-size: 0.85rem; color: #94a3b8; line-height: 1.6; }
+  .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 24px; color: #64748b; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<!-- HEADER TOP SANS HOTEL LA VIDA MALANG -->
+<header class="top-header">
+  <div class="header-brand">
+    <div class="brand-neon-badge">
+      <div class="brand-neon-title">SANS</div>
+      <div class="brand-neon-sub">HOTELS</div>
+    </div>
+    <div class="brand-text">
+      <h1>Sans Hotel <span>La Vida Malang</span></h1>
+      <div class="brand-subtitle">🍽️ Room Service &amp; Resto Digital Ordering Portal</div>
+    </div>
+  </div>
+
+  <div class="header-meta">
+    <span>📍 Malang, Jawa Timur</span>
+    <span>⏰ Room Service: 24 Jam Nonstop</span>
+    <span>⏰ Resto Hotel: 06.00 – 22.00 WIB</span>
+    <span>💬 WA Kitchen / Resepsionis: 0857-3669-9198</span>
+  </div>
+</header>
+
+<!-- ORDER MODE SWITCHER BAR (ROOM SERVICE vs RESTO DINE-IN) -->
+<div class="mode-switch-wrap">
+  <div class="mode-switch-inner">
+    <div class="mode-btn-group">
+      <button class="mode-btn active" id="btnModeRoom" onclick="switchOrderMode('room')">🛎️ Room Service (Antar Kamar)</button>
+      <button class="mode-btn" id="btnModeResto" onclick="switchOrderMode('resto')">🍽️ Resto Hotel (Makan di Tempat)</button>
+    </div>
+    <div class="mode-info-tag" id="modeTag">🛎️ Antar Langsung ke Kamar Hotel</div>
+  </div>
+</div>
+
+<!-- CATEGORY NAV (STICKY PILLS) -->
+<nav class="cats" id="catNav">
+  <button class="active" onclick="filterCat('all', this)">✨ Semua Menu</button>
+  <button onclick="filterCat('sarapan', this)">🍳 Sarapan Hotel (Breakfast)</button>
+  <button onclick="filterCat('main', this)">🍛 Makan Siang &amp; Malam</button>
+  <button onclick="filterCat('snack', this)">🍟 Snack &amp; Dessert</button>
+  <button onclick="filterCat('minuman', this)">☕ Kopi &amp; Minuman</button>
+</nav>
+
+<!-- MAIN CONTENT & MENU GRID -->
+<main>
+  <!-- 1. KATEGORI SARAPAN HOTEL (BREAKFAST) -->
+  <div class="menu-sec" data-cat="sarapan">
+    <div class="section-title">🍳 Menu Sarapan Hotel (Breakfast Series)</div>
+    <div class="grid">
+      <!-- Nasi Goreng Spesial Sans -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/toast_roti_bakar.jpg" alt="Nasi Goreng Spesial Sans">
+          <span class="badge">🔥 Favorit Tamu</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Nasi Goreng Spesial Sans</div>
+          <div class="card-desc">Nasi goreng bumbu rempah khas resto hotel, telur mata sapi, ayam suwir &amp; kerupuk.</div>
+          <div class="card-price">Rp 28.000</div>
+          <button class="add-btn" onclick="addToCart('b1', 'Nasi Goreng Spesial Sans', 28000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- American Breakfast Set -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/croissant_pastry.jpg" alt="American Breakfast Set">
+        </div>
+        <div class="card-body">
+          <div class="card-name">American Breakfast Set</div>
+          <div class="card-desc">Croissant panggang hangat, sosis sapi, scramble egg, butter &amp; selai buah.</div>
+          <div class="card-price">Rp 35.000</div>
+          <button class="add-btn" onclick="addToCart('b2', 'American Breakfast Set', 35000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Bubur Ayam Hotel Premium -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/singkong_goreng.jpg" alt="Bubur Ayam Hotel Premium">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Bubur Ayam Hotel Premium</div>
+          <div class="card-desc">Bubur lembut gurih kuah kuning, cakwe krispi, suwiran ayam &amp; emping.</div>
+          <div class="card-price">Rp 22.000</div>
+          <button class="add-btn" onclick="addToCart('b3', 'Bubur Ayam Hotel Premium', 22000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Omelette Cheese & Toast -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/roti_srikaya.jpg" alt="Omelette Cheese &amp; Toast">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Omelette Cheese &amp; Toast</div>
+          <div class="card-desc">Telur dadar gulung isi keju lumer lezat disajikan dengan roti tawar panggang.</div>
+          <div class="card-price">Rp 25.000</div>
+          <button class="add-btn" onclick="addToCart('b4', 'Omelette Cheese &amp; Toast', 25000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. KATEGORI MAKAN SIANG & MALAM -->
+  <div class="menu-sec" data-cat="main">
+    <div class="section-title">🍛 Makan Siang &amp; Malam (Main Course)</div>
+    <div class="grid">
+      <!-- Ayam Goreng Lengkuas + Nasi -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/sosis_platter.jpg" alt="Ayam Goreng Lengkuas + Nasi">
+          <span class="badge">⭐ Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Ayam Goreng Lengkuas + Nasi</div>
+          <div class="card-desc">Ayam goreng rempah bumbu lengkuas gurih garing, nasi hangat, lalapan &amp; sambal.</div>
+          <div class="card-price">Rp 32.000</div>
+          <button class="add-btn" onclick="addToCart('m1', 'Ayam Goreng Lengkuas + Nasi', 32000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Club Sandwich Sans Hotel -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/croissant_pastry.jpg" alt="Club Sandwich Sans Hotel">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Club Sandwich Sans Hotel</div>
+          <div class="card-desc">Roti isi daging ayam, smoked beef, keju slice, mayones, &amp; kentang goreng.</div>
+          <div class="card-price">Rp 30.000</div>
+          <button class="add-btn" onclick="addToCart('m2', 'Club Sandwich Sans Hotel', 30000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Spaghetti Bolognese Cheese -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/cireng_rujak.jpg" alt="Spaghetti Bolognese Cheese">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Spaghetti Bolognese Cheese</div>
+          <div class="card-desc">Pasta spageti disiram saus daging cincang saus tomat gurih + taburan keju.</div>
+          <div class="card-price">Rp 32.000</div>
+          <button class="add-btn" onclick="addToCart('m3', 'Spaghetti Bolognese Cheese', 32000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Sop Buntut Sapi Rempah -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/kopi_tubruk.jpg" alt="Sop Buntut Sapi Rempah">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Sop Buntut Sapi Rempah</div>
+          <div class="card-desc">Sop buntut sapi empuk kuah bening kaldu wangi rempah, wortel, kentang &amp; nasi.</div>
+          <div class="card-price">Rp 48.000</div>
+          <button class="add-btn" onclick="addToCart('m4', 'Sop Buntut Sapi Rempah', 48000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. KATEGORI SNACK & DESSERT -->
+  <div class="menu-sec" data-cat="snack">
+    <div class="section-title">🍟 Snack, Cemilan &amp; Dessert</div>
+    <div class="grid">
+      <!-- French Fries Platter -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/french_fries_snack.jpg" alt="French Fries Basket">
+        </div>
+        <div class="card-body">
+          <div class="card-name">French Fries Basket</div>
+          <div class="card-desc">Kentang goreng gurih renyah garing disajikan saus tomat &amp; sambal.</div>
+          <div class="card-price">Rp 18.000</div>
+          <button class="add-btn" onclick="addToCart('s1', 'French Fries Basket', 18000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Pisang Goreng Keju Cokelat -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/toast_roti_bakar.jpg" alt="Pisang Goreng Keju Cokelat">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Pisang Goreng Keju Cokelat</div>
+          <div class="card-desc">Pisang raja manis goreng tepung krispi ditaburi keju parut &amp; meses cokelat.</div>
+          <div class="card-price">Rp 18.000</div>
+          <button class="add-btn" onclick="addToCart('s2', 'Pisang Goreng Keju Cokelat', 18000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Fresh Fruit Platter -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/lemon_tea.jpg" alt="Fresh Fruit Platter Seasonal">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Fresh Fruit Platter Seasonal</div>
+          <div class="card-desc">Potongan buah segar dingin (Semangka, Melon, Pepaya, Nanas).</div>
+          <div class="card-price">Rp 20.000</div>
+          <button class="add-btn" onclick="addToCart('s3', 'Fresh Fruit Platter Seasonal', 20000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. KATEGORI MINUMAN & KOPI -->
+  <div class="menu-sec" data-cat="minuman">
+    <div class="section-title">☕ Kopi, Teh &amp; Minuman Segar</div>
+    <div class="grid">
+      <!-- Kopi Susu Sans Signature -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/kopi_sundeng_signature.jpg" alt="Kopi Susu Sans Signature">
+          <span class="badge">🔥 Best Seller</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Kopi Susu Sans Signature</div>
+          <div class="card-desc">Espresso arabika diseduh susu murni gurih &amp; gula aren alami.</div>
+          <div class="card-price">Rp 20.000</div>
+          <button class="add-btn" onclick="addToCart('d1', 'Kopi Susu Sans Signature', 20000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Fresh Orange Juice -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/lemon_tea.jpg" alt="Fresh Orange Juice">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Fresh Orange Juice</div>
+          <div class="card-desc">Jus perasan buah jeruk segar manis alami pembunuh dahaga.</div>
+          <div class="card-price">Rp 18.000</div>
+          <button class="add-btn" onclick="addToCart('d2', 'Fresh Orange Juice', 18000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Ice Lychee Tea -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/lychee_tea.jpg" alt="Ice Lychee Tea">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Ice Lychee Tea</div>
+          <div class="card-desc">Teh segar wangi rasa buah lici manis dengan topping buah lici utuh.</div>
+          <div class="card-price">Rp 16.000</div>
+          <button class="add-btn" onclick="addToCart('d3', 'Ice Lychee Tea', 16000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+
+      <!-- Cappuccino Hot/Ice -->
+      <div class="card">
+        <div class="card-img">
+          <img loading="lazy" src="../sundeng-coffee/assets/cappuccino.jpg" alt="Cappuccino Hot / Ice">
+        </div>
+        <div class="card-body">
+          <div class="card-name">Cappuccino Hot / Ice</div>
+          <div class="card-desc">Seduhan espresso kental dipadu foam susu lembut &amp; bubuk cokelat.</div>
+          <div class="card-price">Rp 22.000</div>
+          <button class="add-btn" onclick="addToCart('d4', 'Cappuccino Hot / Ice', 22000)">+ Tambah Pesanan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<div class="cart-sheet" id="cartSheet">
+  <div class="cart-head">
+    <h3 id="cartHeadTitle">🛎️ Pesanan Room Service Sans Hotel</h3>
+    <button class="close-cart-btn" onclick="closeCart()">&times;</button>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+    <div style="text-align:center; color:var(--text-muted); padding:40px 0;">
+      Keranjang Anda masih kosong.<br>Silakan pilih menu makanan / minuman di atas! 🍽️
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">✔ Menu dimasukkan ke keranjang!</div>
+
+<!-- FLOATING STICKY BOTTOM CART BAR -->
+<div class="bottom-cart-bar" id="bottomCartBar" onclick="openCart()">
+  <div class="bottom-cart-info">
+    <div class="bottom-cart-icon">🛎️</div>
+    <div>
+      <div class="bottom-cart-title" id="bottomCartCount">0 Menu Dipilih</div>
+      <div class="bottom-cart-price" id="bottomCartPrice">Total: Rp 0</div>
+    </div>
+  </div>
+  <button class="btn-bottom-cart-action">Lihat Pesanan ↗</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Sans Hotel La Vida Malang</h4>
+      <p>Pilihan menginap nyaman &amp; trendi di Malang. Nikmati layanan Room Service 24 jam dan hidangan lezat resto hotel langsung dari HP Anda.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Informasi Kontak &amp; Operasional</h4>
+      <p>
+        📍 Malang, Jawa Timur<br>
+        🛎️ Room Service Kamar: 24 Jam Nonstop<br>
+        🍽️ Resto Hotel: 06.00 – 22.00 WIB<br>
+        💬 WA Kitchen / Resepsionis: 0857-3669-9198
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Sans Hotel La Vida Malang • Powered by <a href="https://rakyat.space" style="color:var(--orange-bright)">rakyat.space</a> — Portal Website UMKM Indonesia.
+  </div>
+</footer>
+
+<script>
+  const WA_NUMBER = "6285736699198";
+  let cart = {};
+  let currentOrderMode = "room"; // "room" (Antar Kamar) or "resto" (Makan di Tempat)
+
+  function switchOrderMode(mode) {
+    currentOrderMode = mode;
+    const btnRoom = document.getElementById("btnModeRoom");
+    const btnResto = document.getElementById("btnModeResto");
+    const modeTag = document.getElementById("modeTag");
+    const cartHeadTitle = document.getElementById("cartHeadTitle");
+
+    if (mode === "room") {
+      btnRoom.classList.add("active");
+      btnResto.classList.remove("active");
+      if (modeTag) modeTag.innerHTML = "🛎️ Antar Langsung ke Kamar Hotel";
+      if (cartHeadTitle) cartHeadTitle.innerHTML = "🛎️ Pesanan Room Service Kamar";
+    } else {
+      btnResto.classList.add("active");
+      btnRoom.classList.remove("active");
+      if (modeTag) modeTag.innerHTML = "🍽️ Pesan Makan di Resto Hotel";
+      if (cartHeadTitle) cartHeadTitle.innerHTML = "🍽️ Pesanan Resto Hotel (Meja)";
+    }
+
+    renderCart();
+  }
+
+  function filterCat(cat, btnEl) {
+    const btns = document.querySelectorAll('#catNav button');
+    btns.forEach(b => b.classList.remove('active'));
+    if(btnEl) btnEl.classList.add('active');
+
+    const secs = document.querySelectorAll('.menu-sec');
+    secs.forEach(sec => {
+      if(cat === 'all' || sec.getAttribute('data-cat') === cat) {
+        sec.style.display = 'block';
+      } else {
+        sec.style.display = 'none';
+      }
+    });
+  }
+
+  function addToCart(id, name, price) {
+    if (cart[id]) {
+      cart[id].qty += 1;
+    } else {
+      cart[id] = { name: name, price: price, qty: 1 };
+    }
+    renderCart();
+    showToast(`✔ "${name}" dimasukkan ke keranjang!`);
+  }
+
+  function changeQty(id, delta) {
+    if (!cart[id]) return;
+    cart[id].qty += delta;
+    if (cart[id].qty <= 0) {
+      delete cart[id];
+    }
+    renderCart();
+  }
+
+  function renderCart() {
+    const cartBody = document.getElementById("cartBody");
+    const bottomBar = document.getElementById("bottomCartBar");
+    const keys = Object.keys(cart);
+
+    let totalQty = 0;
+    let totalPrice = 0;
+
+    keys.forEach(id => {
+      totalQty += cart[id].qty;
+      totalPrice += cart[id].price * cart[id].qty;
+    });
+
+    if (keys.length === 0) {
+      cartBody.innerHTML = `
+        <div style="text-align:center; color:var(--text-muted); padding:40px 0;">
+          Keranjang Anda masih kosong.<br>Silakan pilih menu makanan / minuman di atas! 🍽️
+        </div>
+      `;
+      if (bottomBar) bottomBar.classList.remove("show");
+      return;
+    }
+
+    let itemsHtml = `
+      <div class="cart-section-title">🍽️ Menu Dipilih</div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+    `;
+
+    keys.forEach(id => {
+      const item = cart[id];
+      const subtotal = item.price * item.qty;
+      itemsHtml += `
+        <div class="cart-item-row">
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">Rp ${subtotal.toLocaleString('id-ID')}</div>
+          </div>
+          <div class="cart-qty-ctrl">
+            <button class="btn-qty" onclick="changeQty('${id}', -1)">-</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="btn-qty" onclick="changeQty('${id}', 1)">+</button>
+          </div>
+        </div>
+      `;
+    });
+
+    itemsHtml += `</div>`;
+
+    const isRoom = currentOrderMode === "room";
+
+    const formHtml = `
+      <div class="cart-form-box">
+        <div class="cart-section-title">${isRoom ? '🛎️ Data Pengiriman Kamar Hotel' : '🍽️ Data Meja Resto Hotel'}</div>
+
+        <div class="form-group-cart">
+          <label>Nama Tamu / Pemesan:</label>
+          <input type="text" class="cart-input" id="cartGuestName" placeholder="Contoh: Pak Anton" required>
+        </div>
+
+        <div class="form-group-cart">
+          <label>${isRoom ? 'Nomor Kamar Hotel (Room No.):' : 'Nomor Meja Resto:'}</label>
+          <input type="text" class="cart-input" id="cartLoc" placeholder="${isRoom ? 'Contoh: Kamar 304 / Deluxe 210' : 'Contoh: Meja Resto 05 / Outdoor 02'}" required>
+        </div>
+
+        <div class="form-group-cart">
+          <label>Catatan Tambahan (Opsional):</label>
+          <input type="text" class="cart-input" id="cartNotes" placeholder="Contoh: Pedas sedang / Tanpa bawang merah">
+        </div>
+
+        <div class="cart-summary-box">
+          <div class="cart-total-row">
+            <span>Total Bayar:</span>
+            <span>Rp ${totalPrice.toLocaleString('id-ID')}</span>
+          </div>
+
+          <button class="btn-checkout-wa" onclick="checkoutWA()">💬 Kirim Pesanan via WhatsApp ↗</button>
+        </div>
+      </div>
+    `;
+
+    cartBody.innerHTML = itemsHtml + formHtml;
+
+    if (bottomBar) {
+      bottomBar.classList.add("show");
+      document.getElementById("bottomCartCount").innerText = `${totalQty} Menu Dipilih`;
+      document.getElementById("bottomCartPrice").innerText = `Total: Rp ${totalPrice.toLocaleString('id-ID')}`;
+    }
+  }
+
+  function openCart() {
+    document.getElementById("cartOverlay").classList.add("show");
+    document.getElementById("cartSheet").classList.add("open");
+  }
+
+  function closeCart() {
+    document.getElementById("cartOverlay").classList.remove("show");
+    document.getElementById("cartSheet").classList.remove("open");
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById("toast");
+    t.innerText = msg;
+    t.classList.add("show");
+    setTimeout(() => { t.classList.remove("show"); }, 2000);
+  }
+
+  function checkoutWA() {
+    const keys = Object.keys(cart);
+    if (keys.length === 0) {
+      alert("Keranjang pesanan Anda masih kosong!");
+      return;
+    }
+
+    const name = document.getElementById("cartGuestName").value.trim();
+    const loc = document.getElementById("cartLoc").value.trim();
+    const notes = document.getElementById("cartNotes").value.trim();
+
+    if (!name || !loc) {
+      alert(currentOrderMode === "room" ? "Silakan isi Nama Tamu dan Nomor Kamar!" : "Silakan isi Nama Tamu dan Nomor Meja!");
+      return;
+    }
+
+    const isRoom = currentOrderMode === "room";
+    let text = `*PESANAN ${isRoom ? 'ROOM SERVICE HOTEL' : 'RESTO DINE-IN'} - SANS HOTEL LA VIDA MALANG*\n\n`;
+    text += `*DATA PEMESAN:*\nNama Tamu: *${name}*\n${isRoom ? 'Nomor Kamar' : 'Nomor Meja'}: *${loc}*\n${notes ? `Catatan: *${notes}*\n` : ''}\n`;
+    text += `*DAFTAR MENU DIPILIH:*\n`;
+
+    let totalPrice = 0;
+    keys.forEach((id, index) => {
+      const item = cart[id];
+      const subtotal = item.price * item.qty;
+      totalPrice += subtotal;
+      text += `${index + 1}. *${item.name}* x${item.qty} = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+    });
+
+    text += `----------------------------------\n`;
+    text += `*TOTAL PEMBAYARAN:* Rp ${totalPrice.toLocaleString('id-ID')}\n\n`;
+    text += `Mohon segera diproses & ${isRoom ? 'diantar ke kamar saya' : 'disajikan di meja saya'}. Terima kasih! 🙏🛎️`;
+
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+  }
+</script>
+</body>
+</html>
