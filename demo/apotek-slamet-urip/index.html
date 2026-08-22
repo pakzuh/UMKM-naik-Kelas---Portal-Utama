@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apotek Slamet Urip — Termurah &amp; Terlengkap Cemorokandang Malang</title>
+  <meta name="description" content="Apotek Slamet Urip — Apotek termurah dan terlengkap di Cemorokandang, Kedungkandang, Malang. Pesan obat online &amp; tebus resep via WhatsApp.">
+  <style>
+    /* ====== RESET & VARIABLES ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f0f4f8;
+      --surface:   #ffffff;
+      --surface2:  #f7fafc;
+      --border:    #e2e8f0;
+      --text:      #1a202c;
+      --text2:     #718096;
+      --text3:     #a0aec0;
+      --primary:        #276749;
+      --primary-hover:  #22543d;
+      --primary-light:  #e6fffa;
+      --danger:    #c53030;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.08);
+      --shadow:    0 2px 4px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);
+      --shadow-md: 0 4px 10px rgba(0,0,0,.1);
+      --r:   8px;
+      --rsm: 6px;
+      --rxs: 4px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:       #0d1117;
+        --surface:  #161b22;
+        --surface2: #1c2128;
+        --border:   #30363d;
+        --text:     #e6edf3;
+        --text2:    #8b949e;
+        --text3:    #6e7681;
+        --primary:       #3fb950;
+        --primary-hover: #56d364;
+        --primary-light: #0d2116;
+        --danger:   #f85149;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+        --shadow:    0 2px 6px rgba(0,0,0,.4);
+        --shadow-md: 0 4px 12px rgba(0,0,0,.5);
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 90px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    button { font-family: inherit; cursor: pointer; }
+    input, select, textarea { font-family: inherit; }
+
+    /* ====== HEADER & HERO PHARMACY ====== */
+    .site-header {
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      color: #fff;
+      padding: 22px 18px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(4,120,87,0.25);
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .site-header::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-inner-box {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 5px 16px 5px 8px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .logo-icon-emblem {
+      width: 36px;
+      height: 36px;
+      background: #ffffff;
+      color: #047857;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 900;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .header-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .header-name span {
+      color: #a7f3d0;
+      font-weight: 400;
+    }
+
+    .header-tagline {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ecfdf5;
+      margin-top: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .header-address {
+      font-size: .78rem;
+      color: #d1fae5;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .header-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .header-badge-pill {
+      font-size: .72rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.18);
+      color: #ffffff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .btn-resep-quick {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      background: #ffffff;
+      color: #047857;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      transition: transform 0.15s, background 0.15s;
+    }
+    .btn-resep-quick:hover {
+      transform: translateY(-1px);
+      background: #f0fdf4;
+    }
+
+    /* ====== SEARCH ====== */
+    .search-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 9px 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .search-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: .85rem;
+      pointer-events: none;
+      opacity: .45;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 8px 34px;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      font-size: .85rem;
+      background: var(--surface2);
+      color: var(--text);
+      outline: none;
+      transition: border-color .15s;
+      -webkit-appearance: none;
+    }
+
+    #searchInput:focus { border-color: var(--primary); background: var(--surface); }
+    #searchInput::placeholder { color: var(--text3); }
+
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--border);
+      border: none;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: .7rem;
+      color: var(--text2);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .search-clear.show { display: flex; }
+
+    /* ====== FILTER BAR ====== */
+    .filter-wrap {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .filter-row::-webkit-scrollbar { display: none; }
+    .filter-row:first-child { border-bottom: 1px solid var(--border); }
+
+    .filter-label {
+      font-size: .65rem;
+      font-weight: 700;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      width: 30px;
+    }
+
+    .filter-pills { display: flex; gap: 5px; }
+
+    .pill {
+      padding: 4px 11px;
+      border-radius: 20px;
+      font-size: .72rem;
+      font-weight: 500;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--text2);
+      white-space: nowrap;
+      transition: all .12s;
+      cursor: pointer;
+    }
+
+    .pill:hover { border-color: var(--primary); color: var(--primary); }
+
+    .pill.active {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* ====== PRODUCTS WRAPPER ====== */
+    .products-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 12px;
+    }
+
+    .products-meta {
+      font-size: .72rem;
+      color: var(--text3);
+      margin-bottom: 8px;
+      padding: 0 2px;
+    }
+
+    /* ====== GRID ====== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    @media (min-width: 480px)  { .products-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 680px)  { .products-grid { grid-template-columns: repeat(5, 1fr); gap: 10px; } }
+    @media (min-width: 900px)  { .products-grid { grid-template-columns: repeat(6, 1fr); } }
+    @media (min-width: 1100px) { .products-grid { grid-template-columns: repeat(7, 1fr); } }
+
+    /* ====== PRODUCT CARD ====== */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 9px 9px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-height: 158px;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .15s;
+    }
+
+    .card:hover { box-shadow: var(--shadow); }
+    .card.habis { opacity: .6; }
+
+    .badge-habis {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: var(--danger);
+      color: #fff;
+      font-size: .56rem;
+      font-weight: 700;
+      padding: 2px 5px;
+      border-radius: var(--rxs);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .card-jenis {
+      font-size: .6rem;
+      font-weight: 700;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      line-height: 1;
+    }
+
+    .card-nama {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-merk {
+      font-size: .68rem;
+      color: var(--text2);
+    }
+
+    .card-foot {
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .card-harga {
+      font-size: .82rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .card-satuan {
+      font-size: .6rem;
+      color: var(--text3);
+      margin-top: 1px;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 7px;
+    }
+
+    /* Add button */
+    .btn-add {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .12s, transform .1s;
+    }
+
+    .btn-add:hover { background: var(--primary-hover); transform: scale(1.08); }
+    .btn-add:disabled { background: var(--border); cursor: not-allowed; transform: none; }
+
+    /* Qty controls on card */
+    .qty-ctrl { display: flex; align-items: center; gap: 3px; }
+
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1.5px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      font-size: .88rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background .1s;
+    }
+
+    .qty-btn:hover { background: var(--primary-light); }
+
+    .qty-btn.plus {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .qty-btn.plus:hover { background: var(--primary-hover); }
+
+    .qty-num {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 18px;
+      text-align: center;
+    }
+
+    /* ====== SKELETON ====== */
+    .skel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 9px;
+      min-height: 158px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .skel-line {
+      background: var(--border);
+      border-radius: 4px;
+      animation: shimmer 1.4s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: .6; }
+      50%       { opacity: .25; }
+    }
+
+    /* ====== EMPTY STATE ====== */
+    .empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 56px 20px;
+    }
+
+    .empty-icon { font-size: 2.5rem; margin-bottom: 10px; }
+    .empty h3 { font-size: .9rem; color: var(--text2); margin-bottom: 4px; }
+    .empty p  { font-size: .78rem; color: var(--text3); }
+
+    /* ====== CART BAR ====== */
+    .cart-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 10px 14px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+      box-shadow: 0 -4px 16px rgba(0,0,0,.12);
+      display: none;
+    }
+
+    .cart-bar.show { display: block; }
+
+    .cart-bar-btn {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--r);
+      padding: 12px 14px;
+      font-size: .88rem;
+      font-weight: 600;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .12s;
+    }
+
+    .cart-bar-btn:hover { background: var(--primary-hover); }
+
+    .cart-bar-left { display: flex; align-items: center; gap: 8px; }
+
+    .cart-badge {
+      background: rgba(255,255,255,.25);
+      border-radius: 12px;
+      padding: 0 8px;
+      font-size: .78rem;
+      font-weight: 700;
+      min-width: 22px;
+      text-align: center;
+    }
+
+    .cart-bar-total { font-weight: 700; font-size: .88rem; }
+
+    /* ====== MODAL OVERLAY ====== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0,0,0,.55);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .overlay.show { display: flex; }
+
+    @media (min-width: 600px) { .overlay { align-items: center; } }
+
+    .modal {
+      background: var(--surface);
+      width: 100%;
+      max-width: 520px;
+      max-height: 92dvh;
+      overflow-y: auto;
+      border-radius: var(--r) var(--r) 0 0;
+      padding: 18px 16px 28px;
+      overscroll-behavior: contain;
+    }
+
+    @media (min-width: 600px) {
+      .modal { border-radius: var(--r); max-height: 88vh; }
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .modal-head h2 { font-size: .95rem; font-weight: 700; }
+
+    .modal-close {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: 1rem;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Cart item list */
+    .cart-list {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--rsm);
+      overflow: hidden;
+      margin-bottom: 10px;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-item:last-child { border-bottom: none; }
+
+    .ci-info { flex: 1; min-width: 0; }
+
+    .ci-name {
+      font-size: .78rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .ci-sub { font-size: .67rem; color: var(--text3); margin-top: 1px; }
+
+    .ci-ctrl { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+
+    .ci-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: .85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ci-qty { font-size: .78rem; font-weight: 700; min-width: 18px; text-align: center; }
+
+    .ci-total {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 68px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-top: 2px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .total-label  { font-size: .88rem; font-weight: 700; }
+    .total-amount { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+
+    /* Form */
+    .form-sep { border: none; border-top: 1px solid var(--border); margin: 0 0 16px; }
+
+    .form-group { margin-bottom: 11px; }
+
+    .form-label {
+      display: block;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 4px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 9px 11px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--rsm);
+      font-size: .875rem;
+      background: var(--surface2);
+      color: var(--text);
+      outline: none;
+      transition: border-color .15s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--primary);
+      background: var(--surface);
+    }
+
+    .form-select { appearance: none; }
+    .form-textarea { resize: vertical; min-height: 60px; }
+
+    /* Checkout button */
+    .btn-wa {
+      width: 100%;
+      background: #25D366;
+      color: #fff;
+      border: none;
+      border-radius: var(--r);
+      padding: 13px;
+      font-size: .9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      transition: background .12s;
+    }
+
+    .btn-wa:hover { background: #128C7E; }
+
+    .checkout-note {
+      font-size: .68rem;
+      color: var(--text3);
+      text-align: center;
+      margin-top: 7px;
+    }
+
+    /* ====== TOAST ====== */
+    .toast {
+      position: fixed;
+      bottom: 88px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: rgba(26,32,44,.92);
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: .78rem;
+      font-weight: 500;
+      z-index: 200;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .25s, transform .25s;
+      white-space: nowrap;
+    }
+
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💊</text></svg>">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:title" content="Apotek Sehat — Katalog Obat & Tebus Resep Online">
+  <meta property="og:description" content="Katalog obat, vitamin, & suplemen lengkap. Kirim resep dokter langsung ke WhatsApp apoteker untuk ditebus.">
+  <meta property="og:url" content="https://rakyat.space/demo/apotek/index.html">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+
+<!-- ===== HEADER HERO ===== -->
+<header class="site-header">
+  <div class="header-inner-box">
+    <!-- Logo Toko Minimalis -->
+    <div class="brand-logo-wrap">
+      <div class="logo-icon-emblem">💊</div>
+      <div class="header-name">Apotek<span>Slamet Urip</span></div>
+    </div>
+
+    <!-- Tagline & Alamat -->
+    <div class="header-tagline">Apotek Termurah &amp; Terlengkap di Cemorokandang, Malang</div>
+    <div class="header-address">📍 Jl. Halim Perdana Kusuma No.1, Cemorokandang, Kec. Kedungkandang, Malang</div>
+
+    <!-- Hero Badges -->
+    <div class="header-badges">
+      <span class="header-badge-pill">🏷️ Jaminan Harga Termurah</span>
+      <span class="header-badge-pill">🛡️ 100% Obat Asli &amp; BPOM</span>
+      <span class="header-badge-pill">🛵 Delivery Cemorokandang &amp; Kedungkandang</span>
+      <span class="header-badge-pill">⏰ Buka Setiap Hari 07.00 – 21.00 WIB</span>
+    </div>
+
+    <!-- Tombol Tebus Resep WA -->
+    <a href="https://wa.me/6285736699198?text=Halo%20Apotek%20Slamet%20Urip,%20saya%20mau%20tebus%20resep%20dokter" target="_blank" rel="noopener" class="btn-resep-quick">
+      📄 Ada Resep Dokter? Kirim Foto Resep via WA ↗
+    </a>
+  </div>
+</header>
+
+<!-- ===== SEARCH ===== -->
+<div class="search-wrap">
+  <div class="search-inner">
+    <span class="search-icon">🔍</span>
+    <input type="search" id="searchInput"
+      placeholder="Cari nama obat atau merk..."
+      autocomplete="off" autocorrect="off" spellcheck="false">
+    <button class="search-clear" id="searchClear" aria-label="Hapus">✕</button>
+  </div>
+</div>
+
+<!-- ===== FILTER ===== -->
+<div class="filter-wrap">
+  <div class="filter-row">
+    <span class="filter-label">Jenis</span>
+    <div class="filter-pills" id="jenisFilter"></div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">Merk</span>
+    <div class="filter-pills" id="merkFilter"></div>
+  </div>
+</div>
+
+<!-- ===== PRODUCTS ===== -->
+<div class="products-wrap">
+  <div class="products-meta" id="productsMeta">Memuat produk...</div>
+  <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<!-- ===== CART BAR ===== -->
+<div class="cart-bar" id="cartBar">
+  <button class="cart-bar-btn" id="cartBarBtn">
+    <div class="cart-bar-left">
+      <span>🛒</span>
+      <span class="cart-badge" id="cartBadge">0</span>
+      <span>Lihat Keranjang</span>
+    </div>
+    <span class="cart-bar-total" id="cartBarTotal">Rp 0</span>
+  </button>
+</div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <h2>Keranjang Belanja</h2>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+
+    <div class="cart-list" id="cartList"></div>
+
+    <div class="total-row">
+      <span class="total-label">Total Belanja</span>
+      <span class="total-amount" id="modalTotal">Rp 0</span>
+    </div>
+
+    <hr class="form-sep">
+
+    <div class="form-group">
+      <label class="form-label">Nama Pembeli *</label>
+      <input type="text" class="form-input" id="fNama" placeholder="Nama lengkap">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Metode Pengambilan</label>
+      <select class="form-select" id="fMetode">
+        <option value="Ambil Sendiri">Ambil Sendiri di Apotek</option>
+        <option value="Diantar">Diantar ke Alamat</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Catatan (opsional)</label>
+      <textarea class="form-textarea" id="fCatatan"
+        placeholder="Alamat pengiriman, catatan resep, dll."></textarea>
+    </div>
+
+    <button class="btn-wa" id="btnCheckout">
+      <span>📱</span>
+      <span>Pesan via WhatsApp</span>
+    </button>
+    <div class="checkout-note">Pesanan dikirim ke WhatsApp apotek untuk dikonfirmasi</div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* =================================================================
+   CONFIG — ganti nilai ini sebelum deploy
+================================================================= */
+const CFG = {
+  appsScriptUrl: 'https://script.google.com/macros/s/GANTI_DEPLOYMENT_ID/exec',
+  waNumber:      '6285736699198',
+  apotekName:    'Apotek Slamet Urip',
+};
+
+/* =================================================================
+   STATE
+================================================================= */
+let allProducts = [];
+let cart        = {};     // { id: { product, qty } }
+let activeJenis = '';
+let activeMerk  = '';
+let searchQ     = '';
+let searchTimer = null;
+
+/* =================================================================
+   SAMPLE DATA  — dipakai saat API belum terhubung
+================================================================= */
+const SAMPLE = [
+  { ID:'OBB-01', JENIS:'Obat Bebas',         MERK:'Panadol',    NAMA:'Panadol Extra 500mg',              SATUAN:'Strip',     HARGA:15000,  STATUS:'Tersedia' },
+  { ID:'OBB-02', JENIS:'Obat Bebas',         MERK:'Bodrex',     NAMA:'Bodrex Extra Kaplet',              SATUAN:'Strip',     HARGA:8000,   STATUS:'Tersedia' },
+  { ID:'OBB-03', JENIS:'Obat Bebas',         MERK:'Tempra',     NAMA:'Tempra Syrup 60ml',                SATUAN:'Botol',     HARGA:32000,  STATUS:'Habis'    },
+  { ID:'OBB-04', JENIS:'Obat Bebas',         MERK:'Antangin',   NAMA:'Antangin JRG Cair',                SATUAN:'Sachet',    HARGA:4500,   STATUS:'Tersedia' },
+  { ID:'OBB-05', JENIS:'Obat Bebas',         MERK:'Woods',      NAMA:"Wood's Peppermint Inhaler",        SATUAN:'Pcs',       HARGA:12000,  STATUS:'Tersedia' },
+  { ID:'OBB-06', JENIS:'Obat Bebas',         MERK:'Betadine',   NAMA:'Betadine Antiseptik 30ml',         SATUAN:'Botol',     HARGA:18500,  STATUS:'Tersedia' },
+  { ID:'VIT-01', JENIS:'Vitamin & Suplemen', MERK:'Enervon-C',  NAMA:'Enervon-C Multivitamin',           SATUAN:'Btl 30',    HARGA:55000,  STATUS:'Tersedia' },
+  { ID:'VIT-02', JENIS:'Vitamin & Suplemen', MERK:'Blackmores', NAMA:'Blackmores Vitamin C 1000mg',      SATUAN:'Btl 60',    HARGA:145000, STATUS:'Tersedia' },
+  { ID:'VIT-03', JENIS:'Vitamin & Suplemen', MERK:'Kirkland',   NAMA:'Kirkland Vitamin D3 2000IU',       SATUAN:'Btl 360',   HARGA:185000, STATUS:'Tersedia' },
+  { ID:'VIT-04', JENIS:'Vitamin & Suplemen', MERK:'Hemaviton',  NAMA:'Hemaviton Action Jelly',           SATUAN:'Sachet',    HARGA:8500,   STATUS:'Tersedia' },
+  { ID:'VIT-05', JENIS:'Vitamin & Suplemen', MERK:'Redoxon',    NAMA:'Redoxon Vitamin C 1000mg',         SATUAN:'Strip 10',  HARGA:28000,  STATUS:'Tersedia' },
+  { ID:'ANT-01', JENIS:'Antibiotik',         MERK:'Generik',    NAMA:'Amoxicillin 500mg',                SATUAN:'Strip 10',  HARGA:18000,  STATUS:'Tersedia' },
+  { ID:'ANT-02', JENIS:'Antibiotik',         MERK:'Dexa',       NAMA:'Ciprofloxacin 500mg',              SATUAN:'Strip 10',  HARGA:28000,  STATUS:'Tersedia' },
+  { ID:'ANT-03', JENIS:'Antibiotik',         MERK:'Kalbe',      NAMA:'Cefadroxil 500mg',                 SATUAN:'Strip 10',  HARGA:22000,  STATUS:'Habis'    },
+  { ID:'OBK-01', JENIS:'Obat Keras',         MERK:'Dexa',       NAMA:'Dexamethasone 0.5mg',              SATUAN:'Strip 10',  HARGA:12000,  STATUS:'Tersedia' },
+  { ID:'OBK-02', JENIS:'Obat Keras',         MERK:'Kalbe',      NAMA:'Ranitidin 150mg',                  SATUAN:'Strip 10',  HARGA:9500,   STATUS:'Tersedia' },
+  { ID:'OBK-03', JENIS:'Obat Keras',         MERK:'Sanbe',      NAMA:'Omeprazole 20mg',                  SATUAN:'Strip 10',  HARGA:16500,  STATUS:'Tersedia' },
+  { ID:'OBK-04', JENIS:'Obat Keras',         MERK:'Kimia Farma',NAMA:'Metformin 500mg',                  SATUAN:'Strip 10',  HARGA:14000,  STATUS:'Tersedia' },
+  { ID:'ALK-01', JENIS:'Alat Kesehatan',     MERK:'Omron',      NAMA:'Tensimeter Digital Omron HEM-7120',SATUAN:'Unit',      HARGA:385000, STATUS:'Tersedia' },
+  { ID:'ALK-02', JENIS:'Alat Kesehatan',     MERK:'OneMed',     NAMA:'Masker Medis 3-Ply',               SATUAN:'Box 50',    HARGA:55000,  STATUS:'Habis'    },
+  { ID:'ALK-03', JENIS:'Alat Kesehatan',     MERK:'GEA',        NAMA:'Nebulizer Compressor',             SATUAN:'Unit',      HARGA:450000, STATUS:'Tersedia' },
+  { ID:'ALK-04', JENIS:'Alat Kesehatan',     MERK:'OneMed',     NAMA:'Termometer Digital',               SATUAN:'Pcs',       HARGA:35000,  STATUS:'Tersedia' },
+  { ID:'ALK-05', JENIS:'Alat Kesehatan',     MERK:'Abbott',     NAMA:'Strip Gula Darah FreeStyle',       SATUAN:'Box 50',    HARGA:210000, STATUS:'Tersedia' },
+];
+
+/* =================================================================
+   INIT
+================================================================= */
+renderSkeletons(12);
+buildFilters([]);
+fetchProducts();
+
+/* =================================================================
+   FETCH PRODUCTS
+================================================================= */
+async function fetchProducts() {
+  let data = null;
+  try {
+    const res  = await fetch(CFG.appsScriptUrl + '?action=produk');
+    const json = await res.json();
+    if (json.status === 'ok' && Array.isArray(json.data) && json.data.length > 0) {
+      data = json.data.map(row => ({ ...row, HARGA: Number(row.HARGA) || 0 }));
+    }
+  } catch (_) { /* API belum connect — pakai sample */ }
+
+  allProducts = data || SAMPLE;
+  buildFilters(allProducts);
+  renderProducts();
+}
+
+/* =================================================================
+   SKELETON
+================================================================= */
+function renderSkeletons(n) {
+  document.getElementById('productsGrid').innerHTML = Array(n).fill('').map(() => `
+    <div class="skel">
+      <div class="skel-line" style="width:55%;height:8px;"></div>
+      <div class="skel-line" style="width:90%;height:11px;"></div>
+      <div class="skel-line" style="width:70%;height:11px;"></div>
+      <div class="skel-line" style="width:50%;height:8px;"></div>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;padding-top:14px;">
+        <div class="skel-line" style="width:45%;height:13px;margin:0;"></div>
+        <div class="skel-line" style="width:26px;height:26px;border-radius:50%;margin:0;"></div>
+      </div>
+    </div>`).join('');
+}
+
+/* =================================================================
+   BUILD FILTERS
+================================================================= */
+function buildFilters(products) {
+  const jenisList = [...new Set(products.map(p => p.JENIS).filter(Boolean))].sort();
+  const merkList  = [...new Set(products.map(p => p.MERK).filter(Boolean))].sort();
+
+  document.getElementById('jenisFilter').innerHTML =
+    pillHTML('Semua', '', true) + jenisList.map(j => pillHTML(j, j, false)).join('');
+
+  document.getElementById('merkFilter').innerHTML =
+    pillHTML('Semua', '', true) + merkList.map(m => pillHTML(m, m, false)).join('');
+}
+
+function pillHTML(label, value, active) {
+  return `<button class="pill${active ? ' active' : ''}" data-value="${esc(value)}">${esc(label)}</button>`;
+}
+
+/* =================================================================
+   FILTER EVENTS (delegation)
+================================================================= */
+document.getElementById('jenisFilter').addEventListener('click', e => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  activeJenis = pill.dataset.value;
+  activateOnly('jenisFilter', pill);
+  renderProducts();
+});
+
+document.getElementById('merkFilter').addEventListener('click', e => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  activeMerk = pill.dataset.value;
+  activateOnly('merkFilter', pill);
+  renderProducts();
+});
+
+function activateOnly(containerId, target) {
+  document.getElementById(containerId)
+    .querySelectorAll('.pill')
+    .forEach(p => p.classList.toggle('active', p === target));
+}
+
+/* =================================================================
+   SEARCH
+================================================================= */
+const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
+
+searchInput.addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchQ = searchInput.value.trim().toLowerCase();
+    searchClear.classList.toggle('show', searchQ.length > 0);
+    renderProducts();
+  }, 200);
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  searchQ = '';
+  searchClear.classList.remove('show');
+  renderProducts();
+  searchInput.focus();
+});
+
+/* =================================================================
+   RENDER PRODUCTS
+================================================================= */
+function getFiltered() {
+  return allProducts.filter(p => {
+    if (activeJenis && p.JENIS !== activeJenis) return false;
+    if (activeMerk  && p.MERK  !== activeMerk)  return false;
+    if (searchQ) {
+      const hay = ((p.NAMA || '') + ' ' + (p.MERK || '')).toLowerCase();
+      if (!hay.includes(searchQ)) return false;
+    }
+    return true;
+  });
+}
+
+function renderProducts() {
+  const filtered = getFiltered();
+  const grid = document.getElementById('productsGrid');
+  const meta = document.getElementById('productsMeta');
+
+  meta.textContent = allProducts.length
+    ? `Menampilkan ${filtered.length} dari ${allProducts.length} produk`
+    : 'Memuat produk...';
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="empty">
+      <div class="empty-icon">🔍</div>
+      <h3>Produk tidak ditemukan</h3>
+      <p>Coba kata kunci atau filter yang berbeda</p>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p => cardHTML(p)).join('');
+}
+
+/* =================================================================
+   CARD HTML
+================================================================= */
+function cardHTML(p) {
+  const habis = String(p.STATUS).toLowerCase() === 'habis';
+  const qty   = cart[p.ID]?.qty || 0;
+
+  let actions;
+  if (habis) {
+    actions = `<button class="btn-add" disabled>+</button>`;
+  } else if (qty > 0) {
+    actions = `<div class="qty-ctrl">
+      <button class="qty-btn minus" data-id="${esc(p.ID)}">−</button>
+      <span class="qty-num">${qty}</span>
+      <button class="qty-btn plus"  data-id="${esc(p.ID)}">+</button>
+    </div>`;
+  } else {
+    actions = `<button class="btn-add" data-id="${esc(p.ID)}">+</button>`;
+  }
+
+  return `<div class="card${habis ? ' habis' : ''}" id="card-${esc(p.ID)}">
+    ${habis ? '<span class="badge-habis">Habis</span>' : ''}
+    <div class="card-jenis">${esc(p.JENIS || '')}</div>
+    <div class="card-nama">${esc(p.NAMA || '')}</div>
+    <div class="card-merk">${esc(p.MERK || '')}</div>
+    <div class="card-foot">
+      <div class="card-harga">${formatRp(p.HARGA)}</div>
+      <div class="card-satuan">/ ${esc(p.SATUAN || 'pcs')}</div>
+      <div class="card-actions">${actions}</div>
+    </div>
+  </div>`;
+}
+
+/* =================================================================
+   GRID EVENTS (delegation)
+================================================================= */
+document.getElementById('productsGrid').addEventListener('click', e => {
+  const add   = e.target.closest('.btn-add:not([disabled])');
+  const minus = e.target.closest('.qty-btn.minus');
+  const plus  = e.target.closest('.qty-btn.plus');
+
+  if (add)   addToCart(add.dataset.id);
+  if (minus) removeFromCart(minus.dataset.id);
+  if (plus)  addToCart(plus.dataset.id);
+});
+
+/* =================================================================
+   CART ACTIONS
+================================================================= */
+function addToCart(id) {
+  const p = allProducts.find(x => x.ID === id);
+  if (!p || String(p.STATUS).toLowerCase() === 'habis') return;
+  cart[id] ? cart[id].qty++ : (cart[id] = { product: p, qty: 1 });
+  refreshCard(id);
+  updateCartBar();
+  toast('Ditambahkan ke keranjang ✓');
+}
+
+function removeFromCart(id) {
+  if (!cart[id]) return;
+  cart[id].qty--;
+  if (cart[id].qty <= 0) delete cart[id];
+  refreshCard(id);
+  updateCartBar();
+  if (document.getElementById('overlay').classList.contains('show')) renderCartModal();
+}
+
+function setQty(id, qty) {
+  const p = allProducts.find(x => x.ID === id);
+  if (!p) return;
+  if (qty <= 0) delete cart[id];
+  else cart[id] = cart[id] ? { ...cart[id], qty } : { product: p, qty };
+  refreshCard(id);
+  updateCartBar();
+  renderCartModal();
+}
+
+/* update only the card-actions area without re-rendering entire card */
+function refreshCard(id) {
+  const card = document.getElementById('card-' + id);
+  if (!card) return;
+  const p    = allProducts.find(x => x.ID === id);
+  if (!p || String(p.STATUS).toLowerCase() === 'habis') return;
+  const qty  = cart[id]?.qty || 0;
+  const area = card.querySelector('.card-actions');
+  if (!area) return;
+
+  if (qty > 0) {
+    area.innerHTML = `<div class="qty-ctrl">
+      <button class="qty-btn minus" data-id="${esc(id)}">−</button>
+      <span class="qty-num">${qty}</span>
+      <button class="qty-btn plus"  data-id="${esc(id)}">+</button>
+    </div>`;
+  } else {
+    area.innerHTML = `<button class="btn-add" data-id="${esc(id)}">+</button>`;
+  }
+}
+
+function updateCartBar() {
+  const items  = Object.values(cart);
+  const totalQ = items.reduce((s, i) => s + i.qty, 0);
+  const totalH = items.reduce((s, i) => s + i.product.HARGA * i.qty, 0);
+  document.getElementById('cartBadge').textContent    = totalQ;
+  document.getElementById('cartBarTotal').textContent = formatRp(totalH);
+  document.getElementById('cartBar').classList.toggle('show', totalQ > 0);
+}
+
+/* =================================================================
+   MODAL
+================================================================= */
+document.getElementById('cartBarBtn').addEventListener('click', openModal);
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('overlay')) closeModal();
+});
+
+function openModal() {
+  renderCartModal();
+  document.getElementById('overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function renderCartModal() {
+  const items = Object.values(cart);
+  const total = items.reduce((s, i) => s + i.product.HARGA * i.qty, 0);
+
+  document.getElementById('cartList').innerHTML = items.map(i => `
+    <div class="cart-item">
+      <div class="ci-info">
+        <div class="ci-name">${esc(i.product.NAMA)}</div>
+        <div class="ci-sub">${esc(i.product.MERK)} · ${formatRp(i.product.HARGA)} / ${esc(i.product.SATUAN)}</div>
+      </div>
+      <div class="ci-ctrl">
+        <button class="ci-btn" data-cid="${esc(i.product.ID)}" data-dir="-1">−</button>
+        <span class="ci-qty">${i.qty}</span>
+        <button class="ci-btn" data-cid="${esc(i.product.ID)}" data-dir="1">+</button>
+      </div>
+      <div class="ci-total">${formatRp(i.product.HARGA * i.qty)}</div>
+    </div>`).join('');
+
+  document.getElementById('modalTotal').textContent = formatRp(total);
+}
+
+document.getElementById('cartList').addEventListener('click', e => {
+  const btn = e.target.closest('.ci-btn');
+  if (!btn) return;
+  setQty(btn.dataset.cid, (cart[btn.dataset.cid]?.qty || 0) + parseInt(btn.dataset.dir, 10));
+});
+
+/* =================================================================
+   SUBMIT ORDER
+================================================================= */
+document.getElementById('btnCheckout').addEventListener('click', submitOrder);
+
+function submitOrder() {
+  const nama    = document.getElementById('fNama').value.trim();
+  const metode  = document.getElementById('fMetode').value;
+  const catatan = document.getElementById('fCatatan').value.trim();
+
+  if (!nama) { toast('Nama tidak boleh kosong'); return; }
+
+  const items = Object.values(cart);
+  if (!items.length) { toast('Keranjang masih kosong'); return; }
+
+  const orderId    = 'ORD-' + Date.now().toString().slice(-6);
+  const total      = items.reduce((s, i) => s + i.product.HARGA * i.qty, 0);
+  const itemsText  = items.map(i => `- ${i.product.NAMA} x${i.qty} = ${formatRp(i.product.HARGA * i.qty)}`).join('\n');
+  const itemsSheet = items.map(i => `${i.product.NAMA} x${i.qty}`).join(', ');
+
+  /* Kirim ke Google Sheets */
+  fetch(CFG.appsScriptUrl + '?orderId=' + encodeURIComponent(orderId), {
+    method: 'POST',
+    mode:   'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify({ nama, items: itemsSheet, total, catatan: `[${metode}] ${catatan}` }),
+  }).catch(() => {});
+
+  /* Pesan WhatsApp */
+  const lines = [
+    `*Order Online — ${CFG.apotekName}*`,
+    `Order ID: ${orderId}`,
+    ``,
+    `*Pesanan:*`,
+    itemsText,
+    ``,
+    `*Total: ${formatRp(total)}*`,
+    ``,
+    `Pengambilan : ${metode}`,
+    `Nama        : ${nama}`,
+  ];
+  if (catatan) lines.push(`Catatan     : ${catatan}`);
+
+  window.open(
+    `https://wa.me/${CFG.waNumber}?text=${encodeURIComponent(lines.join('\n'))}`,
+    '_blank'
+  );
+
+  /* Reset */
+  cart = {};
+  updateCartBar();
+  closeModal();
+  renderProducts();
+  toast('Pesanan berhasil dikirim!');
+}
+
+/* =================================================================
+   UTILS
+================================================================= */
+function formatRp(n) {
+  return 'Rp ' + Number(n || 0).toLocaleString('id-ID');
+}
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+}
+</script>
+</body>
+</html>
