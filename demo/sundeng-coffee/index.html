@@ -221,6 +221,28 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* ITEM VARIANT OPTIONS INSIDE CARD (PERPUS.CAFE STYLE) */
+  .card-opts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+    background: var(--paper);
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid #e8e2d5;
+  }
+  .card-opt-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 4px;
+  }
+  .card-opt-label { font-size: 10.5px; font-weight: 700; color: var(--muted); }
+  .card-opt-select {
+    font-size: 11px; font-weight: 700; font-family: inherit;
+    border: 1px solid #dcd3c5; border-radius: 6px; padding: 3px 6px;
+    background: #fff; color: var(--green-dark); outline: none; cursor: pointer;
+  }
+
   .card-price {
     font-size: 14px;
     font-weight: 800;
@@ -311,8 +333,9 @@
     padding: 12px; background: var(--paper); border-radius: 12px; border: 1px solid #e8e2d5; gap: 12px;
   }
   .cart-item-info { flex: 1; }
-  .cart-item-name { font-weight: 800; font-size: 0.9rem; color: var(--green-dark); }
-  .cart-item-price { font-size: 0.82rem; color: var(--green-mid); font-weight: 800; }
+  .cart-item-name { font-weight: 800; font-size: 0.88rem; color: var(--green-dark); line-height: 1.3; }
+  .cart-item-variant { font-size: 0.75rem; color: var(--muted); font-weight: 600; margin-top: 2px; }
+  .cart-item-price { font-size: 0.82rem; color: var(--green-mid); font-weight: 800; margin-top: 3px; }
   
   .cart-qty-ctrl { display: flex; align-items: center; gap: 6px; }
   .btn-qty {
@@ -320,6 +343,19 @@
     background: #fff; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center;
   }
   .qty-num { font-weight: 800; font-size: 0.88rem; min-width: 18px; text-align: center; }
+
+  /* ORDER TYPE BUTTONS (PERPUS.CAFE STYLE) */
+  .order-type-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px;
+  }
+  .ot-btn {
+    border: 1px solid #dcd3c5; background: #fff; color: var(--green-dark);
+    padding: 8px 4px; border-radius: 8px; font-size: 11px; font-weight: 800;
+    cursor: pointer; text-align: center; transition: all 0.2s ease;
+  }
+  .ot-btn.active {
+    background: var(--green-dark); color: var(--gold); border-color: var(--green-dark);
+  }
 
   .cart-form-box { background: var(--paper); padding: 16px; border-radius: 14px; border: 1px solid #e8e2d5; }
   .form-group-cart { margin-bottom: 12px; }
@@ -423,9 +459,26 @@
         <div class="card-body">
           <div class="card-name">Es Kopi Sundeng Aren Signature</div>
           <div class="card-desc">Espresso ganda, susu murni creamy, gula aren asli khas Sundeng.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-c1">
+                <option value="Ice">🧊 Ice</option>
+                <option value="Hot">☕ Hot</option>
+              </select>
+            </div>
+            <div class="card-opt-row">
+              <span class="card-opt-label">Gula:</span>
+              <select class="card-opt-select" id="sugar-c1">
+                <option value="Normal Sugar">🍬 Normal</option>
+                <option value="Less Sugar">🍯 Less</option>
+                <option value="No Sugar">☕ No Sugar</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 18.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('c1', 'Es Kopi Sundeng Aren Signature', 18000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('c1', 'Es Kopi Sundeng Aren Signature', 18000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -438,9 +491,26 @@
         <div class="card-body">
           <div class="card-name">Es Kopi Susu Creamy</div>
           <div class="card-desc">Espresso lembut dipadu susu kental gurih manis pas di lidah.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-c2">
+                <option value="Ice">🧊 Ice</option>
+                <option value="Hot">☕ Hot</option>
+              </select>
+            </div>
+            <div class="card-opt-row">
+              <span class="card-opt-label">Gula:</span>
+              <select class="card-opt-select" id="sugar-c2">
+                <option value="Normal Sugar">🍬 Normal</option>
+                <option value="Less Sugar">🍯 Less</option>
+                <option value="No Sugar">☕ No Sugar</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 18.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('c2', 'Es Kopi Susu Creamy', 18000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('c2', 'Es Kopi Susu Creamy', 18000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -454,9 +524,25 @@
         <div class="card-body">
           <div class="card-name">Kopi Sundeng Pandan Cream</div>
           <div class="card-desc">Seduhan espresso wangi aroma pandan alami disiram cream gurih.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-c5">
+                <option value="Ice">🧊 Ice</option>
+                <option value="Hot">☕ Hot</option>
+              </select>
+            </div>
+            <div class="card-opt-row">
+              <span class="card-opt-label">Gula:</span>
+              <select class="card-opt-select" id="sugar-c5">
+                <option value="Normal Sugar">🍬 Normal</option>
+                <option value="Less Sugar">🍯 Less</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 20.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('c5', 'Kopi Sundeng Pandan Cream', 20000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('c5', 'Kopi Sundeng Pandan Cream', 20000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -469,9 +555,24 @@
         <div class="card-body">
           <div class="card-name">Kopi Sundeng Avocado Cream</div>
           <div class="card-desc">Espresso kental disajikan dengan jus alpukat lembut &amp; es krim.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-c6">
+                <option value="Ice">🧊 Ice</option>
+              </select>
+            </div>
+            <div class="card-opt-row">
+              <span class="card-opt-label">Gula:</span>
+              <select class="card-opt-select" id="sugar-c6">
+                <option value="Normal Sugar">🍬 Normal</option>
+                <option value="Less Sugar">🍯 Less</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 22.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('c6', 'Kopi Sundeng Avocado Cream', 22000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('c6', 'Kopi Sundeng Avocado Cream', 22000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -484,9 +585,18 @@
         <div class="card-body">
           <div class="card-name">Americano Cold Brew</div>
           <div class="card-desc">Kopi hitam dingin segar tanpa gula, aroma fruity &amp; nutty Arabika.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-c3">
+                <option value="Ice">🧊 Ice</option>
+                <option value="Hot">☕ Hot</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 15.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('c3', 'Americano Cold Brew', 15000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('c3', 'Americano Cold Brew', 15000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -499,9 +609,18 @@
         <div class="card-body">
           <div class="card-name">Cappuccino Warm Foam / Ice</div>
           <div class="card-desc">Espresso kental dengan busa susu tebal lembut &amp; taburan cokelat.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-c7">
+                <option value="Hot">☕ Hot</option>
+                <option value="Ice">🧊 Ice</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 20.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('c7', 'Cappuccino Warm Foam / Ice', 20000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('c7', 'Cappuccino Warm Foam', 20000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -514,9 +633,18 @@
         <div class="card-body">
           <div class="card-name">Caffè Latte / Flat White</div>
           <div class="card-desc">Perpaduan espresso halus dan susu steamed silky yang lembut.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-c8">
+                <option value="Hot">☕ Hot</option>
+                <option value="Ice">🧊 Ice</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 20.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('c8', 'Caffè Latte / Flat White', 20000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('c8', 'Caffè Latte / Flat White', 20000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -529,9 +657,18 @@
         <div class="card-body">
           <div class="card-name">Caramel Macchiato</div>
           <div class="card-desc">Espresso disiram sirup vanila &amp; saus karamel lezat di atasnya.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-c9">
+                <option value="Ice">🧊 Ice</option>
+                <option value="Hot">☕ Hot</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 22.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('c9', 'Caramel Macchiato', 22000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('c9', 'Caramel Macchiato', 22000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -551,9 +688,19 @@
         <div class="card-body">
           <div class="card-name">Manual Brew V60 Single Origin</div>
           <div class="card-desc">Filter V60 biji kopi nusantara pilihan (Gayo/Toraja/Kintamani).</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Beans:</span>
+              <select class="card-opt-select" id="temp-m1">
+                <option value="Gayo Arabica">Gayo Arabica</option>
+                <option value="Toraja Kalosi">Toraja Kalosi</option>
+                <option value="Kintamani Bali">Kintamani Bali</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 22.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('m1', 'Manual Brew V60 Single Origin', 22000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('m1', 'Manual Brew V60 Single Origin', 22000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -568,7 +715,7 @@
           <div class="card-desc">Seduhan filter drip langsung di atas es batu, rasa segar &amp; acidity pas.</div>
           <div class="card-price">Rp 23.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('m2', 'Japanese Drip Ice Coffee', 23000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('m2', 'Japanese Drip Ice Coffee', 23000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -583,7 +730,7 @@
           <div class="card-desc">Kopi seduh tradisional hitam pekat aromatik khas nusantara.</div>
           <div class="card-price">Rp 12.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('m3', 'Kopi Tubruk Premium Arabika', 12000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('m3', 'Kopi Tubruk Premium Arabika', 12000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -603,9 +750,25 @@
         <div class="card-body">
           <div class="card-name">Matcha Latte Premium</div>
           <div class="card-desc">Matcha jepang asli dipadu susu segar manis menenangkan.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-n1">
+                <option value="Ice">🧊 Ice</option>
+                <option value="Hot">☕ Hot</option>
+              </select>
+            </div>
+            <div class="card-opt-row">
+              <span class="card-opt-label">Gula:</span>
+              <select class="card-opt-select" id="sugar-n1">
+                <option value="Normal Sugar">🍬 Normal</option>
+                <option value="Less Sugar">🍯 Less</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 20.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('n1', 'Matcha Latte Premium', 20000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('n1', 'Matcha Latte Premium', 20000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -618,9 +781,18 @@
         <div class="card-body">
           <div class="card-name">Ice Chocolate Rich Creamy</div>
           <div class="card-desc">Cokelat pekat kental diseduh susu murni manis legit.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-n2">
+                <option value="Ice">🧊 Ice</option>
+                <option value="Hot">☕ Hot</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 18.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('n2', 'Ice Chocolate Rich Creamy', 18000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('n2', 'Ice Chocolate Rich Creamy', 18000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -633,9 +805,18 @@
         <div class="card-body">
           <div class="card-name">Red Velvet Latte</div>
           <div class="card-desc">Minuman manis rasa kue red velvet gurih dipadu susu segar.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-n3">
+                <option value="Ice">🧊 Ice</option>
+                <option value="Hot">☕ Hot</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 20.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('n3', 'Red Velvet Latte', 20000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('n3', 'Red Velvet Latte', 20000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -648,9 +829,17 @@
         <div class="card-body">
           <div class="card-name">Taro Velvet Cream</div>
           <div class="card-desc">Rasa talas ungu manis khas dipadu susu murni &amp; cream gurih.</div>
+          <div class="card-opts">
+            <div class="card-opt-row">
+              <span class="card-opt-label">Suhu:</span>
+              <select class="card-opt-select" id="temp-n4">
+                <option value="Ice">🧊 Ice</option>
+              </select>
+            </div>
+          </div>
           <div class="card-price">Rp 20.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('n4', 'Taro Velvet Cream', 20000)">+ Tambah</button>
+            <button class="add-btn" onclick="addDrinkToCart('n4', 'Taro Velvet Cream', 20000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -665,7 +854,7 @@
           <div class="card-desc">Teh segar dingin perasan sari buah lemon asli pembunuh dahaga.</div>
           <div class="card-price">Rp 12.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('n5', 'Es Lemon Tea Segar', 12000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('n5', 'Es Lemon Tea Segar', 12000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -680,14 +869,14 @@
           <div class="card-desc">Teh manis wangi rasa buah lici manis segar lengkap buah lici.</div>
           <div class="card-price">Rp 15.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('n6', 'Lychee Tea Ice', 15000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('n6', 'Lychee Tea Ice', 15000)">+ Tambah</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 4. KATEGORI SNACK, TOAST & PASTRY -->
+  <!-- 4. KATEGORI SNACK, TOAST & PASTRY (TANPA OPTION KOPI) -->
   <div class="menu-sec" data-cat="snack">
     <div class="section-title">🥐 Snack, Toast &amp; Pastry</div>
     <div class="grid">
@@ -702,7 +891,7 @@
           <div class="card-desc">Roti tebal panggang mentega wangi, meses &amp; keju melimpah.</div>
           <div class="card-price">Rp 15.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('s1', 'Roti Bakar Cokelat Keju', 15000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('s1', 'Roti Bakar Cokelat Keju', 15000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -717,7 +906,7 @@
           <div class="card-desc">Roti panggang mentega hangat dengan olesan selai srikaya legendaris.</div>
           <div class="card-price">Rp 15.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('s4', 'Roti Bakar Srikaya Butter', 15000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('s4', 'Roti Bakar Srikaya Butter', 15000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -732,7 +921,7 @@
           <div class="card-desc">Pastry renyah gurih berlapis mentega hangat ala perancis.</div>
           <div class="card-price">Rp 18.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('s2', 'Croissant Butter Flaky', 18000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('s2', 'Croissant Butter Flaky', 18000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -747,7 +936,7 @@
           <div class="card-desc">Kentang goreng garing krispi gurih + saus sambal &amp; mayones.</div>
           <div class="card-price">Rp 14.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('s3', 'French Fries Potato Basket', 14000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('s3', 'French Fries Potato Basket', 14000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -762,7 +951,7 @@
           <div class="card-desc">Cireng goreng krispi kenyal disajikan bumbu rujak pedas manis.</div>
           <div class="card-price">Rp 12.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('s5', 'Cireng Rujak Bumbu Pedas', 12000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('s5', 'Cireng Rujak Bumbu Pedas', 12000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -777,7 +966,7 @@
           <div class="card-desc">Cemilan kombinasi sosis panggang &amp; nugget ayam goreng garing.</div>
           <div class="card-price">Rp 16.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('s6', 'Sosis &amp; Nugget Platter', 16000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('s6', 'Sosis &amp; Nugget Platter', 16000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -792,7 +981,7 @@
           <div class="card-desc">Singkong merekah gurih empuk ditaburi keju parut gurih.</div>
           <div class="card-price">Rp 13.000</div>
           <div class="card-footer">
-            <button class="add-btn" onclick="addToCart('s7', 'Singkong Goreng Keju', 13000)">+ Tambah</button>
+            <button class="add-btn" onclick="addFoodToCart('s7', 'Singkong Goreng Keju', 13000)">+ Tambah</button>
           </div>
         </div>
       </div>
@@ -879,6 +1068,7 @@
 <script>
   const WA_NUMBER = "6282266665507";
   let cart = {};
+  let orderType = "dinein";
 
   function filterCat(cat, btnEl) {
     const btns = document.querySelectorAll('#catNav button');
@@ -895,21 +1085,42 @@
     });
   }
 
-  function addToCart(id, name, price) {
+  function addDrinkToCart(id, baseName, price) {
+    const tempEl = document.getElementById(`temp-${id}`);
+    const sugarEl = document.getElementById(`sugar-${id}`);
+    
+    let variantParts = [];
+    if (tempEl) variantParts.push(tempEl.value);
+    if (sugarEl) variantParts.push(sugarEl.value);
+
+    const variantStr = variantParts.length > 0 ? variantParts.join(" | ") : "";
+    const cartKey = variantStr ? `${id}_${variantStr}` : id;
+    const fullName = variantStr ? `${baseName}` : baseName;
+
+    if (cart[cartKey]) {
+      cart[cartKey].qty += 1;
+    } else {
+      cart[cartKey] = { name: fullName, variant: variantStr, price: price, qty: 1 };
+    }
+    renderCart();
+    showToast(`✔ "${baseName}" (${variantStr || 'Standar'}) dimasukkan!`);
+  }
+
+  function addFoodToCart(id, name, price) {
     if (cart[id]) {
       cart[id].qty += 1;
     } else {
-      cart[id] = { name: name, price: price, qty: 1 };
+      cart[id] = { name: name, variant: "", price: price, qty: 1 };
     }
     renderCart();
     showToast(`✔ "${name}" dimasukkan ke keranjang!`);
   }
 
-  function changeQty(id, delta) {
-    if (!cart[id]) return;
-    cart[id].qty += delta;
-    if (cart[id].qty <= 0) {
-      delete cart[id];
+  function changeQty(key, delta) {
+    if (!cart[key]) return;
+    cart[key].qty += delta;
+    if (cart[key].qty <= 0) {
+      delete cart[key];
     }
     renderCart();
   }
@@ -922,9 +1133,9 @@
     let totalQty = 0;
     let totalPrice = 0;
 
-    keys.forEach(id => {
-      totalQty += cart[id].qty;
-      totalPrice += cart[id].price * cart[id].qty;
+    keys.forEach(k => {
+      totalQty += cart[k].qty;
+      totalPrice += cart[k].price * cart[k].qty;
     });
 
     if (keys.length === 0) {
@@ -942,19 +1153,20 @@
       <div style="display:flex; flex-direction:column; gap:10px;">
     `;
 
-    keys.forEach(id => {
-      const item = cart[id];
+    keys.forEach(k => {
+      const item = cart[k];
       const subtotal = item.price * item.qty;
       itemsHtml += `
         <div class="cart-item-row">
           <div class="cart-item-info">
             <div class="cart-item-name">${item.name}</div>
+            ${item.variant ? `<div class="cart-item-variant">⚙️ ${item.variant}</div>` : ''}
             <div class="cart-item-price">Rp ${subtotal.toLocaleString('id-ID')}</div>
           </div>
           <div class="cart-qty-ctrl">
-            <button class="btn-qty" onclick="changeQty('${id}', -1)">-</button>
+            <button class="btn-qty" onclick="changeQty('${k}', -1)">-</button>
             <span class="qty-num">${item.qty}</span>
-            <button class="btn-qty" onclick="changeQty('${id}', 1)">+</button>
+            <button class="btn-qty" onclick="changeQty('${k}', 1)">+</button>
           </div>
         </div>
       `;
@@ -964,43 +1176,25 @@
 
     const formHtml = `
       <div class="cart-form-box">
-        <div class="cart-section-title">📋 Data Pemesan &amp; Catatan Rasa</div>
+        <div class="cart-section-title">📋 Data Pemesan &amp; Metode Order</div>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.8rem; font-weight:800; color:var(--green-dark); display:block; margin-bottom:6px;">Pilihan Metode Pesanan:</label>
+          <div class="order-type-grid">
+            <button class="ot-btn active" id="ot-dinein" onclick="setOrderType('dinein')">☕ Dine In</button>
+            <button class="ot-btn" id="ot-takeaway" onclick="setOrderType('takeaway')">🛍️ Take Away</button>
+            <button class="ot-btn" id="ot-delivery" onclick="setOrderType('delivery')">🛵 Delivery</button>
+          </div>
+        </div>
 
         <div class="form-group-cart">
           <label>Nama Pemesan:</label>
-          <input type="text" class="cart-input" id="cartName" placeholder="Contoh: Kak Diki / Meja 5" required>
+          <input type="text" class="cart-input" id="cartName" placeholder="Contoh: Kak Zuhdi" required>
         </div>
 
-        <div class="form-group-cart">
-          <label>Tingkat Gula (Sugar Level):</label>
-          <select class="cart-select" id="cartSugar">
-            <option value="Normal Sugar (100%)">🍬 Normal Sugar (100% Manis Pas)</option>
-            <option value="Less Sugar (50%)">🍯 Less Sugar (50% Manis Tipis)</option>
-            <option value="No Sugar (0%)">☕ No Sugar (Tanpa Gula Alami Kopi)</option>
-          </select>
-        </div>
-
-        <div class="form-group-cart">
-          <label>Pilihan Es / Suhu:</label>
-          <select class="cart-select" id="cartIce">
-            <option value="Normal Ice">🧊 Normal Ice (Segar Dingin)</option>
-            <option value="Less Ice">💧 Less Ice (Sedikit Es)</option>
-            <option value="Hot Drink">☕ Hot Drink (Hangat Diseduh)</option>
-          </select>
-        </div>
-
-        <div class="form-group-cart">
-          <label>Metode Pesanan:</label>
-          <select class="cart-select" id="cartMethod">
-            <option value="Nongkrong di Tempat (Dine In)">☕ Nongkrong di Tempat (Dine In)</option>
-            <option value="Bungkus / Takeaway">🛍️ Bungkus / Takeaway</option>
-            <option value="Delivery Order WA">🛵 Kirim / Delivery Order WA</option>
-          </select>
-        </div>
-
-        <div class="form-group-cart">
-          <label>Alamat / Catatan Meja:</label>
-          <input type="text" class="cart-input" id="cartAddress" placeholder="Contoh: Meja Outdoor 3 / Jl. Melati No. 5" required>
+        <div class="form-group-cart" id="fieldNote">
+          <label id="labelNote">No. Meja / Catatan Tempat:</label>
+          <input type="text" class="cart-input" id="cartNote" placeholder="Contoh: Meja 4 / Outdoor 2" required>
         </div>
 
         <div class="cart-summary-box">
@@ -1020,6 +1214,26 @@
       bottomBar.classList.add("show");
       document.getElementById("bottomCartCount").innerText = `${totalQty} Menu Dipilih`;
       document.getElementById("bottomCartPrice").innerText = `Total: Rp ${totalPrice.toLocaleString('id-ID')}`;
+    }
+  }
+
+  function setOrderType(type) {
+    orderType = type;
+    document.querySelectorAll('.ot-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(`ot-${type}`).classList.add('active');
+
+    const labelNote = document.getElementById('labelNote');
+    const inputNote = document.getElementById('cartNote');
+
+    if (type === 'dinein') {
+      labelNote.innerText = "No. Meja / Area Duduk:";
+      inputNote.placeholder = "Contoh: Meja 4 / Indoor AC";
+    } else if (type === 'takeaway') {
+      labelNote.innerText = "Keterangan Jam Ambil (Takeaway):";
+      inputNote.placeholder = "Contoh: Diambil jam 19.30 WIB";
+    } else {
+      labelNote.innerText = "Alamat Pengiriman (Delivery):";
+      inputNote.placeholder = "Contoh: Jl. Soekarno Hatta No. 45, Malang";
     }
   }
 
@@ -1047,27 +1261,31 @@
       return;
     }
 
-    const name = document.getElementById("cartName").value;
-    const sugar = document.getElementById("cartSugar").value;
-    const ice = document.getElementById("cartIce").value;
-    const method = document.getElementById("cartMethod").value;
-    const address = document.getElementById("cartAddress").value;
+    const name = document.getElementById("cartName").value.trim();
+    const note = document.getElementById("cartNote").value.trim();
 
-    if (!name || !address) {
-      alert("Silakan lengkapi Nama Pemesan dan Alamat / Catatan Meja!");
+    if (!name || !note) {
+      alert("Silakan lengkapi Nama Pemesan dan No. Meja / Catatan!");
       return;
     }
 
-    let text = `*PESANAN KOPI & SNACK - SUNDENG COFFEE*\n\n`;
-    text += `*DATA PEMESAN:*\nNama: *${name}*\nMetode: *${method}*\nCatatan Rasa: *${sugar}* | *${ice}*\nAlamat / Catatan Meja: *${address}*\n\n`;
+    const typeTags = {
+      dinein: "☕ DINE-IN (MAKAN DI TEMPAT)",
+      takeaway: "🛍️ TAKE AWAY (BUNGKUS)",
+      delivery: "🛵 DELIVERY / KIRIM WA"
+    };
+
+    let text = `*PESANAN KOPI - SUNDENG COFFEE*\n`;
+    text += `*METODE: ${typeTags[orderType]}*\n\n`;
+    text += `*DATA PEMESAN:*\nNama: *${name}*\nCatatan / Lokasi: *${note}*\n\n`;
     text += `*DAFTAR MENU DIPILIH:*\n`;
 
     let totalPrice = 0;
-    keys.forEach((id, index) => {
-      const item = cart[id];
+    keys.forEach((k, index) => {
+      const item = cart[k];
       const subtotal = item.price * item.qty;
       totalPrice += subtotal;
-      text += `${index + 1}. *${item.name}* x${item.qty} = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+      text += `${index + 1}. *${item.name}* ${item.variant ? `(_${item.variant}_)` : ''} x${item.qty} = Rp ${subtotal.toLocaleString('id-ID')}\n`;
     });
 
     text += `----------------------------------\n`;
