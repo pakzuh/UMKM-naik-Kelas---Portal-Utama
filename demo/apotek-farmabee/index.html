@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apotek Farmabee — Sahabat Sehat Online Anda</title>
+  <meta name="description" content="Apotek Farmabee — Ramah, peduli, dan edukatif. Pesan obat online, konsultasi apoteker, sewa alkes, farmasi &amp; fisio homecare, gratis antar obat.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ====== RESET & VARIABLES ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:             #f8fafc;
+      --surface:        #ffffff;
+      --surface2:       #f1f5f9;
+      --border:         #e2e8f0;
+      --text:           #0f172a;
+      --text2:          #475569;
+      --text3:          #94a3b8;
+      --yellow-primary: #f59e0b;
+      --yellow-dark:    #d97706;
+      --yellow-light:   #fef3c7;
+      --green-primary:  #059669;
+      --green-dark:     #047857;
+      --green-light:    #d1fae5;
+      --navy-dark:      #0f172a;
+      --danger:         #dc2626;
+      --shadow-sm:      0 1px 2px rgba(0,0,0,.06);
+      --shadow:         0 4px 12px rgba(15,23,42,.08);
+      --shadow-md:      0 8px 24px rgba(15,23,42,.12);
+      --r:              14px;
+      --rsm:            10px;
+      --rxs:            6px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 100px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    button { font-family: inherit; cursor: pointer; }
+    input, select, textarea { font-family: inherit; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ====== HEADER & HERO FARMABEE ====== */
+    .site-header {
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #fef08a 100%);
+      color: var(--navy-dark);
+      padding: 24px 18px 26px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3.5px solid var(--green-primary);
+      box-shadow: 0 4px 20px rgba(245,158,11,0.25);
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-inner-box {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      background: rgba(255,255,255,0.92);
+      padding: 6px 18px 6px 10px;
+      border-radius: 50px;
+      border: 2px solid var(--navy-dark);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+
+    .logo-bee-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--navy-dark);
+      color: #fbbf24;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .header-brand-text {
+      text-align: left;
+    }
+    .header-brand-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      color: var(--navy-dark);
+      line-height: 1.1;
+    }
+    .header-brand-title span {
+      color: var(--yellow-dark);
+    }
+    .header-brand-motto {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .header-tagline-main {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #78350f;
+      margin-top: 4px;
+    }
+    .header-sub-tagline {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #92400e;
+      margin-top: 2px;
+    }
+
+    /* BADGES & GRATIS ANTAR */
+    .header-badges-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .badge-gratis-antar {
+      background: var(--green-primary);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 3px 10px rgba(5,150,105,0.3);
+    }
+
+    .badge-pill-soft {
+      background: rgba(255,255,255,0.85);
+      color: var(--navy-dark);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    /* QUICK ACTION BUTTONS */
+    .header-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn-action-resep {
+      background: var(--navy-dark);
+      color: #fbbf24;
+      font-weight: 800;
+      font-size: 0.84rem;
+      padding: 9px 18px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(15,23,42,0.25);
+      transition: transform 0.15s, background 0.15s;
+    }
+    .btn-action-resep:hover {
+      transform: translateY(-1px);
+      background: #1e293b;
+    }
+
+    .btn-action-konsul {
+      background: var(--green-primary);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.84rem;
+      padding: 9px 18px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(5,150,105,0.25);
+      transition: transform 0.15s;
+    }
+    .btn-action-konsul:hover {
+      transform: translateY(-1px);
+      background: var(--green-dark);
+    }
+
+    /* ====== 6 LAYANAN UTAMA SECTION ====== */
+    .services-sec {
+      max-width: 1080px;
+      margin: 18px auto 8px;
+      padding: 0 14px;
+    }
+    .services-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--navy-dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    @media(min-width: 640px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    }
+    @media(min-width: 900px) {
+      .services-grid { grid-template-columns: repeat(6, 1fr); gap: 10px; }
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--rsm);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .service-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--yellow-primary);
+      box-shadow: var(--shadow);
+    }
+    .service-icon {
+      font-size: 1.3rem;
+      background: var(--yellow-light);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .service-name {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--navy-dark);
+      line-height: 1.25;
+    }
+
+    /* ====== SEARCH WRAP ====== */
+    .search-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .search-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: .88rem;
+      pointer-events: none;
+      opacity: .5;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 9px 36px;
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      font-size: .86rem;
+      background: var(--surface2);
+      color: var(--text);
+      outline: none;
+      transition: border-color .15s;
+      -webkit-appearance: none;
+    }
+    #searchInput:focus { border-color: var(--yellow-dark); background: #fff; }
+    #searchInput::placeholder { color: var(--text3); }
+
+    .search-clear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text3);
+      font-size: .85rem;
+      cursor: pointer;
+      display: none;
+    }
+    .search-clear.show { display: block; }
+
+    /* ====== CATEGORY & MERK FILTERS ====== */
+    .filters-wrap {
+      max-width: 1080px;
+      margin: 12px auto 0;
+      padding: 0 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .filter-row::-webkit-scrollbar { display: none; }
+    .filter-label {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      padding: 4px 6px;
+      background: var(--surface2);
+      border-radius: 6px;
+    }
+    .filter-pills {
+      display: flex;
+      gap: 6px;
+    }
+    .pill {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text2);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .pill.active {
+      background: var(--navy-dark);
+      border-color: var(--navy-dark);
+      color: #fbbf24;
+      box-shadow: 0 2px 8px rgba(15,23,42,0.2);
+    }
+
+    /* ====== PRODUCTS SECTION ====== */
+    .products-wrap {
+      max-width: 1080px;
+      margin: 14px auto 0;
+      padding: 0 14px;
+    }
+    .products-meta {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text2);
+      margin-bottom: 12px;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media(min-width: 640px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    }
+    @media(min-width: 960px) {
+      .products-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--yellow-primary);
+    }
+
+    .card-top {
+      padding: 12px 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .card-jenis-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--surface2);
+      color: var(--text2);
+    }
+    .card-jenis-badge.alkes { background: var(--green-light); color: var(--green-dark); }
+    .card-jenis-badge.vitamin { background: var(--yellow-light); color: var(--yellow-dark); }
+    .card-status {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--green-primary);
+    }
+    .card-status.habis { color: var(--danger); }
+
+    .card-body {
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-merk {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .card-nama {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--navy-dark);
+      line-height: 1.35;
+      margin: 2px 0 4px;
+      min-height: 38px;
+    }
+    .card-satuan {
+      font-size: 0.72rem;
+      color: var(--text2);
+      margin-bottom: 8px;
+    }
+    .card-price {
+      font-size: 0.95rem;
+      font-weight: 900;
+      color: var(--green-primary);
+      margin-top: auto;
+      margin-bottom: 8px;
+    }
+
+    .card-btn {
+      width: 100%;
+      background: var(--navy-dark);
+      color: #fbbf24;
+      border: none;
+      border-radius: var(--rxs);
+      padding: 8px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.15s;
+    }
+    .card-btn:hover { background: #1e293b; }
+    .card-btn:disabled {
+      background: var(--surface2);
+      color: var(--text3);
+      cursor: not-allowed;
+    }
+
+    /* ====== CART BAR ====== */
+    .cart-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 10px 14px;
+      box-shadow: 0 -4px 16px rgba(0,0,0,.12);
+      display: none;
+    }
+    .cart-bar.show { display: block; }
+    .cart-bar-btn {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      background: var(--navy-dark);
+      color: #fbbf24;
+      border: 2px solid var(--yellow-primary);
+      border-radius: 30px;
+      padding: 12px 18px;
+      font-size: .88rem;
+      font-weight: 800;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.25);
+    }
+    .cart-bar-left { display: flex; align-items: center; gap: 8px; }
+    .cart-badge {
+      background: var(--yellow-primary);
+      color: var(--navy-dark);
+      border-radius: 12px;
+      padding: 1px 8px;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+    .cart-bar-total { font-weight: 900; font-size: .92rem; color: #fff; }
+
+    /* ====== MODAL OVERLAY ====== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(15,23,42,.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .overlay.show { display: flex; }
+
+    .modal {
+      background: #ffffff;
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      border-radius: 20px 20px 0 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.25);
+    }
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--surface2);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+    .modal-head h2 { font-size: 1.1rem; font-weight: 800; color: var(--navy-dark); }
+    .modal-close {
+      background: var(--surface2);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .cart-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+    .ci {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface2);
+      padding: 10px 12px;
+      border-radius: var(--rsm);
+      gap: 10px;
+    }
+    .ci-info { flex: 1; }
+    .ci-name { font-size: 0.85rem; font-weight: 800; color: var(--navy-dark); }
+    .ci-price { font-size: 0.78rem; color: var(--green-primary); font-weight: 700; }
+    .ci-ctrl { display: flex; align-items: center; gap: 6px; }
+    .ci-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ci-qty { font-size: 0.85rem; font-weight: 800; min-width: 18px; text-align: center; }
+
+    .total-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--yellow-light);
+      padding: 12px 14px;
+      border-radius: var(--rsm);
+      border: 1px solid #fde68a;
+      margin-bottom: 14px;
+    }
+    .total-label { font-size: 0.88rem; font-weight: 800; color: #92400e; }
+    .total-amount { font-size: 1.1rem; font-weight: 900; color: var(--navy-dark); }
+
+    .form-group { margin-bottom: 12px; }
+    .form-label { display: block; font-size: 0.78rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 4px; }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--rsm);
+      font-size: 0.85rem;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--yellow-dark);
+    }
+    .form-textarea { resize: vertical; min-height: 55px; }
+
+    .btn-wa {
+      width: 100%;
+      padding: 13px;
+      background: #25D366;
+      color: #fff;
+      border: none;
+      border-radius: var(--rsm);
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(37,211,102,0.35);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 88px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: rgba(15,23,42,.92);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: .8rem;
+      font-weight: 700;
+      z-index: 200;
+      opacity: 0;
+      transition: all .25s ease;
+      pointer-events: none;
+      border: 1px solid var(--yellow-primary);
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--navy-dark);
+      color: #cbd5e1;
+      padding: 36px 16px 24px;
+      margin-top: 36px;
+      border-top: 3.5px solid var(--yellow-primary);
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .footer-col h4 { font-size: 1.05rem; color: #fbbf24; margin-bottom: 10px; font-weight: 800; }
+    .footer-col p { font-size: 0.84rem; color: #94a3b8; line-height: 1.6; }
+    .footer-social-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .social-pill {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .social-pill:hover { background: var(--yellow-primary); color: var(--navy-dark); }
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      margin-top: 24px;
+      color: #64748b;
+      font-size: 0.78rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER HERO FARMABEE ===== -->
+<header class="site-header">
+  <div class="header-inner-box">
+    <!-- Logo Badge Hexagon Bee -->
+    <div class="brand-logo-wrap">
+      <div class="logo-bee-icon">🐝</div>
+      <div class="header-brand-text">
+        <div class="header-brand-title">APOTEK <span>FARMABEE</span></div>
+        <div class="header-brand-motto">Ramah, Peduli, &amp; Edukatif</div>
+      </div>
+    </div>
+
+    <div class="header-tagline-main">Sahabat Sehat Online Anda</div>
+    <div class="header-sub-tagline">Pesan Obat Mudah, Konsultasi Apoteker &amp; Layanan Homecare Terbaik</div>
+
+    <!-- Badges -->
+    <div class="header-badges-wrap">
+      <span class="badge-gratis-antar">🛵 GRATIS ANTAR OBAT*</span>
+      <span class="badge-pill-soft">👨‍⚕️ Praktek Apoteker Standby</span>
+      <span class="badge-pill-soft">🛡️ 100% Produk Asli &amp; BPOM</span>
+      <span class="badge-pill-soft">⏰ Buka Setiap Hari</span>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="header-actions-row">
+      <a href="https://wa.me/6285736699198?text=Halo%20Apotek%20Farmabee,%20saya%20mau%20tebus%20resep%20dokter" target="_blank" rel="noopener" class="btn-action-resep">
+        📄 Kirim Foto Resep via WA ↗
+      </a>
+      <a href="https://wa.me/6285736699198?text=Halo%20Apotek%20Farmabee,%20saya%20mau%20konsultasi%20obat" target="_blank" rel="noopener" class="btn-action-konsul">
+        💬 Konsultasi Obat via WA ↗
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 6 LAYANAN UTAMA FARMABEE ===== -->
+<section class="services-sec">
+  <div class="services-title">🐝 Layanan Unggulan Apotek Farmabee:</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">👨‍⚕️</div>
+      <div class="service-name">Praktek Apoteker</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💬</div>
+      <div class="service-name">Konsultasi Obat via WA</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <div class="service-name">Pesan Obat via WA</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🩺</div>
+      <div class="service-name">Sewa Alkes</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <div class="service-name">Farmasi Homecare</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💆</div>
+      <div class="service-name">Fisio Homecare</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEARCH ===== -->
+<div class="search-wrap">
+  <div class="search-inner">
+    <span class="search-icon">🔍</span>
+    <input type="search" id="searchInput"
+      placeholder="Cari obat, vitamin, alkes, atau layanan..."
+      autocomplete="off" autocorrect="off" spellcheck="false">
+    <button class="search-clear" id="searchClear" aria-label="Hapus">✕</button>
+  </div>
+</div>
+
+<!-- ===== CATEGORY & MERK FILTERS ===== -->
+<div class="filters-wrap">
+  <div class="filter-row">
+    <span class="filter-label">Kategori</span>
+    <div class="filter-pills" id="jenisFilter"></div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">Merk</span>
+    <div class="filter-pills" id="merkFilter"></div>
+  </div>
+</div>
+
+<!-- ===== PRODUCTS SECTION ===== -->
+<div class="products-wrap">
+  <div class="products-meta" id="productsMeta">Memuat produk &amp; layanan...</div>
+  <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<!-- ===== CART BAR ===== -->
+<div class="cart-bar" id="cartBar">
+  <button class="cart-bar-btn" id="cartBarBtn">
+    <div class="cart-bar-left">
+      <span>🛒</span>
+      <span class="cart-badge" id="cartBadge">0</span>
+      <span>Lihat Keranjang Pesanan</span>
+    </div>
+    <span class="cart-bar-total" id="cartBarTotal">Rp 0</span>
+  </button>
+</div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <h2>Keranjang Belanja Obat</h2>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+
+    <div class="cart-list" id="cartList"></div>
+
+    <div class="total-row">
+      <span class="total-label">Total Belanja</span>
+      <span class="total-amount" id="modalTotal">Rp 0</span>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Nama Pemesan *</label>
+      <input type="text" class="form-input" id="fNama" placeholder="Nama lengkap Anda">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Metode Layanan / Pengambilan</label>
+      <select class="form-select" id="fMetode">
+        <option value="Gratis Antar ke Rumah">🛵 Gratis Antar ke Rumah</option>
+        <option value="Ambil Sendiri di Apotek">🏪 Ambil Sendiri di Apotek Farmabee</option>
+        <option value="Booking Homecare">🏠 Booking Kunjungan Homecare</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Alamat / Catatan Tambahan</label>
+      <textarea class="form-textarea" id="fCatatan"
+        placeholder="Alamat pengantaran obat, catatan resep, keluhan, dll."></textarea>
+    </div>
+
+    <button class="btn-wa" id="btnCheckout">
+      <span>💬</span>
+      <span>Kirim Pesanan via WhatsApp</span>
+    </button>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Apotek Farmabee</h4>
+      <p>Ramah, peduli, dan edukatif. Sahabat sehat online Anda untuk pemesanan obat bebas, resep dokter, sewa alkes, serta layanan farmasi &amp; fisio homecare terpercaya.</p>
+      <div class="footer-social-links">
+        <span class="social-pill">🎵 TikTok: @apotekfarmabee</span>
+        <span class="social-pill">📸 IG: @apotekfarmabee</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak &amp; Layanan</h4>
+      <p>
+        🛵 Gratis Antar Obat Langsung ke Rumah<br>
+        👨‍⚕️ Konsultasi Obat &amp; Apoteker Standby<br>
+        💬 WhatsApp Order: 0857-3669-9198<br>
+        📞 Hotline Apotek: 08233-405-1313
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Apotek Farmabee • Powered by <a href="https://rakyat.space" style="color:#fbbf24">rakyat.space</a> — Portal Website UMKM Indonesia.
+  </div>
+</footer>
+
+<script>
+/* =================================================================
+   CONFIG
+================================================================= */
+const CFG = {
+  appsScriptUrl: 'https://script.google.com/macros/s/GANTI_DEPLOYMENT_ID/exec',
+  waNumber:      '6285736699198',
+  apotekName:    'Apotek Farmabee',
+};
+
+/* =================================================================
+   STATE
+================================================================= */
+let allProducts = [];
+let cart        = {};
+let activeJenis = '';
+let activeMerk  = '';
+let searchQ     = '';
+let searchTimer = null;
+
+/* =================================================================
+   SAMPLE DATA — LENGKAP DENGAN SEWA ALKES & HOMECARE
+================================================================= */
+const SAMPLE = [
+  // 1. OBAT BEBAS & FLU
+  { ID:'OBB-01', JENIS:'Obat Bebas',         MERK:'Panadol',    NAMA:'Panadol Extra 500mg',              SATUAN:'Strip 10',  HARGA:15000,  STATUS:'Tersedia' },
+  { ID:'OBB-02', JENIS:'Obat Bebas',         MERK:'Bodrex',     NAMA:'Bodrex Extra Kaplet',              SATUAN:'Strip 4',   HARGA:8000,   STATUS:'Tersedia' },
+  { ID:'OBB-03', JENIS:'Obat Bebas',         MERK:'Tolak Angin',NAMA:'Tolak Angin Cair Herbal',          SATUAN:'Box 12',    HARGA:46000,  STATUS:'Tersedia' },
+  { ID:'OBB-04', JENIS:'Obat Bebas',         MERK:'Antangin',   NAMA:'Antangin JRG Cair Mint',           SATUAN:'Sachet',    HARGA:4500,   STATUS:'Tersedia' },
+  { ID:'OBB-05', JENIS:'Obat Bebas',         MERK:'Woods',      NAMA:"Wood's Peppermint Antitussive 60ml",SATUAN:'Botol',   HARGA:24000,  STATUS:'Tersedia' },
+  { ID:'OBB-06', JENIS:'Obat Bebas',         MERK:'Betadine',   NAMA:'Betadine Antiseptic Solution 30ml',SATUAN:'Botol',     HARGA:18500,  STATUS:'Tersedia' },
+  
+  // 2. VITAMIN & SUPLEMEN (HERBAL & MADU)
+  { ID:'VIT-01', JENIS:'Vitamin & Imunitas', MERK:'Farmabee',   NAMA:'Madu Murni Alami Farmabee 500g',   SATUAN:'Botol',     HARGA:85000,  STATUS:'Tersedia' },
+  { ID:'VIT-02', JENIS:'Vitamin & Imunitas', MERK:'Farmabee',   NAMA:'Bee Pollen Super Immune 250g',     SATUAN:'Botol',     HARGA:95000,  STATUS:'Tersedia' },
+  { ID:'VIT-03', JENIS:'Vitamin & Imunitas', MERK:'Enervon-C',  NAMA:'Enervon-C Multivitamin 30 Tablet', SATUAN:'Btl 30',    HARGA:55000,  STATUS:'Tersedia' },
+  { ID:'VIT-04', JENIS:'Vitamin & Imunitas', MERK:'Blackmores', NAMA:'Blackmores Vitamin C 1000mg Bio C',SATUAN:'Btl 60',   HARGA:145000, STATUS:'Tersedia' },
+  { ID:'VIT-05', JENIS:'Vitamin & Imunitas', MERK:'Kirkland',   NAMA:'Kirkland Vitamin D3 2000 IU',      SATUAN:'Btl 100',   HARGA:125000, STATUS:'Tersedia' },
+  { ID:'VIT-06', JENIS:'Vitamin & Imunitas', MERK:'Redoxon',    NAMA:'Redoxon Triple Action Effervescent',SATUAN:'Tube 10',  HARGA:48000,  STATUS:'Tersedia' },
+
+  // 3. SEWA & BELI ALAT KESEHATAN (ALKES)
+  { ID:'ALK-01', JENIS:'Sewa & Beli Alkes',  MERK:'Farmabee',   NAMA:'[SEWA] Kursi Roda Standar Medis',  SATUAN:'Bulan',     HARGA:150000, STATUS:'Tersedia' },
+  { ID:'ALK-02', JENIS:'Sewa & Beli Alkes',  MERK:'Farmabee',   NAMA:'[SEWA] Tabung Oksigen 1m3 Lengkap',SATUAN:'Bulan',     HARGA:200000, STATUS:'Tersedia' },
+  { ID:'ALK-03', JENIS:'Sewa & Beli Alkes',  MERK:'Omron',      NAMA:'Tensimeter Digital Omron HEM-7120',SATUAN:'Unit',      HARGA:385000, STATUS:'Tersedia' },
+  { ID:'ALK-04', JENIS:'Sewa & Beli Alkes',  MERK:'GEA',        NAMA:'Nebulizer Compressor Mesin Uap',   SATUAN:'Unit',      HARGA:450000, STATUS:'Tersedia' },
+  { ID:'ALK-05', JENIS:'Sewa & Beli Alkes',  MERK:'OneMed',     NAMA:'Termometer Digital Infrared',      SATUAN:'Unit',      HARGA:65000,  STATUS:'Tersedia' },
+  { ID:'ALK-06', JENIS:'Sewa & Beli Alkes',  MERK:'OneMed',     NAMA:'Masker Medis 3-Ply Earloop',       SATUAN:'Box 50',    HARGA:35000,  STATUS:'Tersedia' },
+
+  // 4. LAYANAN HOMECARE
+  { ID:'HMC-01', JENIS:'Layanan Homecare',   MERK:'Farmabee',   NAMA:'Paket Kunjungan Farmasi Homecare', SATUAN:'1 Sesi',    HARGA:75000,  STATUS:'Tersedia' },
+  { ID:'HMC-02', JENIS:'Layanan Homecare',   MERK:'Farmabee',   NAMA:'Paket Terapi Fisio Homecare Rumah',SATUAN:'1 Sesi',    HARGA:120000, STATUS:'Tersedia' },
+
+  // 5. OBAT RESEP & GENERIK
+  { ID:'OBK-01', JENIS:'Resep & Generik',    MERK:'Generik',    NAMA:'Amoxicillin Trihydrate 500mg',     SATUAN:'Strip 10',  HARGA:14000,  STATUS:'Tersedia' },
+  { ID:'OBK-02', JENIS:'Resep & Generik',    MERK:'Generik',    NAMA:'Metformin HCl 500mg',              SATUAN:'Strip 10',  HARGA:12000,  STATUS:'Tersedia' },
+  { ID:'OBK-03', JENIS:'Resep & Generik',    MERK:'Generik',    NAMA:'Amlodipine Besylate 10mg',         SATUAN:'Strip 10',  HARGA:15000,  STATUS:'Tersedia' },
+  { ID:'OBK-04', JENIS:'Resep & Generik',    MERK:'Sanbe',      NAMA:'Omeprazole 20mg Kapsul',           SATUAN:'Strip 10',  HARGA:16500,  STATUS:'Tersedia' },
+
+  // 6. IBU & ANAK
+  { ID:'IBA-01', JENIS:'Ibu & Anak',         MERK:'Tempra',     NAMA:'Tempra Paracetamol Drop Anak 15ml',SATUAN:'Botol',     HARGA:54000,  STATUS:'Tersedia' },
+  { ID:'IBA-02', JENIS:'Ibu & Anak',         MERK:'Sanmol',     NAMA:'Sanmol Forte Sirup Demam Anak',    SATUAN:'Botol',     HARGA:24000,  STATUS:'Tersedia' },
+  { ID:'IBA-03', JENIS:'Ibu & Anak',         MERK:'Cussons',    NAMA:'Minyak Telon Plus Lavender 60ml',  SATUAN:'Botol',     HARGA:22000,  STATUS:'Tersedia' },
+];
+
+/* =================================================================
+   INIT
+================================================================= */
+allProducts = SAMPLE;
+buildFilters(allProducts);
+renderProducts();
+
+/* =================================================================
+   BUILD FILTERS
+================================================================= */
+function buildFilters(products) {
+  const jenisList = [...new Set(products.map(p => p.JENIS).filter(Boolean))].sort();
+  const merkList  = [...new Set(products.map(p => p.MERK).filter(Boolean))].sort();
+
+  document.getElementById('jenisFilter').innerHTML =
+    pillHTML('Semua', '', true) + jenisList.map(j => pillHTML(j, j, false)).join('');
+
+  document.getElementById('merkFilter').innerHTML =
+    pillHTML('Semua', '', true) + merkList.map(m => pillHTML(m, m, false)).join('');
+}
+
+function pillHTML(label, value, active) {
+  return `<button class="pill${active ? ' active' : ''}" data-value="${esc(value)}">${esc(label)}</button>`;
+}
+
+/* =================================================================
+   FILTER EVENTS
+================================================================= */
+document.getElementById('jenisFilter').addEventListener('click', e => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  activeJenis = pill.dataset.value;
+  activateOnly('jenisFilter', pill);
+  renderProducts();
+});
+
+document.getElementById('merkFilter').addEventListener('click', e => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  activeMerk = pill.dataset.value;
+  activateOnly('merkFilter', pill);
+  renderProducts();
+});
+
+function activateOnly(containerId, target) {
+  document.getElementById(containerId)
+    .querySelectorAll('.pill')
+    .forEach(p => p.classList.toggle('active', p === target));
+}
+
+/* =================================================================
+   SEARCH
+================================================================= */
+const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
+
+searchInput.addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchQ = searchInput.value.trim().toLowerCase();
+    searchClear.classList.toggle('show', searchQ.length > 0);
+    renderProducts();
+  }, 200);
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  searchQ = '';
+  searchClear.classList.remove('show');
+  renderProducts();
+});
+
+/* =================================================================
+   RENDER PRODUCTS
+================================================================= */
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  const meta = document.getElementById('productsMeta');
+
+  let list = allProducts;
+
+  if (activeJenis) list = list.filter(p => p.JENIS === activeJenis);
+  if (activeMerk)  list = list.filter(p => p.MERK === activeMerk);
+  if (searchQ) {
+    list = list.filter(p =>
+      (p.NAMA  && p.NAMA.toLowerCase().includes(searchQ)) ||
+      (p.MERK  && p.MERK.toLowerCase().includes(searchQ)) ||
+      (p.JENIS && p.JENIS.toLowerCase().includes(searchQ))
+    );
+  }
+
+  meta.textContent = `Menampilkan ${list.length} produk & layanan`;
+
+  if (!list.length) {
+    grid.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:48px 16px;color:var(--text3);">
+        <div style="font-size:2.5rem;margin-bottom:8px;">🔍</div>
+        <p style="font-weight:700;color:var(--text2)">Produk atau layanan tidak ditemukan</p>
+        <p style="font-size:0.8rem;">Coba gunakan kata kunci lain atau hubungi apoteker kami via WhatsApp.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(p => {
+    const isHabis   = p.STATUS === 'Habis';
+    const isAlkes   = p.JENIS === 'Sewa & Beli Alkes' || p.JENIS === 'Layanan Homecare';
+    const isVitamin = p.JENIS === 'Vitamin & Imunitas';
+    const badgeCls  = isAlkes ? 'alkes' : isVitamin ? 'vitamin' : '';
+    const inCart    = cart[p.ID]?.qty || 0;
+
+    return `
+      <div class="card" id="card-${esc(p.ID)}">
+        <div class="card-top">
+          <span class="card-jenis-badge ${badgeCls}">${esc(p.JENIS)}</span>
+          <span class="card-status ${isHabis ? 'habis' : ''}">${isHabis ? '✕ Habis' : '✔ Tersedia'}</span>
+        </div>
+        <div class="card-body">
+          <span class="card-merk">${esc(p.MERK || '-')}</span>
+          <div class="card-nama">${esc(p.NAMA)}</div>
+          <div class="card-satuan">Satuan: ${esc(p.SATUAN || 'Pcs')}</div>
+          <div class="card-price">${formatRp(p.HARGA)}</div>
+          <button class="card-btn" ${isHabis ? 'disabled' : ''} onclick="addToCart('${esc(p.ID)}')">
+            <span>${inCart > 0 ? `+ Tambah (${inCart})` : '+ Pesan Sekarang'}</span>
+          </button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+/* =================================================================
+   CART SYSTEM
+================================================================= */
+function addToCart(id) {
+  const p = allProducts.find(x => x.ID === id);
+  if (!p || p.STATUS === 'Habis') return;
+
+  if (!cart[id]) {
+    cart[id] = { product: p, qty: 1 };
+  } else {
+    cart[id].qty += 1;
+  }
+
+  updateCartBar();
+  renderProducts();
+  toast(`✔ "${p.NAMA}" ditambahkan ke keranjang!`);
+}
+
+function setQty(id, qty) {
+  if (qty <= 0) {
+    delete cart[id];
+  } else if (cart[id]) {
+    cart[id].qty = qty;
+  }
+  updateCartBar();
+  renderCartModal();
+  renderProducts();
+}
+
+function updateCartBar() {
+  const bar   = document.getElementById('cartBar');
+  const badge = document.getElementById('cartBadge');
+  const total = document.getElementById('cartBarTotal');
+
+  const items = Object.values(cart);
+  const count = items.reduce((s, i) => s + i.qty, 0);
+  const sum   = items.reduce((s, i) => s + i.product.HARGA * i.qty, 0);
+
+  badge.textContent = count;
+  total.textContent = formatRp(sum);
+  bar.classList.toggle('show', count > 0);
+}
+
+/* =================================================================
+   MODAL & CHECKOUT
+================================================================= */
+document.getElementById('cartBarBtn').addEventListener('click', openModal);
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('overlay')) closeModal();
+});
+
+function openModal() {
+  renderCartModal();
+  document.getElementById('overlay').classList.add('show');
+}
+function closeModal() {
+  document.getElementById('overlay').classList.remove('show');
+}
+
+function renderCartModal() {
+  const list  = document.getElementById('cartList');
+  const total = document.getElementById('modalTotal');
+  const items = Object.values(cart);
+
+  if (!items.length) {
+    list.innerHTML = `<p style="text-align:center;color:var(--text3);padding:24px 0;">Keranjang masih kosong 🐝</p>`;
+    total.textContent = 'Rp 0';
+    return;
+  }
+
+  const sum = items.reduce((s, i) => s + i.product.HARGA * i.qty, 0);
+  total.textContent = formatRp(sum);
+
+  list.innerHTML = items.map(i => `
+    <div class="ci">
+      <div class="ci-info">
+        <div class="ci-name">${esc(i.product.NAMA)}</div>
+        <div class="ci-price">${formatRp(i.product.HARGA * i.qty)}</div>
+      </div>
+      <div class="ci-ctrl">
+        <button class="ci-btn" onclick="setQty('${esc(i.product.ID)}', ${i.qty - 1})">-</button>
+        <span class="ci-qty">${i.qty}</span>
+        <button class="ci-btn" onclick="setQty('${esc(i.product.ID)}', ${i.qty + 1})">+</button>
+      </div>
+    </div>`).join('');
+}
+
+document.getElementById('btnCheckout').addEventListener('click', submitOrder);
+
+function submitOrder() {
+  const nama    = document.getElementById('fNama').value.trim();
+  const metode  = document.getElementById('fMetode').value;
+  const catatan = document.getElementById('fCatatan').value.trim();
+
+  if (!nama) {
+    alert('Silakan isi Nama Pemesan terlebih dahulu!');
+    return;
+  }
+
+  const items = Object.values(cart);
+  if (!items.length) {
+    alert('Keranjang belanja Anda masih kosong!');
+    return;
+  }
+
+  const orderId   = 'FARMABEE-' + Date.now().toString().slice(-6);
+  const total     = items.reduce((s, i) => s + i.product.HARGA * i.qty, 0);
+  const itemsText = items.map(i => `- *${i.product.NAMA}* (${i.product.SATUAN}) x${i.qty} = ${formatRp(i.product.HARGA * i.qty)}`).join('\n');
+
+  let msg = `*PESANAN OBAT & LAYANAN — APOTEK FARMABEE*\n`;
+  msg += `*ID Order: ${orderId}*\n\n`;
+  msg += `*DATA PEMESAN:*\nNama: *${nama}*\nMetode: *${metode}*\n${catatan ? `Alamat / Catatan: *${catatan}*\n` : ''}\n`;
+  msg += `*DAFTAR PESANAN:*\n${itemsText}\n\n`;
+  msg += `----------------------------------\n`;
+  msg += `*TOTAL PEMBAYARAN: ${formatRp(total)}*\n\n`;
+  msg += `Mohon segera dikonfirmasi dan diproses. Terima kasih! 🐝🙏`;
+
+  window.open(`https://wa.me/${CFG.waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* =================================================================
+   UTILS
+================================================================= */
+function formatRp(n) {
+  return 'Rp ' + Number(n || 0).toLocaleString('id-ID');
+}
+
+function esc(s) {
+  return String(s || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+}
+</script>
+</body>
+</html>
