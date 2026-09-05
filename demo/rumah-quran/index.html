@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadwal Rumah Qur'an Dea Bakery — Portal Kegiatan &amp; Pembelajaran Al-Qur'an</title>
+  <meta name="description" content="Jadwal resmi kegiatan keagamaan dan kelas Rumah Qur'an Dea Bakery. Tahsin UMMI, Qira'at Bersanad, Tahfidz Amma, Tasmi', Tafsir, Fiqih, Irama Maqamat, dan TPQ Anak.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Amiri:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-dark: #064e3b;
+      --primary: #047857;
+      --primary-light: #ecfdf5;
+      --accent-gold: #d97706;
+      --accent-gold-light: #fef3c7;
+      --accent-gold-dark: #b45309;
+      --bg-cream: #faf9f6;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow-sm: 0 2px 6px rgba(6, 78, 59, 0.05);
+      --shadow: 0 6px 20px rgba(6, 78, 59, 0.08);
+      --shadow-lg: 0 12px 32px rgba(6, 78, 59, 0.14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-cream);
+      color: var(--text-main);
+      padding-bottom: 90px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ====== HEADER ISLAMIC EMERALD & GOLD ====== */
+    header.hero-header {
+      background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #047857 100%);
+      color: #ffffff;
+      padding: 32px 20px 28px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--accent-gold);
+      box-shadow: 0 6px 24px rgba(2, 44, 34, 0.25);
+    }
+
+    /* Subtle Islamic Pattern Overlay */
+    .header-bg-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      background-image: radial-gradient(#fbbf24 1.5px, transparent 1.5px), radial-gradient(#fbbf24 1.5px, #022c22 1.5px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .bismillah-text {
+      font-family: 'Amiri', serif;
+      font-size: 1.4rem;
+      color: #fbbf24;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      padding: 6px 18px;
+      border-radius: 40px;
+      margin-bottom: 12px;
+    }
+    .brand-icon {
+      font-size: 1.2rem;
+    }
+    .brand-badge-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fbbf24;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .hero-title span { color: #fbbf24; }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: #d1fae5;
+      max-width: 680px;
+      margin: 0 auto;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* LIVE CLOCK BAR */
+    .live-clock-card {
+      margin-top: 18px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 18px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      color: #ecfdf5;
+      font-weight: 700;
+    }
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      background: #34d399;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+    }
+
+    /* ====== CONTAINER ====== */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ====== DYNAMIC HIGHLIGHT SECTION (HARI INI & BESOK) ====== */
+    .dynamic-focus-sec {
+      margin-top: -24px;
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    @media(min-width: 768px) {
+      .dynamic-focus-sec { grid-template-columns: 1fr 1fr; }
+    }
+
+    .focus-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 2px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .focus-card.today {
+      border-color: #059669;
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+    }
+    .focus-card.tomorrow {
+      border-color: #d97706;
+      background: linear-gradient(180deg, #ffffff 0%, #fffbeb 100%);
+    }
+
+    .focus-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      border-bottom: 1.5px dashed #cbd5e1;
+      padding-bottom: 10px;
+    }
+    .focus-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .focus-card.today .focus-tag {
+      background: #059669;
+      color: #ffffff;
+    }
+    .focus-card.tomorrow .focus-tag {
+      background: #d97706;
+      color: #ffffff;
+    }
+
+    .focus-day-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+    .focus-count {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .focus-session-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .session-mini-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .session-mini-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .session-mini-left { flex: 1; }
+    .session-time-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #047857;
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    .session-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    .session-teacher {
+      font-size: 0.78rem;
+      color: var(--accent-gold-dark);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .session-status-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .status-ongoing {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #86efac;
+      animation: pulseGreen 2s infinite;
+    }
+    .status-upcoming {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+    .status-done {
+      background: #f1f5f9;
+      color: #94a3b8;
+    }
+    @keyframes pulseGreen {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    /* DAY SIMULATOR TOOLBAR */
+    .simulator-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .sim-label {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sim-select {
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: inherit;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      background: var(--bg-cream);
+      color: var(--primary-dark);
+      cursor: pointer;
+      outline: none;
+    }
+    .sim-select:focus { border-color: var(--primary); }
+
+    /* ====== SECTION NAV TABS & FILTERS ====== */
+    .view-tabs-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-heading {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .view-mode-buttons {
+      display: flex;
+      background: #e2e8f0;
+      padding: 3px;
+      border-radius: 30px;
+    }
+    .btn-view-mode {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-view-mode.active {
+      background: var(--primary-dark);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(6, 78, 59, 0.25);
+    }
+
+    /* DAY SCROLLER PILLS */
+    .day-pills-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+      margin-bottom: 14px;
+    }
+    .day-pills-bar::-webkit-scrollbar { display: none; }
+    .day-pill {
+      flex: 0 0 auto;
+      border: 1.5px solid var(--border);
+      background: #ffffff;
+      color: var(--text-main);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .day-pill.active {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      color: #fbbf24;
+      box-shadow: 0 3px 12px rgba(6, 78, 59, 0.2);
+    }
+
+    /* SEARCH & CATEGORY BAR */
+    .filter-controls-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    @media(min-width: 640px) {
+      .filter-controls-row { grid-template-columns: 1.5fr 1fr; }
+    }
+
+    .search-box-wrap {
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      padding: 10px 16px 10px 38px;
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      font-size: 0.86rem;
+      background: #ffffff;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus { border-color: var(--primary); }
+    .search-icon-abs {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      opacity: 0.5;
+    }
+
+    .cat-select {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      background: #ffffff;
+      color: var(--text-main);
+      outline: none;
+      cursor: pointer;
+    }
+    .cat-select:focus { border-color: var(--primary); }
+
+    /* ====== CARD LIST VIEW ====== */
+    .schedule-grid-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media(min-width: 700px) {
+      .schedule-grid-cards { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    }
+    @media(min-width: 1000px) {
+      .schedule-grid-cards { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    }
+
+    .class-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+    }
+    .class-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .class-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .class-day-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #ffffff;
+      background: var(--primary-dark);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .class-cat-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--accent-gold-dark);
+      background: var(--accent-gold-light);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .class-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .class-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .class-time-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #047857;
+      margin-bottom: 8px;
+    }
+
+    .class-teacher-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+    }
+    .teacher-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .teacher-name {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--accent-gold-dark);
+    }
+
+    .class-target-pill {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .class-card-footer {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .btn-wa-class {
+      width: 100%;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+    .btn-wa-class:hover { background: var(--primary-dark); }
+
+    /* ====== MASTER SCHEDULE TABLE VIEW ====== */
+    .master-table-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      display: none;
+    }
+    .master-table-card.show { display: block; }
+
+    .table-head-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn-print-table {
+      background: #0f172a;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .table-responsive-box {
+      overflow-x: auto;
+      border: 1.5px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+    }
+    table.schedule-master {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      text-align: left;
+    }
+    table.schedule-master th {
+      background: var(--primary-dark);
+      color: #ffffff;
+      padding: 10px 8px;
+      font-weight: 800;
+      border: 1px solid #047857;
+      text-align: center;
+      white-space: nowrap;
+    }
+    table.schedule-master th.th-time { background: #022c22; width: 110px; }
+    table.schedule-master td {
+      border: 1px solid #cbd5e1;
+      padding: 8px;
+      vertical-align: top;
+      background: #ffffff;
+    }
+    table.schedule-master tr:nth-child(even) td { background: #f8fafc; }
+    .table-slot-title { font-weight: 800; color: var(--primary-dark); line-height: 1.25; margin-bottom: 3px; }
+    .table-slot-teacher { font-size: 0.72rem; color: var(--accent-gold-dark); font-weight: 700; line-height: 1.2; }
+
+    /* ====== TEACHERS SHOWCASE SECTION ====== */
+    .asatidz-section {
+      margin-top: 36px;
+      margin-bottom: 30px;
+    }
+    .asatidz-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media(min-width: 640px) {
+      .asatidz-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media(min-width: 900px) {
+      .asatidz-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+
+    .asatidz-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 12px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .asatidz-avatar {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-gold-light);
+      color: var(--accent-gold-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    .asatidz-name {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    .asatidz-role {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* ====== FLOATING ACTION BAR ====== */
+    .floating-bot-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 480px;
+      background: var(--primary-dark);
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 50px;
+      border: 2px solid #fbbf24;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .floating-text {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #ecfdf5;
+    }
+    .btn-floating-wa {
+      background: #25D366;
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4);
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: #022c22;
+      color: #cbd5e1;
+      padding: 40px 16px 24px;
+      margin-top: 40px;
+      border-top: 4px solid var(--accent-gold);
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .footer-col h4 { font-size: 1.1rem; color: #fbbf24; margin-bottom: 12px; font-weight: 800; }
+    .footer-col p { font-size: 0.85rem; color: #94a3b8; line-height: 1.6; }
+    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 24px; color: #64748b; font-size: 0.8rem; }
+
+    /* PRINT STYLES */
+    @media print {
+      body { background: #fff; padding-bottom: 0; }
+      header.hero-header, .simulator-wrap, .view-mode-buttons, .search-box-wrap, .cat-select, .floating-bot-bar, footer, .btn-print-table, .btn-wa-class {
+        display: none !important;
+      }
+      .master-table-card { display: block !important; box-shadow: none; border: none; padding: 0; }
+      .container { max-width: 100%; padding: 0; }
+      table.schedule-master th { background: #047857 !important; color: #fff !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER HERO ===== -->
+<header class="hero-header">
+  <div class="header-bg-pattern"></div>
+  <div class="header-inner">
+    <div class="bismillah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    
+    <div class="brand-badge">
+      <span class="brand-icon">📖</span>
+      <span class="brand-badge-title">Rumah Qur'an Dea Bakery</span>
+    </div>
+
+    <h1 class="hero-title">Jadwal Pembelajaran <span>Al-Qur'an</span></h1>
+    <p class="hero-subtitle">Membina generasi qur'ani yang fasih membaca, mentadabburi, dan mengamalkan Al-Qur'an secara tartil &amp; bersanad.</p>
+
+    <!-- LIVE CLOCK -->
+    <div class="live-clock-card" id="liveClockWrap">
+      <span class="live-dot"></span>
+      <span id="liveClockText">Memuat waktu...</span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- DYNAMIC FOCUS SECTION (HARI INI & BESOK) -->
+  <section class="dynamic-focus-sec" id="dynamicFocusSec">
+    <!-- 1. HARI INI CARD -->
+    <div class="focus-card today">
+      <div class="focus-head">
+        <div>
+          <span class="focus-tag">✨ HARI INI</span>
+          <div class="focus-day-title" id="todayTitle">Memuat jadwal...</div>
+        </div>
+        <div class="focus-count" id="todayCount">0 Sesi</div>
+      </div>
+      <div class="focus-session-list" id="todayList">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- 2. BESOK CARD -->
+    <div class="focus-card tomorrow">
+      <div class="focus-head">
+        <div>
+          <span class="focus-tag">📅 BESOK</span>
+          <div class="focus-day-title" id="tomorrowTitle">Memuat jadwal...</div>
+        </div>
+        <div class="focus-count" id="tomorrowCount">0 Sesi</div>
+      </div>
+      <div class="focus-session-list" id="tomorrowList">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY SIMULATOR / INSPECTOR (Untuk mencoba tampilan hari lain) -->
+  <div class="simulator-wrap">
+    <div class="sim-label">
+      <span>⚙️ Simulasi / Cek Jadwal Hari Lain:</span>
+    </div>
+    <select class="sim-select" id="simDaySelect" onchange="handleSimulateDay(this.value)">
+      <option value="auto">🔴 Gunakan Hari Ini (Real-Time Otomatis)</option>
+      <option value="1">Lihat Sebagai: Senin</option>
+      <option value="2">Lihat Sebagai: Selasa</option>
+      <option value="3">Lihat Sebagai: Rabu</option>
+      <option value="4">Lihat Sebagai: Kamis</option>
+      <option value="5">Lihat Sebagai: Jum'at</option>
+      <option value="6">Lihat Sebagai: Sabtu</option>
+      <option value="0">Lihat Sebagai: Minggu</option>
+    </select>
+  </div>
+
+  <!-- VIEW MODE SWITCHER & TITLE -->
+  <div class="view-tabs-row">
+    <div class="section-heading">
+      <span>🗓️ Eksplorasi Jadwal Mingguan</span>
+    </div>
+    <div class="view-mode-buttons">
+      <button class="btn-view-mode active" id="btnModeCard" onclick="switchViewMode('card')">📇 Kartu Jadwal</button>
+      <button class="btn-view-mode" id="btnModeTable" onclick="switchViewMode('table')">📊 Tabel Lengkap</button>
+    </div>
+  </div>
+
+  <!-- DAY SELECTOR TABS -->
+  <div class="day-pills-bar" id="dayPillsBar">
+    <button class="day-pill active" onclick="filterByDay('all', this)">✨ Semua Hari</button>
+    <button class="day-pill" onclick="filterByDay(1, this)">Senin</button>
+    <button class="day-pill" onclick="filterByDay(2, this)">Selasa</button>
+    <button class="day-pill" onclick="filterByDay(3, this)">Rabu</button>
+    <button class="day-pill" onclick="filterByDay(4, this)">Kamis</button>
+    <button class="day-pill" onclick="filterByDay(5, this)">Jum'at</button>
+    <button class="day-pill" onclick="filterByDay(6, this)">Sabtu</button>
+    <button class="day-pill" onclick="filterByDay(0, this)">Minggu</button>
+  </div>
+
+  <!-- SEARCH & CATEGORY FILTER -->
+  <div class="filter-controls-row">
+    <div class="search-box-wrap">
+      <span class="search-icon-abs">🔍</span>
+      <input type="text" class="search-input" id="searchKeyword" placeholder="Cari nama kelas atau ustadz/ustadzah..." oninput="handleFilterChange()">
+    </div>
+    <div>
+      <select class="cat-select" id="catFilterSelect" onchange="handleFilterChange()">
+        <option value="all">Semua Kategori Kelas</option>
+        <option value="tahsin">Tahsin &amp; Tartil Makhraj</option>
+        <option value="qiraat">Qira'at Bersanad</option>
+        <option value="talaqqi">Talaqqi &amp; Tadabbur</option>
+        <option value="kajian">Kajian Tafsir &amp; Fiqih</option>
+        <option value="tahfidz">Tahfidz AMMA (Juz 30)</option>
+        <option value="tamyiz">Metode Tamyiz</option>
+        <option value="tasmi">Turjuman &amp; Tasmi' 1 Juz</option>
+        <option value="irama">7 Irama Maqamat</option>
+        <option value="tpq">TPQ Anak &amp; Santri</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- CARD LIST CONTAINER -->
+  <div class="schedule-grid-cards" id="cardsGridContainer">
+    <!-- Rendered by JS -->
+  </div>
+
+  <!-- MASTER TABLE VIEW CONTAINER -->
+  <div class="master-table-card" id="masterTableContainer">
+    <div class="table-head-action">
+      <div style="font-weight:900; font-size:1.05rem; color:var(--primary-dark);">
+        📊 Master Jadwal Mingguan Rumah Qur'an Dea Bakery
+      </div>
+      <button class="btn-print-table" onclick="window.print()">
+        🖨️ Cetak / Simpan PDF
+      </button>
+    </div>
+
+    <div class="table-responsive-box">
+      <table class="schedule-master">
+        <thead>
+          <tr>
+            <th class="th-time">Waktu</th>
+            <th>Senin</th>
+            <th>Selasa</th>
+            <th>Rabu</th>
+            <th>Kamis</th>
+            <th>Jum'at</th>
+            <th>Sabtu</th>
+            <th>Minggu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:800; text-align:center;">07.30 - 08.00</td>
+            <td rowspan="3">
+              <div class="table-slot-title">Tahsin Ibu-Ibu (Metode UMMI)</div>
+              <div class="table-slot-teacher">Ust Widia, Ust Diva, Ust Romiyati, Ust Aisyah</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">Talaqqi &amp; Tadabbur Al-Qur'an</div>
+              <div class="table-slot-teacher">Ustadz H. Abdul Karim, M.Pd</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">Tartil Al-Qur'an (Makhorijul Huruf)</div>
+              <div class="table-slot-teacher">Ustadz Arga Prasetyo, CLQ</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">Pendalaman Tartil (Makhroj &amp; Sifat Huruf)</div>
+              <div class="table-slot-teacher">Ustadz Arga Prasetyo, CLQ</div>
+            </td>
+            <td rowspan="2">
+              <div class="table-slot-title">Kelas Tahfidz AMMA</div>
+              <div class="table-slot-teacher">Ustadzah Romiyati</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">Turjuman &amp; Tasmi' 1 Juz</div>
+              <div class="table-slot-teacher">Ust Endang Mujiati, Ust Diva, Ust Aisyah</div>
+            </td>
+            <td rowspan="12" style="background:#f8fafc; text-align:center; color:var(--text-light); vertical-align:middle;">
+              <em>Libur Rutin / Agenda Insidental</em>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">08.00 - 08.30</td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">08.30 - 09.00</td>
+            <td rowspan="2">
+              <div class="table-slot-title">Tamyiz</div>
+              <div class="table-slot-teacher">Ustadzah Romiyati</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">09.00 - 09.30</td>
+            <td rowspan="3">
+              <div class="table-slot-title">Qira'at 'Ashim Bersanad</div>
+              <div class="table-slot-teacher">Ustadz Dr. AQ Ahmad Budianto, S.Pd, MQ</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">Tahsin Ibu-Ibu (Metode UMMI)</div>
+              <div class="table-slot-teacher">Ust Widia, Ust Diva, Ust Romiyati, Ust Aisyah</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">Kelas Tajwid dan Fiqih</div>
+              <div class="table-slot-teacher">Ustadz Dr. AQ Ahmad Budianto, S.Pd, MQ</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">Kajian Tafsir Al-Qur'an</div>
+              <div class="table-slot-teacher">Ustadz Dr. Muhammad Yahya, Ph.D</div>
+            </td>
+            <td rowspan="2">
+              <div class="table-slot-title">Program Tasmi' (Setoran 1 Juz)</div>
+              <div class="table-slot-teacher">Ustadzah Diva &amp; Ustadzah Aisyah</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">09.30 - 10.00</td>
+            <td rowspan="3" style="background:#f8fafc;"></td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">10.00 - 11.00</td>
+            <td rowspan="2" style="background:#f8fafc;"></td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">11.00 - 13.00</td>
+            <td colspan="4" style="background:#f8fafc; text-align:center; color:var(--text-light);"><em>Istirahat / Sholat Dzuhur</em></td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">13.00 - 14.00</td>
+            <td colspan="4" style="background:#f8fafc;"></td>
+            <td>
+              <div class="table-slot-title">Belajar 7 Irama Al-Qur'an</div>
+              <div class="table-slot-teacher">Ustadz Ahmad Fauzan Muhson, S.Pd</div>
+            </td>
+            <td style="background:#f8fafc;"></td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">14.00 - 15.30</td>
+            <td rowspan="3">
+              <div class="table-slot-title">TPQ Rumah Qur'an</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">TPQ &amp; Kajian Manajemen</div>
+              <div class="table-slot-teacher">Ustadz Dr. Muhammad Yahya, Ph.D</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">TPQ Rumah Qur'an</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">TPQ Rumah Qur'an</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">TPQ &amp; Kelas Bahasa Arab</div>
+            </td>
+            <td rowspan="3">
+              <div class="table-slot-title">TPQ &amp; Kelas Bahasa Arab</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">15.30 - 17.00</td>
+          </tr>
+          <tr>
+            <td style="font-weight:800; text-align:center;">17.00 - 17.30</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ASATIDZ / PENGAJAR SECTION -->
+  <section class="asatidz-section">
+    <div class="section-heading">
+      <span>👳‍♂️ Tim Asatidz &amp; Pengajar</span>
+    </div>
+    <div class="asatidz-grid">
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">🎓</div>
+        <div class="asatidz-name">Ust. Dr. AQ Ahmad Budianto, S.Pd, MQ</div>
+        <div class="asatidz-role">Qira'at 'Ashim &amp; Tajwid Fiqih</div>
+      </div>
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">📖</div>
+        <div class="asatidz-name">Ust. Dr. Muhammad Yahya, Ph.D</div>
+        <div class="asatidz-role">Kajian Tafsir &amp; Manajemen</div>
+      </div>
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">🎙️</div>
+        <div class="asatidz-name">Ust. H. Abdul Karim, M.Pd</div>
+        <div class="asatidz-role">Talaqqi &amp; Tadabbur</div>
+      </div>
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">✨</div>
+        <div class="asatidz-name">Ust. Arga Prasetyo, CLQ</div>
+        <div class="asatidz-role">Tartil &amp; Sifat Huruf</div>
+      </div>
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">🎵</div>
+        <div class="asatidz-name">Ust. Ahmad Fauzan Muhson, S.Pd</div>
+        <div class="asatidz-role">7 Irama Maqamat</div>
+      </div>
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">🧕</div>
+        <div class="asatidz-name">Ustadzah Endang Mujiati</div>
+        <div class="asatidz-role">Turjuman</div>
+      </div>
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">🧕</div>
+        <div class="asatidz-name">Ustadzah Romiyati</div>
+        <div class="asatidz-role">Tahfidz Amma &amp; Tamyiz</div>
+      </div>
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">🧕</div>
+        <div class="asatidz-name">Ustadzah Diva</div>
+        <div class="asatidz-role">Tasmi' &amp; Tahsin UMMI</div>
+      </div>
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">🧕</div>
+        <div class="asatidz-name">Ustadzah Aisyah</div>
+        <div class="asatidz-role">Tasmi' &amp; Tahsin UMMI</div>
+      </div>
+      <div class="asatidz-card">
+        <div class="asatidz-avatar">🧕</div>
+        <div class="asatidz-name">Ustadzah Widia</div>
+        <div class="asatidz-role">Tahsin UMMI</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FLOATING WHATSAPP BAR -->
+<div class="floating-bot-bar">
+  <div class="floating-text">
+    📖 Pendaftaran &amp; Info Kelas
+  </div>
+  <a href="https://wa.me/6285736699198?text=Assalamu%27alaikum%20Admin%20Rumah%20Qur%27an%20Dea%20Bakery,%20saya%20ingin%20tanya%20informasi%20dan%20pendaftaran%20kelas" target="_blank" rel="noopener" class="btn-floating-wa">
+    💬 Hubungi WA ↗
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Rumah Qur'an Dea Bakery</h4>
+      <p>Lembaga pembinaan dan pembelajaran Al-Qur'an terstruktur, mulai dari tingkat dasar (TPQ), Tahsin UMMI, Tahfidz Juz 'Amma, Tasmi' 1 Juz, Qira'at Bersanad, hingga Kajian Tafsir.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Informasi &amp; Kontak</h4>
+      <p>
+        📍 Lokasi: Rumah Qur'an Dea Bakery<br>
+        ⏰ Jadwal Kegiatan: Senin s.d Sabtu<br>
+        💬 WhatsApp Admin: 0857-3669-9198
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Rumah Qur'an Dea Bakery • Powered by <a href="https://rakyat.space" style="color:#fbbf24">rakyat.space</a> — Portal Website UMKM &amp; Komunitas Indonesia.
+  </div>
+</footer>
+
+<script>
+  /* =================================================================
+     JADWAL MASTER DATA (RUMAH QUR'AN DEA BAKERY)
+  ================================================================= */
+  const JADWAL_DATA = [
+    // SENIN (day: 1)
+    {
+      id: "sn-1",
+      day: 1,
+      dayName: "Senin",
+      timeStart: "08:00",
+      timeEnd: "09:30",
+      timeDisplay: "08.00 – 09.30 WIB",
+      title: "Tahsin Ibu-Ibu (Metode UMMI)",
+      subTitle: "Tahsin Al-Qur'an Tartil Standar UMMI",
+      category: "tahsin",
+      categoryLabel: "Tahsin UMMI",
+      teachers: ["Ust. Widia", "Ust. Diva", "Ust. Romiyati", "Ust. Aisyah"],
+      target: "Ibu-Ibu & Muslimah",
+      desc: "Pembelajaran makhraj dan kaidah membaca Al-Qur'an tartil sesuai standar Metode UMMI.",
+      badge: "Metode UMMI"
+    },
+    {
+      id: "sn-2",
+      day: 1,
+      dayName: "Senin",
+      timeStart: "09:30",
+      timeEnd: "11:00",
+      timeDisplay: "09.30 – 11.00 WIB",
+      title: "Qira'at 'Ashim Bersanad",
+      subTitle: "Riwayat Syu'bah & Hafsh Thariq Asy-Syathibiyah",
+      category: "qiraat",
+      categoryLabel: "Qira'at Bersanad",
+      teachers: ["Ustadz Dr. AQ Ahmad Budianto, S.Pd, MQ"],
+      target: "Ikhwan & Akhwat (Tingkat Lanjut)",
+      desc: "Kajian dan talaqqi ilmu Qira'at Imam 'Ashim bersanad (Riwayat Syu'bah & Hafsh) jalur Thariq Asy-Syathibiyah.",
+      badge: "Bersanad"
+    },
+    {
+      id: "sn-3",
+      day: 1,
+      dayName: "Senin",
+      timeStart: "14:00",
+      timeEnd: "17:30",
+      timeDisplay: "14.00 – 17.30 WIB",
+      title: "TPQ Rumah Qur'an",
+      subTitle: "Bimbingan Baca Tulis Al-Qur'an & Hafalan",
+      category: "tpq",
+      categoryLabel: "TPQ Anak & Santri",
+      teachers: ["Tim Asatidz Rumah Qur'an"],
+      target: "Santri TPQ Anak",
+      desc: "Bimbingan baca tulis Al-Qur'an, hafalan doa harian, dan pembinaan adab santri.",
+      badge: "Santri TPQ"
+    },
+
+    // SELASA (day: 2)
+    {
+      id: "sl-1",
+      day: 2,
+      dayName: "Selasa",
+      timeStart: "08:00",
+      timeEnd: "09:30",
+      timeDisplay: "08.00 – 09.30 WIB",
+      title: "Talaqqi dan Tadabbur Al-Qur'an",
+      subTitle: "Talaqqi Bacaan & Tadabbur Makna Ayat",
+      category: "talaqqi",
+      categoryLabel: "Talaqqi & Tadabbur",
+      teachers: ["Ustadz H. Abdul Karim, M.Pd"],
+      target: "Umum / Ikhwan & Akhwat",
+      desc: "Setoran bacaan langsung (talaqqi) bersambung tadabbur makna ayat-ayat pilihan untuk pengamalan hidup.",
+      badge: "Talaqqi"
+    },
+    {
+      id: "sl-2",
+      day: 2,
+      dayName: "Selasa",
+      timeStart: "09:30",
+      timeEnd: "11:00",
+      timeDisplay: "09.30 – 11.00 WIB",
+      title: "Tahsin Ibu-Ibu (Metode UMMI)",
+      subTitle: "Lanjutan Latihan Tahsin Intensif",
+      category: "tahsin",
+      categoryLabel: "Tahsin UMMI",
+      teachers: ["Ust. Widia", "Ust. Diva", "Ust. Romiyati", "Ust. Aisyah"],
+      target: "Ibu-Ibu & Muslimah",
+      desc: "Latihan tahsin tajwid intensif kelompok muslimah dengan bimbingan ustadzah UMMI.",
+      badge: "Metode UMMI"
+    },
+    {
+      id: "sl-3",
+      day: 2,
+      dayName: "Selasa",
+      timeStart: "14:00",
+      timeEnd: "17:30",
+      timeDisplay: "14.00 – 17.30 WIB",
+      title: "TPQ Rumah Qur'an & Kajian Manajemen",
+      subTitle: "Kajian Ustadz Yahya untuk Tim Manajemen Dea Bakery",
+      category: "tpq",
+      categoryLabel: "TPQ & Manajemen",
+      teachers: ["Ustadz Dr. Muhammad Yahya, Ph.D", "Tim Asatidz TPQ"],
+      target: "Santri TPQ & Tim Manajemen",
+      desc: "Aktivitas TPQ santri sore hari dirangkai dengan kajian keislaman tematik untuk jajaran manajemen.",
+      badge: "Kajian Manajemen"
+    },
+
+    // RABU (day: 3)
+    {
+      id: "rb-1",
+      day: 3,
+      dayName: "Rabu",
+      timeStart: "08:00",
+      timeEnd: "09:30",
+      timeDisplay: "08.00 – 09.30 WIB",
+      title: "Tartil Al-Qur'an (Makhorijul Huruf)",
+      subTitle: "Praktek Makhraj Huruf Fasih & Tepat",
+      category: "tahsin",
+      categoryLabel: "Tartil & Makhraj",
+      teachers: ["Ustadz Arga Prasetyo, CLQ"],
+      target: "Umum / Ikhwan & Akhwat",
+      desc: "Praktek pelafalan tempat keluarnya huruf (Makhorijul Huruf) secara tepat, jelas, dan fasih.",
+      badge: "Makhraj Huruf"
+    },
+    {
+      id: "rb-2",
+      day: 3,
+      dayName: "Rabu",
+      timeStart: "09:40",
+      timeEnd: "11:10",
+      timeDisplay: "09.40 – 11.10 WIB",
+      title: "Kelas Tajwid dan Fiqih",
+      subTitle: "Kaidah Tajwid & Fiqih Ibadah",
+      category: "kajian",
+      categoryLabel: "Tajwid & Fiqih",
+      teachers: ["Ustadz Dr. AQ Ahmad Budianto, S.Pd, MQ"],
+      target: "Umum / Ikhwan & Akhwat",
+      desc: "Pendalaman hukum-hukum tajwid Al-Qur'an disertai fiqih ibadah praktis sehari-hari.",
+      badge: "Tajwid & Fiqih"
+    },
+    {
+      id: "rb-3",
+      day: 3,
+      dayName: "Rabu",
+      timeStart: "14:00",
+      timeEnd: "17:30",
+      timeDisplay: "14.00 – 17.30 WIB",
+      title: "TPQ Rumah Qur'an",
+      subTitle: "Bimbingan Baca Tulis Al-Qur'an & Hafalan",
+      category: "tpq",
+      categoryLabel: "TPQ Anak & Santri",
+      teachers: ["Tim Asatidz Rumah Qur'an"],
+      target: "Santri TPQ Anak",
+      desc: "Pembelajaran Al-Qur'an santri TPQ sore hari, hafalan surat pendek & adab islami.",
+      badge: "Santri TPQ"
+    },
+
+    // KAMIS (day: 4)
+    {
+      id: "km-1",
+      day: 4,
+      dayName: "Kamis",
+      timeStart: "08:00",
+      timeEnd: "09:30",
+      timeDisplay: "08.00 – 09.30 WIB",
+      title: "Pendalaman Tartil (Makhroj & Sifat Huruf)",
+      subTitle: "Kupas Tuntas Sifatul Huruf Al-Qur'an",
+      category: "tahsin",
+      categoryLabel: "Tartil & Sifat Huruf",
+      teachers: ["Ustadz Arga Prasetyo, CLQ"],
+      target: "Umum / Ikhwan & Akhwat",
+      desc: "Membedah sifat-sifat huruf (shifatul huruf) seperti hams, jahr, istila', qalqalah, dan aplikasi tartilnya.",
+      badge: "Sifat Huruf"
+    },
+    {
+      id: "km-2",
+      day: 4,
+      dayName: "Kamis",
+      timeStart: "09:30",
+      timeEnd: "11:00",
+      timeDisplay: "09.30 – 11.00 WIB",
+      title: "Kajian Tafsir Al-Qur'an",
+      subTitle: "Memahami Makna & Pesan Ayat Al-Qur'an",
+      category: "kajian",
+      categoryLabel: "Tafsir Al-Qur'an",
+      teachers: ["Ustadz Dr. Muhammad Yahya, Ph.D"],
+      target: "Umum / Jamaah Rumah Qur'an",
+      desc: "Kajian mendalam tafsir ayat-ayat Al-Qur'an tematik dengan wawasan ilmiah & kontekstual.",
+      badge: "Kajian Tafsir"
+    },
+    {
+      id: "km-3",
+      day: 4,
+      dayName: "Kamis",
+      timeStart: "14:00",
+      timeEnd: "17:30",
+      timeDisplay: "14.00 – 17.30 WIB",
+      title: "TPQ Rumah Qur'an",
+      subTitle: "Bimbingan Baca Tulis Al-Qur'an",
+      category: "tpq",
+      categoryLabel: "TPQ Anak & Santri",
+      teachers: ["Tim Asatidz Rumah Qur'an"],
+      target: "Santri TPQ Anak",
+      desc: "Bimbingan mengaji TPQ santri sore hari dengan pendekatan ceria & edukatif.",
+      badge: "Santri TPQ"
+    },
+
+    // JUM'AT (day: 5)
+    {
+      id: "jm-1",
+      day: 5,
+      dayName: "Jum'at",
+      timeStart: "08:00",
+      timeEnd: "09:00",
+      timeDisplay: "08.00 – 09.00 WIB",
+      title: "Kelas Tahfidz AMMA",
+      subTitle: "Program Hafalan Juz 30 Mutqin",
+      category: "tahfidz",
+      categoryLabel: "Tahfidz Juz 30",
+      teachers: ["Ustadzah Romiyati"],
+      target: "Ibu-Ibu & Muslimah",
+      desc: "Program bimbingan menghafal Juz 30 (Juz 'Amma) mutqin dengan setoran teratur dan mutaba'ah.",
+      badge: "Tahfidz AMMA"
+    },
+    {
+      id: "jm-2",
+      day: 5,
+      dayName: "Jum'at",
+      timeStart: "09:00",
+      timeEnd: "10:00",
+      timeDisplay: "09.00 – 10.00 WIB",
+      title: "Metode Tamyiz (Terjemah Al-Qur'an)",
+      subTitle: "Kuasai Terjemah Kosakata Al-Qur'an",
+      category: "tamyiz",
+      categoryLabel: "Metode Tamyiz",
+      teachers: ["Ustadzah Romiyati"],
+      target: "Umum / Muslimah",
+      desc: "Belajar terjemah lafziyyah dan kaidah bahasa Al-Qur'an cepat & mudah dengan Metode Tamyiz.",
+      badge: "Metode Tamyiz"
+    },
+    {
+      id: "jm-3",
+      day: 5,
+      dayName: "Jum'at",
+      timeStart: "13:00",
+      timeEnd: "14:00",
+      timeDisplay: "13.00 – 14.00 WIB",
+      title: "Belajar 7 Irama Al-Qur'an (Maqamat)",
+      subTitle: "Nagham Tilawah Indah & Merdu",
+      category: "irama",
+      categoryLabel: "7 Irama Maqamat",
+      teachers: ["Ustadz Ahmad Fauzan Muhson, S.Pd"],
+      target: "Ikhwan & Akhwat (Santri / Qari')",
+      desc: "Pelatihan nagham/irama tilawah: Bayyati, Shoba, Hijaz, Nahawand, Rast, Sika, dan Jiharkah.",
+      badge: "7 Irama Maqamat"
+    },
+    {
+      id: "jm-4",
+      day: 5,
+      dayName: "Jum'at",
+      timeStart: "14:00",
+      timeEnd: "17:30",
+      timeDisplay: "14.00 – 17.30 WIB",
+      title: "TPQ Rumah Qur'an & Kelas Bahasa Arab",
+      subTitle: "TPQ Sore & Dasar Bahasa Arab",
+      category: "tpq",
+      categoryLabel: "TPQ & Bahasa Arab",
+      teachers: ["Tim Asatidz Rumah Qur'an"],
+      target: "Santri TPQ & Remaja",
+      desc: "Kombinasi pembelajaran TPQ Qur'an santri sore hari dengan dasar-dasar muhadatsah bahasa Arab.",
+      badge: "TPQ & Bhs Arab"
+    },
+
+    // SABTU (day: 6)
+    {
+      id: "sb-1",
+      day: 6,
+      dayName: "Sabtu",
+      timeStart: "07:30",
+      timeEnd: "09:00",
+      timeDisplay: "07.30 – 09.00 WIB",
+      title: "Turjuman & Program Tasmi' 1 Juz",
+      subTitle: "Turjuman & Setoran Sekali Duduk 1 Juz",
+      category: "tasmi",
+      categoryLabel: "Turjuman & Tasmi'",
+      teachers: ["Ustadzah Endang Mujiati", "Ustadzah Diva", "Ustadzah Aisyah"],
+      target: "Santri Tahfidz & Muslimah",
+      desc: "Kelas Turjuman tafsir kosakata dan program tasmi' sekali duduk setoran hafalan 1 juz bil ghoib.",
+      badge: "Tasmi' 1 Juz"
+    },
+    {
+      id: "sb-2",
+      day: 6,
+      dayName: "Sabtu",
+      timeStart: "09:00",
+      timeEnd: "10:00",
+      timeDisplay: "09.00 – 10.00 WIB",
+      title: "Program Tasmi' (Setoran Hafalan 1 Juz)",
+      subTitle: "Sima'an Hafalan Bil Ghoib",
+      category: "tasmi",
+      categoryLabel: "Tasmi' Al-Qur'an",
+      teachers: ["Ustadzah Diva", "Ustadzah Aisyah"],
+      target: "Santri Tahfidz",
+      desc: "Ujian dan sima'an hafalan Al-Qur'an 1 juz di hadapan para ustadzah penguji.",
+      badge: "Tasmi' Hafalan"
+    },
+    {
+      id: "sb-3",
+      day: 6,
+      dayName: "Sabtu",
+      timeStart: "14:00",
+      timeEnd: "17:30",
+      timeDisplay: "14.00 – 17.30 WIB",
+      title: "TPQ Rumah Qur'an & Kelas Bahasa Arab",
+      subTitle: "TPQ Sore & Mufradat Arab",
+      category: "tpq",
+      categoryLabel: "TPQ & Bahasa Arab",
+      teachers: ["Tim Asatidz Rumah Qur'an"],
+      target: "Santri TPQ & Remaja",
+      desc: "Sesi akhir pekan TPQ Rumah Qur'an dan penguatan kosakata bahasa Arab untuk santri.",
+      badge: "TPQ & Bhs Arab"
+    },
+
+    // MINGGU (day: 0)
+    {
+      id: "mg-1",
+      day: 0,
+      dayName: "Minggu",
+      timeStart: "00:00",
+      timeEnd: "23:59",
+      timeDisplay: "Akhir Pekan",
+      title: "Libur Rutin / Muraja'ah Mandiri & Event Khusus",
+      subTitle: "Istirahat, Muraja'ah di Rumah & Agenda Insidental",
+      category: "libur",
+      categoryLabel: "Agenda Akhir Pekan",
+      teachers: ["Manajemen Rumah Qur'an"],
+      target: "Seluruh Santri & Jamaah",
+      desc: "Hari Ahad digunakan untuk muraja'ah mandiri santri di rumah dan kegiatan insidental / tabligh akbar.",
+      badge: "Libur Rutin"
+    }
+  ];
+
+  const DAY_NAMES = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
+  const MONTH_NAMES = [
+    "Januari", "Februari", "Maret", "April", "Mei", "Juni", 
+    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+  ];
+
+  /* STATE */
+  let simulatedDay = null; // null = real-time auto, 0-6 = manual
+  let activeFilterDay = "all";
+  let activeFilterCat = "all";
+  let activeSearchQuery = "";
+  let currentViewMode = "card";
+
+  /* INIT */
+  document.addEventListener("DOMContentLoaded", () => {
+    updateLiveClock();
+    setInterval(updateLiveClock, 1000);
+    renderDynamicFocus();
+    renderScheduleCards();
+  });
+
+  /* REAL-TIME CLOCK & DAY */
+  function getEffectiveDayIndex() {
+    if (simulatedDay !== null) return simulatedDay;
+    return new Date().getDay();
+  }
+
+  function updateLiveClock() {
+    const now = new Date();
+    const dayName = DAY_NAMES[now.getDay()];
+    const dateNum = now.getDate();
+    const monthName = MONTH_NAMES[now.getMonth()];
+    const year = now.getFullYear();
+
+    const hh = String(now.getHours()).padStart(2, '0');
+    const mm = String(now.getMinutes()).padStart(2, '0');
+    const ss = String(now.getSeconds()).padStart(2, '0');
+
+    const clockEl = document.getElementById("liveClockText");
+    if (clockEl) {
+      clockEl.innerHTML = `${dayName}, ${dateNum} ${monthName} ${year} • <strong>${hh}:${mm}:${ss} WIB</strong>`;
+    }
+  }
+
+  /* SIMULATION HANDLER */
+  function handleSimulateDay(val) {
+    if (val === "auto") {
+      simulatedDay = null;
+    } else {
+      simulatedDay = parseInt(val, 10);
+    }
+    renderDynamicFocus();
+  }
+
+  /* RENDER DYNAMIC FOCUS (HARI INI & BESOK) */
+  function renderDynamicFocus() {
+    const currentDayIdx = getEffectiveDayIndex();
+    const tomorrowIdx = (currentDayIdx + 1) % 7;
+
+    const todayItems = JADWAL_DATA.filter(it => it.day === currentDayIdx);
+    const tomorrowItems = JADWAL_DATA.filter(it => it.day === tomorrowIdx);
+
+    const todayTitle = document.getElementById("todayTitle");
+    const todayCount = document.getElementById("todayCount");
+    const todayList = document.getElementById("todayList");
+
+    const tomorrowTitle = document.getElementById("tomorrowTitle");
+    const tomorrowCount = document.getElementById("tomorrowCount");
+    const tomorrowList = document.getElementById("tomorrowList");
+
+    todayTitle.textContent = `${DAY_NAMES[currentDayIdx]} ${simulatedDay !== null ? '(Simulasi)' : ''}`;
+    todayCount.textContent = `${todayItems.length} Sesi Terjadwal`;
+
+    tomorrowTitle.textContent = `${DAY_NAMES[tomorrowIdx]}`;
+    tomorrowCount.textContent = `${tomorrowItems.length} Sesi Terjadwal`;
+
+    // Render Today's Items
+    if (todayItems.length === 0 || (todayItems.length === 1 && todayItems[0].category === "libur")) {
+      todayList.innerHTML = `
+        <div style="text-align:center; padding:20px; color:var(--text-muted); font-size:0.85rem;">
+          🌴 <strong>Hari ini tidak ada kelas rutin tatap muka.</strong><br>Waktu untuk muraja'ah mandiri di rumah.
+        </div>
+      `;
+    } else {
+      todayList.innerHTML = todayItems.map(item => {
+        const status = getItemStatus(item, currentDayIdx);
+        return `
+          <div class="session-mini-item">
+            <div class="session-mini-left">
+              <span class="session-time-badge">⏰ ${item.timeDisplay}</span>
+              <div class="session-title">${item.title}</div>
+              <div class="session-teacher">👳‍♂️ ${item.teachers.join(", ")}</div>
+            </div>
+            <div>
+              <span class="session-status-badge ${status.class}">${status.label}</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Render Tomorrow's Items
+    if (tomorrowItems.length === 0 || (tomorrowItems.length === 1 && tomorrowItems[0].category === "libur")) {
+      tomorrowList.innerHTML = `
+        <div style="text-align:center; padding:20px; color:var(--text-muted); font-size:0.85rem;">
+          🌴 <strong>Besok (${DAY_NAMES[tomorrowIdx]}) libur rutin.</strong><br>Silakan istirahat dan mempersiapkan hafalan.
+        </div>
+      `;
+    } else {
+      tomorrowList.innerHTML = tomorrowItems.map(item => `
+        <div class="session-mini-item">
+          <div class="session-mini-left">
+            <span class="session-time-badge" style="color:var(--accent-gold-dark); background:var(--accent-gold-light);">⏰ ${item.timeDisplay}</span>
+            <div class="session-title">${item.title}</div>
+            <div class="session-teacher">👳‍♂️ ${item.teachers.join(", ")}</div>
+          </div>
+          <div>
+            <span class="session-status-badge status-upcoming">Besok</span>
+          </div>
+        </div>
+      `).join("");
+    }
+  }
+
+  function getItemStatus(item, dayIdx) {
+    if (simulatedDay !== null) {
+      return { class: "status-upcoming", label: "Terjadwal" };
+    }
+    const now = new Date();
+    if (now.getDay() !== dayIdx) {
+      return { class: "status-upcoming", label: "Terjadwal" };
+    }
+
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+    const [startH, startM] = item.timeStart.split(':').map(Number);
+    const [endH, endM] = item.timeEnd.split(':').map(Number);
+
+    const startMin = startH * 60 + startM;
+    const endMin = endH * 60 + endM;
+
+    if (currentMinutes >= startMin && currentMinutes <= endMin) {
+      return { class: "status-ongoing", label: "🟢 Sedang Berlangsung" };
+    } else if (currentMinutes < startMin) {
+      return { class: "status-upcoming", label: "🟡 Akan Datang" };
+    } else {
+      return { class: "status-done", label: "⚪ Selesai" };
+    }
+  }
+
+  /* VIEW MODE (CARD vs TABLE) */
+  function switchViewMode(mode) {
+    currentViewMode = mode;
+    const btnCard = document.getElementById("btnModeCard");
+    const btnTable = document.getElementById("btnModeTable");
+    const cardGrid = document.getElementById("cardsGridContainer");
+    const tableWrap = document.getElementById("masterTableContainer");
+
+    if (mode === "card") {
+      btnCard.classList.add("active");
+      btnTable.classList.remove("active");
+      cardGrid.style.display = "grid";
+      tableWrap.classList.remove("show");
+    } else {
+      btnTable.classList.add("active");
+      btnCard.classList.remove("active");
+      cardGrid.style.display = "none";
+      tableWrap.classList.add("show");
+    }
+  }
+
+  /* FILTERING LOGIC */
+  function filterByDay(day, btnEl) {
+    activeFilterDay = day;
+    document.querySelectorAll(".day-pill").forEach(p => p.classList.remove("active"));
+    if (btnEl) btnEl.classList.add("active");
+    renderScheduleCards();
+  }
+
+  function handleFilterChange() {
+    activeSearchQuery = document.getElementById("searchKeyword").value.trim().toLowerCase();
+    activeFilterCat = document.getElementById("catFilterSelect").value;
+    renderScheduleCards();
+  }
+
+  /* RENDER SCHEDULE CARDS */
+  function renderScheduleCards() {
+    const container = document.getElementById("cardsGridContainer");
+
+    let filtered = JADWAL_DATA;
+
+    // Day filter
+    if (activeFilterDay !== "all") {
+      const targetDay = parseInt(activeFilterDay, 10);
+      filtered = filtered.filter(item => item.day === targetDay);
+    }
+
+    // Category filter
+    if (activeFilterCat !== "all") {
+      filtered = filtered.filter(item => item.category === activeFilterCat);
+    }
+
+    // Search query filter
+    if (activeSearchQuery) {
+      filtered = filtered.filter(item => {
+        const text = `${item.title} ${item.subTitle || ''} ${item.teachers.join(' ')} ${item.desc} ${item.target}`.toLowerCase();
+        return text.includes(activeSearchQuery);
+      });
+    }
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div style="grid-column:1/-1; text-align:center; padding:48px 16px; background:#fff; border-radius:var(--radius); border:1px solid var(--border);">
+          <div style="font-size:2.5rem; margin-bottom:10px;">🔍</div>
+          <h3 style="font-size:1.1rem; font-weight:800; color:var(--primary-dark); margin-bottom:4px;">Tidak Ada Jadwal yang Cocok</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Silakan coba ubah kata kunci pencarian, filter hari, atau kategori kelas.</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = filtered.map(item => `
+      <div class="class-card">
+        <div class="class-card-top">
+          <span class="class-day-badge">${item.dayName}</span>
+          <span class="class-cat-badge">${item.badge}</span>
+        </div>
+
+        <div class="class-title">${item.title}</div>
+        ${item.subTitle ? `<div class="class-subtitle">${item.subTitle}</div>` : ''}
+
+        <div class="class-time-row">
+          <span>⏰ ${item.timeDisplay}</span>
+        </div>
+
+        <div class="class-teacher-box">
+          <div class="teacher-label">Pengajar / Asatidz:</div>
+          <div class="teacher-name">👳‍♂️ ${item.teachers.join(", ")}</div>
+        </div>
+
+        <div class="class-target-pill">
+          <span>👥 Sasaran: <strong>${item.target}</strong></span>
+        </div>
+
+        <div class="class-card-footer">
+          <a href="https://wa.me/6285736699198?text=Assalamu%27alaikum%20Admin%20Rumah%20Qur%27an%20Dea%20Bakery,%20saya%20ingin%20tanya%20info%20kelas:%20*${encodeURIComponent(item.title)}*%20(${item.dayName},%20${encodeURIComponent(item.timeDisplay)})" target="_blank" rel="noopener" class="btn-wa-class">
+            💬 Tanya / Daftar Kelas via WA ↗
+          </a>
+        </div>
+      </div>
+    `).join("");
+  }
+</script>
+</body>
+</html>
