@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apotek Farmabee — Sahabat Sehat Online Anda</title>
-  <meta name="description" content="Apotek Farmabee — Ramah, peduli, dan edukatif. Pesan obat online, konsultasi apoteker, sewa alkes, farmasi &amp; fisio homecare, gratis antar obat.">
+  <title>Apotek Farmabee — Sahabat Sehat Online Anda | Sawojajar Malang</title>
+  <meta name="description" content="Apotek Farmabee Sawojajar Malang — Pesan obat online, konsultasi apoteker gratis, tebus resep dokter, sewa alkes, &amp; pesan antar obat gratis. Buka setiap hari 06.00 - 22.00 WIB.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -27,9 +27,9 @@
       --green-light:    #d1fae5;
       --navy-dark:      #0f172a;
       --danger:         #dc2626;
-      --shadow-sm:      0 1px 2px rgba(0,0,0,.06);
-      --shadow:         0 4px 12px rgba(15,23,42,.08);
-      --shadow-md:      0 8px 24px rgba(15,23,42,.12);
+      --shadow-sm:      0 1px 3px rgba(0,0,0,.06);
+      --shadow:         0 4px 14px rgba(15,23,42,.08);
+      --shadow-md:      0 10px 25px rgba(15,23,42,.12);
       --r:              14px;
       --rsm:            10px;
       --rxs:            6px;
@@ -48,25 +48,47 @@
     input, select, textarea { font-family: inherit; }
     a { text-decoration: none; color: inherit; }
 
+    /* ====== TOP ANNOUNCEMENT BAR ====== */
+    .top-promo-bar {
+      background: var(--navy-dark);
+      color: #fef08a;
+      text-align: center;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: 0.3px;
+    }
+    .top-promo-bar span.badge {
+      background: var(--green-primary);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+    }
+
     /* ====== HEADER & HERO FARMABEE ====== */
     .site-header {
-      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #fef08a 100%);
-      color: var(--navy-dark);
-      padding: 24px 18px 26px;
+      background: linear-gradient(135deg, #059669 0%, #047857 35%, #064e3b 100%);
+      color: #ffffff;
+      padding: 24px 16px 28px;
       position: relative;
       overflow: hidden;
-      border-bottom: 3.5px solid var(--green-primary);
-      box-shadow: 0 4px 20px rgba(245,158,11,0.25);
+      border-bottom: 4px solid var(--yellow-primary);
+      box-shadow: 0 6px 20px rgba(4,120,87,0.25);
     }
 
     .site-header::before {
       content: '';
       position: absolute;
-      top: -30px;
-      right: -30px;
-      width: 160px;
-      height: 160px;
-      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(245,158,11,0.3) 0%, rgba(245,158,11,0) 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -83,12 +105,12 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 10px;
-      background: rgba(255,255,255,0.92);
-      padding: 6px 18px 6px 10px;
+      margin-bottom: 12px;
+      background: #ffffff;
+      padding: 6px 18px 6px 8px;
       border-radius: 50px;
-      border: 2px solid var(--navy-dark);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      border: 2.5px solid var(--yellow-primary);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
     }
 
     .logo-bee-icon {
@@ -113,30 +135,38 @@
       letter-spacing: -0.01em;
       color: var(--navy-dark);
       line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     .header-brand-title span {
-      color: var(--yellow-dark);
+      color: var(--green-dark);
+    }
+    .verified-check {
+      color: #0284c7;
+      font-size: 1rem;
     }
     .header-brand-motto {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--green-dark);
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--yellow-dark);
     }
 
     .header-tagline-main {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: #78350f;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fbbf24;
       margin-top: 4px;
     }
     .header-sub-tagline {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #92400e;
-      margin-top: 2px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: #e2e8f0;
+      margin-top: 3px;
+      line-height: 1.4;
     }
 
-    /* BADGES & GRATIS ANTAR */
+    /* BADGES INFO BAR */
     .header-badges-wrap {
       display: flex;
       flex-wrap: wrap;
@@ -146,30 +176,30 @@
       margin-top: 14px;
     }
 
-    .badge-gratis-antar {
-      background: var(--green-primary);
+    .badge-open-now {
+      background: #10b981;
       color: #ffffff;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 800;
-      padding: 5px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      box-shadow: 0 3px 10px rgba(5,150,105,0.3);
+      gap: 5px;
+      box-shadow: 0 2px 8px rgba(16,185,129,0.3);
     }
-
     .badge-pill-soft {
-      background: rgba(255,255,255,0.85);
-      color: var(--navy-dark);
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
       font-size: 0.74rem;
       font-weight: 700;
       padding: 5px 12px;
       border-radius: 20px;
-      border: 1px solid rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
     }
 
-    /* QUICK ACTION BUTTONS */
+    /* QUICK ACTIONS IN HERO */
     .header-actions-row {
       display: flex;
       flex-wrap: wrap;
@@ -180,50 +210,86 @@
     }
 
     .btn-action-resep {
-      background: var(--navy-dark);
-      color: #fbbf24;
-      font-weight: 800;
-      font-size: 0.84rem;
-      padding: 9px 18px;
+      background: #fbbf24;
+      color: var(--navy-dark);
+      font-weight: 900;
+      font-size: 0.85rem;
+      padding: 10px 20px;
       border-radius: 30px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 14px rgba(15,23,42,0.25);
+      box-shadow: 0 4px 14px rgba(251,191,36,0.35);
       transition: transform 0.15s, background 0.15s;
     }
     .btn-action-resep:hover {
-      transform: translateY(-1px);
-      background: #1e293b;
+      transform: translateY(-2px);
+      background: #f59e0b;
     }
 
     .btn-action-konsul {
-      background: var(--green-primary);
-      color: #ffffff;
-      font-weight: 800;
-      font-size: 0.84rem;
-      padding: 9px 18px;
+      background: #ffffff;
+      color: var(--green-dark);
+      font-weight: 900;
+      font-size: 0.85rem;
+      padding: 10px 20px;
       border-radius: 30px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 14px rgba(5,150,105,0.25);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
       transition: transform 0.15s;
     }
     .btn-action-konsul:hover {
-      transform: translateY(-1px);
-      background: var(--green-dark);
+      transform: translateY(-2px);
+      background: #f8fafc;
     }
+
+    /* ====== ADDRESS & CONTACT INFO BAR ====== */
+    .info-address-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      color: var(--text2);
+      box-shadow: var(--shadow-sm);
+    }
+    .info-address-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 16px;
+    }
+    .addr-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .addr-btn-maps {
+      color: #0284c7;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f0f9ff;
+      padding: 3px 10px;
+      border-radius: 12px;
+      border: 1px solid #bae6fd;
+    }
+    .addr-btn-maps:hover { background: #e0f2fe; }
 
     /* ====== 6 LAYANAN UTAMA SECTION ====== */
     .services-sec {
       max-width: 1080px;
-      margin: 18px auto 8px;
+      margin: 18px auto 10px;
       padding: 0 14px;
     }
     .services-title {
       font-size: 0.95rem;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--navy-dark);
       margin-bottom: 10px;
       display: flex;
@@ -244,7 +310,7 @@
 
     .service-card {
       background: #ffffff;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: var(--rsm);
       padding: 10px 12px;
       display: flex;
@@ -255,14 +321,15 @@
     }
     .service-card:hover {
       transform: translateY(-2px);
-      border-color: var(--yellow-primary);
+      border-color: var(--green-primary);
       box-shadow: var(--shadow);
     }
     .service-icon {
-      font-size: 1.3rem;
-      background: var(--yellow-light);
-      width: 36px;
-      height: 36px;
+      font-size: 1.25rem;
+      background: var(--green-light);
+      color: var(--green-dark);
+      width: 38px;
+      height: 38px;
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -276,12 +343,12 @@
       line-height: 1.25;
     }
 
-    /* ====== SEARCH WRAP ====== */
+    /* ====== STICKY SEARCH BAR ====== */
     .search-wrap {
       position: sticky;
       top: 0;
       z-index: 40;
-      background: var(--surface);
+      background: #ffffff;
       border-bottom: 1px solid var(--border);
       padding: 10px 14px;
       box-shadow: var(--shadow-sm);
@@ -293,7 +360,7 @@
     }
     .search-icon {
       position: absolute;
-      left: 12px;
+      left: 14px;
       top: 50%;
       transform: translateY(-50%);
       font-size: .88rem;
@@ -302,7 +369,7 @@
     }
     #searchInput {
       width: 100%;
-      padding: 9px 36px;
+      padding: 10px 38px;
       border: 1.5px solid var(--border);
       border-radius: 30px;
       font-size: .86rem;
@@ -312,12 +379,12 @@
       transition: border-color .15s;
       -webkit-appearance: none;
     }
-    #searchInput:focus { border-color: var(--yellow-dark); background: #fff; }
+    #searchInput:focus { border-color: var(--green-primary); background: #fff; }
     #searchInput::placeholder { color: var(--text3); }
 
     .search-clear {
       position: absolute;
-      right: 12px;
+      right: 14px;
       top: 50%;
       transform: translateY(-50%);
       background: none;
@@ -332,11 +399,11 @@
     /* ====== CATEGORY & MERK FILTERS ====== */
     .filters-wrap {
       max-width: 1080px;
-      margin: 12px auto 0;
+      margin: 14px auto 0;
       padding: 0 14px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
     .filter-row {
       display: flex;
@@ -354,8 +421,8 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       white-space: nowrap;
-      padding: 4px 6px;
-      background: var(--surface2);
+      padding: 5px 8px;
+      background: #e2e8f0;
       border-radius: 6px;
     }
     .filter-pills {
@@ -363,7 +430,7 @@
       gap: 6px;
     }
     .pill {
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       background: #fff;
       color: var(--text2);
       padding: 6px 14px;
@@ -375,20 +442,20 @@
       transition: all 0.15s ease;
     }
     .pill.active {
-      background: var(--navy-dark);
-      border-color: var(--navy-dark);
-      color: #fbbf24;
-      box-shadow: 0 2px 8px rgba(15,23,42,0.2);
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(4,120,87,0.25);
     }
 
     /* ====== PRODUCTS SECTION ====== */
     .products-wrap {
       max-width: 1080px;
-      margin: 14px auto 0;
+      margin: 16px auto 0;
       padding: 0 14px;
     }
     .products-meta {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--text2);
       margin-bottom: 12px;
@@ -407,7 +474,7 @@
 
     .card {
       background: #ffffff;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: var(--r);
       box-shadow: var(--shadow-sm);
       overflow: hidden;
@@ -418,7 +485,7 @@
     .card:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-md);
-      border-color: var(--yellow-primary);
+      border-color: var(--green-primary);
     }
 
     .card-top {
@@ -438,6 +505,7 @@
     }
     .card-jenis-badge.alkes { background: var(--green-light); color: var(--green-dark); }
     .card-jenis-badge.vitamin { background: var(--yellow-light); color: var(--yellow-dark); }
+    .card-jenis-badge.kulit { background: #fce7f3; color: #be185d; }
     .card-status {
       font-size: 0.68rem;
       font-weight: 800;
@@ -474,7 +542,7 @@
     .card-price {
       font-size: 0.95rem;
       font-weight: 900;
-      color: var(--green-primary);
+      color: var(--green-dark);
       margin-top: auto;
       margin-bottom: 8px;
     }
@@ -485,7 +553,7 @@
       color: #fbbf24;
       border: none;
       border-radius: var(--rxs);
-      padding: 8px;
+      padding: 9px;
       font-size: 0.8rem;
       font-weight: 800;
       cursor: pointer;
@@ -521,8 +589,8 @@
       max-width: 600px;
       margin: 0 auto;
       display: flex;
-      background: var(--navy-dark);
-      color: #fbbf24;
+      background: var(--green-dark);
+      color: #ffffff;
       border: 2px solid var(--yellow-primary);
       border-radius: 30px;
       padding: 12px 18px;
@@ -530,25 +598,25 @@
       font-weight: 800;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 4px 16px rgba(15,23,42,0.25);
+      box-shadow: 0 4px 16px rgba(4,120,87,0.3);
     }
     .cart-bar-left { display: flex; align-items: center; gap: 8px; }
     .cart-badge {
       background: var(--yellow-primary);
       color: var(--navy-dark);
       border-radius: 12px;
-      padding: 1px 8px;
+      padding: 2px 8px;
       font-size: .78rem;
       font-weight: 800;
     }
-    .cart-bar-total { font-weight: 900; font-size: .92rem; color: #fff; }
+    .cart-bar-total { font-weight: 900; font-size: .95rem; color: #fbbf24; }
 
     /* ====== MODAL OVERLAY ====== */
     .overlay {
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(15,23,42,.6);
+      background: rgba(15,23,42,.65);
       backdrop-filter: blur(4px);
       display: none;
       align-items: flex-end;
@@ -559,10 +627,10 @@
     .modal {
       background: #ffffff;
       width: 100%;
-      max-width: 520px;
+      max-width: 540px;
       max-height: 90vh;
-      border-radius: 20px 20px 0 0;
-      padding: 20px;
+      border-radius: 24px 24px 0 0;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       overflow-y: auto;
@@ -576,7 +644,7 @@
       padding-bottom: 12px;
       margin-bottom: 12px;
     }
-    .modal-head h2 { font-size: 1.1rem; font-weight: 800; color: var(--navy-dark); }
+    .modal-head h2 { font-size: 1.15rem; font-weight: 900; color: var(--navy-dark); }
     .modal-close {
       background: var(--surface2);
       border: none;
@@ -599,7 +667,7 @@
     }
     .ci-info { flex: 1; }
     .ci-name { font-size: 0.85rem; font-weight: 800; color: var(--navy-dark); }
-    .ci-price { font-size: 0.78rem; color: var(--green-primary); font-weight: 700; }
+    .ci-price { font-size: 0.78rem; color: var(--green-dark); font-weight: 700; }
     .ci-ctrl { display: flex; align-items: center; gap: 6px; }
     .ci-btn {
       width: 26px;
@@ -626,13 +694,13 @@
       margin-bottom: 14px;
     }
     .total-label { font-size: 0.88rem; font-weight: 800; color: #92400e; }
-    .total-amount { font-size: 1.1rem; font-weight: 900; color: var(--navy-dark); }
+    .total-amount { font-size: 1.15rem; font-weight: 900; color: var(--navy-dark); }
 
     .form-group { margin-bottom: 12px; }
     .form-label { display: block; font-size: 0.78rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 4px; }
     .form-input, .form-select, .form-textarea {
       width: 100%;
-      padding: 9px 12px;
+      padding: 10px 12px;
       border: 1.5px solid var(--border);
       border-radius: var(--rsm);
       font-size: 0.85rem;
@@ -641,19 +709,19 @@
       outline: none;
     }
     .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--yellow-dark);
+      border-color: var(--green-primary);
     }
     .form-textarea { resize: vertical; min-height: 55px; }
 
     .btn-wa {
       width: 100%;
-      padding: 13px;
+      padding: 14px;
       background: #25D366;
       color: #fff;
       border: none;
       border-radius: var(--rsm);
-      font-size: 0.92rem;
-      font-weight: 800;
+      font-size: 0.95rem;
+      font-weight: 900;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -685,37 +753,38 @@
     footer {
       background: var(--navy-dark);
       color: #cbd5e1;
-      padding: 36px 16px 24px;
-      margin-top: 36px;
-      border-top: 3.5px solid var(--yellow-primary);
+      padding: 40px 16px 24px;
+      margin-top: 40px;
+      border-top: 4px solid var(--green-primary);
     }
     .footer-inner {
       max-width: 1080px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
     }
-    .footer-col h4 { font-size: 1.05rem; color: #fbbf24; margin-bottom: 10px; font-weight: 800; }
+    .footer-col h4 { font-size: 1.05rem; color: #fbbf24; margin-bottom: 12px; font-weight: 800; }
     .footer-col p { font-size: 0.84rem; color: #94a3b8; line-height: 1.6; }
     .footer-social-links {
       display: flex;
-      gap: 10px;
-      margin-top: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
     }
     .social-pill {
       background: rgba(255,255,255,0.1);
       color: #fff;
       padding: 5px 12px;
       border-radius: 20px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: 5px;
       border: 1px solid rgba(255,255,255,0.15);
     }
-    .social-pill:hover { background: var(--yellow-primary); color: var(--navy-dark); }
+    .social-pill:hover { background: var(--green-primary); color: #fff; }
     .footer-bottom {
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -728,44 +797,68 @@
 </head>
 <body>
 
+<!-- ===== TOP PROMO BAR ===== -->
+<div class="top-promo-bar">
+  <span>🛵</span>
+  <span>PESAN ANTAR OBAT GRATIS LANGSUNG KE RUMAH ANDA</span>
+  <span class="badge">SAWOJAJAR &amp; SEKITARNYA</span>
+</div>
+
 <!-- ===== HEADER HERO FARMABEE ===== -->
 <header class="site-header">
   <div class="header-inner-box">
-    <!-- Logo Badge Hexagon Bee -->
+    <!-- Brand Logo Emblem -->
     <div class="brand-logo-wrap">
       <div class="logo-bee-icon">🐝</div>
       <div class="header-brand-text">
-        <div class="header-brand-title">APOTEK <span>FARMABEE</span></div>
+        <div class="header-brand-title">
+          APOTEK FARMABEE <span class="verified-check" title="Official Verified Business">✓</span>
+        </div>
         <div class="header-brand-motto">Ramah, Peduli, &amp; Edukatif</div>
       </div>
     </div>
 
     <div class="header-tagline-main">Sahabat Sehat Online Anda</div>
-    <div class="header-sub-tagline">Pesan Obat Mudah, Konsultasi Apoteker &amp; Layanan Homecare Terbaik</div>
+    <div class="header-sub-tagline">Konsultasi Apoteker Gratis, Tebus Resep Dokter, Sewa Alkes, &amp; Layanan Homecare Terpercaya di Malang</div>
 
     <!-- Badges -->
     <div class="header-badges-wrap">
-      <span class="badge-gratis-antar">🛵 GRATIS ANTAR OBAT*</span>
-      <span class="badge-pill-soft">👨‍⚕️ Praktek Apoteker Standby</span>
-      <span class="badge-pill-soft">🛡️ 100% Produk Asli &amp; BPOM</span>
-      <span class="badge-pill-soft">⏰ Buka Setiap Hari</span>
+      <span class="badge-open-now">🟢 Buka Setiap Hari (06.00 – 22.00 WIB)</span>
+      <span class="badge-pill-soft">🛵 Gratis Antar Obat</span>
+      <span class="badge-pill-soft">👨‍⚕️ Konsultasi Obat Apoteker</span>
+      <span class="badge-pill-soft">🛡️ 100% Asli &amp; BPOM</span>
     </div>
 
     <!-- Quick Actions -->
     <div class="header-actions-row">
-      <a href="https://wa.me/6285736699198?text=Halo%20Apotek%20Farmabee,%20saya%20mau%20tebus%20resep%20dokter" target="_blank" rel="noopener" class="btn-action-resep">
+      <a href="https://wa.me/6282334051313?text=Halo%20Apotek%20Farmabee,%20saya%20mau%20kirim%20foto%20resep%20dokter%20untuk%20ditebus" target="_blank" rel="noopener" class="btn-action-resep">
         📄 Kirim Foto Resep via WA ↗
       </a>
-      <a href="https://wa.me/6285736699198?text=Halo%20Apotek%20Farmabee,%20saya%20mau%20konsultasi%20obat" target="_blank" rel="noopener" class="btn-action-konsul">
-        💬 Konsultasi Obat via WA ↗
+      <a href="https://wa.me/6282334051313?text=Halo%20Apotek%20Farmabee,%20saya%20mau%20konsultasi%20obat%20dengan%20Apoteker" target="_blank" rel="noopener" class="btn-action-konsul">
+        💬 Konsultasi Obat Apoteker ↗
       </a>
     </div>
   </div>
 </header>
 
+<!-- ===== ADDRESS & LOCATION INFO BAR ===== -->
+<div class="info-address-bar">
+  <div class="info-address-inner">
+    <div class="addr-left">
+      <span>📍</span>
+      <span>Jl. Danau Toba No. A17, Sawojajar, Kec. Kedungkandang, Kota Malang 65139</span>
+    </div>
+    <div>
+      <a href="https://maps.app.goo.gl/6jNTAMiwJrArBzrH8" target="_blank" rel="noopener" class="addr-btn-maps">
+        🗺️ Buka di Google Maps ↗
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- ===== 6 LAYANAN UTAMA FARMABEE ===== -->
 <section class="services-sec">
-  <div class="services-title">🐝 Layanan Unggulan Apotek Farmabee:</div>
+  <div class="services-title">🐝 Layanan Lengkap Apotek Farmabee:</div>
   <div class="services-grid">
     <div class="service-card">
       <div class="service-icon">👨‍⚕️</div>
@@ -781,7 +874,7 @@
     </div>
     <div class="service-card">
       <div class="service-icon">🩺</div>
-      <div class="service-name">Sewa Alkes</div>
+      <div class="service-name">Sewa &amp; Beli Alkes</div>
     </div>
     <div class="service-card">
       <div class="service-icon">🏠</div>
@@ -794,12 +887,12 @@
   </div>
 </section>
 
-<!-- ===== SEARCH ===== -->
+<!-- ===== SEARCH BAR ===== -->
 <div class="search-wrap">
   <div class="search-inner">
     <span class="search-icon">🔍</span>
     <input type="search" id="searchInput"
-      placeholder="Cari obat, vitamin, alkes, atau layanan..."
+      placeholder="Cari nama obat, vitamin, madu, alkes, atau layanan..."
       autocomplete="off" autocorrect="off" spellcheck="false">
     <button class="search-clear" id="searchClear" aria-label="Hapus">✕</button>
   </div>
@@ -846,31 +939,31 @@
     <div class="cart-list" id="cartList"></div>
 
     <div class="total-row">
-      <span class="total-label">Total Belanja</span>
+      <span class="total-label">Total Pembayaran</span>
       <span class="total-amount" id="modalTotal">Rp 0</span>
     </div>
 
     <div class="form-group">
-      <label class="form-label">Nama Pemesan *</label>
+      <label class="form-label">Nama Pemesan / Pasien *</label>
       <input type="text" class="form-input" id="fNama" placeholder="Nama lengkap Anda">
     </div>
     <div class="form-group">
-      <label class="form-label">Metode Layanan / Pengambilan</label>
+      <label class="form-label">Metode Pengambilan / Layanan</label>
       <select class="form-select" id="fMetode">
-        <option value="Gratis Antar ke Rumah">🛵 Gratis Antar ke Rumah</option>
-        <option value="Ambil Sendiri di Apotek">🏪 Ambil Sendiri di Apotek Farmabee</option>
-        <option value="Booking Homecare">🏠 Booking Kunjungan Homecare</option>
+        <option value="Gratis Antar ke Rumah (Sawojajar & Sekitarnya)">🛵 Pesan Antar Gratis ke Rumah (Sawojajar & Sekitarnya)</option>
+        <option value="Ambil Langsung di Apotek (Jl. Danau Toba A17)">🏪 Ambil Langsung di Apotek (Jl. Danau Toba A17)</option>
+        <option value="Booking Homecare (Kunjungan ke Rumah)">🏠 Booking Kunjungan Farmasi / Fisio Homecare</option>
       </select>
     </div>
     <div class="form-group">
-      <label class="form-label">Alamat / Catatan Tambahan</label>
+      <label class="form-label">Alamat Lengkap / Catatan Tambahan</label>
       <textarea class="form-textarea" id="fCatatan"
-        placeholder="Alamat pengantaran obat, catatan resep, keluhan, dll."></textarea>
+        placeholder="Alamat pengantaran obat, keluhan penyakit, petunjuk resep, dll."></textarea>
     </div>
 
     <button class="btn-wa" id="btnCheckout">
       <span>💬</span>
-      <span>Kirim Pesanan via WhatsApp</span>
+      <span>Kirim Pesanan ke WhatsApp Apotek Farmabee</span>
     </button>
   </div>
 </div>
@@ -883,19 +976,19 @@
   <div class="footer-inner">
     <div class="footer-col">
       <h4>Apotek Farmabee</h4>
-      <p>Ramah, peduli, dan edukatif. Sahabat sehat online Anda untuk pemesanan obat bebas, resep dokter, sewa alkes, serta layanan farmasi &amp; fisio homecare terpercaya.</p>
+      <p>Ramah, peduli, dan edukatif. Sahabat sehat online Anda untuk pemesanan obat bebas, resep dokter, sewa alkes, serta layanan farmasi &amp; fisio homecare terpercaya di Sawojajar Malang.</p>
       <div class="footer-social-links">
         <span class="social-pill">🎵 TikTok: @apotekfarmabee</span>
         <span class="social-pill">📸 IG: @apotekfarmabee</span>
       </div>
     </div>
     <div class="footer-col">
-      <h4>Kontak &amp; Layanan</h4>
+      <h4>Kontak &amp; Jam Buka</h4>
       <p>
-        🛵 Gratis Antar Obat Langsung ke Rumah<br>
-        👨‍⚕️ Konsultasi Obat &amp; Apoteker Standby<br>
-        💬 WhatsApp Order: 0857-3669-9198<br>
-        📞 Hotline Apotek: 08233-405-1313
+        📍 Jl. Danau Toba No. A17, Sawojajar, Kedungkandang, Kota Malang<br>
+        ⏰ Buka Setiap Hari: 06.00 – 22.00 WIB<br>
+        🛵 Layanan Pesan Antar Obat Gratis*<br>
+        💬 WhatsApp Resmi: +62 823-3405-1313
       </p>
     </div>
   </div>
@@ -910,7 +1003,7 @@
 ================================================================= */
 const CFG = {
   appsScriptUrl: 'https://script.google.com/macros/s/GANTI_DEPLOYMENT_ID/exec',
-  waNumber:      '6285736699198',
+  waNumber:      '6282334051313', // Nomor WhatsApp Resmi Apotek Farmabee
   apotekName:    'Apotek Farmabee',
 };
 
@@ -925,47 +1018,66 @@ let searchQ     = '';
 let searchTimer = null;
 
 /* =================================================================
-   SAMPLE DATA — LENGKAP DENGAN SEWA ALKES & HOMECARE
+   SAMPLE DATA — LENGKAP DENGAN ETALASE RAK APOTEK ASLI
 ================================================================= */
 const SAMPLE = [
-  // 1. OBAT BEBAS & FLU
-  { ID:'OBB-01', JENIS:'Obat Bebas',         MERK:'Panadol',    NAMA:'Panadol Extra 500mg',              SATUAN:'Strip 10',  HARGA:15000,  STATUS:'Tersedia' },
-  { ID:'OBB-02', JENIS:'Obat Bebas',         MERK:'Bodrex',     NAMA:'Bodrex Extra Kaplet',              SATUAN:'Strip 4',   HARGA:8000,   STATUS:'Tersedia' },
-  { ID:'OBB-03', JENIS:'Obat Bebas',         MERK:'Tolak Angin',NAMA:'Tolak Angin Cair Herbal',          SATUAN:'Box 12',    HARGA:46000,  STATUS:'Tersedia' },
-  { ID:'OBB-04', JENIS:'Obat Bebas',         MERK:'Antangin',   NAMA:'Antangin JRG Cair Mint',           SATUAN:'Sachet',    HARGA:4500,   STATUS:'Tersedia' },
-  { ID:'OBB-05', JENIS:'Obat Bebas',         MERK:'Woods',      NAMA:"Wood's Peppermint Antitussive 60ml",SATUAN:'Botol',   HARGA:24000,  STATUS:'Tersedia' },
-  { ID:'OBB-06', JENIS:'Obat Bebas',         MERK:'Betadine',   NAMA:'Betadine Antiseptic Solution 30ml',SATUAN:'Botol',     HARGA:18500,  STATUS:'Tersedia' },
-  
-  // 2. VITAMIN & SUPLEMEN (HERBAL & MADU)
-  { ID:'VIT-01', JENIS:'Vitamin & Imunitas', MERK:'Farmabee',   NAMA:'Madu Murni Alami Farmabee 500g',   SATUAN:'Botol',     HARGA:85000,  STATUS:'Tersedia' },
-  { ID:'VIT-02', JENIS:'Vitamin & Imunitas', MERK:'Farmabee',   NAMA:'Bee Pollen Super Immune 250g',     SATUAN:'Botol',     HARGA:95000,  STATUS:'Tersedia' },
-  { ID:'VIT-03', JENIS:'Vitamin & Imunitas', MERK:'Enervon-C',  NAMA:'Enervon-C Multivitamin 30 Tablet', SATUAN:'Btl 30',    HARGA:55000,  STATUS:'Tersedia' },
-  { ID:'VIT-04', JENIS:'Vitamin & Imunitas', MERK:'Blackmores', NAMA:'Blackmores Vitamin C 1000mg Bio C',SATUAN:'Btl 60',   HARGA:145000, STATUS:'Tersedia' },
-  { ID:'VIT-05', JENIS:'Vitamin & Imunitas', MERK:'Kirkland',   NAMA:'Kirkland Vitamin D3 2000 IU',      SATUAN:'Btl 100',   HARGA:125000, STATUS:'Tersedia' },
-  { ID:'VIT-06', JENIS:'Vitamin & Imunitas', MERK:'Redoxon',    NAMA:'Redoxon Triple Action Effervescent',SATUAN:'Tube 10',  HARGA:48000,  STATUS:'Tersedia' },
+  // 1. OBAT FLU & BATUK
+  { ID:'FLU-01', JENIS:'Obat Flu & Batuk',   MERK:'Panadol',    NAMA:'Panadol Extra 500mg (Paracetamol + Caffeine)', SATUAN:'Strip 10',  HARGA:15000,  STATUS:'Tersedia' },
+  { ID:'FLU-02', JENIS:'Obat Flu & Batuk',   MERK:'Bodrex',     NAMA:'Bodrex Flu & Batuk PE Kaplet',       SATUAN:'Strip 4',   HARGA:8500,   STATUS:'Tersedia' },
+  { ID:'FLU-03', JENIS:'Obat Flu & Batuk',   MERK:'Woods',      NAMA:"Wood's Peppermint Antitussive 60ml", SATUAN:'Botol',     HARGA:24000,  STATUS:'Tersedia' },
+  { ID:'FLU-04', JENIS:'Obat Flu & Batuk',   MERK:'OBH Combi',  NAMA:'OBH Combi Batuk Berdahak 100ml',     SATUAN:'Botol',     HARGA:22500,  STATUS:'Tersedia' },
+  { ID:'FLU-05', JENIS:'Obat Flu & Batuk',   MERK:'Siladex',    NAMA:'Siladex Mucolytic & Expectorant 60ml',SATUAN:'Botol',    HARGA:18500,  STATUS:'Tersedia' },
+  { ID:'FLU-06', JENIS:'Obat Flu & Batuk',   MERK:'Decolgen',   NAMA:'Decolgen Flu & Batuk Strip',         SATUAN:'Strip 4',   HARGA:7500,   STATUS:'Tersedia' },
 
-  // 3. SEWA & BELI ALAT KESEHATAN (ALKES)
-  { ID:'ALK-01', JENIS:'Sewa & Beli Alkes',  MERK:'Farmabee',   NAMA:'[SEWA] Kursi Roda Standar Medis',  SATUAN:'Bulan',     HARGA:150000, STATUS:'Tersedia' },
-  { ID:'ALK-02', JENIS:'Sewa & Beli Alkes',  MERK:'Farmabee',   NAMA:'[SEWA] Tabung Oksigen 1m3 Lengkap',SATUAN:'Bulan',     HARGA:200000, STATUS:'Tersedia' },
-  { ID:'ALK-03', JENIS:'Sewa & Beli Alkes',  MERK:'Omron',      NAMA:'Tensimeter Digital Omron HEM-7120',SATUAN:'Unit',      HARGA:385000, STATUS:'Tersedia' },
-  { ID:'ALK-04', JENIS:'Sewa & Beli Alkes',  MERK:'GEA',        NAMA:'Nebulizer Compressor Mesin Uap',   SATUAN:'Unit',      HARGA:450000, STATUS:'Tersedia' },
-  { ID:'ALK-05', JENIS:'Sewa & Beli Alkes',  MERK:'OneMed',     NAMA:'Termometer Digital Infrared',      SATUAN:'Unit',      HARGA:65000,  STATUS:'Tersedia' },
-  { ID:'ALK-06', JENIS:'Sewa & Beli Alkes',  MERK:'OneMed',     NAMA:'Masker Medis 3-Ply Earloop',       SATUAN:'Box 50',    HARGA:35000,  STATUS:'Tersedia' },
+  // 2. HERBAL & MADU
+  { ID:'HRB-01', JENIS:'Herbal & Madu',      MERK:'Farmabee',   NAMA:'Madu Murni Alami Farmabee 500g',     SATUAN:'Botol',     HARGA:85000,  STATUS:'Tersedia' },
+  { ID:'HRB-02', JENIS:'Herbal & Madu',      MERK:'Farmabee',   NAMA:'Bee Pollen Super Immune 250g',       SATUAN:'Botol',     HARGA:95000,  STATUS:'Tersedia' },
+  { ID:'HRB-03', JENIS:'Herbal & Madu',      MERK:'Tolak Angin',NAMA:'Tolak Angin Cair Herbal Box 12',     SATUAN:'Box 12',    HARGA:46000,  STATUS:'Tersedia' },
+  { ID:'HRB-04', JENIS:'Herbal & Madu',      MERK:'Antangin',   NAMA:'Antangin JRG Cair Mint Sachet',      SATUAN:'Sachet',    HARGA:4500,   STATUS:'Tersedia' },
+  { ID:'HRB-05', JENIS:'Herbal & Madu',      MERK:'Imboost',    NAMA:'Imboost Force Sirup Herbal 60ml',    SATUAN:'Botol',     HARGA:42000,  STATUS:'Tersedia' },
 
-  // 4. LAYANAN HOMECARE
-  { ID:'HMC-01', JENIS:'Layanan Homecare',   MERK:'Farmabee',   NAMA:'Paket Kunjungan Farmasi Homecare', SATUAN:'1 Sesi',    HARGA:75000,  STATUS:'Tersedia' },
-  { ID:'HMC-02', JENIS:'Layanan Homecare',   MERK:'Farmabee',   NAMA:'Paket Terapi Fisio Homecare Rumah',SATUAN:'1 Sesi',    HARGA:120000, STATUS:'Tersedia' },
+  // 3. VITAMIN & SUPLEMEN
+  { ID:'VIT-01', JENIS:'Vitamin & Suplemen', MERK:'Enervon-C',  NAMA:'Enervon-C Multivitamin 30 Tablet',   SATUAN:'Btl 30',    HARGA:55000,  STATUS:'Tersedia' },
+  { ID:'VIT-02', JENIS:'Vitamin & Suplemen', MERK:'Blackmores', NAMA:'Blackmores Vitamin C 1000mg Bio C',  SATUAN:'Btl 60',    HARGA:145000, STATUS:'Tersedia' },
+  { ID:'VIT-03', JENIS:'Vitamin & Suplemen', MERK:'Kirkland',   NAMA:'Kirkland Vitamin D3 2000 IU',        SATUAN:'Btl 100',   HARGA:125000, STATUS:'Tersedia' },
+  { ID:'VIT-04', JENIS:'Vitamin & Suplemen', MERK:'Redoxon',    NAMA:'Redoxon Triple Action Effervescent', SATUAN:'Tube 10',   HARGA:48000,  STATUS:'Tersedia' },
+  { ID:'VIT-05', JENIS:'Vitamin & Suplemen', MERK:'Neurobion',  NAMA:'Neurobion Forte Vitamin B1 B6 B12',  SATUAN:'Strip 10',  HARGA:45000,  STATUS:'Tersedia' },
 
-  // 5. OBAT RESEP & GENERIK
-  { ID:'OBK-01', JENIS:'Resep & Generik',    MERK:'Generik',    NAMA:'Amoxicillin Trihydrate 500mg',     SATUAN:'Strip 10',  HARGA:14000,  STATUS:'Tersedia' },
-  { ID:'OBK-02', JENIS:'Resep & Generik',    MERK:'Generik',    NAMA:'Metformin HCl 500mg',              SATUAN:'Strip 10',  HARGA:12000,  STATUS:'Tersedia' },
-  { ID:'OBK-03', JENIS:'Resep & Generik',    MERK:'Generik',    NAMA:'Amlodipine Besylate 10mg',         SATUAN:'Strip 10',  HARGA:15000,  STATUS:'Tersedia' },
-  { ID:'OBK-04', JENIS:'Resep & Generik',    MERK:'Sanbe',      NAMA:'Omeprazole 20mg Kapsul',           SATUAN:'Strip 10',  HARGA:16500,  STATUS:'Tersedia' },
+  // 4. OBAT PENCERNAAN & LAMBUNG
+  { ID:'LAM-01', JENIS:'Obat Pencernaan',    MERK:'Promag',     NAMA:'Promag Tablet Kunyah Sakit Maag',    SATUAN:'Strip 10',  HARGA:10000,  STATUS:'Tersedia' },
+  { ID:'LAM-02', JENIS:'Obat Pencernaan',    MERK:'Mylanta',    NAMA:'Mylanta Cair Antasida 50ml',         SATUAN:'Botol',     HARGA:19500,  STATUS:'Tersedia' },
+  { ID:'LAM-03', JENIS:'Obat Pencernaan',    MERK:'Polysilane', NAMA:'Polysilane Tablet Kunyah Lambung',   SATUAN:'Strip 8',   HARGA:12500,  STATUS:'Tersedia' },
+  { ID:'LAM-04', JENIS:'Obat Pencernaan',    MERK:'Diapet',     NAMA:'Diapet Kapsul Diare Alami',          SATUAN:'Strip 10',  HARGA:9000,   STATUS:'Tersedia' },
+  { ID:'LAM-05', JENIS:'Obat Pencernaan',    MERK:'Oralit',     NAMA:'Oralit Phapros Pengganti Cairan',    SATUAN:'Sachet',    HARGA:2000,   STATUS:'Tersedia' },
 
-  // 6. IBU & ANAK
-  { ID:'IBA-01', JENIS:'Ibu & Anak',         MERK:'Tempra',     NAMA:'Tempra Paracetamol Drop Anak 15ml',SATUAN:'Botol',     HARGA:54000,  STATUS:'Tersedia' },
-  { ID:'IBA-02', JENIS:'Ibu & Anak',         MERK:'Sanmol',     NAMA:'Sanmol Forte Sirup Demam Anak',    SATUAN:'Botol',     HARGA:24000,  STATUS:'Tersedia' },
-  { ID:'IBA-03', JENIS:'Ibu & Anak',         MERK:'Cussons',    NAMA:'Minyak Telon Plus Lavender 60ml',  SATUAN:'Botol',     HARGA:22000,  STATUS:'Tersedia' },
+  // 5. PERAWATAN KULIT & TUBUH
+  { ID:'KLT-01', JENIS:'Perawatan Kulit',    MERK:'Betadine',   NAMA:'Betadine Antiseptic Solution 30ml',  SATUAN:'Botol',     HARGA:18500,  STATUS:'Tersedia' },
+  { ID:'KLT-02', JENIS:'Perawatan Kulit',    MERK:'Daktarin',   NAMA:'Daktarin Cream Antijamur 5g',        SATUAN:'Tube',      HARGA:32000,  STATUS:'Tersedia' },
+  { ID:'KLT-03', JENIS:'Perawatan Kulit',    MERK:'Caladine',   NAMA:'Caladine Lotion Gatal & Biang Keringat',SATUAN:'Botol',  HARGA:21000,  STATUS:'Tersedia' },
+  { ID:'KLT-04', JENIS:'Perawatan Kulit',    MERK:'Hansaplast', NAMA:'Hansaplast Plester Luka Standar',    SATUAN:'Box 100',   HARGA:28000,  STATUS:'Tersedia' },
+
+  // 6. SEWA & BELI ALAT KESEHATAN (ALKES)
+  { ID:'ALK-01', JENIS:'Sewa & Beli Alkes',  MERK:'Farmabee',   NAMA:'[SEWA] Kursi Roda Standar Medis',    SATUAN:'Bulan',     HARGA:150000, STATUS:'Tersedia' },
+  { ID:'ALK-02', JENIS:'Sewa & Beli Alkes',  MERK:'Farmabee',   NAMA:'[SEWA] Tabung Oksigen 1m3 Lengkap',  SATUAN:'Bulan',     HARGA:200000, STATUS:'Tersedia' },
+  { ID:'ALK-03', JENIS:'Sewa & Beli Alkes',  MERK:'Omron',      NAMA:'Tensimeter Digital Omron HEM-7120',  SATUAN:'Unit',      HARGA:385000, STATUS:'Tersedia' },
+  { ID:'ALK-04', JENIS:'Sewa & Beli Alkes',  MERK:'GEA',        NAMA:'Nebulizer Compressor Mesin Uap',     SATUAN:'Unit',      HARGA:450000, STATUS:'Tersedia' },
+  { ID:'ALK-05', JENIS:'Sewa & Beli Alkes',  MERK:'OneMed',     NAMA:'Termometer Digital Infrared',        SATUAN:'Unit',      HARGA:65000,  STATUS:'Tersedia' },
+  { ID:'ALK-06', JENIS:'Sewa & Beli Alkes',  MERK:'OneMed',     NAMA:'Masker Medis 3-Ply Earloop',         SATUAN:'Box 50',    HARGA:35000,  STATUS:'Tersedia' },
+
+  // 7. LAYANAN HOMECARE
+  { ID:'HMC-01', JENIS:'Layanan Homecare',   MERK:'Farmabee',   NAMA:'Paket Kunjungan Farmasi Homecare',   SATUAN:'1 Sesi',    HARGA:75000,  STATUS:'Tersedia' },
+  { ID:'HMC-02', JENIS:'Layanan Homecare',   MERK:'Farmabee',   NAMA:'Paket Terapi Fisio Homecare Rumah',  SATUAN:'1 Sesi',    HARGA:120000, STATUS:'Tersedia' },
+
+  // 8. RESEP & GENERIK
+  { ID:'OBK-01', JENIS:'Resep & Generik',    MERK:'Generik',    NAMA:'Amoxicillin Trihydrate 500mg',       SATUAN:'Strip 10',  HARGA:14000,  STATUS:'Tersedia' },
+  { ID:'OBK-02', JENIS:'Resep & Generik',    MERK:'Generik',    NAMA:'Metformin HCl 500mg',                SATUAN:'Strip 10',  HARGA:12000,  STATUS:'Tersedia' },
+  { ID:'OBK-03', JENIS:'Resep & Generik',    MERK:'Generik',    NAMA:'Amlodipine Besylate 10mg',           SATUAN:'Strip 10',  HARGA:15000,  STATUS:'Tersedia' },
+  { ID:'OBK-04', JENIS:'Resep & Generik',    MERK:'Sanbe',      NAMA:'Omeprazole 20mg Kapsul',             SATUAN:'Strip 10',  HARGA:16500,  STATUS:'Tersedia' },
+
+  // 9. IBU & ANAK
+  { ID:'IBA-01', JENIS:'Ibu & Anak',         MERK:'Tempra',     NAMA:'Tempra Paracetamol Drop Anak 15ml',  SATUAN:'Botol',     HARGA:54000,  STATUS:'Tersedia' },
+  { ID:'IBA-02', JENIS:'Ibu & Anak',         MERK:'Sanmol',     NAMA:'Sanmol Forte Sirup Demam Anak 60ml', SATUAN:'Botol',     HARGA:24000,  STATUS:'Tersedia' },
+  { ID:'IBA-03', JENIS:'Ibu & Anak',         MERK:'Cussons',    NAMA:'Minyak Telon Plus Lavender 60ml',    SATUAN:'Botol',     HARGA:22000,  STATUS:'Tersedia' },
 ];
 
 /* =================================================================
@@ -1074,8 +1186,9 @@ function renderProducts() {
   grid.innerHTML = list.map(p => {
     const isHabis   = p.STATUS === 'Habis';
     const isAlkes   = p.JENIS === 'Sewa & Beli Alkes' || p.JENIS === 'Layanan Homecare';
-    const isVitamin = p.JENIS === 'Vitamin & Imunitas';
-    const badgeCls  = isAlkes ? 'alkes' : isVitamin ? 'vitamin' : '';
+    const isVitamin = p.JENIS === 'Vitamin & Suplemen' || p.JENIS === 'Herbal & Madu';
+    const isKulit   = p.JENIS === 'Perawatan Kulit';
+    const badgeCls  = isAlkes ? 'alkes' : isVitamin ? 'vitamin' : isKulit ? 'kulit' : '';
     const inCart    = cart[p.ID]?.qty || 0;
 
     return `
@@ -1203,17 +1316,17 @@ function submitOrder() {
     return;
   }
 
-  const orderId   = 'FARMABEE-' + Date.now().toString().slice(-6);
+  const orderId   = 'FB-' + Date.now().toString().slice(-6);
   const total     = items.reduce((s, i) => s + i.product.HARGA * i.qty, 0);
   const itemsText = items.map(i => `- *${i.product.NAMA}* (${i.product.SATUAN}) x${i.qty} = ${formatRp(i.product.HARGA * i.qty)}`).join('\n');
 
-  let msg = `*PESANAN OBAT & LAYANAN — APOTEK FARMABEE*\n`;
-  msg += `*ID Order: ${orderId}*\n\n`;
+  let msg = `*PESANAN OBAT — APOTEK FARMABEE*\n`;
+  msg += `*ID Pesanan: ${orderId}*\n\n`;
   msg += `*DATA PEMESAN:*\nNama: *${nama}*\nMetode: *${metode}*\n${catatan ? `Alamat / Catatan: *${catatan}*\n` : ''}\n`;
-  msg += `*DAFTAR PESANAN:*\n${itemsText}\n\n`;
+  msg += `*DAFTAR PRODUK & LAYANAN:*\n${itemsText}\n\n`;
   msg += `----------------------------------\n`;
   msg += `*TOTAL PEMBAYARAN: ${formatRp(total)}*\n\n`;
-  msg += `Mohon segera dikonfirmasi dan diproses. Terima kasih! 🐝🙏`;
+  msg += `Mohon segera diproses dan dikonfirmasi ketersediaannya. Terima kasih! 🐝🙏`;
 
   window.open(`https://wa.me/${CFG.waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
 }
