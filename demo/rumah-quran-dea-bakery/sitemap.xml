@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://rumahqurandea.id/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rumahqurandea.id/logo-dea.png</image:loc>
+      <image:title>Logo Rumah Qur'an Dea Bakery</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rumahqurandea.id/bahasa-arab.html</loc>
     <lastmod>2026-10-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rumahqurandea.id/logo-dea.png</image:loc>
+      <image:title>Kompilasi 26 Kolom Huruf Metode Tamyiz</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rumahqurandea.id/kaidah-bahasa-arab.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rumahqurandea.id/logo-dea.png</image:loc>
+      <image:title>Kaidah Bahasa Arab Al-Qur'an: Isim, Dhomir &amp; Fi'il</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rumahqurandea.id/kisah-25-nabi.html</loc>
     <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
