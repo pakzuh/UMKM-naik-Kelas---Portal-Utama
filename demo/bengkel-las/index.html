@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temboro Steel Art — Bengkel Las Listrik &amp; Stainless Steel Malang</title>
+  <meta name="description" content="Bengkel Las Temboro Cemorokandang Malang (Pak Pendik) — Spesialis Kanopi Minimalis, Stainless Steel, Pagar Modern, Railing Tangga, Teralis Jendela, &amp; Modifikasi Peralatan Besi Custom. Konsultasi &amp; Survey Gratis!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ====== RESET & VARIABLES ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:             #0f172a; /* Deep Charcoal Industrial */
+      --bg-card:        #1e293b;
+      --bg-card-hover:  #243247;
+      --border:         #334155;
+      --border-accent:  #ff8c00;
+      --text:           #f8fafc;
+      --text-muted:     #94a3b8;
+      --text-dim:       #64748b;
+      --orange-fire:    #f97316;
+      --orange-bright:  #ff8c00;
+      --amber-gold:     #fbbf24;
+      --blue-weld:      #38bdf8;
+      --steel-silver:   #e2e8f0;
+      --radius:         16px;
+      --radius-sm:      10px;
+      --shadow-sm:      0 2px 6px rgba(0,0,0,0.3);
+      --shadow-md:      0 8px 24px rgba(0,0,0,0.4);
+      --shadow-glow:    0 0 25px rgba(249,115,22,0.25);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 90px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+    input, select, textarea { font-family: inherit; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ====== TOP NOTIFICATION BAR ====== */
+    .top-bar {
+      background: linear-gradient(90deg, #b45309, #d97706, #f97316);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 7px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+    }
+    .top-bar .badge {
+      background: #0f172a;
+      color: #fbbf24;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+    }
+
+    /* ====== HERO SECTION ====== */
+    .hero {
+      position: relative;
+      background: radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                  #0b1120;
+      border-bottom: 3px solid var(--border-accent);
+      padding: 48px 16px 40px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (min-width: 860px) {
+      .hero-grid { grid-template-columns: 1.2fr 0.8fr; }
+    }
+
+    .hero-brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 16px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-brand-pill span.icon { font-size: 1.1rem; }
+    .hero-brand-pill span.txt {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--amber-gold);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .hero-title span.highlight {
+      background: linear-gradient(90deg, #ff8c00, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      max-width: 580px;
+      line-height: 1.6;
+    }
+
+    .hero-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .h-badge {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--border);
+      color: var(--steel-silver);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn-main-wa {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 13px 26px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 4px 18px rgba(249, 115, 22, 0.4);
+      transition: all 0.2s ease;
+    }
+    .btn-main-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(249, 115, 22, 0.6);
+      background: linear-gradient(135deg, #ff8c00 0%, #f97316 100%);
+    }
+
+    .btn-calc {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1.5px solid var(--border);
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 13px 22px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-calc:hover {
+      background: #334155;
+      border-color: var(--steel-silver);
+    }
+
+    /* HERO OWNER CARD */
+    .hero-owner-card {
+      background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      position: relative;
+      box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+    .owner-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .owner-avatar-wrap {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #ff8c00, #38bdf8);
+      flex-shrink: 0;
+    }
+    .owner-avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+    .owner-status-dot {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 14px;
+      height: 14px;
+      background: #22c55e;
+      border: 2px solid #0f172a;
+      border-radius: 50%;
+    }
+    .owner-info h3 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .owner-info p {
+      font-size: 0.78rem;
+      color: var(--amber-gold);
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .owner-meta-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.82rem;
+    }
+    .owner-meta-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-muted);
+    }
+    .owner-meta-list li strong {
+      color: var(--steel-silver);
+    }
+    .owner-meta-list li span.icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ====== SECTION STYLING ====== */
+    section {
+      padding: 44px 0;
+    }
+    .sec-head {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .sec-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--orange-bright);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .sec-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .sec-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 8px auto 0;
+    }
+
+    /* ====== LAYANAN SPESIALIS (SERVICES) ====== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 600px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--orange-fire);
+      box-shadow: var(--shadow-md), 0 0 20px rgba(249, 115, 22, 0.15);
+      background: var(--bg-card-hover);
+    }
+    .service-img-wrap {
+      width: 100%;
+      height: 190px;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+    }
+    .service-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover .service-img-wrap img {
+      transform: scale(1.07);
+    }
+    .service-img-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      color: var(--amber-gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .service-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+    .service-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--steel-silver);
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: var(--radius-sm);
+    }
+    .service-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .service-btn {
+      width: 100%;
+      background: #334155;
+      color: #fff;
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s ease;
+    }
+    .service-card:hover .service-btn {
+      background: var(--orange-fire);
+      color: #fff;
+    }
+
+    /* ====== PORTFOLIO / GALLERY ====== */
+    .gallery-filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .btn-filter {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: 30px;
+      transition: all 0.2s ease;
+    }
+    .btn-filter.active, .btn-filter:hover {
+      background: var(--orange-fire);
+      color: #fff;
+      border-color: var(--orange-fire);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (min-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    }
+    @media (min-width: 1000px) {
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    }
+
+    .gallery-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-thumb {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .gallery-item:hover .gallery-thumb img {
+      transform: scale(1.08);
+    }
+    .gallery-info {
+      padding: 12px 14px;
+    }
+    .gallery-cat {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--amber-gold);
+    }
+    .gallery-name {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #fff;
+      margin-top: 2px;
+    }
+
+    /* ====== ESTIMATOR / KALKULATOR BIAYA ====== */
+    .calc-sec {
+      background: linear-gradient(180deg, #0b1120 0%, #1e293b 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .calc-box {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #0f172a;
+      border: 2px solid var(--border-accent);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+    .calc-form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    @media (min-width: 600px) {
+      .calc-form-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--steel-silver);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      background: #1e293b;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--orange-bright);
+    }
+
+    .calc-result-box {
+      margin-top: 24px;
+      background: rgba(249, 115, 22, 0.1);
+      border: 1.5px dashed var(--orange-fire);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      text-align: center;
+    }
+    .calc-result-title {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .calc-result-price {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--amber-gold);
+      margin: 4px 0 6px;
+    }
+    .calc-result-note {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .btn-calc-wa {
+      margin-top: 16px;
+      width: 100%;
+      background: #25D366;
+      color: #fff;
+      padding: 13px;
+      border-radius: 30px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      transition: transform 0.2s;
+    }
+    .btn-calc-wa:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ====== WORKFLOW / CARA KERJA ====== */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .steps-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      text-align: center;
+      position: relative;
+    }
+    .step-num {
+      width: 38px;
+      height: 38px;
+      background: var(--orange-fire);
+      color: #fff;
+      font-weight: 900;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 1.1rem;
+    }
+    .step-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ====== FAQ ====== */
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+    }
+    .faq-q {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .faq-a {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: #080d1a;
+      border-top: 1px solid var(--border);
+      padding: 40px 16px 24px;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .footer-inner { grid-template-columns: 1.5fr 1fr; }
+    }
+    .footer-brand h4 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .footer-contact h5 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--amber-gold);
+      margin-bottom: 8px;
+    }
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 28px;
+      padding-top: 20px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* ====== FLOATING BOTTOM CTA BAR ====== */
+    .floating-cta-bar {
+      position: fixed;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 28px);
+      max-width: 500px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1.5px solid var(--orange-bright);
+      backdrop-filter: blur(10px);
+      padding: 10px 18px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      z-index: 100;
+    }
+    .floating-cta-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .floating-cta-text span.top {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .floating-cta-text span.bot {
+      font-size: 0.86rem;
+      color: #fff;
+      font-weight: 800;
+    }
+    .btn-floating-wa {
+      background: #25D366;
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 10px rgba(37, 211, 102, 0.4);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span class="badge">🔥 BENGKEL LAS TEMBORO</span>
+    <span>GRATIS KONSULTASI &amp; SURVEY LOKASI KE RUMAH / PROYEK ANDA!</span>
+  </div>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <!-- Left Content -->
+      <div>
+        <div class="hero-brand-pill">
+          <span class="icon">⚡</span>
+          <span class="txt">Spesialis Las Besi &amp; Stainless Steel</span>
+        </div>
+
+        <h1 class="hero-title">
+          Kuat, Presisi, &amp; Bergaransi.<br>
+          Wujudkan <span class="highlight">Kanopi, Pagar, &amp; Besi Custom</span> Idaman Anda!
+        </h1>
+
+        <p class="hero-desc">
+          Melayani pembuatan kanopi alderon/solartuff, pagar minimalis modern, railing tangga mewah stainless steel, pintu lipat folding, teralis pengaman, hingga modifikasi peralatan besi industri &amp; UMKM di wilayah Malang dan sekitarnya.
+        </p>
+
+        <div class="hero-badges-row">
+          <span class="h-badge">🛡️ Garansi Konstruksi Kokoh</span>
+          <span class="h-badge">📏 Survey &amp; Estimasi Ukuran Gratis</span>
+          <span class="h-badge">⚡ Besi Tebal Standar SNI</span>
+          <span class="h-badge">⏱️ Pengerjaan Cepat &amp; Rapih</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/6285736699198?text=Halo%20Pak%20Pendik%20Temboro%20Steel,%20saya%20mau%20konsultasi%20pembuatan%20kanopi/pagar/besi%20custom" target="_blank" rel="noopener" class="btn-main-wa">
+            <span>💬</span>
+            <span>Konsultasi via WhatsApp</span>
+          </a>
+          <a href="#kalkulator" class="btn-calc">
+            <span>📐</span>
+            <span>Hitung Estimasi Biaya</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Owner / Workshop Card -->
+      <div class="hero-owner-card">
+        <div class="owner-header">
+          <div class="owner-avatar-wrap">
+            <img src="pak-pendik.jpg" alt="Pak Pendik Las Temboro" class="owner-avatar-img">
+            <span class="owner-status-dot" title="Siap Melayani"></span>
+          </div>
+          <div class="owner-info">
+            <h3>Pak Pendik <span style="font-size:0.9rem; color:#38bdf8;">✓</span></h3>
+            <p>Master Welder &amp; Fabrikasi Besi</p>
+          </div>
+        </div>
+
+        <ul class="owner-meta-list">
+          <li>
+            <span class="icon">📍</span>
+            <div>
+              <strong>Lokasi Workshop:</strong><br>
+              Jl. Sampurna RT 1 RW 1 No. 49, Cemorokandang, Kec. Kedungkandang, Kota Malang 65138
+            </div>
+          </li>
+          <li>
+            <span class="icon">🕒</span>
+            <div>
+              <strong>Jam Operasional:</strong><br>
+              Buka Setiap Hari (Melayani Konsultasi 24 Jam)
+            </div>
+          </li>
+          <li>
+            <span class="icon">🚚</span>
+            <div>
+              <strong>Area Layanan:</strong><br>
+              Kota Malang, Kab. Malang, Batu, &amp; Seluruh Jawa Timur
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. LAYANAN UNGGULAN -->
+    <section id="layanan">
+      <div class="container">
+        <div class="sec-head">
+          <span class="sec-tag">Keahlian &amp; Spesialisasi Kami</span>
+          <h2 class="sec-title">Layanan Fabrikasi Besi &amp; Stainless</h2>
+          <p class="sec-subtitle">Dikerjakan dengan ketelitian tinggi, sambungan las matang, dan cat anti-karat berkualitas prima.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- 1. Kanopi -->
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Kanopi Minimalis & Mewah">
+              <span class="service-img-tag">Terlaris</span>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Kanopi Minimalis &amp; Modern</h3>
+              <p class="service-desc">Pemasangan kanopi carport, teras rumah, dan cafe dengan beragam pilihan atap berkualitas seperti Alderon UPVC, SolarTuff, Polycarbonate, Spandek, dan Kaca Tempered.</p>
+              <ul class="service-features-list">
+                <li>✔ Rangka Besi Hollow Tebal / Baja Ringan</li>
+                <li>✔ Finishing Cat Epoxy Tahan Karat</li>
+                <li>✔ Talang Air &amp; Saluran Pembuangan Rapi</li>
+              </ul>
+              <a href="https://wa.me/6285736699198?text=Halo%20Pak%20Pendik,%20saya%20mau%20tanya%20harga%20pembuatan%20Kanopi" target="_blank" rel="noopener" class="service-btn">Tanya Biaya Kanopi ↗</a>
+            </div>
+          </div>
+
+          <!-- 2. Pagar & Gerbang -->
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=700&q=80" alt="Pagar Besi & Stainless">
+              <span class="service-img-tag">Kombinasi Woodplank</span>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Pagar &amp; Gerbang Rumah</h3>
+              <p class="service-desc">Mulai dari pagar dorong (sliding), pagar lipat (folding gate), pagar cutting laser ornamen islami/geometris, hingga kombinasi besi hollow dengan Woodplank GRC estetik.</p>
+              <ul class="service-features-list">
+                <li>✔ Roda &amp; Rel Bawah Anti-Macet</li>
+                <li>✔ Desain Custom Sesuai Fasad Rumah</li>
+                <li>✔ Kunci &amp; Grendel Tambahan Kokoh</li>
+              </ul>
+              <a href="https://wa.me/6285736699198?text=Halo%20Pak%20Pendik,%20saya%20mau%20tanya%20harga%20pembuatan%20Pagar%20Rumah" target="_blank" rel="noopener" class="service-btn">Tanya Biaya Pagar ↗</a>
+            </div>
+          </div>
+
+          <!-- 3. Stainless Steel Works -->
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=700&q=80" alt="Stainless Steel Railing & Balkon">
+              <span class="service-img-tag">Grade SUS 304</span>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Stainless Steel Mewah</h3>
+              <p class="service-desc">Fabrikasi railing tangga, balkon lantai 2, handle pintu, meja dapur kitchen sink resto, dan peralatan stainless anti-karat selamanya dengan kilau mirror/hairline mewah.</p>
+              <ul class="service-features-list">
+                <li>✔ Bahan Stainless Steel SUS 304 &amp; 201</li>
+                <li>✔ Kilau Mengkilap Anti-Kusam</li>
+                <li>✔ Mudah Dibersihkan &amp; Higienis</li>
+              </ul>
+              <a href="https://wa.me/6285736699198?text=Halo%20Pak%20Pendik,%20saya%20mau%20tanya%20pekerjaan%20Stainless%20Steel" target="_blank" rel="noopener" class="service-btn">Tanya Pekerjaan Stainless ↗</a>
+            </div>
+          </div>
+
+          <!-- 4. Railing Tangga & Balkon -->
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=700&q=80" alt="Railing Tangga Minimalis">
+              <span class="service-img-tag">Keamanan Keluarga</span>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Railing Tangga &amp; Balkon</h3>
+              <p class="service-desc">Pengaman tangga dalam rumah dan balkon luar. Kombinasi besi hollow vertikal/horizontal, kawat expanded metal industrial, hingga kombinasi pegangan kayu solid alami.</p>
+              <ul class="service-features-list">
+                <li>✔ Kokoh Menahan Beban Kuat</li>
+                <li>✔ Desain Ergonomis Nyaman Digenggam</li>
+                <li>✔ Pilihan Model Klasik, Minimalis, &amp; Industrial</li>
+              </ul>
+              <a href="https://wa.me/6285736699198?text=Halo%20Pak%20Pendik,%20saya%20mau%20tanya%20Railing%20Tangga" target="_blank" rel="noopener" class="service-btn">Tanya Railing Tangga ↗</a>
+            </div>
+          </div>
+
+          <!-- 5. Teralis & Pintu Kasa Nyamuk -->
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=80" alt="Teralis Jendela & Pintu Baja">
+              <span class="service-img-tag">Proteksi Maksimal</span>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Teralis &amp; Pintu Pengaman</h3>
+              <p class="service-desc">Teralis jendela anti-maling dengan motif modern yang tidak terasa seperti jeruji penjara, serta pintu teralis kasa nyamuk (baja/magnet) untuk sirkulasi udara bebas serangga.</p>
+              <ul class="service-features-list">
+                <li>✔ Besi Nako Padat / Hollow Kuat</li>
+                <li>✔ Sistem Penguncian Rahasia Internal</li>
+                <li>✔ Kassa Nyamuk Aluminium / Stainless Awet</li>
+              </ul>
+              <a href="https://wa.me/6285736699198?text=Halo%20Pak%20Pendik,%20saya%20mau%20tanya%20Teralis%20Jendela" target="_blank" rel="noopener" class="service-btn">Tanya Teralis Jendela ↗</a>
+            </div>
+          </div>
+
+          <!-- 6. Modifikasi Alat Besi & Custom -->
+          <div class="service-card">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=700&q=80" alt="Modifikasi Besi Custom">
+              <span class="service-img-tag">Custom Sesuai Request</span>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Modifikasi Alat Besi &amp; UMKM</h3>
+              <p class="service-desc">Pembuatan dan modifikasi peralatan usaha seperti rak display besi toko, gerobak booth jualan, meja mesin produksi, tangki penampungan, troli barang gudang, hingga bak pickup.</p>
+              <ul class="service-features-list">
+                <li>✔ Desain Disesuaikan Kebutuhan Usaha</li>
+                <li>✔ Penguatan Rangka &amp; Las Beban Berat</li>
+                <li>✔ Siap Terima Sketsa / Contoh Gambar</li>
+              </ul>
+              <a href="https://wa.me/6285736699198?text=Halo%20Pak%20Pendik,%20saya%20mau%20modifikasi%20peralatan%20besi%20custom" target="_blank" rel="noopener" class="service-btn">Konsultasi Custom ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. GALERI INSPIRASI PROYEK -->
+    <section id="galeri" style="background:#0b1120; border-top:1px solid var(--border);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="sec-tag">Inspirasi Desain &amp; Hasil Kerja</span>
+          <h2 class="sec-title">Galeri Portofolio Pekerjaan</h2>
+          <p class="sec-subtitle">Beberapa contoh konsep model yang siap kami kerjakan dengan bahan berkualitas tinggi.</p>
+        </div>
+
+        <div class="gallery-filter-bar">
+          <button class="btn-filter active" onclick="filterGallery('all', this)">✨ Semua Model</button>
+          <button class="btn-filter" onclick="filterGallery('kanopi', this)">Kanopi</button>
+          <button class="btn-filter" onclick="filterGallery('pagar', this)">Pagar &amp; Gerbang</button>
+          <button class="btn-filter" onclick="filterGallery('railing', this)">Railing &amp; Tangga</button>
+          <button class="btn-filter" onclick="filterGallery('custom', this)">Alat &amp; Custom</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Item 1 -->
+          <div class="gallery-item" data-cat="kanopi">
+            <div class="gallery-thumb">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Kanopi Alderon Double Layer">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-cat">Kanopi</div>
+              <div class="gallery-name">Kanopi Alderon Carport Mewah</div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="gallery-item" data-cat="pagar">
+            <div class="gallery-thumb">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Pagar Woodplank Minimalis">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-cat">Pagar</div>
+              <div class="gallery-name">Pagar Kombinasi Woodplank GRC</div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="gallery-item" data-cat="railing">
+            <div class="gallery-thumb">
+              <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=600&q=80" alt="Railing Stainless Steel 304">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-cat">Railing</div>
+              <div class="gallery-name">Railing Tangga Stainless Mirror</div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="gallery-item" data-cat="kanopi">
+            <div class="gallery-thumb">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Kanopi Kaca Tempered">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-cat">Kanopi</div>
+              <div class="gallery-name">Kanopi Kaca Tempered Modern</div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="gallery-item" data-cat="pagar">
+            <div class="gallery-thumb">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Gerbang Industrial Expanded Metal">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-cat">Pagar</div>
+              <div class="gallery-name">Gerbang Expanded Metal Industrial</div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="gallery-item" data-cat="custom">
+            <div class="gallery-thumb">
+              <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80" alt="Modifikasi Booth Usaha">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-cat">Custom</div>
+              <div class="gallery-name">Rangka Booth &amp; Meja Mesin Usaha</div>
+            </div>
+          </div>
+
+          <!-- Item 7 -->
+          <div class="gallery-item" data-cat="railing">
+            <div class="gallery-thumb">
+              <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=600&q=80" alt="Balkon Minimalis Vertikal">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-cat">Railing</div>
+              <div class="gallery-name">Balkon Minimalis Besi Hollow</div>
+            </div>
+          </div>
+
+          <!-- Item 8 -->
+          <div class="gallery-item" data-cat="custom">
+            <div class="gallery-thumb">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Tangga Putar Spiral Besi">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-cat">Custom</div>
+              <div class="gallery-name">Tangga Putar Spiral Hemat Ruang</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. KALKULATOR ESTIMASI BIAYA -->
+    <section id="kalkulator" class="calc-sec">
+      <div class="container">
+        <div class="sec-head">
+          <span class="sec-tag">Simulasi Transparan</span>
+          <h2 class="sec-title">Hitung Estimasi Biaya Pembuatan</h2>
+          <p class="sec-subtitle">Masukkan estimasi ukuran untuk mendapatkan gambaran awal anggaran proyek Anda.</p>
+        </div>
+
+        <div class="calc-box">
+          <div class="calc-form-grid">
+            <div>
+              <label class="form-label">Jenis Pekerjaan:</label>
+              <select id="calcType" class="form-control" onchange="calculateCost()">
+                <option value="kanopi_alderon">Kanopi Atap Alderon UPVC (Rp 550.000 / m²)</option>
+                <option value="kanopi_spandek">Kanopi Atap Spandek / Pasir (Rp 375.000 / m²)</option>
+                <option value="kanopi_solartuff">Kanopi SolarTuff Bening (Rp 525.000 / m²)</option>
+                <option value="pagar_minimalis">Pagar Besi Hollow Minimalis (Rp 450.000 / m²)</option>
+                <option value="pagar_woodplank">Pagar Besi + Woodplank GRC (Rp 600.000 / m²)</option>
+                <option value="railing_balkon">Railing Tangga / Balkon Minimalis (Rp 400.000 / m¹)</option>
+                <option value="railing_stainless">Railing Tangga Stainless Steel (Rp 750.000 / m¹)</option>
+                <option value="teralis">Teralis Jendela Pengaman (Rp 220.000 / lubang)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label" id="calcUnitLabel">Ukuran / Luas (m² atau meter lari):</label>
+              <input type="number" id="calcQty" class="form-control" value="15" min="1" oninput="calculateCost()">
+            </div>
+
+            <div class="form-group-full">
+              <label class="form-label">Catatan Bahan Tambahan (Opsional):</label>
+              <input type="text" id="calcNotes" class="form-control" placeholder="Contoh: Rangka hollow 4x8 tebal 1.4mm, warna hitam doff">
+            </div>
+          </div>
+
+          <div class="calc-result-box">
+            <div class="calc-result-title">Perkiraan Biaya (Estimasi Kasar):</div>
+            <div class="calc-result-price" id="calcResultDisplay">Rp 8.250.000</div>
+            <div class="calc-result-note">
+              *Harga estimasi sudah termasuk jasa las, cat dasar anti-karat, dan pemasangan di tempat. Harga final bisa lebih hemat setelah survey lokasi presisi.
+            </div>
+
+            <button class="btn-calc-wa" onclick="sendCalcToWA()">
+              <span>💬</span>
+              <span>Kirim Hasil Hitungan ini ke WhatsApp Pak Pendik</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CARA PEMESANAN (ALUR MUDAH) -->
+    <section>
+      <div class="container">
+        <div class="sec-head">
+          <span class="sec-tag">Proses Mudah &amp; Cepat</span>
+          <h2 class="sec-title">4 Langkah Pemesanan di Temboro Steel</h2>
+          <p class="sec-subtitle">Tanpa ribet, Anda cukup hubungi kami dan tim kami siap datang ke lokasi Anda.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h4 class="step-title">Konsultasi / Kirim Foto</h4>
+            <p class="step-desc">Hubungi via WA, ceritakan kebutuhan Anda atau kirimkan foto lokasi &amp; contoh model yang diinginkan.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h4 class="step-title">Survey &amp; Ukur Gratis</h4>
+            <p class="step-desc">Pak Pendik langsung datang ke lokasi untuk mengukur dimensi presisi dan membawakan contoh bahan besi.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h4 class="step-title">Pengerjaan di Bengkel</h4>
+            <p class="step-desc">Pekerjaan pemotongan, pengelasan matang, dan pengecatan epoxy dilakukan secara teliti di bengkel Cemorokandang.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <h4 class="step-title">Pemasangan &amp; Garansi</h4>
+            <p class="step-desc">Pemasangan langsung di rumah Anda dengan rapi, tes kekokohan, dan pemberian garansi kepuasan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. TANYA JAWAB (FAQ) -->
+    <section style="background:#0b1120; border-top:1px solid var(--border);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="sec-tag">Pertanyaan Umum</span>
+          <h2 class="sec-title">Pertanyaan yang Sering Diajukan</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">❓ Apakah biaya survey ke lokasi dikenakan biaya?</div>
+            <div class="faq-a">Sama sekali tidak! Layanan survey pengukuran dan konsultasi ke lokasi Anda di wilayah Malang Kota dan sekitarnya <strong>100% GRATIS</strong> tanpa ikatan.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">❓ Berapa lama waktu pengerjaan kanopi atau pagar?</div>
+            <div class="faq-a">Rata-rata pengerjaan berkisar antara 4 hingga 7 hari kerja tergantung volume ukuran dan tingkat kerumitan desain. Pemasangan di lokasi biasanya hanya butuh 1 hari selesai.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">❓ Apakah bisa membuat modifikasi alat besi di luar pagar &amp; kanopi?</div>
+            <div class="faq-a">Tentu saja bisa! Kami sangat berpengalaman menerima modifikasi alat besi seperti gerobak dorong, booth kontainer UMKM, rak besi gudang beban berat, dudukan mesin pabrik, hingga pengelasan konstruksi khusus.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">❓ Apakah ada garansi untuk hasil pengelasan?</div>
+            <div class="faq-a">Ya, kami memberikan garansi konstruksi. Jika ada kendala pada kekokohan las atau fungsi gerak roda/engsel dalam masa garansi, kami siap datang memperbaiki secara cuma-cuma.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>Temboro Steel Art (Bengkel Las Pak Pendik)</h4>
+        <p>Solusi terpercaya bengkel las listrik dan stainless steel di Malang. Menyediakan layanan pembuatan kanopi, pagar minimalis, teralis, railing tangga, dan modifikasi peralatan besi berkualitas dengan pengerjaan rapi dan harga bersahabat.</p>
+        <p style="margin-top:10px; color:#ff8c00; font-weight:700;">
+          📍 Jl. Sampurna RT 1 RW 1 No. 49, Cemorokandang, Kedungkandang, Kota Malang 65138
+        </p>
+      </div>
+
+      <div class="footer-contact">
+        <h5>Kontak &amp; Pemesanan Cepat</h5>
+        <p>
+          💬 WhatsApp: 0857-3669-9198 / Pak Pendik<br>
+          ⏰ Jam Buka: Buka 24 Jam Nonstop<br>
+          🌐 Layanan: Survey Gratis Seluruh Malang Raya
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 Temboro Steel Art • Bengkel Las Cemorokandang Malang. Powered by <a href="https://rakyat.space" style="color:#ff8c00">rakyat.space</a>
+    </div>
+  </footer>
+
+  <!-- FLOATING BOTTOM CTA BAR -->
+  <div class="floating-cta-bar">
+    <div class="floating-cta-text">
+      <span class="top">Butuh Survey / Tanya Harga?</span>
+      <span class="bot">Hubungi Pak Pendik (Free Konsul)</span>
+    </div>
+    <a href="https://wa.me/6285736699198?text=Halo%20Pak%20Pendik%20Temboro%20Steel,%20saya%20mau%20konsultasi%20pekerjaan%20las" target="_blank" rel="noopener" class="btn-floating-wa">
+      <span>💬 Chat WA</span>
+    </a>
+  </div>
+
+  <script>
+    /* PRICE RATES PER UNIT */
+    const RATES = {
+      kanopi_alderon:   { price: 550000, name: "Kanopi Atap Alderon UPVC", unit: "m²" },
+      kanopi_spandek:   { price: 375000, name: "Kanopi Atap Spandek / Pasir", unit: "m²" },
+      kanopi_solartuff:  { price: 525000, name: "Kanopi SolarTuff Bening", unit: "m²" },
+      pagar_minimalis:  { price: 450000, name: "Pagar Besi Hollow Minimalis", unit: "m²" },
+      pagar_woodplank:  { price: 600000, name: "Pagar Besi + Woodplank GRC", unit: "m²" },
+      railing_balkon:   { price: 400000, name: "Railing Tangga / Balkon Minimalis", unit: "m¹" },
+      railing_stainless:{ price: 750000, name: "Railing Tangga Stainless Steel", unit: "m¹" },
+      teralis:          { price: 220000, name: "Teralis Jendela Pengaman", unit: "lubang" },
+    };
+
+    function calculateCost() {
+      const type = document.getElementById('calcType').value;
+      const qtyInput = document.getElementById('calcQty');
+      let qty = parseFloat(qtyInput.value) || 0;
+      if (qty < 1) qty = 1;
+
+      const rate = RATES[type] || { price: 450000, name: "Pekerjaan Besi", unit: "m²" };
+      
+      const unitLabel = document.getElementById('calcUnitLabel');
+      unitLabel.innerText = `Ukuran / Jumlah (${rate.unit}):`;
+
+      const total = qty * rate.price;
+      document.getElementById('calcResultDisplay').innerText = formatRp(total);
+    }
+
+    function formatRp(n) {
+      return "Rp " + Number(n).toLocaleString('id-ID');
+    }
+
+    function sendCalcToWA() {
+      const type = document.getElementById('calcType').value;
+      const qty = document.getElementById('calcQty').value || 1;
+      const notes = document.getElementById('calcNotes').value.trim();
+      const rate = RATES[type];
+      const total = formatRp(qty * rate.price);
+
+      let msg = `Halo Pak Pendik (Temboro Steel Art),\n\n`;
+      msg += `Saya sudah menghitung estimasi biaya di website:\n`;
+      msg += `• Pekerjaan: *${rate.name}*\n`;
+      msg += `• Perkiraan Ukuran: *${qty} ${rate.unit}*\n`;
+      msg += `• Estimasi Biaya: *${total}*\n`;
+      if (notes) {
+        msg += `• Catatan/Request: *${notes}*\n`;
+      }
+      msg += `\nApakah bisa dijadwalkan untuk survey lokasi dan cek ukuran presisi? Terima kasih!`;
+
+      window.open(`https://wa.me/6285736699198?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function filterGallery(cat, btn) {
+      document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        if (cat === 'all' || item.dataset.cat === cat) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Run initial calculation
+    calculateCost();
+  </script>
+</body>
+</html>
