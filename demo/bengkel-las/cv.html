@@ -521,6 +521,10 @@
 
     /* ====== PRINT RULES (CLEAN PDF PRINT) ====== */
     @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm;
+      }
       body { background: #fff; padding-bottom: 0; }
       .top-action-bar, .floating-print-cta { display: none !important; }
       .document-sheet {
@@ -534,12 +538,25 @@
         background: #0b1120 !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        padding: 24px 20px;
+        page-break-after: avoid;
+      }
+      .sheet-body {
+        padding: 16px 4px;
       }
       .vm-card, .id-col-key, .pricing-ref-table th, .pricing-ref-table tr:nth-child(even) td, .wf-box {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
-      .page-break { page-break-before: always; }
+      .id-row, .vm-card, .service-cv-item, .wf-box, .pricing-ref-table tr {
+        page-break-inside: avoid;
+      }
+      .sec-head-line {
+        page-break-after: avoid;
+      }
+      .page-break {
+        page-break-before: always;
+      }
     }
   </style>
 </head>
